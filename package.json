@@ -1,0 +1,51 @@
+{
+  "name": "strangy.com",
+  "description": "Resurrection of online chatting.",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "sapper dev",
+    "prebuild-nix": "rm -rf functions/__sapper__/build && mkdir -p functions/__sapper__/build",
+    "prebuild": "rimraf - functions/__sapper__/build && mkdirp functions/__sapper__/build",
+    "build-nix": "sapper build --legacy && cp -R ./__sapper__/build ./functions/__sapper__",
+    "build": "sapper build --legacy && ncp ./__sapper__/build ./functions/__sapper__/build",
+    "export": "sapper export --legacy",
+    "start": "npm run build && firebase serve",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test": "run-p --race dev cy:run",
+    "predeploy": "npm run build",
+    "deploy": "firebase deploy"
+  },
+  "dependencies": {
+    "compression": "^1.7.1",
+    "express": "^4.17.1",
+    "firebase": "^7.0.0",
+    "materialize-css": "^1.0.0-rc.2",
+    "moment": "^2.26.0",
+    "request": "^2.88.2",
+    "validate.js": "^0.13.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "@rollup/plugin-babel": "^5.0.0",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@rollup/plugin-replace": "^2.2.0",
+    "javascript-stringify": "^2.0.1",
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^7.0.30",
+    "postcss-load-config": "^2.1.0",
+    "postcss-preset-env": "^6.7.0",
+    "rollup": "^2.3.4",
+    "rollup-plugin-svelte": "^5.0.1",
+    "rollup-plugin-terser": "^5.3.0",
+    "sapper": "^0.27.0",
+    "svelte": "^3.0.0",
+    "svelte-preprocess": "^3.7.4"
+  }
+}

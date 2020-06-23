@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "strangy-a046f"
+  },
+  "targets": {
+    "strangy-a046f": {
+      "hosting": {
+        "prod": [
+          "strangy-com"
+        ]
+      }
+    }
+  }
+}

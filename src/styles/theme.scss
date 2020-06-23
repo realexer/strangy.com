@@ -1,0 +1,266 @@
+$bg_color: #152036;
+$bg_lighten_color: rgba(255,255,255,0.2);
+$bg_ctrl_color: #6d2c2c;
+$txt_ctrl_color: #d18989;
+$link_color: #7eb2ff;
+$txt_color: #fff;
+$txt_color_secondary: #dadada;
+$txt_color_muted: #9AA0A6;
+
+/* debug */
+body {
+
+  ._ui_log_disabled {
+    ._debug {
+      display: none;
+    }
+  }
+}
+
+/**
+ global
+ */
+body {
+  a {
+    color: #7eb2ff;
+  }
+}
+
+.icon-point {
+  img{
+    max-width: 100%;
+    max-height: 7rem;
+  }
+
+  .material-icons {
+    color: $txt_color;
+  }
+}
+
+/* side nav */
+@media (min-width : 992px)
+{
+  body.sidenav-open .sidenav-overlay {
+    display: none !important;
+  }
+
+  body.sidenav-open {
+    overflow: auto !important;
+  }
+
+  body.sidenav-open header,
+  body.sidenav-open main,
+  body.sidenav-open footer
+  {
+    padding-right: 300px;
+  }
+
+  body.sidenav-open .sidenav-trigger {
+    display: none !important;
+  }
+
+  header .sidenav-close {
+    display: none;
+  }
+
+  body.sidenav-open .sidenav-close {
+    display: inline;
+  }
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-right: 0;
+  }
+}
+
+/* dropdown */
+body {
+  .dropdown-content {
+    background: $bg_color;
+  }
+
+  .dropdown-content li {
+    background: $bg_lighten_color;
+  }
+
+  .dropdown-content li > a, .dropdown-content li > span {
+    color: $txt_color;
+  }
+
+  .dropdown-content li:hover, .dropdown-content li.active {
+    background: $bg_color;
+  }
+}
+
+/* tabs */
+body {
+  .tabs {
+    background: transparent;
+
+    .tab a {
+      color: $txt_ctrl_color;
+    }
+
+    .indicator {
+      background: $txt_ctrl_color;
+    }
+
+    .tab a:focus, .tabs .tab a:focus.active {
+      background: transparent !important;
+    }
+  }
+}
+
+/* input labels and highlighting */
+body {
+  input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+  input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+  input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+  input[type=number]:not(.browser-default):focus:not([readonly]) + label,
+  textarea + label
+  {
+    color: $txt_color;
+  }
+
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=number],
+  textarea {
+    color: $txt_color;
+  }
+
+  input[type=text]:not(.browser-default):focus:not([readonly]),
+  input[type=email]:not(.browser-default):focus:not([readonly]),
+  input[type=password]:not(.browser-default):focus:not([readonly]),
+  input[type=number]:not(.browser-default):focus:not([readonly]),
+  textarea:not(.browser-default):focus:not([readonly]),
+  .select-wrapper input.select-dropdown:focus
+  {
+    border-bottom: 1px solid $bg_ctrl_color;
+    box-shadow: 0 1px 0 0 $bg_ctrl_color;
+  }
+
+  .select-wrapper .caret {
+    fill: $bg_ctrl_color;
+  }
+
+  .input-field .prefix.active {
+    color: $bg_ctrl_color;
+  }
+
+  [type="checkbox"]:checked + span:not(.lever):before
+  {
+    border-right-color: $txt_color;
+    border-bottom-color: $txt_color;
+  }
+}
+
+/* buttons */
+body {
+  .btn-full {
+    width: 100%;
+  }
+}
+
+/* tags */
+body {
+  .chip {
+    background: $bg_lighten_color;
+    color: $txt_color;
+  }
+}
+
+.__users_list
+{
+  ._options_list
+  {
+
+  }
+
+  ._user_info
+  {
+    width: 100%;
+    position: relative;
+
+    ._karma {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+body {
+  &.dark_knight {
+    background-color: $bg_color;
+    color: $txt_color;
+
+    p {
+      color: $txt_color_secondary;
+    }
+
+    nav {
+      background-color: $bg_ctrl_color;
+    }
+    .card, .card-panel {
+      background-color: $bg_lighten_color;
+    }
+
+    .card .card-action {
+      background: transparent;
+    }
+
+    .tabs{
+      //background-color: $bg_lighten_color;
+    }
+
+    .btn,
+    .btn-floating {
+      background-color: $bg_ctrl_color;
+    }
+    .divider {
+      opacity: 0.2;
+    }
+    .sidenav {
+      background-color: $bg_color;
+      li {
+        a {
+          &:not(.subheader){
+            color: $link_color;
+            &:hover {
+              background-color: #3B4043;
+            }
+          }
+          &.subheader {
+            color: $txt_color_muted;
+          }
+          .material-icons {
+            color: $txt_color_muted;
+          }
+        }
+      }
+    }
+    .collection {
+      border: 1px solid $bg_lighten_color;
+      .collection-item,
+      .collection-header
+      {
+        background-color: $bg_lighten_color;
+        border-bottom: 1px solid $bg_lighten_color;
+      }
+    }
+
+    .collapsible {
+      border: 1px solid $bg_lighten_color;
+      .collapsible-body,
+      .collapsible-header
+      {
+        background-color: $bg_lighten_color;
+        border-bottom: 1px solid $bg_lighten_color;
+      }
+    }
+
+  }
+}

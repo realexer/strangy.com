@@ -6,6 +6,8 @@
   import { notificationMessage } from '../../app/stores/notification_message.js'
   import { Auth } from '../../app/firebase'
   import { FormController } from '../../lib/ui/FormController'
+  import * as ApiRequest from '../../app/api/ApiRequest';
+  import {ApiResult} from '../../app/api/common/ApiResult';
 
   let formController = new FormController({
     email: {
@@ -24,32 +26,21 @@
   formController.addProp("email");
   formController.addProp("password");
 
-  const authorize = (e) =>
+  const authorize = async (e) =>
   {
-    formController.validate().then(() =>
+    formController.validate().then(async () =>
     {
-      return Auth.createUserWithEmailAndPassword(formController.getProp("email").value, formController.getProp("password").value)
-      .then(() => {
-          notificationMessage.set({ message: 'Howdy stranger!', type: 'green' });
-          goto("/");
-      })
-      .catch(error =>
-      {
-        if(error.code === 'auth/email-already-in-use')
-        {
-          return Auth.signInWithEmailAndPassword(formController.getProp("email").value, formController.getProp("password").value)
-          .then(() => {
-              notificationMessage.set({ message: 'Welcome back!', type: 'success-toast' });
-              goto("/");
-          })
-          .catch(error => {
-              notificationMessage.set({ message: error.message, type: 'danger-toast' });
-          });
+    	const result = ApiResult.fromSource(await ApiRequest.post('/app/auth/login', {
+    		email: formController.getProp("email").value,
+    		password: formController.getProp("password").value
+    	}));
 
-        } else {
-          notificationMessage.set({ message: error.message, type: 'red' });
-        }
-      });
+    	if(result.isSuccess()) {
+    		notificationMessage.set({ message: 'Howdy stranger!', type: 'green' });
+				goto("/");
+    	} else {
+    		notificationMessage.set({ message: result.getErrorMessage(), type: 'danger-toast' });
+    	}
     });
   };
 

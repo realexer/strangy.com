@@ -1,5 +1,6 @@
 $bg_color: #152036;
-$bg_lighten_color: rgba(255,255,255,0.2);
+$bg_lighten_color_1: rgba(255,255,255,0.1);
+$bg_lighten_color_2: rgba(255,255,255,0.2);
 $bg_ctrl_color: #6d2c2c;
 $txt_ctrl_color: #d18989;
 $link_color: #7eb2ff;
@@ -81,7 +82,7 @@ body {
   }
 
   .dropdown-content li {
-    background: $bg_lighten_color;
+    background: $bg_lighten_color_2;
   }
 
   .dropdown-content li > a, .dropdown-content li > span {
@@ -167,7 +168,7 @@ body {
 /* tags */
 body {
   .chip {
-    background: $bg_lighten_color;
+    background: $bg_lighten_color_2;
     color: $txt_color;
   }
 }
@@ -204,8 +205,12 @@ body {
     nav {
       background-color: $bg_ctrl_color;
     }
+
+    footer {
+      background-color: $bg_lighten_color_1;
+    }
     .card, .card-panel {
-      background-color: $bg_lighten_color;
+      background-color: $bg_lighten_color_2;
     }
 
     .card .card-action {
@@ -243,22 +248,22 @@ body {
       }
     }
     .collection {
-      border: 1px solid $bg_lighten_color;
+      border: 1px solid $bg_lighten_color_2;
       .collection-item,
       .collection-header
       {
-        background-color: $bg_lighten_color;
-        border-bottom: 1px solid $bg_lighten_color;
+        background-color: $bg_lighten_color_2;
+        border-bottom: 1px solid $bg_lighten_color_2;
       }
     }
 
     .collapsible {
-      border: 1px solid $bg_lighten_color;
+      border: 1px solid $bg_lighten_color_2;
       .collapsible-body,
       .collapsible-header
       {
-        background-color: $bg_lighten_color;
-        border-bottom: 1px solid $bg_lighten_color;
+        background-color: $bg_lighten_color_2;
+        border-bottom: 1px solid $bg_lighten_color_2;
       }
     }
 

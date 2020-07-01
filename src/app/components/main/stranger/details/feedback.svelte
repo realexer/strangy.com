@@ -44,5 +44,7 @@
 			<p>{formatDate(feedback.setAt)}</p>
 		</div>
 	</div>
+	{:else}
+	<p class="flow-text center-align">No feedback yet</p>
 	{/each}
 </div>

@@ -35,5 +35,7 @@
 			<p class="flow-text">1 msg/s</p>
 		</div>
 	</div>
+	{:else}
+	<p class="flow-text center-align">No chats yet</p>
 	{/each}
 </div>

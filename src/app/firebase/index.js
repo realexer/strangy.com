@@ -1,8 +1,7 @@
-import firebase from 'firebase/app'
+import firebase from 'firebase'
 import 'firebase/firebase-firestore'
 import 'firebase/firebase-auth'
 import 'firebase/firebase-functions'
-import 'firebase/firebase-storage'
 import { firebaseConfig } from '../../_config/firebase'
 
 import env from '../../env';
@@ -12,7 +11,6 @@ firebase.initializeApp(firebaseConfig);
 const Firestore = firebase.firestore();
 const Auth = firebase.auth();
 const Functions = firebase.app().functions('europe-west1');
-const Storage = firebase.storage();
 
 if(env.dev.use_emulators) {
 	Firestore.settings({
@@ -23,4 +21,4 @@ if(env.dev.use_emulators) {
 	firebase.functions().useFunctionsEmulator("http://localhost:5001")
 }
 
-export { Firestore, Auth, Functions, Storage }
+export { Firestore, Auth, Functions }

@@ -2,6 +2,7 @@ import {current_user} from '../stores/current_user'
 import {Auth} from '../firebase/index'
 import {UsersListAPI} from './Users'
 import {UserModel} from './models/UserModel'
+import {ApiResult, ApiResultCode} from "./common/ApiResult";
 
 Auth.onAuthStateChanged(() =>
 {
@@ -49,4 +50,41 @@ Auth.onAuthStateChanged(() =>
   }
 });
 
-export {Auth};
+/**
+ *
+ * @param email
+ * @param password
+ * @returns {Promise<ApiResult>}
+ */
+const login = async (email, password) =>
+{
+  const result = new ApiResult();
+
+  return Auth.createUserWithEmailAndPassword(email, password)
+    .then((data) => {
+      result.setSuccess(data);
+      return result;
+    })
+    .catch((error) =>
+    {
+
+      if(error.code === 'auth/email-already-in-use')
+      {
+        return Auth.signInWithEmailAndPassword(email, password)
+          .then((data) => {
+            result.setSuccess(data);
+            return result;
+          })
+          .catch((error) => {
+            result.setError(ApiResultCode.invalid_request, error.code);
+            return result;
+          });
+      } else {
+        result.setError(ApiResultCode.invalid_request, error.code);
+      }
+
+      return result;
+    });
+};
+
+export {Auth, login};

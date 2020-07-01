@@ -24,6 +24,7 @@ export async function preload(page, session)
 <script>
 	import {onMount} from 'svelte';
 	import Nav from '../app/components/layout/Nav.svelte';
+	import Footer from '../app/components/layout/Footer.svelte';
 	import GoogleAnalytics from '../lib/GoogleAnalytics/GoogleAnalytics.svelte'
 	import LangBuilder from '../app/components/dev/LangBuilder.svelte';
 
@@ -63,7 +64,9 @@ export async function preload(page, session)
 
 <main class:_ui_log_disabled={!env.dev.ui_log}>
 	<slot></slot>
+	<div class="container">&nbsp;</div>
 </main>
 {#if env.dev.lang_builder}
 <LangBuilder/>
 {/if}
+<Footer lang="{lang}"/>

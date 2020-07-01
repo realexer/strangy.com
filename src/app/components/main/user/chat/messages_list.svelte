@@ -133,6 +133,8 @@ onDestroy(() =>
       <p class="_debug">from: {msg.from_user_id}</p>
     </div>
   </div>
+  {:else}
+  <p class="flow-text center-align">no messages yet</p>
   {/each}
 
 {/if}

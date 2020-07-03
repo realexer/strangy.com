@@ -1,5 +1,4 @@
-import { Firestore } from '../firebase/index'
-import FirebaseResults from './firebase_results'
+import { Firestore } from '.'
 
 const UsersCollection = Firestore.collection('user');
 const ChatsCollection = Firestore.collection('chats');
@@ -18,7 +17,6 @@ const getUserFeedbackCollection = (userId) =>
 
 export {
   UsersCollection,
-  FirebaseResults,
   Firestore,
   TagsCollection,
   ChatsCollection,

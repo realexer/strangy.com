@@ -1,5 +1,5 @@
-import {TagsListModel} from "../../../api/models/TagsListModel";
-import {UserModel} from "../../../api/models/UserModel";
+import {TagsListModel} from "../../../api/providers/common/models/TagsListModel";
+import {UserModel} from "../../../api/providers/common/models/UserModel";
 
 class FilterData
 {

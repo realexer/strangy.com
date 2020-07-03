@@ -21,7 +21,7 @@ class ApiResult
 		this.message = message;
 	}
 
-	setError(code = ApiResultCode.invalid_request, message = null)
+	setError(message = null, code = ApiResultCode.invalid_request)
 	{
 		this.status = ApiResultStatus.error;
 		this.code = code;
@@ -33,6 +33,10 @@ class ApiResult
 		return this.status === ApiResultStatus.success;
 	}
 
+	isError() {
+		return !this.isSuccess();
+	}
+
 	getErrorMessage()
 	{
 		return this.message;
@@ -42,6 +46,50 @@ class ApiResult
 	{
 		const result = new ApiResult();
 		result.setData(source);
+		return result;
+	}
+
+	/**
+	 *
+	 * @param {ApiResult[]} results
+	 */
+	static fromMultiple(...results)
+	{
+		const result = new ApiResult();
+		result.setSuccess(results);
+		for(let item of results) {
+			if(item.isSuccess() === false) {
+				result.setError(item.getErrorMessage())
+			}
+		}
+
+		return result;
+	}
+
+	static fromAction(func)
+	{
+		const result = new ApiResult();
+		try {
+			result.setSuccess(func());
+		} catch (error) {
+			result.setError(error);
+		}
+
+		return result;
+	}
+
+	static async fromPromise(func)
+	{
+		const result = new ApiResult();
+
+		try {
+			const promiseResult = await func();
+			result.setSuccess(promiseResult);
+		} catch (error) {
+			console.error(error);
+			result.setError(error);
+		}
+
 		return result;
 	}
 }

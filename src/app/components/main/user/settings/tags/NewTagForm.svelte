@@ -6,17 +6,17 @@
 
   import { notificationMessage } from '../../../../../stores/notification_message.js'
 
-  import { TagsAPI, TagKind, TagKindLabels } from '../../../../../api/TagsAPI'
+  import { TagsAPI} from '../../../../../api/providers/app/TagsAPI'
   import { FormController } from '../../../../../../lib/ui/FormController'
 
   import {current_user} from '../../../../../stores/current_user'
-  import langs from '../../../../../../_langs/index'
+  import langs from '../../../../../../_langs/index';
+  import ApiClient from "../../../../../api/client";
+	import {TagKind, TagKindLabels} from "../../../../../api/providers/common/tags";
 
   const langsSelectorValues = Object.fromEntries(Object.keys(langs).map(key => [
   	key, langs[key].lang
   ]));
-
-  console.log(langsSelectorValues);
 
   let formController = new FormController({
     tag: {
@@ -34,24 +34,27 @@
   formController.addProp("kind");
   formController.addProp("lang");
 
-  const createTag = () =>
+  const createTag = async () =>
   {
-    formController.isBusy = true;
+  	try {
+  		await formController.validate();
 
-    formController.validate().then(() =>
-    {
-      return TagsAPI.create(
-        formController.getProp('tag').value,
-        formController.getProp('lang').value,
-        formController.getProp('kind').value,
-        $current_user.id)
-      .then(() => {
-        notificationMessage.set({ message: 'Tag added', type: 'green' });
-      })
-      .catch(error => {
-        notificationMessage.set({ message: error, type: '' });
-      });
-    }).catch((e) => {});
+  		const result = await ApiClient.user.info.tags.create(
+  			$current_user.id,
+  			formController.getProp('tag').value,
+				formController.getProp('lang').value,
+				formController.getProp('kind').value
+  		);
+
+  		if(result.isSuccess()) {
+  			notificationMessage.set({ message: 'Tag added', type: 'green' });
+  		} else {
+  			notificationMessage.set({ message: result.getErrorMessage(), type: '' });
+  		}
+
+  	} catch (e) {
+
+  	}
   }
 </script>
 

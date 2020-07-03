@@ -1,6 +1,6 @@
 <script>
   import {onMount} from 'svelte'
-  import {UserModel} from '../../api/models/UserModel'
+  import {UserModel} from '../../api/providers/common/models/UserModel'
   import {selected_stranger} from '../../stores/selected_strager'
 
   import InviteForm from './stranger/details/invite_form.svelte'

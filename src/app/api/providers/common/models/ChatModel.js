@@ -1,5 +1,6 @@
 import {UserModel} from './UserModel'
-import {ChatState, ChatStatus} from "../Chats";
+import {ChatState} from "../chats";
+import {ChatStatus} from "../chats";
 
 class ChatModel
 {

@@ -11,8 +11,8 @@ export async function preload(page, session)
 
 <script>
 import {onMount, onDestroy} from 'svelte';
-import {ChatsListAPI} from '../../../app/api/Chats'
-import {ChatModel as ChatModel} from '../../../app/api/models/ChatModel'
+import {ChatsListAPI} from '../../../app/api/providers/app/chat/ChatsListAPI'
+import {ChatModel as ChatModel} from '../../../app/api/providers/common/models/ChatModel'
 import Chat from '../../../app/components/main/user/Chat.svelte'
 
 import { active_chat } from '../../../app/stores/user/active_chat';

@@ -1,11 +1,12 @@
 <script>
 
 import {onMount, onDestroy} from 'svelte'
-import {ChatMessagesAPI, ChatOperationsAPI} from '../../../../api/Chats'
+import {ChatMessagesAPI} from '../../../../api/providers/app/chat/ChatMessagesAPI'
 import {active_chat} from '../../../../stores/user/active_chat'
 import {current_user} from '../../../../stores/current_user'
-import {ChatModel as chat} from "../../../../api/models/ChatModel";
+import {ChatModel as chat} from "../../../../api/providers/common/models/ChatModel";
 import {UnsubscriberX} from "../../../../../lib/UnsubscriberX";
+import ApiClient from "../../../../api/client";
 
 let unsubscribes = new UnsubscriberX();
 
@@ -72,7 +73,7 @@ const listenToMessages = (chat) =>
   });
 };
 
-const processMessages = (docs) =>
+const processMessages = async (docs) =>
 {
   docs.forEach((doc) =>
   {
@@ -87,8 +88,8 @@ const processMessages = (docs) =>
   if(lastLoadedMessageAt.seconds > $active_chat.getLastReadMessageAtForUser($current_user.id).seconds)
   {
   	console.log(`LastLoadedMessageAt is bigger than lastReadMessageAtForUser`);
-    ChatOperationsAPI.instance($active_chat).setLastReadMessageAtByUser($current_user.id, lastLoadedMessageAt);
-    ChatOperationsAPI.instance($active_chat).resetNewMessagesAmountForUser($current_user.id);
+
+  	await ApiClient.chat.messages.processNew($active_chat.id, $current_user.id, lastLoadedMessageAt);
   }
 };
 

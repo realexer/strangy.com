@@ -13,3 +13,7 @@ Make sure that current PowerShell session allows .psl scripts execution: \
 
 Run emulators: \
 ```firebase emulators:start```
+
+Firebase-admin issue: \
+When using **firebase-admin** in case of `Channel credentials must be a ChannelCredentials object` run    
+```npm i -D google-gax```

@@ -4,8 +4,8 @@ import {onMount, onDestroy} from 'svelte'
 import {current_user} from '../../../stores/current_user'
 import {active_chat, active_chat_stranger} from '../../../stores/user/active_chat'
 
-import {UsersListAPI} from '../../../api/Users'
-import {UserModel} from '../../../api/models/UserModel'
+import {UsersListAPI} from '../../../api/providers/app/Users'
+import {UserModel} from '../../../api/providers/common/models/UserModel'
 
 import MessageForm from './chat/message_form.svelte'
 import MessagesList from './chat/messages_list.svelte'

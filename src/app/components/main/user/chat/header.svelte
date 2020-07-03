@@ -8,12 +8,13 @@ import { notificationMessage } from '../../../../stores/notification_message.js'
 import { active_chat, active_chat_stranger } from '../../../../stores/user/active_chat'
 import { current_user } from '../../../../stores/current_user';
 
-import {ChatOperationsAPI} from '../../../../api/Chats'
+import {FeedbackModel} from '../../../../api/providers/common/models/FeedbackModel'
 
-import {UserFeedbackVoteAPI} from '../../../../api/Users'
-import {FeedbackModel} from '../../../../api/models/FeedbackModel'
+import {lang_url} from '../../../general/link';
+import * as ApiRequest from "../../../../api/ApiRequest";
+import ApiClient from "../../../../api/client";
+import {UserFeedbackAPI} from "../../../../api/providers/app/UserFeedback";
 
-import {lang_url} from '../../../general/link'
 
 let optionsOpen = false;
 let feedbackOpen = false;
@@ -31,46 +32,43 @@ let formController = new FormController({
 
 formController.addProp("message");
 
-const setVote = (value) =>
+const setVote = async (value) =>
 {
+	feedbackOpen = true;
   currentFeedback.vote = value;
-  submitFeedback();
 
-  feedbackOpen = true;
+  await submitFeedback();
 };
 
-const addMessage = () =>
+const addMessage = async () =>
 {
-  formController.validate().then(() =>
-  {
-    currentFeedback.message = formController.props["message"].value;
+	feedbackOpen = false;
 
-    submitFeedback();
-
-    feedbackOpen = false;
-  }).catch((e) => {
-
-  });
+	await formController.validate();
+	currentFeedback.message = formController.props["message"].value;
+  await submitFeedback();
 };
 
-const submitFeedback = () =>
+const submitFeedback = async () =>
 {
-  return UserFeedbackVoteAPI.set($current_user.id, $active_chat_stranger.id, currentFeedback.vote, currentFeedback.message)
-  .then(() =>
-  {
-    notificationMessage.set({ message: 'Feedback submitted', type: 'success-toast' });
-  })
-  .catch((e) =>
-  {
-    notificationMessage.set({ message: e.message, type: 'danger-toast' });
-  });
+	const result = await ApiClient.stranger.feedback.set(
+		$active_chat_stranger.id,
+		$current_user.id,
+		currentFeedback.vote,
+		currentFeedback.message);
+
+	if(result.isSuccess()) {
+		notificationMessage.set({ message: 'Feedback submitted', type: 'success-toast' });
+	} else {
+		notificationMessage.set({ message: result.getErrorMessage(), type: 'danger-toast' });
+	}
 };
 
 const unsubscribe = active_chat.subscribe((val) =>
 {
   if(val && val.id)
   {
-    UserFeedbackVoteAPI.get($active_chat.users.stranger($current_user.id), $current_user.id).get()
+    UserFeedbackAPI.instance($active_chat.users.stranger($current_user.id)).getVoteByUser($current_user.id).get()
     .then((doc) =>
     {
       currentFeedback = FeedbackModel.fromDoc(doc);
@@ -80,17 +78,17 @@ const unsubscribe = active_chat.subscribe((val) =>
 
 const ChatOperations =
 {
-  acceptInvitation: () => {
-    return ChatOperationsAPI.instance($active_chat).accept();
+  acceptInvitation: async () => {
+  	return await ApiClient.chat.operations.acceptInvitation($active_chat.id);
   },
-  declineInvitation: () => {
-    return ChatOperationsAPI.instance($active_chat).decline();
+  declineInvitation: async () => {
+  	return await ApiClient.chat.operations.declineInvitation($active_chat.id);
   },
-  cancelInvitation: () => {
-    return ChatOperationsAPI.instance($active_chat).cancel();
+  cancelInvitation: async () => {
+  	return await ApiClient.chat.operations.cancelInvitation($active_chat.id);
   },
-  finishChat: () => {
-    return ChatOperationsAPI.instance($active_chat).finish($current_user.id);
+  finishChat: async () => {
+  	return await ApiClient.chat.operations.finishChat($active_chat.id, $current_user.id);
   },
   renameChat: () => {
 
@@ -169,7 +167,7 @@ const showDetails = () =>
         <button class="btn btn-large" on:click="{ChatOperations.acceptInvitation}">Accept invitation</button>
       </div>
       <div class="card-action">
-        <a href="#!" on:click="{ChatOperations.declineInvitation}">reject</a>
+        <a href="#!" on:click|preventDefault="{ChatOperations.declineInvitation}">reject</a>
       </div>
     </div>
   </div>
@@ -182,7 +180,7 @@ const showDetails = () =>
       <p class="flow-text">invitation is pending response</p>
     </div>
     <div class="card-action">
-      <a href="#!" on:click="{ChatOperations.cancelInvitation}">Cancel invitation</a>
+      <a href="#!" on:click|preventDefault="{ChatOperations.cancelInvitation}">Cancel invitation</a>
     </div>
   </div>
 </div>

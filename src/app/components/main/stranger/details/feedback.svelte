@@ -1,10 +1,11 @@
 <script>
   import {onMount, onDestroy} from 'svelte'
-  import {UserFeedbackAPI} from '../../../../api/Users'
-  import {FeedbackModel} from '../../../../api/models/FeedbackModel'
+  import {UserFeedbackAPI} from '../../../../api/providers/app/UserFeedback'
+  import {FeedbackModel} from '../../../../api/providers/common/models/FeedbackModel'
 
   import {selected_stranger} from '../../../../stores/selected_strager';
-  import {UnsubscriberX} from "../../../../../lib/UnsubscriberX"; import {formatDate} from "../../../../../lib/Date";
+  import {UnsubscriberX} from "../../../../../lib/UnsubscriberX";
+  import {formatDate} from "../../../../../lib/Date";
 
 
   let feedbackHistory = [];

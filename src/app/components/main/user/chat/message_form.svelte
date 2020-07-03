@@ -8,7 +8,8 @@ import { notificationMessage } from '../../../../stores/notification_message.js'
 import { active_chat } from '../../../../stores/user/active_chat';
 import { current_user } from '../../../../stores/current_user';
 
-import {ChatMessagesAPI} from '../../../../api/Chats';
+import {ChatMessagesAPI} from '../../../../api/providers/app/chat/ChatMessagesAPI';
+import ApiClient from "../../../../api/client";
 
 let formController = new FormController({
   message: {
@@ -22,20 +23,25 @@ let formController = new FormController({
 
 formController.addProp("message");
 
-const sendMessage = () =>
+const sendMessage = async () =>
 {
-  formController.validate().then(() =>
-  {
-    return ChatMessagesAPI.instance($active_chat).sendMessage($current_user.id, formController.props["message"].value)
-    .then(() =>
-    {
-      notificationMessage.set({ message: 'Message sent', type: 'success-toast' });
-    })
-    .catch((e) =>
-    {
-      notificationMessage.set({ message: error.message, type: 'danger-toast' });
-    });
-  }).catch((e) => {});
+	try {
+		await formController.validate();
+
+		const result = await ApiClient.chat.messages.send(
+			$active_chat.id,
+			$current_user.id,
+			formController.props["message"].value);
+
+		if(result.isSuccess()) {
+			notificationMessage.set({ message: 'Message sent', type: 'success-toast' });
+		} else {
+			notificationMessage.set({ message: result.getErrorMessage(), type: 'danger-toast' });
+		}
+
+	} catch (error) {
+	  notificationMessage.set({ message: error, type: 'danger-toast' });
+	}
 };
 
 const unsubscribe = active_chat.subscribe((val) =>

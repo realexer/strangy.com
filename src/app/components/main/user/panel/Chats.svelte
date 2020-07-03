@@ -2,16 +2,17 @@
 
 import { onMount, onDestroy} from 'svelte';
 import { writable } from "svelte/store";
-import { ChatsListAPI, ChatOperationsAPI, ChatState, ChatStatus } from '../../../../api/Chats';
-import { ChatModel } from '../../../../api/models/ChatModel'
-import { UserModel } from '../../../../api/models/UserModel'
+import { ChatsListAPI} from '../../../../api/providers/app/chat/ChatsListAPI';
+import { ChatModel } from '../../../../api/providers/common/models/ChatModel'
+import { UserModel } from '../../../../api/providers/common/models/UserModel'
 
 import { current_user } from '../../../../stores/current_user';
 import { user_chats, user_chats_stranger } from '../../../../stores/user/chats';
 import { active_chat } from '../../../../stores/user/active_chat';
 import {new_messages, new_invitations, NotificationsCounter} from '../../../../stores/user/notifications';
-import {UsersListAPI} from "../../../../api/Users";
+import {UsersListAPI} from "../../../../api/providers/app/Users";
 import {lang_url} from "../../../general/link";
+import {ChatState, ChatStatus} from "../../../../api/providers/common/chats";
 
 let invitations = [];
 let activeChats = [];

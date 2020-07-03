@@ -8,9 +8,10 @@
   import { FormController } from '../../../../../lib/ui/FormController'
   import { current_user } from '../../../../stores/current_user'
   import { selected_stranger } from '../../../../stores/selected_strager'
-  import { ChatsListAPI } from '../../../../api/Chats';
   import {lang_url} from "../../../general/link";
   import {formatDate} from "../../../../../lib/Date";
+  import ApiClient from "../../../../api/client";
+  import {ChatsListAPI} from "../../../../api/providers/app/chat/ChatsListAPI";
 
   let formController = new FormController({
     subject: {
@@ -24,20 +25,28 @@
 
   formController.addProp("subject");
 
-  const invite = () =>
+  const invite = async () =>
   {
-    formController.validate().then(() =>
-    {
-      return ChatsListAPI.invite($current_user.id, $selected_stranger.id, formController.props["subject"].value)
-      .then(() =>
-      {
-        notificationMessage.set({ message: 'Invitation sent', type: 'success-toast' });
-      })
-      .catch((e) =>
-      {
-        notificationMessage.set({ message: error.message, type: 'danger-toast' });
-      })
-    }).catch((e) => {});
+		try
+		{
+			await formController.validate();
+
+			const result = await ApiClient.stranger.invite(
+				$selected_stranger.id,
+				$current_user.id,
+				formController.props["subject"].value
+			);
+
+			if(result.isSuccess()) {
+				notificationMessage.set({ message: 'Invitation sent', type: 'success-toast' });
+			} else {
+				notificationMessage.set({ message: result.getErrorMessage(), type: 'danger-toast' });
+			}
+		}
+		catch (error)
+		{
+			notificationMessage.set({ message: error.message, type: 'danger-toast' });
+		}
   };
 
   onDestroy(() => {

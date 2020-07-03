@@ -4,10 +4,11 @@
   import EmailInput from '../../lib/ui/components/forms/email_input.svelte'
   import FormButtons from '../../lib/ui/components/forms/buttons.svelte'
   import { notificationMessage } from '../../app/stores/notification_message.js'
-  import { Auth } from '../../app/firebase'
+  import { Auth } from '../../app/firebase/app'
   import { FormController } from '../../lib/ui/FormController'
   import * as ApiRequest from '../../app/api/ApiRequest';
   import {ApiResult} from '../../app/api/common/ApiResult';
+  import AuthAPI from "../../app/api/providers/app/Auth";
 
   let formController = new FormController({
     email: {
@@ -28,20 +29,20 @@
 
   const authorize = async (e) =>
   {
-    formController.validate().then(async () =>
-    {
-    	const result = ApiResult.fromSource(await ApiRequest.post('/app/auth/login', {
-    		email: formController.getProp("email").value,
-    		password: formController.getProp("password").value
-    	}));
+  	try {
+  		await formController.validate();
 
-    	if(result.isSuccess()) {
-    		notificationMessage.set({ message: 'Howdy stranger!', type: 'green' });
+  		const result = await AuthAPI.login(formController.getProp("email").value, formController.getProp("password").value);
+
+			if(result.isSuccess()) {
+				notificationMessage.set({ message: 'Howdy stranger!', type: 'green' });
 				goto("/");
-    	} else {
-    		notificationMessage.set({ message: result.getErrorMessage(), type: 'danger-toast' });
-    	}
-    });
+			} else {
+				notificationMessage.set({ message: result.getErrorMessage(), type: 'danger-toast' });
+			}
+  	} catch (error) {
+  	  notificationMessage.set({ message: error, type: 'danger-toast' });
+  	}
   };
 
 </script>

@@ -9,9 +9,7 @@ const dev = NODE_ENV === 'development';
 const app = express()
 	.use(
 		compression({ threshold: 0 }),
-		bodyParser.urlencoded({
-			extended: true
-		})
+		bodyParser.json({ type: 'application/json' })
 	);
 
 if(dev) {

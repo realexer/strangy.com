@@ -1,7 +1,7 @@
 <script>
   import { onDestroy } from 'svelte'
   import { current_user } from '../../../../stores/current_user.js'
-  import { Auth } from '../../../../api/Auth';
+  import AuthAPI from '../../../../api/providers/app/Auth';
   import {lang_url} from "../../../general/link";
 
 

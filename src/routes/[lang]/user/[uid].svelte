@@ -10,8 +10,8 @@ export async function preload(page, session)
 </script>
 <script>
 import {onMount} from 'svelte';
-import {UsersListAPI} from '../../../app/api/Users'
-import {UserModel} from '../../../app/api/models/UserModel'
+import {UsersListAPI} from '../../../app/api/providers/app/Users'
+import {UserModel} from '../../../app/api/providers/common/models/UserModel'
 import { selected_stranger } from '../../../app/stores/selected_strager.js'
 
 import Stranger from '../../../app/components/main/Stranger.svelte'

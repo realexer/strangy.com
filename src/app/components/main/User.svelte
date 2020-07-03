@@ -1,5 +1,5 @@
 <script>
-import {UsersListAPI} from '../../api/Users';
+import {UsersListAPI} from '../../api/providers/app/Users';
 
 let user = {
     name: '',

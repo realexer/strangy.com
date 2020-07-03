@@ -1,6 +1,6 @@
 <script>
-  import {ChatsListAPI} from '../../../../api/Chats'
-  import {ChatModel} from '../../../../api/models/ChatModel'
+  import {ChatsListAPI} from '../../../../api/providers/app/chat/ChatsListAPI'
+  import {ChatModel} from '../../../../api/providers/common/models/ChatModel'
 
   import {selected_stranger} from '../../../../stores/selected_strager';
   import {formatDate} from "../../../../../lib/Date";

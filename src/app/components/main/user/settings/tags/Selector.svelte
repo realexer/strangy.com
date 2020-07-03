@@ -3,11 +3,11 @@
 import {onMount} from 'svelte';
 import {writable} from 'svelte/store';
 import {current_user} from '../../../../../stores/current_user';
-import {TagsAPI} from '../../../../../api/TagsAPI';
-import {UserOperationsAPI} from '../../../../../api/Users';
+import {TagsAPI} from '../../../../../api/providers/app/TagsAPI';
 import langs from '../../../../../../_langs/index';
 import Checkbox from '../../../../../../lib/ui/components/forms/check_box.svelte';
-import NewTagForm from './NewTagForm.svelte'
+import NewTagForm from './NewTagForm.svelte';
+import ApiClient from "../../../../../api/client";
 
 let unsubscribe = null;
 let userLangs = writable([]);
@@ -26,19 +26,20 @@ onMount(() =>
       loadTags($userLangs).then(() =>
       {
       	userLangs.subscribe(() =>
-        			{
-        				saveUserLangs();
-        				filterTagsByLangs();
-        			});
+				{
+					saveUserLangs();
+					filterTagsByLangs();
+				});
       });
     }
   });
 });
 
-const saveUserLangs = () =>
+const saveUserLangs = async () =>
 {
-	if($userLangs) {
-		UserOperationsAPI.instance($current_user.id).setLangs($userLangs);
+	if($userLangs)
+	{
+		await ApiClient.user.info.langs.save($current_user.id, $userLangs);
 	}
 };
 
@@ -81,10 +82,7 @@ const addUserTag = (tag) =>
 {
   $userTags = [...$userTags, tag];
 
-  return saveUserTags().then(() =>
-  {
-    return TagsAPI.incrementUsersAmount(tag.id);
-  });
+  return saveUserTags();
 };
 
 const removeUserTag = (tag) =>
@@ -93,15 +91,15 @@ const removeUserTag = (tag) =>
     return item.id != tag.id;
   });
 
-  return saveUserTags().then(() =>
-  {
-    return TagsAPI.decrementUsersAmount(tag.id);
-  });
+  return saveUserTags();
 };
 
-const saveUserTags = () =>
+const saveUserTags = async () =>
 {
-  return UserOperationsAPI.instance($current_user.id).setTags($userTags);
+	return await ApiClient.user.info.tags.save(
+		$current_user.id,
+		$userTags
+	);
 };
 
 </script>

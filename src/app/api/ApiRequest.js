@@ -1,35 +1,73 @@
+import {ApiResult} from "./common/ApiResult";
+import env from "../../env";
+
+/**
+ *
+ * @param type
+ * @param url
+ * @param data
+ * @returns {Promise<ApiResult>}
+ */
 const perform = async (type, url, data = null) =>
 {
-	const response = await fetch(url, {
-		method: type,
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-		},
-		body: data
-	});
+	const result = new ApiResult();
 
-	return await response.json();
+	try
+	{
+		const response = await fetch(`${env.api_url}/${url}`, {
+			method: type,
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: data
+		});
+
+		result.setData(await response.json());
+
+	} catch (e) {
+		result.setError(e.toString());
+	}
+
+	return result;
 };
 
+/**
+ *
+ * @param url
+ * @returns {Promise<ApiResult>}
+ */
 const get = async (url) =>
 {
-	return await perform(RequestTyeps.GET, url);
+	return await perform(RequestTypes.GET, url);
 };
 
+/**
+ *
+ * @param url
+ * @param data
+ * @returns {Promise<ApiResult>}
+ */
 const post = async (url, data) =>
 {
-	return await perform(RequestTyeps.POST, url, formatPostData(data));
+	return await perform(RequestTypes.POST, url, formatPostData(data));
 };
 
-const formatPostData = (data) =>
+const formatPostData = (data = {}) =>
 {
-	return Object.keys(data).map((key) => {return `${key}=${encodeURIComponent(data[key])}`}).join('&');
+	return JSON.stringify(data);
+	//return Object.keys(data).map((key) => {return `${key}=${encodeURIComponent(data[key])}`}).join('&');
 };
 
-const RequestTyeps =
+const RequestTypes =
 {
 	GET: 'GET',
 	POST: 'POST'
 };
 
-export {get, post};
+const ApiRequest =
+{
+	get: get,
+	post: post
+};
+
+export default ApiRequest;

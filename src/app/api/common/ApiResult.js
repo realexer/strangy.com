@@ -87,7 +87,7 @@ class ApiResult
 			result.setSuccess(promiseResult);
 		} catch (error) {
 			console.error(error);
-			result.setError(error);
+			result.setError(error.toString());
 		}
 
 		return result;

@@ -1,5 +1,24 @@
 import {ApiResult} from "../../common/ApiResult";
 import {dbAccessorAdmin} from "../../../firebase/admin";
+import {isTagKindSupported, TagKind} from "../common/tags";
+import {isLangSupported} from "../../../lang";
+
+const validateTag = (tag) =>
+{
+	tag = tag.trim().toLowerCase();
+
+	if(tag.length < 3) {
+		throw 'Tag should be at least 3 characters long.'
+	}
+
+	if(tag.length > 15) {
+		throw 'Tag should be less than 15 characters long.'
+	}
+
+	tag = tag.replace(/[^\w0-9]+/g, '-').replace(/^-*|-*$/g, '');
+
+	return tag;
+};
 
 class TagsManager
 {
@@ -7,6 +26,16 @@ class TagsManager
 	{
 		return await ApiResult.fromPromise(async () =>
 		{
+			tag = validateTag(tag);
+
+			if(isTagKindSupported(kind) === false) {
+				throw `Tag kind [${kind}] is not supported.`;
+			}
+
+			if(isLangSupported(lang) === false) {
+				throw `Lang [${lang}] is not supported.`;
+			}
+
 			const tagObj = {
 				tag: tag,
 				lang: lang,
@@ -16,7 +45,11 @@ class TagsManager
 				created_at: new Date()
 			};
 
-			return await dbAccessorAdmin.tags().add(tagObj).id;
+			const result = await dbAccessorAdmin.tags().add(tagObj);
+			return {
+				id: result.id,
+				tag: tag
+			};
 		});
 	};
 

@@ -6,6 +6,11 @@ const TagKind = {
 	OTHER: 'OTHER'
 };
 
+const isTagKindSupported = (kind) =>
+{
+	return Object.keys(TagKind).includes(kind);
+};
+
 const TagKindLabels =
 {
 	[TagKind.INFO]: 'Info',
@@ -14,4 +19,4 @@ const TagKindLabels =
 	[TagKind.AGE]: 'Age',
 	[TagKind.OTHER]: 'Other',
 };
-export {TagKindLabels, TagKind};
+export {TagKindLabels, TagKind, isTagKindSupported};

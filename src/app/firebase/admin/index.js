@@ -11,7 +11,10 @@ import {DBAccessor} from "../common/collections";
 
 firebase_admin.initializeApp({
 	credential: firebase_admin.credential.cert(serviceAccount),
-	databaseURL: "https://strangy-a046f.firebaseio.com"
+	databaseURL: "https://strangy-a046f.firebaseio.com",
+	databaseAuthVariableOverride: {
+		uid: "be-strangy"
+	}
 });
 
 const Firestore = firebase_admin.firestore();

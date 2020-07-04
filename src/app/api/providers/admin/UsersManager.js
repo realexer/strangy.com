@@ -27,7 +27,7 @@ class UsersManger
 
 		return await ApiResult.fromPromise(async () =>
 		{
-			return (await dbAccessorAdmin.users().doc(accountId).set()).id;
+			return (await dbAccessorAdmin.users().doc(accountId).set(user)).id;
 		});
 	};
 }

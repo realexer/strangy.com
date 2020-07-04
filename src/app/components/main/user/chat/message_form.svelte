@@ -28,10 +28,7 @@ const sendMessage = async () =>
 	try {
 		await formController.validate();
 
-		const result = await ApiClient.chat.messages.send(
-			$active_chat.id,
-			$current_user.id,
-			formController.props["message"].value);
+		const result = await ApiClient.chat($active_chat.id).messages.send(formController.props["message"].value);
 
 		if(result.isSuccess()) {
 			notificationMessage.set({ message: 'Message sent', type: 'success-toast' });

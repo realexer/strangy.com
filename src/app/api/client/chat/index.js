@@ -1,9 +1,30 @@
-import * as operations from './operations';
-import * as messages from './messages';
+import ChatOperationsApiClient from "./operations";
+import ChatMessagesApiClient from "./messages";
 
-const chat = {
-	operations: operations,
-	messages: messages
-};
+class ChatApiClient
+{
+	constructor(chatId)
+	{
+		this.chatid = chatId;
+	}
 
-export default chat;
+	/**
+	 *
+	 * @returns {ChatOperationsApiClient}
+	 */
+	get operations()
+	{
+		return new ChatOperationsApiClient(this.chatid);
+	}
+
+	/**
+	 *
+	 * @returns {ChatMessagesApiClient}
+	 */
+	get messages()
+	{
+		return new ChatMessagesApiClient(this.chatid);
+	}
+}
+
+export default ChatApiClient;

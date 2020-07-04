@@ -39,7 +39,7 @@ const saveUserLangs = async () =>
 {
 	if($userLangs)
 	{
-		await ApiClient.user.info.langs.save($current_user.id, $userLangs);
+		await ApiClient.user.info.langs.save($userLangs);
 	}
 };
 
@@ -96,10 +96,7 @@ const removeUserTag = (tag) =>
 
 const saveUserTags = async () =>
 {
-	return await ApiClient.user.info.tags.save(
-		$current_user.id,
-		$userTags
-	);
+	return await ApiClient.user.info.tags.save($userTags);
 };
 
 </script>

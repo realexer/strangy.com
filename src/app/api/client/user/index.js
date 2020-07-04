@@ -1,16 +1,21 @@
 import ApiRequest from "../../ApiRequest";
-import info from "./info";
+import UserInfoApiClient from "./info";
 
-export const create = async (accountId) =>
+class UserApiClient
 {
-	return await ApiRequest.post(`user/create`, {
-		account_id: accountId
-	})
-};
+	static async create()
+	{
+		return await ApiRequest.post(`user/create`)
+	}
 
-const user = {
-	create: create,
-	info: info
-};
+	/**
+	 *
+	 * @returns {UserInfoApiClient}
+	 */
+	static get info()
+	{
+		return UserInfoApiClient;
+	}
+}
 
-export default user;
+export default UserApiClient;

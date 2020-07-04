@@ -1,5 +1,8 @@
 import {ApiResult} from "../../common/ApiResult";
 import {dbAccessorAdmin} from "../../../firebase/admin";
+import {UserModel} from "../common/models/UserModel";
+import {UsersListAPI} from "../app/Users";
+import {TagsManager} from "./TagsManager";
 
 class UserOperationsAPI
 {
@@ -25,6 +28,27 @@ class UserOperationsAPI
 				"info.langs": langs
 			});
 		});
+	}
+
+	async updateUserTags(tags)
+	{
+		const currentTagsIds = UserModel.fromDoc(await UsersListAPI.byId(this.userId).get()).tags.all.map(t => t.id);
+		const newTagsIds = tags.map(t => t.id);
+
+		const tagsToIncrement = newTagsIds.filter(id => currentTagsIds.includes(id) === false);
+		const tagsToDecrement = currentTagsIds.filter(id => newTagsIds.includes(id) === false);
+
+		const results = [
+			await this.setTags(tags)
+		];
+		for(const id of tagsToIncrement) {
+			results.push(await TagsManager.incrementUsersAmount(id))
+		}
+		for(const id of tagsToDecrement) {
+			results.push(await TagsManager.decrementUsersAmount(id))
+		}
+
+		return ApiResult.fromMultiple(...results);
 	}
 
 	async setTags(tags)

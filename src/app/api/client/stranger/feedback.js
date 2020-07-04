@@ -1,15 +1,19 @@
 import ApiRequest from "../../ApiRequest";
 
-const feedback =
+class StrangerFeedbackApiClient
 {
-	set: async (stranger_id, user_id, vote, message) =>
+	constructor(strangerId)
 	{
-		return await ApiRequest.post(`stranger/${stranger_id}/feedback/set`, {
-			from_user_id: user_id,
+		this.strangerId = strangerId;
+	}
+
+	async set(vote, message)
+	{
+		return await ApiRequest.post(`stranger/${this.strangerId}/feedback/set`, {
 			vote: vote,
 			message: message
 		});
 	}
-};
+}
 
-export default feedback;
+export default StrangerFeedbackApiClient;

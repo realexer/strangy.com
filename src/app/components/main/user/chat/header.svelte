@@ -51,9 +51,7 @@ const addMessage = async () =>
 
 const submitFeedback = async () =>
 {
-	const result = await ApiClient.stranger.feedback.set(
-		$active_chat_stranger.id,
-		$current_user.id,
+	const result = await ApiClient.stranger($active_chat_stranger.id).feedback.set(
 		currentFeedback.vote,
 		currentFeedback.message);
 
@@ -79,16 +77,16 @@ const unsubscribe = active_chat.subscribe((val) =>
 const ChatOperations =
 {
   acceptInvitation: async () => {
-  	return await ApiClient.chat.operations.acceptInvitation($active_chat.id);
+  	return await ApiClient.chat($active_chat.id).operations.acceptInvitation();
   },
   declineInvitation: async () => {
-  	return await ApiClient.chat.operations.declineInvitation($active_chat.id);
+  	return await ApiClient.chat($active_chat.id).operations.declineInvitation();
   },
   cancelInvitation: async () => {
-  	return await ApiClient.chat.operations.cancelInvitation($active_chat.id);
+  	return await ApiClient.chat($active_chat.id).operations.cancelInvitation();
   },
   finishChat: async () => {
-  	return await ApiClient.chat.operations.finishChat($active_chat.id, $current_user.id);
+  	return await ApiClient.chat($active_chat.id).operations.finishChat();
   },
   renameChat: () => {
 

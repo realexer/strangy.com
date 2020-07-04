@@ -1,9 +1,13 @@
 import ApiRequest from "../../../ApiRequest";
 
-export const save = async (user_id, langs) =>
+class UserLangsApiClient
 {
-	return await ApiRequest.post(`user/info/langs/set`, {
-		user_id,
-		langs
-	});
-};
+	static async save(langs)
+	{
+		return await ApiRequest.post(`user/info/langs/set`, {
+			langs
+		});
+	}
+}
+
+export default UserLangsApiClient;

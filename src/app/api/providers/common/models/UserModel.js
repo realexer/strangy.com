@@ -3,14 +3,6 @@ class UserModel {
     this.userData = userInfo || {};
   }
 
-  set authInfo(authInfo) {
-    this._authInfo = authInfo;
-  }
-
-  get authInfo() {
-    return this._authInfo;
-  }
-
   set userData(data) {
     this._userData = Object.freeze(data);
   }

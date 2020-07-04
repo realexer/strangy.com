@@ -1,27 +1,38 @@
 import ApiRequest from "../../ApiRequest";
 
-export const acceptInvitation = async (chat_id) =>
+class ChatOperationsApiClient
 {
-	return await ApiRequest.post(`chat/${chat_id}/invitation/accept`);
-};
+	constructor(chatId)
+	{
+		this.chatId = chatId;
+	}
 
-export const declineInvitation = async (chat_id) =>
-{
-	return await ApiRequest.post(`chat/${chat_id}/invitation/decline`);
-};
+	async acceptInvitation()
+	{
+		return await ApiRequest.post(`chat/${this.chat_id}/invitation/accept`);
+	}
 
-export const cancelInvitation = async (chat_id) =>
-{
-	return await ApiRequest.post(`chat/${chat_id}/invitation/cancel`);
-};
+	async declineInvitation()
+	{
+		return await ApiRequest.post(`chat/${this.chatId}/invitation/decline`);
+	}
 
-export const finishChat = async (chat_id, user_id) =>
-{
-	return await ApiRequest.post(`chat/${chat_id}/finish`, {
-		user_id: user_id
-	});
-};
+	async cancelInvitation()
+	{
+		return await ApiRequest.post(`chat/${this.chatId}/invitation/cancel`);
+	}
 
-export const renameChat = () => {
+	async finishChat()
+	{
+		return await ApiRequest.post(`chat/${this.chatId}/finish`);
+	}
 
-};
+	async renameChat(subject)
+	{
+		return await ApiRequest.post(`chat/${this.chatId}/rename`, {
+			subject: subject
+		});
+	}
+}
+
+export default ChatOperationsApiClient;

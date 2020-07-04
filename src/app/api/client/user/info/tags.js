@@ -1,19 +1,22 @@
 import ApiRequest from "../../../ApiRequest";
 
-export const create = async (user_id, tag, lank, kind) =>
+class UserTagsApiClient
 {
-	return await ApiRequest.post(`user/info/tags/add`, {
-		user_id: user_id,
-		tag: tag,
-		lang: lank,
-		kind: kind
-	});
-};
+	static async create(tag, lang, kind)
+	{
+		return await ApiRequest.post(`user/info/tags/add`, {
+			tag: tag,
+			lang: lang,
+			kind: kind
+		});
+	}
 
-export const save = async (user_id, tags) =>
-{
-	return await ApiRequest.post(`user/info/tags/set`, {
-		user_id,
-		tags
-	});
-};
+	static async save(tags)
+	{
+		return await ApiRequest.post(`user/info/tags/set`, {
+			tags
+		});
+	}
+}
+
+export default UserTagsApiClient;

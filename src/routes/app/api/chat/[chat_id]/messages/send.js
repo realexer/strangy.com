@@ -1,9 +1,12 @@
 import {ChatOperationsAPI} from "../../../../../../app/api/providers/admin/chat/ChatOperationsAPI";
+import {ApiResultWithAuth} from "../../../../../../app/api/providers/admin/ApiResultWithAuth";
 
 export async function post(req, res)
 {
-	const result = await ChatOperationsAPI.instance(req.params.chat_id)
-													.sendMessage(req.body.user_id, req.body.message);
+	const result = await ApiResultWithAuth.fromRequest(req,async (user_id) =>
+	{
+		return await ChatOperationsAPI.instance(req.params.chat_id, user_id).sendMessage(req.body.message);
+	});
 
 	res.send(result);
 }

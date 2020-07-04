@@ -2,17 +2,20 @@ import {ApiResult} from "../../common/ApiResult";
 import {Auth} from "../../../firebase/app";
 import {UsersListAPI} from "./Users";
 import {UserModel} from "../common/models/UserModel";
-import {current_user} from "../../../stores/current_user";
+import {current_user, auth_info} from "../../../stores/current_user";
 import ApiClient from "../../client";
 
-Auth.onAuthStateChanged(() =>
+Auth.onAuthStateChanged(async () =>
 {
 	if (Auth.currentUser)
 	{
 		const authInfo = {
 			id: Auth.currentUser.uid,
 			email: Auth.currentUser.email,
+			idToken: await Auth.currentUser.getIdToken(),
 		};
+
+		auth_info.set(authInfo);
 
 		const initUser = (attemptsLeft) =>
 		{
@@ -26,12 +29,11 @@ Auth.onAuthStateChanged(() =>
 					if (doc.exists)
 					{
 						const user = UserModel.fromDoc(doc);
-						user.authInfo = authInfo;
 						current_user.set(user);
 					}
 					else
 					{
-						await ApiClient.user.create(authInfo.id);
+						await ApiClient.user.create();
 						initUser(attemptsLeft);
 					}
 				}).catch((e) => {
@@ -45,6 +47,7 @@ Auth.onAuthStateChanged(() =>
 
 	} else {
 		current_user.set(new UserModel());
+		auth_info.set({});
 	}
 });
 

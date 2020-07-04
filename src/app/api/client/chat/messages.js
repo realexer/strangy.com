@@ -1,17 +1,25 @@
 import ApiRequest from "../../ApiRequest";
 
-export const send = async (chat_id, user_id, message) =>
+class ChatMessagesApiClient
 {
-	const result = await ApiRequest.post(`chat/${chat_id}/messages/send`, {
-		user_id: user_id,
-		message: message
-	});
-};
+	constructor(chatId)
+	{
+		this.chatId = chatId;
+	}
 
-export const processNew = async (chat_id, user_id, last_received_message_id) =>
-{
-	return await ApiRequest.post(`chat/${chat_id}/messages/processNewMessages`, {
-		user_id,
-		last_received_message_id
-	});
-};
+	async send(message)
+	{
+		return await ApiRequest.post(`chat/${this.chatId}/messages/send`, {
+			message: message
+		});
+	}
+
+	async processNew(last_received_message_id)
+	{
+		return await ApiRequest.post(`chat/${this.chatId}/messages/processNewMessages`, {
+			last_received_message_id
+		});
+	}
+}
+
+export default ChatMessagesApiClient;

@@ -1,6 +1,6 @@
 <script>
   import { onDestroy } from 'svelte'
-  import { current_user } from '../../../../stores/current_user.js'
+  import { current_user, auth_info } from '../../../../stores/current_user.js'
   import AuthAPI from '../../../../api/providers/app/Auth';
   import {lang_url} from "../../../general/link";
 
@@ -11,7 +11,7 @@
   <li>
     <div class="collapsible-header">
       <i class="material-icons">more_vert</i>
-      {$current_user.authInfo ? $current_user.authInfo.email : '...'}
+      {$auth_info.email ? $auth_info.email : '...'}
     </div>
     <div class="collapsible-body">
       <ul class="collection">

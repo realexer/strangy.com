@@ -40,7 +40,6 @@
   		await formController.validate();
 
   		const result = await ApiClient.user.info.tags.create(
-  			$current_user.id,
   			formController.getProp('tag').value,
 				formController.getProp('lang').value,
 				formController.getProp('kind').value

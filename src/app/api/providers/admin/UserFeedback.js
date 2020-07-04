@@ -2,7 +2,7 @@ import {ApiResult} from "../../common/ApiResult";
 import {FeedbackModel} from "../common/models/FeedbackModel";
 import {dbAccessorAdmin} from "../../../firebase/admin";
 
-export const setUserFeedback = async (toUserId, fromUserId, vote, message) =>
+export const setUserFeedback = async (fromUserId, toUserId, vote, message) =>
 {
 	return await ApiResult.fromPromise(async () =>
 	{

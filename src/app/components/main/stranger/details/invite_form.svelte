@@ -31,9 +31,7 @@
 		{
 			await formController.validate();
 
-			const result = await ApiClient.stranger.invite(
-				$selected_stranger.id,
-				$current_user.id,
+			const result = await ApiClient.stranger($selected_stranger.id).invite(
 				formController.props["subject"].value
 			);
 

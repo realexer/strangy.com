@@ -1,5 +1,12 @@
 import {ApiResult} from "./common/ApiResult";
 import env from "../../env";
+import {auth_info} from "../stores/current_user";
+
+let idToken = null;
+auth_info.subscribe((authInfo) =>
+{
+	idToken = authInfo.idToken;
+});
 
 /**
  *
@@ -17,7 +24,8 @@ const perform = async (type, url, data = null) =>
 		const response = await fetch(`${env.api_url}/${url}`, {
 			method: type,
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'AuthToken': idToken
 			},
 			body: data
 		});
@@ -25,6 +33,7 @@ const perform = async (type, url, data = null) =>
 		result.setData(await response.json());
 
 	} catch (e) {
+		console.error(e);
 		result.setError(e.toString());
 	}
 

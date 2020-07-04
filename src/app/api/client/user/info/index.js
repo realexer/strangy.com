@@ -1,9 +1,17 @@
-import * as tags from './tags';
-import * as langs from './langs';
+import UserTagsApiClient from "./tags";
+import UserLangsApiClient from "./langs";
 
-const info = {
-	tags: tags,
-	langs: langs
-};
+class UserInfoApiClient
+{
+	static get tags()
+	{
+		return UserTagsApiClient;
+	}
 
-export default info;
+	static get langs()
+	{
+		return UserLangsApiClient;
+	}
+}
+
+export default UserInfoApiClient;

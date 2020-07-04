@@ -89,7 +89,7 @@ const processMessages = async (docs) =>
   {
   	console.log(`LastLoadedMessageAt is bigger than lastReadMessageAtForUser`);
 
-  	await ApiClient.chat.messages.processNew($active_chat.id, $current_user.id, lastLoadedMessageAt);
+  	await ApiClient.chat($active_chat.id).messages.processNew(lastLoadedMessageAt);
   }
 };
 

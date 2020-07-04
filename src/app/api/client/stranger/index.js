@@ -1,18 +1,29 @@
-import feedback from "./feedback";
 import ApiRequest from "../../ApiRequest";
+import StrangerFeedbackApiClient from "./feedback";
 
-const invite = async (stranger_id, user_id, subject) =>
+class StrangerApiClient
 {
-	return await ApiRequest.post(`stranger/${stranger_id}/invite`, {
-		from_user_id: user_id,
-		subject: subject
-	});
-};
+	constructor(strangerId)
+	{
+		this.strangerId = strangerId;
+	}
 
-const stranger = {
-	invite: invite,
-	feedback: feedback
-};
+	async invite(subject)
+	{
+		return await ApiRequest.post(`stranger/${this.strangerId}/invite`, {
+			subject: subject
+		});
+	}
+
+	/**
+	 *
+	 * @returns {StrangerFeedbackApiClient}
+	 */
+	get feedback()
+	{
+		return new StrangerFeedbackApiClient(this.strangerId);
+	}
+}
 
 
-export default stranger;
+export default StrangerApiClient;

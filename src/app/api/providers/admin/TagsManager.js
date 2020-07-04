@@ -1,6 +1,5 @@
 import {ApiResult} from "../../common/ApiResult";
-import {TagsCollection} from "../../../firebase/admin/collections";
-import {firebase_admin} from "../../../firebase/admin";
+import {dbAccessorAdmin} from "../../../firebase/admin";
 
 class TagsManager
 {
@@ -17,7 +16,7 @@ class TagsManager
 				created_at: new Date()
 			};
 
-			return await TagsCollection.add(tagObj).id;
+			return await dbAccessorAdmin.tags().add(tagObj).id;
 		});
 	};
 
@@ -25,8 +24,8 @@ class TagsManager
 	{
 		return await ApiResult.fromPromise(async () =>
 		{
-			return await TagsCollection.doc(tagId).update({
-				users_amount: firebase_admin.firestore.FieldValue.increment(1)
+			return await dbAccessorAdmin.tags().doc(tagId).update({
+				users_amount: dbAccessorAdmin.getFirebase().firestore.FieldValue.increment(1)
 			});
 		});
 	};
@@ -35,8 +34,8 @@ class TagsManager
 	{
 		return await ApiResult.fromPromise(async () =>
 		{
-			return await TagsCollection.doc(tagId).update({
-				users_amount: firebase_admin.firestore.FieldValue.increment(-1)
+			return await dbAccessorAdmin.tags().doc(tagId).update({
+				users_amount: dbAccessorAdmin.getFirebase().firestore.FieldValue.increment(-1)
 			});
 		});
 	};

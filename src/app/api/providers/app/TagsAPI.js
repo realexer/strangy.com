@@ -1,8 +1,10 @@
-import {TagsCollection} from "../../../firebase/app/collections";
+import {dbAccessorApp} from "../../../firebase/app";
 
-class TagsAPI {
-	static all(langs) {
-		let query = TagsCollection;
+class TagsAPI
+{
+	static all(langs)
+	{
+		let query = dbAccessorApp.tags();
 
 		if (langs.length > 0) {
 			query.where('lang', 'in', langs);

@@ -5,6 +5,7 @@ import 'firebase/firebase-functions'
 import { firebaseConfig } from '../../../_config/firebase'
 
 import env from '../../../env';
+import {DBAccessor} from "../common/collections";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -21,4 +22,6 @@ if(env.dev.use_emulators) {
 	firebase.functions().useFunctionsEmulator("http://localhost:5001")
 }
 
-export { firebase, Firestore, Auth, Functions }
+const dbAccessorApp = new DBAccessor(firebase, Firestore);
+
+export { Auth, Functions, dbAccessorApp}

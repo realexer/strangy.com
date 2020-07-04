@@ -1,17 +1,20 @@
 import {ApiResult} from "../../common/ApiResult";
-import {FeedbackCollection, Firestore, UsersCollection} from "../../../firebase/admin/collections";
 import {FeedbackModel} from "../common/models/FeedbackModel";
-import {firebase_admin} from "../../../firebase/admin";
+import {dbAccessorAdmin} from "../../../firebase/admin";
 
-export const setUserFeedback = async (toUserId, fromUserId, vote, message) => {
-	return await ApiResult.fromPromise(async () => {
-		const feedbackRef = FeedbackCollection.doc(`${toUserId}${fromUserId}`);
+export const setUserFeedback = async (toUserId, fromUserId, vote, message) =>
+{
+	return await ApiResult.fromPromise(async () =>
+	{
+		const feedbackRef = dbAccessorAdmin.feedback().doc(`${toUserId}${fromUserId}`);
 
-		return Firestore.runTransaction((transaction) => {
-			const userRef = UsersCollection.doc(toUserId);
+		return dbAccessorAdmin.getFirestore().runTransaction((transaction) => {
+			const userRef = dbAccessorAdmin.users().doc(toUserId);
 
-			return transaction.get(userRef).then((res) => {
-				return transaction.get(feedbackRef).then((feedbackRes) => {
+			return transaction.get(userRef).then((res) =>
+			{
+				return transaction.get(feedbackRef).then((feedbackRes) =>
+				{
 					const currentFeedback = FeedbackModel.fromDoc(feedbackRes);
 
 					let karmaIncrement = vote;
@@ -21,7 +24,7 @@ export const setUserFeedback = async (toUserId, fromUserId, vote, message) => {
 					}
 
 					transaction.update(userRef, {
-						karma: firebase_admin.firestore.FieldValue.increment(karmaIncrement)
+						karma: dbAccessorAdmin.getFirebase().firestore.FieldValue.increment(karmaIncrement)
 					});
 
 					const feedback = {

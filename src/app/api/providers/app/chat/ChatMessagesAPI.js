@@ -1,5 +1,5 @@
-import {getMessagesCollection} from "../../../../firebase/app/collections";
 import {Subscribable} from "../../../common/Subscribable";
+import {dbAccessorApp} from "../../../../firebase/app";
 
 class ChatMessagesAPI {
 	/**
@@ -16,7 +16,7 @@ class ChatMessagesAPI {
 	}
 
 	messages() {
-		let query = getMessagesCollection(this.chatId);
+		let query = dbAccessorApp.chatMessages(this.chatId);
 
 		query = query.orderBy('sent_at', 'desc');
 
@@ -29,8 +29,9 @@ class ChatMessagesAPI {
 		return subscribable;
 	};
 
-	subscribe(lastMessageAt, func) {
-		let query = getMessagesCollection(this.chatId);
+	subscribe(lastMessageAt, func)
+	{
+		let query = dbAccessorApp.chatMessages(this.chatId);
 
 		query = query.where('sent_at', '>', lastMessageAt);
 
@@ -38,7 +39,7 @@ class ChatMessagesAPI {
 	};
 
 	history() {
-		let query = getMessagesCollection(this.chatId);
+		let query = dbAccessorApp.chatMessages(this.chatId);
 
 		query = query.orderBy('sent_at', 'desc');
 

@@ -1,6 +1,6 @@
 import {ChatState, ChatStatus} from "../../common/chats";
 import {ApiResult} from "../../../common/ApiResult";
-import {ChatsCollection} from "../../../../firebase/admin/collections";
+import {dbAccessorAdmin} from "../../../../firebase/admin";
 
 class ChatsManager
 {
@@ -33,7 +33,7 @@ class ChatsManager
 		};
 
 		return await ApiResult.fromPromise(async () => {
-			const chatResult = await ChatsCollection.add(chat);
+			const chatResult = await dbAccessorAdmin.chats().add(chat);
 			return {chat_id: chatResult.id};
 		});
 	};

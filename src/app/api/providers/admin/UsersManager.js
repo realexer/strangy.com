@@ -1,5 +1,5 @@
-import {UsersCollection} from "../../../firebase/admin/collections";
 import {ApiResult} from "../../common/ApiResult";
+import {dbAccessorAdmin} from "../../../firebase/admin";
 
 class UsersManger
 {
@@ -27,7 +27,7 @@ class UsersManger
 
 		return await ApiResult.fromPromise(async () =>
 		{
-			return (await UsersCollection.doc(accountId).set()).id;
+			return (await dbAccessorAdmin.users().doc(accountId).set()).id;
 		});
 	};
 }

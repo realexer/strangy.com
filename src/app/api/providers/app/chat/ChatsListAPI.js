@@ -1,11 +1,11 @@
-import {ChatsCollection} from "../../../../firebase/app/collections";
 import {Subscribable} from "../../../common/Subscribable";
+import {dbAccessorApp} from "../../../../firebase/app";
 
 class ChatsListAPI
 {
 	static userChats(userId)
 	{
-		let query = ChatsCollection.where('participants', 'array-contains', userId);
+		let query = dbAccessorApp.chats().where('participants', 'array-contains', userId);
 
 		query.orderBy('last_message_at', "desc");
 
@@ -14,7 +14,7 @@ class ChatsListAPI
 
 	static chat(chatId)
 	{
-		let query = ChatsCollection.doc(chatId);
+		let query = dbAccessorApp.chats().doc(chatId);
 
 		return {
 			get: () => {

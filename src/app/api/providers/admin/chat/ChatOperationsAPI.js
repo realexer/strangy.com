@@ -1,7 +1,7 @@
 import {ApiResult} from "../../../common/ApiResult";
 import {ChatState, ChatStatus} from "../../common/chats";
 import {dbAccessorAdmin} from "../../../../firebase/admin";
-import {ChatModel} from "../../common/models/ChatModel";
+import {ChatModel} from "../../common/models/firebase/ChatModel";
 import {ChatsListAPI} from "../../app/chat/ChatsListAPI";
 
 class ChatOperationsAPI
@@ -12,7 +12,13 @@ class ChatOperationsAPI
 		this.byUserId = userId;
 	};
 
-	static instance(chatId, userId) {
+	validateAccess()
+	{
+
+	}
+
+	static instance(chatId, userId)
+	{
 		return new ChatOperationsAPI(chatId, userId);
 	}
 
@@ -64,7 +70,7 @@ class ChatOperationsAPI
 			sent_at: new Date()
 		};
 
-		const chat = ChatModel.fromDoc(await ChatsListAPI.chat(this.chatId).get());
+		const chat = (await ChatsListAPI.chat(this.chatId).get()).data();
 
 		const strangerIds = chat.users.allStrangers(this.byUserId);
 

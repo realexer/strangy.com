@@ -1,6 +1,6 @@
 <script>
   import {ChatsListAPI} from '../../../../api/providers/app/chat/ChatsListAPI'
-  import {ChatModel} from '../../../../api/providers/common/models/ChatModel'
+  import {ChatModel} from '../../../../api/providers/common/models/firebase/ChatModel'
 
   import {selected_stranger} from '../../../../stores/selected_strager';
   import {formatDate} from "../../../../../lib/Date";
@@ -15,7 +15,7 @@
       {
         results.forEach((doc) =>
         {
-          chats = [...chats, ChatModel.fromDoc(doc)];
+          chats = [...chats, doc.data()];
         });
       });
     }

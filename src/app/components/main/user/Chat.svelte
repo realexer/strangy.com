@@ -5,7 +5,7 @@ import {current_user} from '../../../stores/current_user'
 import {active_chat, active_chat_stranger} from '../../../stores/user/active_chat'
 
 import {UsersListAPI} from '../../../api/providers/app/Users'
-import {UserModel} from '../../../api/providers/common/models/UserModel'
+import {UserModel} from '../../../api/providers/common/models/firebase/UserModel'
 
 import MessageForm from './chat/message_form.svelte'
 import MessagesList from './chat/messages_list.svelte'
@@ -32,7 +32,7 @@ onMount(() =>
       {
         listenToStranger = UsersListAPI.byId(chat.users.stranger($current_user.id)).subscribe((doc) =>
         {
-          $active_chat_stranger = UserModel.fromDoc(doc);
+          $active_chat_stranger = doc.data();
         });
       }
     }

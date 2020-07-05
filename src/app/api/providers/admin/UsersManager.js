@@ -1,11 +1,12 @@
 import {ApiResult} from "../../common/ApiResult";
 import {dbAccessorAdmin} from "../../../firebase/admin";
+import {UserModel} from "../common/models/firebase/UserModel";
 
 class UsersManger
 {
 	static async create(accountId)
 	{
-		const user = {
+		const userData = {
 			info: {
 				langs: [],
 				tags: [],
@@ -27,7 +28,7 @@ class UsersManger
 
 		return await ApiResult.fromPromise(async () =>
 		{
-			return (await dbAccessorAdmin.users().doc(accountId).set(user)).id;
+			return (await dbAccessorAdmin.users().doc(accountId).set(new UserModel(userData))).id;
 		});
 	};
 }

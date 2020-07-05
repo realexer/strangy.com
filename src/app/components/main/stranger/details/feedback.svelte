@@ -1,7 +1,7 @@
 <script>
   import {onMount, onDestroy} from 'svelte'
   import {UserFeedbackAPI} from '../../../../api/providers/app/UserFeedback'
-  import {FeedbackModel} from '../../../../api/providers/common/models/FeedbackModel'
+  import {FeedbackModel} from '../../../../api/providers/common/models/firebase/FeedbackModel'
 
   import {selected_stranger} from '../../../../stores/selected_strager';
   import {UnsubscriberX} from "../../../../../lib/UnsubscriberX";
@@ -21,7 +21,7 @@
 				{
 					results.forEach((doc) =>
 					{
-						feedbackHistory = [...feedbackHistory, FeedbackModel.fromDoc(doc)];
+						feedbackHistory = [...feedbackHistory, doc.data()];
 					});
 				});
 			}

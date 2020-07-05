@@ -11,7 +11,7 @@ export async function preload(page, session)
 <script>
 import {onMount} from 'svelte';
 import {UsersListAPI} from '../../../app/api/providers/app/Users'
-import {UserModel} from '../../../app/api/providers/common/models/UserModel'
+import {UserModel} from '../../../app/api/providers/common/models/firebase/UserModel'
 import { selected_stranger } from '../../../app/stores/selected_strager.js'
 
 import Stranger from '../../../app/components/main/Stranger.svelte'
@@ -24,7 +24,7 @@ onMount(() =>
 	if($selected_stranger.id === undefined)
   {
   	UsersListAPI.byId(userId).get().then((doc) => {
-  		$selected_stranger = UserModel.fromDoc(doc);
+  		$selected_stranger = doc.data();
   	});
   }
 });

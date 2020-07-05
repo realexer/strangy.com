@@ -1,7 +1,7 @@
 import {ApiResult} from "../../common/ApiResult";
 import {Auth} from "../../../firebase/app";
 import {UsersListAPI} from "./Users";
-import {UserModel} from "../common/models/UserModel";
+import {UserModel} from "../common/models/firebase/UserModel";
 import {current_user, auth_info} from "../../../stores/current_user";
 import ApiClient from "../../client";
 
@@ -28,8 +28,7 @@ Auth.onAuthStateChanged(async () =>
 				{
 					if (doc.exists)
 					{
-						const user = UserModel.fromDoc(doc);
-						current_user.set(user);
+						current_user.set(doc.data());
 					}
 					else
 					{

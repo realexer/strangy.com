@@ -3,8 +3,8 @@
 import { onMount, onDestroy} from 'svelte';
 import { writable } from "svelte/store";
 import { ChatsListAPI} from '../../../../api/providers/app/chat/ChatsListAPI';
-import { ChatModel } from '../../../../api/providers/common/models/ChatModel'
-import { UserModel } from '../../../../api/providers/common/models/UserModel'
+import { ChatModel } from '../../../../api/providers/common/models/firebase/ChatModel'
+import { UserModel } from '../../../../api/providers/common/models/firebase/UserModel'
 
 import { current_user } from '../../../../stores/current_user';
 import { user_chats, user_chats_stranger } from '../../../../stores/user/chats';
@@ -92,8 +92,7 @@ onMount(() =>
 
           results.docs.forEach((doc) => {
 
-            const user = UserModel.fromDoc(doc);
-            chatStrangers[user.id] = user;
+            chatStrangers[doc.id] = doc.data();
           })
         });
       }
@@ -105,18 +104,9 @@ const loadChats = async () =>
 {
   ChatsListAPI.userChats($current_user.id).subscribe((result) =>
   {
-    const chats = [];
-
     const chatsPreparations = [];
 
-    result.docs.forEach((doc) =>
-    {
-      chats.push(ChatModel.fromDoc(doc));
-    });
-
-    Promise.all(chatsPreparations).then(() => {
-      user_chats.set(chats);
-    });
+    user_chats.set(result.docs.map(doc => doc.data()));
 
     //console.log(userChats);
   });

@@ -1,5 +1,6 @@
 import {Subscribable} from "../../../common/Subscribable";
 import {dbAccessorApp} from "../../../../firebase/app";
+import {ChatModel} from "../../common/models/firebase/ChatModel";
 
 class ChatsListAPI
 {

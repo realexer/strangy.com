@@ -1,19 +1,19 @@
-import {TagsListModel} from "../../../api/providers/common/models/TagsListModel";
-import {UserModel} from "../../../api/providers/common/models/UserModel";
+import {FilterTagsList} from "../../../api/providers/common/models/app/TagsFilter";
+import {UserModel} from "../../../api/providers/common/models/firebase/UserModel";
 
 class FilterData
 {
 	constructor()
 	{
 		this.users = [];
-		this.tags = new TagsListModel();
+		this.tags = new FilterTagsList();
 	}
 
 	putData(docs)
 	{
 		docs.forEach((doc) =>
 		{
-			const user = UserModel.fromDoc(doc);
+			const user = doc.data();
 			this.tags.addMultiple(user.tags.all);
 			this.users.push(user);
 		});

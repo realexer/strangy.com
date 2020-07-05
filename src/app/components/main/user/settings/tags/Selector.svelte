@@ -63,10 +63,7 @@ const loadTags = (forLangs) =>
   {
     result.docs.forEach((doc) =>
     {
-      const tag = doc.data();
-      tag.id = doc.id;
-
-      allTags = [...allTags, tag];
+      allTags = [...allTags, doc.data()];
     });
 
     filterTagsByLangs();

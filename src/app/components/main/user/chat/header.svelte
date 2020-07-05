@@ -8,7 +8,7 @@ import { notificationMessage } from '../../../../stores/notification_message.js'
 import { active_chat, active_chat_stranger } from '../../../../stores/user/active_chat'
 import { current_user } from '../../../../stores/current_user';
 
-import {FeedbackModel} from '../../../../api/providers/common/models/FeedbackModel'
+import {FeedbackModel} from '../../../../api/providers/common/models/firebase/FeedbackModel'
 
 import {lang_url} from '../../../general/link';
 import * as ApiRequest from "../../../../api/ApiRequest";
@@ -69,7 +69,7 @@ const unsubscribe = active_chat.subscribe((val) =>
     UserFeedbackAPI.instance($active_chat.users.stranger($current_user.id)).getVoteByUser($current_user.id).get()
     .then((doc) =>
     {
-      currentFeedback = FeedbackModel.fromDoc(doc);
+      currentFeedback = doc.data();
     });
   }
 });

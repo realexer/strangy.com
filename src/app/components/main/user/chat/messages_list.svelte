@@ -4,7 +4,7 @@ import {onMount, onDestroy} from 'svelte'
 import {ChatMessagesAPI} from '../../../../api/providers/app/chat/ChatMessagesAPI'
 import {active_chat} from '../../../../stores/user/active_chat'
 import {current_user} from '../../../../stores/current_user'
-import {ChatModel as chat} from "../../../../api/providers/common/models/ChatModel";
+import {ChatModel as chat} from "../../../../api/providers/common/models/firebase/ChatModel";
 import {UnsubscriberX} from "../../../../../lib/UnsubscriberX";
 import ApiClient from "../../../../api/client";
 

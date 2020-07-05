@@ -1,8 +1,8 @@
 <script>
 import {onMount} from 'svelte'
 import {UsersListAPI} from '../../../api/providers/app/Users';
-import {UserModel} from '../../../api/providers/common/models/UserModel';
-import {TagsListModel} from '../../../api/providers/common/models/TagsListModel';
+import {UserModel} from '../../../api/providers/common/models/firebase/UserModel';
+import {FilterTagsList} from '../../../api/providers/common/models/app/TagsFilter';
 import {FilterData} from './FilterData';
 
 import {selected_stranger} from '../../../stores/selected_strager';

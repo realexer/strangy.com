@@ -1,6 +1,6 @@
 import {ApiResult} from "../../common/ApiResult";
 import {dbAccessorAdmin} from "../../../firebase/admin";
-import {UserModel} from "../common/models/UserModel";
+import {UserModel} from "../common/models/firebase/UserModel";
 import {UsersListAPI} from "../app/Users";
 import {TagsManager} from "./TagsManager";
 
@@ -32,7 +32,7 @@ class UserOperationsAPI
 
 	async updateUserTags(tags)
 	{
-		const currentTagsIds = UserModel.fromDoc(await UsersListAPI.byId(this.userId).get()).tags.all.map(t => t.id);
+		const currentTagsIds = (await UsersListAPI.byId(this.userId).get()).data().tags.all.map(t => t.id);
 		const newTagsIds = tags.map(t => t.id);
 
 		const tagsToIncrement = newTagsIds.filter(id => currentTagsIds.includes(id) === false);

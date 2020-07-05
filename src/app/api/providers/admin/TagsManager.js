@@ -2,6 +2,7 @@ import {ApiResult} from "../../common/ApiResult";
 import {dbAccessorAdmin} from "../../../firebase/admin";
 import {isTagKindSupported, TagKind} from "../common/tags";
 import {isLangSupported} from "../../../lang";
+import {TagModel} from "../common/models/firebase/TagModel";
 
 const validateTag = (tag) =>
 {
@@ -36,7 +37,7 @@ class TagsManager
 				throw `Lang [${lang}] is not supported.`;
 			}
 
-			const tagObj = {
+			const tagData = {
 				tag: tag,
 				lang: lang,
 				kind: kind,
@@ -45,7 +46,7 @@ class TagsManager
 				created_at: new Date()
 			};
 
-			const result = await dbAccessorAdmin.tags().add(tagObj);
+			const result = await dbAccessorAdmin.tags().add(new TagModel(tagData));
 			return {
 				id: result.id,
 				tag: tag

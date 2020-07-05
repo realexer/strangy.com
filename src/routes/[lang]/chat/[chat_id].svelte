@@ -12,7 +12,7 @@ export async function preload(page, session)
 <script>
 import {onMount, onDestroy} from 'svelte';
 import {ChatsListAPI} from '../../../app/api/providers/app/chat/ChatsListAPI'
-import {ChatModel as ChatModel} from '../../../app/api/providers/common/models/ChatModel'
+import {ChatModel as ChatModel} from '../../../app/api/providers/common/models/firebase/ChatModel'
 import Chat from '../../../app/components/main/user/Chat.svelte'
 
 import { active_chat } from '../../../app/stores/user/active_chat';
@@ -26,7 +26,7 @@ let listenToChatChanges = (chatId) =>
 {
 	return ChatsListAPI.chat(chatId).listen((doc) =>
 	{
-		$active_chat = ChatModel.fromDoc(doc);
+		$active_chat = doc.data();
 	});
 };
 

@@ -1,29 +1,15 @@
-class UserModel {
-  constructor(userInfo) {
-    this.userData = userInfo || {};
+import {FirebaseConverter, FirebaseModel} from "./base/FirebaseModel";
+
+class UserModel extends FirebaseModel
+{
+  constructor(data = {}, id = null)
+  {
+    super(data, id);
   }
 
-  set userData(data) {
-    this._userData = Object.freeze(data);
-  }
-
-  get userData() {
-    return this._userData;
-  }
-
-  get id() {
-    return this.userData.id;
-  }
-
-  static fromDoc(doc) {
-    const userInfo = doc.data();
-    userInfo.id = doc.id;
-
-    return new UserModel(userInfo);
-  }
-
-  raw() {
-    return this.userData;
+  static getConverter()
+  {
+    return new FirebaseConverter((data, id) => new UserModel(data, id));
   }
 
   get langs()
@@ -32,7 +18,7 @@ class UserModel {
 
     return {
       get all() {
-        return user.userData.info.langs || [];
+        return user.data.info.langs || [];
       }
     }
   }
@@ -41,7 +27,7 @@ class UserModel {
     const user = this;
     return {
       get all() {
-        return user.userData.info.tags || [];
+        return user.data.info.tags || [];
       },
 
       get primary() {
@@ -83,11 +69,11 @@ class UserModel {
   }
 
   get karma() {
-    return this.userData.karma;
+    return this.data.karma;
   }
 
   get lastActiveAt() {
-    return this.userData.last_active_at.toDate();
+    return this.data.last_active_at.toDate();
   }
 }
 

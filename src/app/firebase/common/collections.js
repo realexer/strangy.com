@@ -1,3 +1,8 @@
+import {ChatModel} from "../../api/providers/common/models/firebase/ChatModel";
+import {FeedbackModel} from "../../api/providers/common/models/firebase/FeedbackModel";
+import {UserModel} from "../../api/providers/common/models/firebase/UserModel";
+import {TagModel} from "../../api/providers/common/models/firebase/TagModel";
+
 class DBAccessor
 {
 	/**
@@ -28,29 +33,24 @@ class DBAccessor
 	}
 
 	users() {
-		return this.Firestore.collection('user');
+		return this.Firestore.collection('user').withConverter(UserModel.getConverter());
 	}
 
 	chats() {
-		return this.Firestore.collection('chats')
+		return this.Firestore.collection('chats').withConverter(ChatModel.getConverter());
 	}
 
 	tags() {
-		return this.Firestore.collection('tags')
+		return this.Firestore.collection('tags').withConverter(TagModel.getConverter());
 	}
 
 	feedback() {
-		return this.Firestore.collection('feedback')
+		return this.Firestore.collection('feedback').withConverter(FeedbackModel.getConverter())
 	}
 
 	chatMessages(chatId)
 	{
 		return this.Firestore.collection(`chats/${chatId}/messages`);
-	}
-
-	userFeedback(userId)
-	{
-		return this.Firestore.collection(`user/${userId}/feedback`);
 	}
 }
 

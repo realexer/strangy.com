@@ -1,35 +1,19 @@
-import {UserModel} from './UserModel'
-import {ChatState} from "../chats";
-import {ChatStatus} from "../chats";
+import {ChatState} from "../../chats";
+import {ChatStatus} from "../../chats";
+import {FirebaseConverter, FirebaseModel} from "./base/FirebaseModel";
 
-class ChatModel
+class ChatModel extends FirebaseModel
 {
-  constructor(chatInfo) {
-    this.chatInfo = chatInfo;
+  constructor(data = {}, id = null) {
+    super(data, id);
   }
 
-  set chatInfo(chatInfo) {
-    this._chatInfo = Object.freeze(chatInfo);
-    this._participants = [];
-  }
-
-  get chatInfo() {
-    return this._chatInfo;
-  }
-
-  static fromDoc(doc) {
-    const chatInfo = doc.data();
-    chatInfo.id = doc.id;
-
-    return new ChatModel(chatInfo);
-  }
-
-  get id() {
-    return this.chatInfo.id;
+  static getConverter() {
+    return new FirebaseConverter((data, id) => new ChatModel(data, id))
   }
 
   get subject() {
-    return this.chatInfo.subject;
+    return this.data.subject;
   }
 
   get state()
@@ -38,17 +22,17 @@ class ChatModel
 
     return {
       get: () => {
-        return chat.chatInfo.state;
+        return chat.data.state;
       },
       isWaitingResponse: () => {
-        return chat.chatInfo.state === ChatState.INVITATION;
+        return chat.data.state === ChatState.INVITATION;
       },
       isResponded: () => {
         return !this.state.isWaitingResponse();
       },
       isInvitation: (forUserId) =>
       {
-        const isInvitation = chat.chatInfo.state === ChatState.INVITATION;
+        const isInvitation = chat.data.state === ChatState.INVITATION;
 
         return {
           get received() {
@@ -68,13 +52,13 @@ class ChatModel
 
     return {
       get: () => {
-        return chat.chatInfo.status;
+        return chat.data.status;
       },
       get isActive() {
-        return chat.chatInfo.status === ChatStatus.ACTIVE;
+        return chat.data.status === ChatStatus.ACTIVE;
       },
       get isClosed() {
-        return chat.chatInfo.status === ChatStatus.FINISHED;
+        return chat.data.status === ChatStatus.FINISHED;
       }
 
     };
@@ -83,7 +67,7 @@ class ChatModel
   get users()
   {
     const chat = this;
-    const participants = this._chatInfo.participants;
+    const participants = this.data.participants;
     return {
       get all() {
         return participants;
@@ -110,35 +94,32 @@ class ChatModel
     const chat = this;
     return {
       get startedAt() {
-        return chat._chatInfo.created_at.toDate();
+        return chat.data.created_at.toDate();
       },
       get finishedAt() {
-        return chat._chatInfo.finished_at.toDate();
+        return chat.data.finished_at.toDate();
       },
       get lastMessageAt() {
-        return chat._chatInfo.last_message_at.toDate();
+        return chat.data.last_message_at.toDate();
       }
     };
   }
 
   get lastMessageAt()
   {
-    return this._chatInfo.last_message_at;
+    return this.data.last_message_at;
   }
 
   getLastReadMessageAtForUser(userId)
   {
-    return ((this._chatInfo.last_read_message_at_by_user || {})[userId]) || 0;
+    return ((this.data.last_read_message_at_by_user || {})[userId]) || 0;
   }
 
   getNewMessagesAmountForUser(userId)
   {
-    return ((this._chatInfo.new_messages_amount_for_user || {})[userId]) || 0;
+    return ((this.data.new_messages_amount_for_user || {})[userId]) || 0;
   }
 
-  raw() {
-    return this.chatInfo;
-  }
 }
 
 export {ChatModel};

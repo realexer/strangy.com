@@ -1,11 +1,13 @@
 import {ChatState, ChatStatus} from "../../common/chats";
 import {ApiResult} from "../../../common/ApiResult";
 import {dbAccessorAdmin} from "../../../../firebase/admin";
+import {ChatModel} from "../../common/models/firebase/ChatModel";
 
 class ChatsManager
 {
-	static async invite(fromUserId, toUserId, subject) {
-		const chat = {
+	static async invite(fromUserId, toUserId, subject)
+	{
+		const chatData = {
 			subject: subject,
 			subject_by_user: {
 				[fromUserId]: '',
@@ -32,8 +34,9 @@ class ChatsManager
 			finished_by: null
 		};
 
-		return await ApiResult.fromPromise(async () => {
-			const chatResult = await dbAccessorAdmin.chats().add(chat);
+		return await ApiResult.fromPromise(async () =>
+		{
+			const chatResult = await dbAccessorAdmin.chats().add(new ChatModel(chatData));
 			return {chat_id: chatResult.id};
 		});
 	};

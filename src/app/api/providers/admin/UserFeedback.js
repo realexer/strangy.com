@@ -1,5 +1,5 @@
 import {ApiResult} from "../../common/ApiResult";
-import {FeedbackModel} from "../common/models/FeedbackModel";
+import {FeedbackModel} from "../common/models/firebase/FeedbackModel";
 import {dbAccessorAdmin} from "../../../firebase/admin";
 
 export const setUserFeedback = async (fromUserId, toUserId, vote, message) =>
@@ -13,9 +13,9 @@ export const setUserFeedback = async (fromUserId, toUserId, vote, message) =>
 
 			return transaction.get(userRef).then((res) =>
 			{
-				return transaction.get(feedbackRef).then((feedbackRes) =>
+				return transaction.get(feedbackRef).then((doc) =>
 				{
-					const currentFeedback = FeedbackModel.fromDoc(feedbackRes);
+					const currentFeedback = doc.data();
 
 					let karmaIncrement = vote;
 

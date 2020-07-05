@@ -78,7 +78,6 @@ const processMessages = async (docs) =>
   docs.forEach((doc) =>
   {
     const msg = doc.data();
-    msg.id = doc.id;
 
     if(loadedMessageIds.indexOf(msg.id) === -1) {
       pushMessage(msg);

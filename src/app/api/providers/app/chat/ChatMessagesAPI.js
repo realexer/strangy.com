@@ -15,7 +15,8 @@ class ChatMessagesAPI {
 		return new ChatMessagesAPI(chat);
 	}
 
-	messages() {
+	messages()
+	{
 		let query = dbAccessorApp.chatMessages(this.chatId);
 
 		query = query.orderBy('sent_at', 'desc');
@@ -27,23 +28,6 @@ class ChatMessagesAPI {
 		};
 
 		return subscribable;
-	};
-
-	subscribe(lastMessageAt, func)
-	{
-		let query = dbAccessorApp.chatMessages(this.chatId);
-
-		query = query.where('sent_at', '>', lastMessageAt);
-
-		query.onSnapshot(func);
-	};
-
-	history() {
-		let query = dbAccessorApp.chatMessages(this.chatId);
-
-		query = query.orderBy('sent_at', 'desc');
-
-		return query;
 	};
 }
 

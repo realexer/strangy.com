@@ -80,11 +80,17 @@ class ApiResult
 
 	static async fromPromise(func)
 	{
-		const result = new ApiResult();
+		let result = new ApiResult();
 
 		try {
-			const promiseResult = await func();
-			result.setSuccess(promiseResult);
+			const promiseResult = await func(result);
+
+			if(promiseResult instanceof ApiResult) {
+				result = promiseResult;
+			} else {
+				result.setSuccess(promiseResult);
+			}
+
 		} catch (error) {
 			console.error(error);
 			result.setError(error.toString());

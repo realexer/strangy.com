@@ -2,6 +2,7 @@ import {ChatModel} from "../../api/providers/common/models/firebase/ChatModel";
 import {FeedbackModel} from "../../api/providers/common/models/firebase/FeedbackModel";
 import {UserModel} from "../../api/providers/common/models/firebase/UserModel";
 import {TagModel} from "../../api/providers/common/models/firebase/TagModel";
+import {ChatMessageModel} from "../../api/providers/common/models/firebase/ChatMessageModel";
 
 class DBAccessor
 {
@@ -50,7 +51,7 @@ class DBAccessor
 
 	chatMessages(chatId)
 	{
-		return this.Firestore.collection(`chats/${chatId}/messages`);
+		return this.Firestore.collection(`chats/${chatId}/messages`).withConverter(ChatMessageModel.getConverter());
 	}
 }
 

@@ -3,6 +3,7 @@ import {ChatState, ChatStatus} from "../../common/chats";
 import {dbAccessorAdmin} from "../../../../firebase/admin";
 import {ChatModel} from "../../common/models/firebase/ChatModel";
 import {ChatsListAPI} from "../../app/chat/ChatsListAPI";
+import {ChatMessageModel} from "../../common/models/firebase/ChatMessageModel";
 
 class ChatOperationsAPI
 {
@@ -10,11 +11,26 @@ class ChatOperationsAPI
 	{
 		this.chatId = chatId;
 		this.byUserId = userId;
+
 	};
 
-	validateAccess()
+	async performOperations(func)
 	{
+		return await ApiResult.fromPromise(async () =>
+		{
+			/**
+			 * @type {ChatModel}
+			 */
+			const chat = (await ChatsListAPI.chat(this.chatId).get()).data();
 
+			if(chat.users.hasParticipant(this.byUserId))
+			{
+				return await func(chat);
+
+			} else {
+				throw 'No access.'
+			}
+		});
 	}
 
 	static instance(chatId, userId)
@@ -24,7 +40,7 @@ class ChatOperationsAPI
 
 	async accept()
 	{
-		return await ApiResult.fromPromise(async () => {
+		return await this.performOperations(async () => {
 			return await dbAccessorAdmin.chats().doc(this.chatId).update({
 				state: ChatState.ACCEPTED
 			});
@@ -33,7 +49,7 @@ class ChatOperationsAPI
 
 	async decline()
 	{
-		return await ApiResult.fromPromise(async () => {
+		return await this.performOperations(async () => {
 			return await dbAccessorAdmin.chats().doc(this.chatId).update({
 				state: ChatState.DECLINED
 			})
@@ -42,7 +58,7 @@ class ChatOperationsAPI
 
 	async cancel()
 	{
-		return await ApiResult.fromPromise(async () => {
+		return await this.performOperations(async () => {
 			return await dbAccessorAdmin.chats().doc(this.chatId).update({
 				state: ChatState.CANCELED
 			});
@@ -51,7 +67,7 @@ class ChatOperationsAPI
 
 	async finish()
 	{
-		return await ApiResult.fromPromise(async () =>
+		return await this.performOperations(async () =>
 		{
 			return await dbAccessorAdmin.chats().doc(this.chatId).update({
 				status: ChatStatus.FINISHED,
@@ -63,27 +79,28 @@ class ChatOperationsAPI
 
 	async sendMessage(text)
 	{
-		const message = {
+		const messageData = {
 			from_user_id: this.byUserId,
 			text: text,
 			read_by: [],
 			sent_at: new Date()
 		};
 
-		const chat = (await ChatsListAPI.chat(this.chatId).get()).data();
+		return await this.performOperations(async (chat) =>
+		{
+			const strangerIds = chat.users.allStrangers(this.byUserId);
 
-		const strangerIds = chat.users.allStrangers(this.byUserId);
-
-		return ApiResult.fromMultiple(
-			await ApiResult.fromPromise(async () => (await dbAccessorAdmin.chatMessages(this.chatId).add(message)).id),
-			await ApiResult.fromPromise(async () => await this.updateLastMessageAt()),
-			await ApiResult.fromPromise(async () => await this.addNewMessagesAmountForUsers(strangerIds, 1))
-		);
+			return ApiResult.fromMultiple(
+				await ApiResult.fromPromise(async () => (await dbAccessorAdmin.chatMessages(this.chatId).add(new ChatMessageModel(messageData))).id),
+				await ApiResult.fromPromise(async () => await this.updateLastMessageAt()),
+				await ApiResult.fromPromise(async () => await this.addNewMessagesAmountForUsers(strangerIds, 1))
+			);
+		});
 	}
 
 	async updateLastMessageAt()
 	{
-		return await ApiResult.fromPromise(async () =>
+		return await this.performOperations(async () =>
 		{
 			return await dbAccessorAdmin.chats().doc(this.chatId).update({
 				last_message_at: new Date()
@@ -93,7 +110,7 @@ class ChatOperationsAPI
 
 	async setLastReadMessageAtByUser(messageId)
 	{
-		return await ApiResult.fromPromise(async () =>
+		return await this.performOperations(async () =>
 		{
 			return await dbAccessorAdmin.chats().doc(this.chatId).update({
 
@@ -104,7 +121,7 @@ class ChatOperationsAPI
 
 	async addNewMessagesAmountForUsers(userIdsList, amount)
 	{
-		return await ApiResult.fromPromise(async () =>
+		return await this.performOperations(async () =>
 		{
 			const updatingData = {};
 
@@ -118,7 +135,7 @@ class ChatOperationsAPI
 
 	async resetNewMessagesAmountForUser()
 	{
-		return await ApiResult.fromPromise(async () =>
+		return await this.performOperations(async () =>
 		{
 			return await dbAccessorAdmin.chats().doc(this.chatId).update({
 

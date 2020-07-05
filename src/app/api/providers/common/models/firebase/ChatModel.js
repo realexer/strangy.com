@@ -64,6 +64,10 @@ class ChatModel extends FirebaseModel
     };
   }
 
+  /**
+   *
+   * @returns {*}
+   */
   get users()
   {
     const chat = this;
@@ -86,6 +90,9 @@ class ChatModel extends FirebaseModel
           return userId !== toUserId;
         });
       },
+      hasParticipant(userId) {
+        return participants.includes(userId);
+      }
     };
   }
 

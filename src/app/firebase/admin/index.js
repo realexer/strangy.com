@@ -2,7 +2,6 @@ import firebase_admin from 'firebase-admin'
 import 'firebase/firebase-firestore'
 import 'firebase/firebase-auth'
 import 'firebase/firebase-functions'
-import { firebaseConfig } from '../../../_config/firebase'
 
 import env from '../../../env';
 

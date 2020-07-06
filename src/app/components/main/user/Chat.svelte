@@ -9,46 +9,26 @@ import {UserModel} from '../../../api/providers/common/models/firebase/UserModel
 
 import MessageForm from './chat/message_form.svelte'
 import MessagesList from './chat/messages_list.svelte'
-import Header from './chat/header.svelte'
+import Header from './chat/header.svelte';
+import {UnsubscriberX} from "../../../../lib/UnsubscriberX";
 
 export let chat = null;
-let unsubscribe = null;
+
+let unsubscribe = new UnsubscriberX(onDestroy);
 let listenToStranger = null;
 
-onMount(() =>
+$: if($active_chat.id && $current_user.id)
 {
-  unsubscribe = active_chat.subscribe((activeChat) =>
-  {
-    if(activeChat && activeChat.id)
-    {
-      if(listenToStranger !== null && chat.id !== activeChat.id) {
-        listenToStranger();
-        listenToStranger = null;
-      }
-
-      chat = activeChat;
-
-      if(listenToStranger === null)
-      {
-        listenToStranger = UsersListAPI.byId(chat.users.stranger($current_user.id)).subscribe((doc) =>
-        {
-          $active_chat_stranger = doc.data();
-        });
-      }
-    }
-  });
-});
-
-onDestroy(() =>
-{
-	if(unsubscribe) {
-		unsubscribe();
+	if(unsubscribe.getIdByName('ActiveChatSranger') !== $active_chat.id) {
+		unsubscribe.stop('ActiveChatSranger');
 	}
 
-	if(listenToStranger) {
-		listenToStranger();
-	}
-})
+	unsubscribe.addSingle(UsersListAPI.byId(chat.users.stranger($current_user.id)).subscribe((doc) =>
+	{
+		$active_chat_stranger = doc.data();
+	}), 'ActiveChatSranger', $active_chat.id)
+
+}
 
 </script>
 

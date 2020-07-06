@@ -32,9 +32,9 @@ export class DataInputList extends DataInput
 	 * @param {Array} values
 	 * @param {DataValidator} validators
 	 */
-	constructor(values)
+	constructor(values, validators)
 	{
-		super(values);
+		super(values, validators);
 	}
 
 	filterValue(value)
@@ -48,6 +48,8 @@ export class DataInputList extends DataInput
 
 	validated()
 	{
+		super.validated();
+
 		const values = [];
 		for (let key in this.value) {
 			values[key] = this.value[key].validated();

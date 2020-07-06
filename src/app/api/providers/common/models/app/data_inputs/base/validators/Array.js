@@ -1,6 +1,6 @@
 import {DataValidator} from "../DataInput";
 
-export class StringMinLength extends DataValidator
+export class ArrayMinLength extends DataValidator
 {
 	constructor(length) {
 		super();
@@ -11,12 +11,12 @@ export class StringMinLength extends DataValidator
 	validate(value)
 	{
 		if(value.length < this.length) {
-			throw `Should be at least ${this.length} characters long.`
+			throw `Should be at least ${this.length} items.`
 		}
 	}
 }
 
-export class StringMaxLength extends DataValidator
+export class ArrayMaxLength extends DataValidator
 {
 	constructor(length) {
 		super();
@@ -27,7 +27,7 @@ export class StringMaxLength extends DataValidator
 	validate(value)
 	{
 		if(value.length > this.length) {
-			throw `Should be no more than ${this.length} characters long.`;
+			throw `Should be no more than ${this.length} items.`;
 		}
 	}
 }

@@ -1,6 +1,8 @@
 import {ApiResult} from "../../common/ApiResult";
 import {FeedbackModel} from "../common/models/firebase/FeedbackModel";
 import {dbAccessorAdmin} from "../../../firebase/admin";
+import {FeedbackVoteObjectInput} from "../common/models/app/data_inputs/base/inputs/feedback/FeedbackVoteObjectInput";
+import {UserFeedbackAPI} from "../app/UserFeedback";
 
 export const setUserFeedback = async (fromUserId, toUserId, vote, message) =>
 {
@@ -8,36 +10,39 @@ export const setUserFeedback = async (fromUserId, toUserId, vote, message) =>
 	{
 		const feedbackRef = dbAccessorAdmin.feedback().doc(`${toUserId}${fromUserId}`);
 
-		return dbAccessorAdmin.getFirestore().runTransaction((transaction) => {
-			const userRef = dbAccessorAdmin.users().doc(toUserId);
+		return dbAccessorAdmin.getFirestore().runTransaction(async (transaction) =>
+		{
+			const userRef = await dbAccessorAdmin.users().doc(toUserId).get();
 
-			return transaction.get(userRef).then((res) =>
-			{
-				return transaction.get(feedbackRef).then((doc) =>
-				{
-					const currentFeedback = doc.data();
+			if(!userRef.exists)
+				throw 'User not found';
 
-					let karmaIncrement = vote;
+			const currentFeedback =
+				(await UserFeedbackAPI.instance(toUserId).getVoteByUser(fromUserId).get()).data()
+				|| new FeedbackModel();
 
-					if (currentFeedback.vote === vote) {
-						karmaIncrement = -vote;
-					}
+				//const currentFeedback = doc.data();
 
-					transaction.update(userRef, {
-						karma: dbAccessorAdmin.getFirebase().firestore.FieldValue.increment(karmaIncrement)
-					});
+				const feedback = new FeedbackVoteObjectInput({
+					to_user_id: toUserId,
+					from_user_id: fromUserId,
+					vote: vote,
+					message: message,
+					set_at: new Date()
+				}).validated();
 
-					const feedback = {
-						to_user_id: toUserId,
-						from_user_id: fromUserId,
-						vote: vote,
-						message: message,
-						set_at: new Date()
-					};
 
-					transaction.set(feedbackRef, feedback);
+				let karmaIncrement = vote;
+
+				if (currentFeedback.vote === vote && vote > 0) {
+					karmaIncrement = -1;
+				}
+
+				transaction.update(userRef.ref, {
+					karma: dbAccessorAdmin.getFirebase().firestore.FieldValue.increment(karmaIncrement)
 				});
-			});
+
+				transaction.set(feedbackRef, new FeedbackModel(feedback));
 		});
 	});
 };

@@ -12,6 +12,19 @@ class TagsAPI
 
 		return query.orderBy('users_amount', "desc");
 	};
+
+	static findTag(tag, lang, kind)
+	{
+		return dbAccessorApp.tags()
+			.where('tag', '==', tag)
+			.where('lang', '==', lang)
+			.where('kind', '==', kind);
+	}
+
+	static async getTagById(id)
+	{
+		return await dbAccessorApp.tags().doc(id).get();
+	}
 }
 
 export {TagsAPI};

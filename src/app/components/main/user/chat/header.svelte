@@ -1,5 +1,7 @@
 <script>
 
+import {onMount, onDestroy} from 'svelte';
+import {writable} from 'svelte/store';
 import Textarea from '../../../../../lib/ui/components/forms/textarea.svelte'
 import FormButtons from '../../../../../lib/ui/components/forms/buttons.svelte'
 import { FormController } from '../../../../../lib/ui/FormController'
@@ -14,11 +16,14 @@ import {lang_url} from '../../../general/link';
 import * as ApiRequest from "../../../../api/ApiRequest";
 import ApiClient from "../../../../api/client";
 import {UserFeedbackAPI} from "../../../../api/providers/app/UserFeedback";
+import {UnsubscriberX} from "../../../../../lib/UnsubscriberX";
 
+
+const unsubscribe = new UnsubscriberX(onDestroy);
 
 let optionsOpen = false;
 let feedbackOpen = false;
-let currentFeedback = new FeedbackModel();
+let currentFeedback = writable(new FeedbackModel());
 
 let formController = new FormController({
   message: {
@@ -35,7 +40,7 @@ formController.addProp("message");
 const setVote = async (value) =>
 {
 	feedbackOpen = true;
-  currentFeedback.vote = value;
+  $currentFeedback.vote = value;
 
   await submitFeedback();
 };
@@ -45,15 +50,15 @@ const addMessage = async () =>
 	feedbackOpen = false;
 
 	await formController.validate();
-	currentFeedback.message = formController.props["message"].value;
+	$currentFeedback.message = formController.props["message"].value;
   await submitFeedback();
 };
 
 const submitFeedback = async () =>
 {
 	const result = await ApiClient.stranger($active_chat_stranger.id).feedback.set(
-		currentFeedback.vote,
-		currentFeedback.message);
+		$currentFeedback.vote,
+		$currentFeedback.message);
 
 	if(result.isSuccess()) {
 		notificationMessage.set({ message: 'Feedback submitted', type: 'success-toast' });
@@ -62,17 +67,17 @@ const submitFeedback = async () =>
 	}
 };
 
-const unsubscribe = active_chat.subscribe((val) =>
-{
-  if(val && val.id)
-  {
-    UserFeedbackAPI.instance($active_chat.users.stranger($current_user.id)).getVoteByUser($current_user.id).get()
-    .then((doc) =>
-    {
-      currentFeedback = doc.data();
-    });
-  }
-});
+$: if($current_user.id && $active_chat.id) {
+
+	unsubscribe.addSingle(
+		UserFeedbackAPI.instance($active_chat.users.stranger($current_user.id)).getVoteByUser($current_user.id).subscribe((doc) =>
+		{
+			$currentFeedback = doc.data() || new FeedbackModel();
+			formController.props['message'].value = $currentFeedback.message;
+		})
+		, 'UserVote');
+}
+
 
 const ChatOperations =
 {

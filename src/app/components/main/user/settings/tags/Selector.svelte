@@ -17,20 +17,19 @@ let tags = [];
 
 onMount(() =>
 {
-	unsubscribe = current_user.subscribe(() =>
+	unsubscribe = current_user.subscribe(async () =>
   {
     if($current_user.id) {
       $userTags = $current_user.tags.all;
       $userLangs = $current_user.langs.all;
 
-      loadTags($userLangs).then(() =>
-      {
-      	userLangs.subscribe(() =>
-				{
-					saveUserLangs();
-					filterTagsByLangs();
-				});
-      });
+      await loadTags($userLangs);
+
+			userLangs.subscribe(() =>
+			{
+				saveUserLangs();
+				filterTagsByLangs();
+			});
     }
   });
 });
@@ -57,17 +56,16 @@ const userHasLang = (lang) =>
 	return $userLangs.indexOf(lang) !== -1;
 };
 
-const loadTags = (forLangs) =>
+const loadTags = async (forLangs) =>
 {
-  return TagsAPI.all(forLangs).get().then((result) =>
-  {
-    result.docs.forEach((doc) =>
-    {
-      allTags = [...allTags, doc.data()];
-    });
+	const result = await TagsAPI.all(forLangs).get();
 
-    filterTagsByLangs();
-  });
+	result.docs.forEach((doc) =>
+	{
+		allTags = [...allTags, doc.data()];
+	});
+
+	filterTagsByLangs();
 };
 
 const filterTagsByLangs = () =>
@@ -93,7 +91,7 @@ const removeUserTag = (tag) =>
 
 const saveUserTags = async () =>
 {
-	return await ApiClient.user.info.tags.save($userTags);
+	return await ApiClient.user.info.tags.save($userTags.map(t => t.toPlainObject()));
 };
 
 </script>

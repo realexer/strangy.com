@@ -1,12 +1,12 @@
 import {ApiResult} from "../../common/ApiResult";
 import {dbAccessorAdmin} from "../../../firebase/admin";
-import {isTagKindSupported, TagKind} from "../common/tags";
-import {isLangSupported} from "../../../lang";
 import {TagModel} from "../common/models/firebase/TagModel";
 import {TagInput} from "../common/models/app/data_inputs/base/inputs/tag/TagInput";
 import {LangInput} from "../common/models/app/data_inputs/base/inputs/lang/LangInput";
 import {TagKindInput} from "../common/models/app/data_inputs/base/inputs/tag/TagKindInput";
 import {DataInputCombined} from "../common/models/app/data_inputs/base/DataInput";
+import {TagsAPI} from "../app/TagsAPI";
+import {TagObjectInput} from "../common/models/app/data_inputs/base/inputs/tag/TagObjectInput";
 
 class TagsManager
 {
@@ -14,17 +14,24 @@ class TagsManager
 	{
 		return await ApiResult.fromPromise(async () =>
 		{
-			const tagData = {
-				tag: new TagInput(tag),
-				lang: new LangInput(lang),
-				kind: new TagKindInput(kind),
+			const tagData = new TagObjectInput({
+				tag: tag,
+				lang: lang,
+				kind: kind,
 				creator_id: creatorId,
 				users_amount: 1,
 				created_at: new Date()
-			};
+			}).validated();
 
-			const result = await dbAccessorAdmin.tags().add(new TagModel(new DataInputCombined(tagData).validated()));
-			return new TagModel(tagData, result.id).toPlainObject();
+			const existingTag = await TagsAPI.findTag(tagData.tag, tagData.lang, tagData.kind).get();
+
+			if(existingTag.docs.length > 0) {
+				return existingTag.docs[0].data().toPlainObject();
+			}
+
+			const result = await dbAccessorAdmin.tags().add(new TagModel(tagData));
+
+			return (await TagsAPI.getTagById(result.id)).data().toPlainObject();
 		});
 	};
 

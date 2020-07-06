@@ -26,7 +26,7 @@ class FirebaseModel
 		return this;
 	}
 
-	toJSON(instance)
+	toPlainObject(instance)
 	{
 		let jsonObj = {};
 
@@ -57,11 +57,22 @@ class FirebaseConverter
 		this.modelConstructor = modelConstructor;
 	}
 
+	/**
+	 *
+	 * @param {FirebaseModel} instance
+	 * @returns {*}
+	 */
 	toFirestore(instance)
 	{
-		return instance.toJSON();
+		return instance.toPlainObject();
 	};
 
+	/**
+	 *
+	 * @param snapshot
+	 * @param options
+	 * @returns {FirebaseModel}
+	 */
 	fromFirestore(snapshot, options)
 	{
 		const data = snapshot.data(options);

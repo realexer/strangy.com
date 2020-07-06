@@ -3,6 +3,7 @@ import {dbAccessorAdmin} from "../../../firebase/admin";
 import {UserModel} from "../common/models/firebase/UserModel";
 import {UsersListAPI} from "../app/Users";
 import {TagsManager} from "./TagsManager";
+import {LangsListInput} from "../common/models/app/data_inputs/base/inputs/lang/LangsListInput";
 
 class UserOperationsAPI
 {
@@ -20,12 +21,8 @@ class UserOperationsAPI
 	{
 		return await ApiResult.fromPromise(async () =>
 		{
-			if (Array.isArray(langs) === false) {
-				throw 'Langs should be an array.';
-			}
-
 			return await dbAccessorAdmin.users().doc(this.userId).update({
-				"info.langs": langs
+				"info.langs": new LangsListInput(langs).validated()
 			});
 		});
 	}

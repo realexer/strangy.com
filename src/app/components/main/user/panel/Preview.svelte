@@ -16,7 +16,7 @@
     <div class="collapsible-body">
       <ul class="collection">
         <li><a href="{lang_url('my/settings')}"><i class="material-icons">settings</i>settings</a></li>
-        <li><a href="{lang_url('logout')}"><i class="material-icons">logout</i>logout</a></li>
+        <li><a href="{lang_url('my/logout')}"><i class="material-icons">logout</i>logout</a></li>
       </ul>
     </div>
   </li>

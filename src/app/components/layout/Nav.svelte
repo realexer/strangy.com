@@ -14,23 +14,7 @@
 
 	export let lang;
 
-	let dropdown;
-
-	$: if(dropdown) {
-		M.Dropdown.init(dropdown, {});
-	}
-
-	const changeLang = (lang) =>
-	{
-		// TODO: save selected lang in session
-		document.location = `/${lang}/`;
-	};
-
 	let sidenav = null;
-	const themesList = {
-		default: 'theme-default',
-		night: 'dark'
-	};
 
 	let theme = 'theme-default';
 
@@ -59,20 +43,6 @@
 		});
 	});
 
-	const setTheme = (value) => {
-		theme = value;
-
-		for(let key in themesList) {
-			document.body.classList.remove(themesList[key]);
-		}
-
-		document.body.classList.add(theme);
-	};
-
-	const switchTheme = () =>
-	{
-		setTheme(theme === themesList.default ? themesList.night : themesList.default);
-	};
 
 </script>
 
@@ -85,24 +55,18 @@
 			<li class:active="{$page.path == `/${lang}/involve`}"><a href='/{lang}/involve'><Lang key="components.nav.links.involve"/></a></li>
 		</ul>
 		<ul class="right show-on-large">
-			<li>
-				<a class="dropdown-trigger" bind:this="{dropdown}" href="#!" data-target="langs_selector">
-					{langs[lang].lang}
-					<i class="material-icons right">arrow_drop_down</i>
-				</a>
-			</li>
+
 			{#if env.dev.app_preview}
-				<li class="" on:click="{ () => {switchTheme();}}">
-					{#if (theme == 'theme-default')}
-					<i class="material-icons">brightness_3</i>
-					{:else}
-					<i class="material-icons">wb_sunny</i>
-					{/if}
-				</li>
 				<li class="sidenav-close hide-on-med-and-down" on:click="{ () => {sidenav.close()}}">
 					<i class="material-icons">close</i>
 				</li>
 				{#if $current_user.id}
+				<li class="show-on-large">
+					<a href="/{lang}/my/feedback" class="">
+						<i class="material-icons left tiny" data-icon="favorite"></i>
+						{$current_user.karma}
+					</a>
+				</li>
 				<li data-target="user-side-menu" class="sidenav-trigger show-on-large">
 					<a href="#!">
 						{#if (($new_messages.amount + $new_invitations.amount) > 0) }

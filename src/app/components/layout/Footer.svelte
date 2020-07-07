@@ -21,7 +21,7 @@ export let lang;
 				<h5>Other languages</h5>
 				{#each Object.keys(langs) as l}
 					{#if l != lang}
-					<p><a href="/{lang}/" on:click|preventDefault="{() => {changeLang(lang);}}">{langs[l].lang}</a></p>
+					<p><a href="/{lang}/">{langs[l].lang}</a></p>
 					{/if}
 				{/each}
 			</div>

@@ -23,10 +23,12 @@ $: if($active_chat.id && $current_user.id)
 		unsubscribe.stop('ActiveChatSranger');
 	}
 
-	unsubscribe.addSingle(UsersListAPI.byId(chat.users.stranger($current_user.id)).subscribe((doc) =>
-	{
-		$active_chat_stranger = doc.data();
-	}), 'ActiveChatSranger', $active_chat.id)
+	unsubscribe.addSingle(() => {
+		return UsersListAPI.byId(chat.users.stranger($current_user.id)).subscribe((doc) =>
+		{
+			$active_chat_stranger = doc.data();
+		})
+	}, 'ActiveChatSranger', $active_chat.id);
 
 }
 

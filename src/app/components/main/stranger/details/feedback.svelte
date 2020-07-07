@@ -37,13 +37,11 @@
 
 <div class="">
 	{#each feedbackHistory as feedback}
-	<div class="row">
-		<div class="col s12">
-			<div class="card-panel">
-				<p class="flow-text">{feedback.message ? feedback.message : feedback.vote}</p>
-			</div>
-			<p>{formatDate(feedback.setAt)}</p>
+	<div class="">
+		<div class="card-panel">
+			<div class="flow-text">{feedback.message ? feedback.message : feedback.vote}</div>
 		</div>
+		<p>{formatDate(feedback.setAt)}</p>
 	</div>
 	{:else}
 	<p class="flow-text center-align">No feedback yet</p>

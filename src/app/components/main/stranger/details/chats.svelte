@@ -25,14 +25,16 @@
 
 <div class="">
 	{#each chats as chat}
-	<div class="row card-panel">
-		<div class="col s8">
-			<p class="flow-text">{chat.subject}</p>
-			<p>{chat.status.get()}, {chat.state.get()}</p>
-			<p>{formatDate(chat.date.startedAt)}</p>
-		</div>
-		<div class="col s4">
-			<p class="flow-text">1 msg/s</p>
+	<div class="card-panel">
+		<div class="row no-margin">
+			<div class="col s8">
+				<div class="flow-text">{chat.subject}</div>
+				<p>{chat.status.get()}, {chat.state.get()}</p>
+				<p>{formatDate(chat.date.startedAt)}</p>
+			</div>
+			<div class="col s4 right-align">
+				<div class="">{chat.messagesAmount} msg/s</div>
+			</div>
 		</div>
 	</div>
 	{:else}

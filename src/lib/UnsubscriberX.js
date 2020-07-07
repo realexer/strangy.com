@@ -27,7 +27,7 @@ class UnsubscriberX
 		if(name && this.getByName(name))
 			return;
 
-		this.addNamed(callable, name, id);
+		this.addNamed(callable(), name, id);
 	}
 
 	getByName(name)

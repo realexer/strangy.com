@@ -93,6 +93,7 @@ class ChatOperationsAPI
 			return ApiResult.fromMultiple(
 				await ApiResult.fromPromise(async () => (await dbAccessorAdmin.chatMessages(this.chatId).add(new ChatMessageModel(messageData))).id),
 				await ApiResult.fromPromise(async () => await this.updateLastMessageAt()),
+				await ApiResult.fromPromise(async () => await this.increaseMessagesAmount()),
 				await ApiResult.fromPromise(async () => await this.addNewMessagesAmountForUsers(strangerIds, 1))
 			);
 		});
@@ -104,6 +105,16 @@ class ChatOperationsAPI
 		{
 			return await dbAccessorAdmin.chats().doc(this.chatId).update({
 				last_message_at: new Date()
+			});
+		});
+	};
+
+	async increaseMessagesAmount()
+	{
+		return await this.performOperations(async () =>
+		{
+			return await dbAccessorAdmin.chats().doc(this.chatId).update({
+				messages_amount: dbAccessorAdmin.getFirebase().firestore.FieldValue.increment(1)
 			});
 		});
 	};

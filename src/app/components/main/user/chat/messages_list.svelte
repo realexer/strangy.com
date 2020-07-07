@@ -8,7 +8,7 @@ import {ChatModel as chat} from "../../../../api/providers/common/models/firebas
 import {UnsubscriberX} from "../../../../../lib/UnsubscriberX";
 import ApiClient from "../../../../api/client";
 
-let unsubscribes = new UnsubscriberX();
+let unsubscribes = new UnsubscriberX(onDestroy);
 
 let currentChatId = null;
 
@@ -28,9 +28,9 @@ const reset = () =>
   unsubscribes.stop('messages');
 };
 
-const loadMessages = (chat) =>
+const loadMessages = (chatId) =>
 {
-  return ChatMessagesAPI.instance(chat).messages().get()
+  return ChatMessagesAPI.instance(chatId).messages().get(2)
   .then((result) =>
   {
     messages = [];
@@ -62,9 +62,9 @@ const pushMessage = (msg) =>
 *
 * @param {ChatModel} chat
 */
-const listenToMessages = (chat) =>
+const listenToMessages = (chatId) =>
 {
-  return ChatMessagesAPI.instance(chat).messages().subscribe({
+  return ChatMessagesAPI.instance(chatId).messages().subscribe({
     args: [subscribeToNewMessagesAfter],
     func: (result) =>
     {
@@ -102,19 +102,14 @@ onMount(() =>
   	{
   		reset();
 
-  		loadMessages($active_chat).then(() =>
+  		loadMessages($active_chat.id).then(() =>
   		{
-  			unsubscribes.addNamed(listenToMessages($active_chat), 'messages');
+  			unsubscribes.addNamed(listenToMessages($active_chat.id), 'messages');
   		});
   	}
 
   	currentChatId = $active_chat.id;
   });
-});
-
-onDestroy(() =>
-{
-	unsubscribes.finish();
 });
 
 </script>

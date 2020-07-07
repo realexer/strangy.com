@@ -11,12 +11,12 @@ export async function preload(page, session)
 
 <script>
 import {onMount, onDestroy} from 'svelte';
-import {ChatsListAPI} from '../../../app/api/providers/app/chat/ChatsListAPI'
-import {ChatModel as ChatModel} from '../../../app/api/providers/common/models/firebase/ChatModel'
-import Chat from '../../../app/components/main/user/Chat.svelte'
+import {ChatsListAPI} from '../../../../app/api/providers/app/chat/ChatsListAPI'
+import {ChatModel as ChatModel} from '../../../../app/api/providers/common/models/firebase/ChatModel'
+import Chat from '../../../../app/components/main/user/Chat.svelte'
 
-import { active_chat } from '../../../app/stores/user/active_chat';
-import {UnsubscriberX} from "../../../lib/UnsubscriberX";
+import { active_chat } from '../../../../app/stores/user/active_chat';
+import {UnsubscriberX} from "../../../../lib/UnsubscriberX";
 
 export let chatId;
 

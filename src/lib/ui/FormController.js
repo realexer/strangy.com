@@ -2,81 +2,81 @@ import validate from 'validate.js'
 
 class FormController {
 
-  constructor(requirements) {
-    this.props = {};
-    this.requirements = requirements;
-    this.isBusy = false;
-  }
+	constructor(requirements) {
+		this.props = {};
+		this.requirements = requirements;
+		this.isBusy = false;
+	}
 
-  addProp(name) {
-    this.props[name] = {
-      value: '',
-      error: false,
-      message: '',
-    };
-  }
+	addProp(name) {
+		this.props[name] = {
+			value: '',
+			error: false,
+			message: '',
+		};
+	}
 
-  getProp(name) {
-    return this.props[name];
-  }
+	getProp(name) {
+		return this.props[name];
+	}
 
-  clear() {
-    for (let name in this.props) {
-      this.props[name].value = '';
-    }
-  }
+	clear() {
+		for (let name in this.props) {
+			this.props[name].value = '';
+		}
+	}
 
-  reset() {
-    for (let name in this.props) {
-      this.props[name].error = false;
-      this.props[name].message = '';
-    }
+	reset() {
+		for (let name in this.props) {
+			this.props[name].error = false;
+			this.props[name].message = '';
+		}
 
-    this.isBusy = false;
-  }
+		this.isBusy = false;
+	}
 
-  getValues() {
-    const values = {};
-    for (let name in this.props) {
-      values[name] = this.props[name].value;
-    }
+	getValues() {
+		const values = {};
+		for (let name in this.props) {
+			values[name] = this.props[name].value;
+		}
 
-    return values;
-  }
+		return values;
+	}
 
-  validate()
-  {
-    return new Promise((resolve, reject) =>
-    {
-      this.isBusy = true;
+	validate()
+	{
+		return new Promise((resolve, reject) =>
+		{
+			this.isBusy = true;
 
-      this.reset();
+			this.reset();
 
-      const validationErrors = validate(this.getValues(), this.requirements);
+			const validationErrors = validate(this.getValues(), this.requirements);
 
-      console.log(validationErrors);
+			console.log(validationErrors);
 
-      if (!validationErrors)
-      {
-        resolve().then(() => {
-          this.isBusy = false;
-        });
+			if (!validationErrors)
+			{
+				resolve().then(() => {
+					this.isBusy = false;
+				});
 
-      } else {
+			} else {
 
-        for (let name in this.props) {
-          if (validationErrors[name] && validationErrors[name].length > 0) {
-            this.props[name].error = true;
-            this.props[name].message = validationErrors[name][0];
-          }
-        }
-      }
+				for (let name in this.props) {
+					if (validationErrors[name] && validationErrors[name].length > 0) {
+						this.props[name].error = true;
+						this.props[name].message = validationErrors[name][0];
+					}
+				}
+			}
 
-      this.isBusy = false;
+			this.isBusy = false;
 
-      reject();
-    });
-  };
+			reject(validationErrors);
+		});
+	};
 }
 
 export {FormController}

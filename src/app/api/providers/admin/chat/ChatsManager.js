@@ -2,13 +2,21 @@ import {ChatState, ChatStatus} from "../../common/chats";
 import {ApiResult} from "../../../common/ApiResult";
 import {dbAccessorAdmin} from "../../../../firebase/admin";
 import {ChatModel} from "../../common/models/firebase/ChatModel";
+import {UsersListAPI} from "../../app/Users";
+import {ChatSubjectInput} from "../../common/models/app/data_inputs/base/inputs/chat/ChatSubjectInput";
 
 class ChatsManager
 {
-	static async invite(fromUserId, toUserId, subject)
+	static async invite(toUserId, fromUserId, subject)
 	{
+		const invitedUser = (await UsersListAPI.byId(toUserId).get()).data();
+
+		if(!invitedUser) {
+			throw 'User not found';
+		}
+
 		const chatData = {
-			subject: subject,
+			subject: new ChatSubjectInput(subject).validated(),
 			subject_by_user: {
 				[fromUserId]: '',
 				[toUserId]: ''
@@ -27,6 +35,7 @@ class ChatsManager
 				[toUserId]: new Date()
 			},
 			last_message_at: new Date(),
+			messages_amount: 0,
 			state: ChatState.INVITATION,
 			status: ChatStatus.ACTIVE,
 			created_at: new Date(),

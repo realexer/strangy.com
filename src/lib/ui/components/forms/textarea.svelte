@@ -8,7 +8,7 @@
   export let errorMessage = '';
 </script>
 
-<div class="input-field">
+<div class="">
   {#if icon}
     <i class="material-icons prefix">{icon}</i>
   {/if}

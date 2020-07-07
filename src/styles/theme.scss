@@ -2,6 +2,7 @@ $bg_color: #152036;
 $bg_lighten_color_1: rgba(255,255,255,0.1);
 $bg_lighten_color_2: rgba(255,255,255,0.2);
 $bg_ctrl_color: #6d2c2c;
+$bg_ctrl_color_bright: #a23737;
 $txt_ctrl_color: #d18989;
 $link_color: #7eb2ff;
 $txt_color: #fff;
@@ -193,13 +194,24 @@ body {
   }
 }
 
+/* SEO friendly material icons */
+body {
+  .material-icons::before {
+    content: attr(data-icon);
+  }
+}
+
 body {
   &.dark_knight {
     background-color: $bg_color;
     color: $txt_color;
 
-    p {
+    p, .secondary {
       color: $txt_color_secondary;
+    }
+
+    .muted {
+      color: $txt_color_muted;
     }
 
     nav {
@@ -225,6 +237,25 @@ body {
     .btn-floating {
       background-color: $bg_ctrl_color;
     }
+
+    .btn-icon {
+      .highlight {
+        color: $bg_ctrl_color;
+      }
+
+      .bright {
+        color: $bg_ctrl_color_bright;
+      }
+
+      .plain {
+        color: inherit;
+      }
+
+      i {
+        font-size: 2.3em;
+      }
+    }
+
     .divider {
       opacity: 0.2;
     }

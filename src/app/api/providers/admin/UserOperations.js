@@ -66,11 +66,8 @@ class UserOperationsAPI
 
 	async setTags(tags)
 	{
-		return await ApiResult.fromPromise(async () => {
-			if (tags.length > 5) {
-				throw 'Too many tags. Maximum 5 allowed.';
-			}
-
+		return await ApiResult.fromPromise(async () =>
+		{
 			return await dbAccessorAdmin.users().doc(this.userId).update({
 				"info.tags": tags
 			});

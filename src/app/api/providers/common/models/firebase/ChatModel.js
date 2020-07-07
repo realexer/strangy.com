@@ -112,18 +112,19 @@ class ChatModel extends FirebaseModel
     };
   }
 
-  get lastMessageAt()
-  {
+  get messagesAmount() {
+    return this.data.messages_amount || 0;
+  }
+
+  get lastMessageAt() {
     return this.data.last_message_at;
   }
 
-  getLastReadMessageAtForUser(userId)
-  {
+  getLastReadMessageAtForUser(userId) {
     return ((this.data.last_read_message_at_by_user || {})[userId]) || 0;
   }
 
-  getNewMessagesAmountForUser(userId)
-  {
+  getNewMessagesAmountForUser(userId) {
     return ((this.data.new_messages_amount_for_user || {})[userId]) || 0;
   }
 

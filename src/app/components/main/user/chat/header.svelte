@@ -37,10 +37,9 @@ let formController = new FormController({
 
 formController.addProp("message");
 
-const setVote = async (value) =>
+const changeVote = async () =>
 {
-	feedbackOpen = true;
-  $currentFeedback.vote = value;
+	$currentFeedback.vote = $currentFeedback.vote == 0 ? 1 : 0;
 
   await submitFeedback();
 };
@@ -69,13 +68,13 @@ const submitFeedback = async () =>
 
 $: if($current_user.id && $active_chat.id) {
 
-	unsubscribe.addSingle(
-		UserFeedbackAPI.instance($active_chat.users.stranger($current_user.id)).getVoteByUser($current_user.id).subscribe((doc) =>
+	unsubscribe.addSingle(() => {
+		return UserFeedbackAPI.instance($active_chat.users.stranger($current_user.id)).getVoteByUser($current_user.id).subscribe((doc) =>
 		{
 			$currentFeedback = doc.data() || new FeedbackModel();
 			formController.props['message'].value = $currentFeedback.message;
 		})
-		, 'UserVote');
+	}, 'UserVote');
 }
 
 
@@ -113,9 +112,9 @@ const showDetails = () =>
 		<span class="right">
 			{#if ($current_user.id && $active_chat_stranger.id)}
 				<span class="">
-					<button class="btn-flat white-text" on:click="{() => { optionsOpen = !optionsOpen; }}">
+					<a class="muted" href="#!" on:click|preventDefault="{() => { optionsOpen = !optionsOpen; }}">
 						<i class="material-icons right">more_vert</i>
-					</button>
+					</a>
 				</span>
 			{/if}
 		</span>
@@ -140,23 +139,38 @@ const showDetails = () =>
 
 <div class="">
 	{#if $active_chat_stranger.id}
-		<p>
-			<span>
-				<button class="btn-floating" on:click="{() => { setVote(-1); }}"><i class="material-icons">arrow_downward</i></button>
-				<span class="flow-text">{$active_chat_stranger.karma}</span>
-				<button class="btn-floating" on:click="{() => { setVote(1); }}"><i class="material-icons">arrow_upward</i></button>
-			</span>
-			<a href="{lang_url('user/'+$active_chat_stranger.id)}">{$active_chat_stranger.tags.primary.string}</a>
-		</p>
+		<div class="row">
+			<div class="left">
+				<span class="">
+					<a href="{lang_url('user/'+$active_chat_stranger.id)}">{$active_chat_stranger.tags.primary.string}</a>
+					<!--span class="">{$active_chat_stranger.karma}</span-->
+				</span>
+			</div>
+			<div class="right">
+				<span>
+					<a class="btn-icon" href="#!" on:click|preventDefault="{() => { changeVote(); }}">
+						<i class="material-icons bright" data-icon="{$currentFeedback.vote == 1 ? 'favorite' : 'favorite_border'}"></i>
+					</a>
+					<a class="btn-icon" href="#!" on:click|preventDefault="{() => { feedbackOpen = !feedbackOpen; }}">
+						<i class="material-icons muted" data-icon="short_text"></i>
+					</a>
+				</span>
+			</div>
+		</div>
 	{/if}
 	{#if feedbackOpen}
-	<div class="card-panel">
+	<div class="">
 		<form ref="form" on:submit|preventDefault={addMessage}>
-			<Textarea bind:value={formController.props["message"].value}
-								error={formController.props["message"].error} isFocused={true}
-								errorMessage={formController.props["message"].message} />
-
-			<FormButtons cancelButton={false} submitText="Send" isLoading={formController.isBusy} />
+			<div class="row">
+				<div class="col s11 no-padding">
+					<Textarea bind:value={formController.props["message"].value}
+													error={formController.props["message"].error} isFocused={true}
+													errorMessage={formController.props["message"].message} />
+				</div>
+				<div class="col s1">
+					<FormButtons cancelButton={false} submitText=">" isLoading={formController.isBusy} />
+				</div>
+			</div>
 		</form>
 	</div>
 	{/if}

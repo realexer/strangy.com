@@ -15,11 +15,7 @@
 
   let formController = new FormController({
     subject: {
-      presence: true,
-      length: {
-        minimum: 6,
-        message: 'must be at least 6 characters'
-      }
+      presence: true
     }
   });
 
@@ -53,9 +49,10 @@
 
 </script>
 
+<p class="">was online {formatDate($selected_stranger.lastActiveAt)}</p>
+<div class="divider"></div>
+
 <div class="card-panel">
-	<div class="">was online {formatDate($selected_stranger.lastActiveAt)}</div>
-	<div class="divider"></div>
 	{#if $selected_stranger.id}
 	<h3><a href="{lang_url('user/' + $selected_stranger.id)}">{$selected_stranger.tags.primary.string}</a></h3>
 	<p class="flow-text">

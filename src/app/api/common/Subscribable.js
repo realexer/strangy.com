@@ -1,15 +1,23 @@
 class Subscribable
 {
-  constructor(query, onGet = () => {}, onSubscribe = () => {})
+  constructor(query, onGet = (query) => query, onSubscribe = query => query)
   {
     this.query = query;
-    this.onGet = onGet;
-    this.onSubscribe = onSubscribe;
+    this._onGet = onGet;
+    this._onSubscribe = onSubscribe;
+  }
+
+  set onGet (callable) {
+    this._onGet = callable;
+  }
+
+  set onSubscribe (callable) {
+    this._onSubscribe = callable;
   }
 
   async get()
   {
-    this.onGet(...arguments);
+    this.query = this._onGet(this.query, ...arguments);
 
     return await this.query.get();
   }
@@ -24,7 +32,7 @@ class Subscribable
       callback = func.func;
     }
 
-    this.onSubscribe(...args);
+    this.query = this._onSubscribe(this.query, ...args);
     return this.query.onSnapshot(callback);
   };
 }

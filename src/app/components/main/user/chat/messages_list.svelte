@@ -7,6 +7,7 @@ import {current_user} from '../../../../stores/current_user'
 import {ChatModel as chat} from "../../../../api/providers/common/models/firebase/ChatModel";
 import {UnsubscriberX} from "../../../../../lib/UnsubscriberX";
 import ApiClient from "../../../../api/client";
+import ChatMessage from '../../chat/message.svelte'
 
 let unsubscribes = new UnsubscriberX(onDestroy);
 
@@ -30,7 +31,7 @@ const reset = () =>
 
 const loadMessages = (chatId) =>
 {
-  return ChatMessagesAPI.instance(chatId).messages().get(2)
+  return ChatMessagesAPI.instance(chatId).messages().get(10)
   .then((result) =>
   {
     messages = [];
@@ -118,16 +119,7 @@ onMount(() =>
   <p class="_debug">Messages of: {$active_chat.id}</p>
 
   {#each messages as msg}
-  <div class="row">
-    <div class="col {($current_user.id == msg.from_user_id) ? 'offset-s2 s10' : ''} no-padding">
-      <div class="card">
-        <div class="card-content">
-          {msg.text}
-        </div>
-      </div>
-      <p class="_debug">from: {msg.from_user_id}</p>
-    </div>
-  </div>
+  <ChatMessage viewerId="{$current_user.id}" msg="{msg}"/>
   {:else}
   <p class="flow-text center-align">no messages yet</p>
   {/each}

@@ -18,21 +18,25 @@ class ChatMessagesAPI {
 	{
 		let query = dbAccessorApp.chatMessages(this.chatId);
 
-		query = query.orderBy('sent_at', 'desc');
-
 		let subscribable = new Subscribable(query);
 
-		subscribable.onGet = (limit, startAt) =>
+		subscribable.onGet = (query, limit, startAt, orderDirection = 'desc') =>
 		{
 			if(startAt) {
-				query.startAt(startAt);
+				query = query.startAfter(startAt);
 			}
 
-			query.limit(limit);
+			query = query.orderBy('sent_at', orderDirection);
+
+			query = query.limit(limit);
+
+			return query;
 		};
 
-		subscribable.onSubscribe = (lastMessageAt) => {
-			query.where('sent_at', '>', lastMessageAt);
+		subscribable.onSubscribe = (query, lastMessageAt) =>
+		{
+			query = query.where('sent_at', '>', lastMessageAt);
+			return query;
 		};
 
 		return subscribable;

@@ -25,7 +25,8 @@
     "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.26.0",
     "request": "^2.88.2",
-    "validate.js": "^0.13.0"
+    "validate.js": "^0.13.0",
+    "sickspack": "file:../../../_packages/sickspack"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -37,6 +38,7 @@
     "@rollup/plugin-commonjs": "^12.0.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
     "@rollup/plugin-replace": "^2.2.0",
+    "esm": "^3.2.25",
     "google-gax": "^2.6.1",
     "javascript-stringify": "^2.0.1",
     "node-sass": "^4.14.1",

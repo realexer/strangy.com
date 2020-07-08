@@ -1,13 +1,6 @@
 const Project =
 {
-  name: '',
-  settings: {
-    langs: {
-      'EN': 'English',
-      'RU': 'Русский',
-      'UK': 'Украинська'
-    }
-  }
+  name: 'Strangy',
 };
 
 export default Project;

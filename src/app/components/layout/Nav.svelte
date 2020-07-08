@@ -63,7 +63,7 @@
 				{#if $current_user.id}
 				<li class="show-on-large">
 					<a href="/{lang}/my/feedback" class="">
-						<i class="material-icons left tiny" data-icon="favorite"></i>
+						<i class="material-icons left" data-icon="favorite"></i>
 						{$current_user.karma}
 					</a>
 				</li>

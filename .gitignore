@@ -74,3 +74,4 @@ yarn-error.log
 
 /functions/__sapper__/
 /src/_local/
+/src/_config/prod/

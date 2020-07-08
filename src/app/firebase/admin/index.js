@@ -5,11 +5,11 @@ import 'firebase/firebase-functions'
 
 import env from '../../../env';
 
-import serviceAccount from './serviceAccountKey.json';
+import serviceAccountKey from "../../../_config/prod/serviceAccountKey.json";
 import {DBAccessor} from "../common/collections";
 
 firebase_admin.initializeApp({
-	credential: firebase_admin.credential.cert(serviceAccount),
+	credential: firebase_admin.credential.cert(serviceAccountKey),
 	databaseURL: "https://strangy-a046f.firebaseio.com",
 	databaseAuthVariableOverride: {
 		uid: "be-strangy"

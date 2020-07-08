@@ -3,6 +3,7 @@ $bg_lighten_color_1: rgba(255,255,255,0.1);
 $bg_lighten_color_2: rgba(255,255,255,0.2);
 $bg_ctrl_color: #6d2c2c;
 $bg_ctrl_color_bright: #a23737;
+$bg_warning: #59523c;
 $txt_ctrl_color: #d18989;
 $link_color: #7eb2ff;
 $txt_color: #fff;
@@ -36,6 +37,13 @@ body {
 
   .material-icons {
     color: $txt_color;
+  }
+}
+
+
+body {
+  .warning {
+    background: $bg_warning;
   }
 }
 

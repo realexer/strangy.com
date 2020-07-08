@@ -4,18 +4,26 @@ import Notification from '../app/components/ui/notification/notification.svelte'
 import { notification_message } from '../app/stores/notification_message.js';
 import translations from '../_langs/translations/index';
 import Multilang from "sickspack/multilang";
+import {addFormat} from 'sickspack/multilang/lang'
+import Lang from 'sickspack/multilang/Lang.svelte'
 
 Multilang.setup(translations);
+
+addFormat(/\*\*([^*]+)\*\*/gmi, `<strong class='__txt_highlight'>$1</strong>`);
+addFormat(/\*([^\*]+)\*/gmi, `<strong>$1</strong>`);
+addFormat(/\n/gmi, `<p>`);
+
 const availableLangs = Multilang.getSupportedLanguages();
 
 export async function preload(page, session)
 {
-	const lang = page.path.split('/')[1];
+	const langMatch = page.path.match(/\/(<?lang>[\w]+)\/?/);
+	const lang = langMatch ? langMatch.groups.lang : 'en';
 
 	try {
 		Multilang.init(lang);
 	} catch(e) {
-		this.redirect(302, '/en/');
+		this.redirect(301, '/');
 	}
 
 	return {
@@ -24,16 +32,17 @@ export async function preload(page, session)
 	};
 }
 </script>
+
 <script>
-	import {onMount} from 'svelte';
-	import Nav from '../app/components/layout/Nav.svelte';
-	import Footer from '../app/components/layout/Footer.svelte';
-	import GoogleAnalytics from '../lib/GoogleAnalytics/GoogleAnalytics.svelte'
+import {onMount} from 'svelte';
+import Nav from '../app/components/layout/Nav.svelte';
+import Footer from '../app/components/layout/Footer.svelte';
+import GoogleAnalytics from '../lib/GoogleAnalytics/GoogleAnalytics.svelte'
 
-	export let page;
-	export let lang;
+export let page;
+export let lang;
 
-	Multilang.init(lang);
+Multilang.init(lang);
 
 </script>
 
@@ -59,12 +68,19 @@ export async function preload(page, session)
 <GoogleAnalytics gtag_id="G-G8267CJ27D"/>
 
 <header class:_ui_log_disabled={!env.dev.ui_log}>
-	<Nav lang="{lang}"/>
+	<Nav/>
 </header>
 
 <main class:_ui_log_disabled={!env.dev.ui_log}>
 	<slot></slot>
-	<div class="container">&nbsp;</div>
+
+	<div class="warning">
+		<div class="container center-align">
+			<div class="">
+				<Lang key="layout.main.disclaimer"/>
+			</div>
+		</div>
+  </div>
 </main>
 
-<Footer lang="{lang}"/>
+<Footer/>

@@ -2,6 +2,7 @@ import express from 'express';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
 import bodyParser from 'body-parser';
+import {redirector} from "./redirects";
 
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
@@ -15,6 +16,8 @@ const app = express()
 if(dev) {
 	app.use(express.static('public', { dev }));
 }
+
+app.use(redirector);
 
 app.use(sapper.middleware());
 

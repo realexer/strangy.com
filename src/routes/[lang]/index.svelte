@@ -4,6 +4,7 @@ import {_lang} from 'sickspack/multilang/lang'
 import Lang from 'sickspack/multilang/Lang.svelte'
 import env from '../../env';
 import {lang_url} from "../../app/components/general/link";
+import AppIndex from './app/index.svelte'
 
 </script>
 
@@ -12,17 +13,11 @@ import {lang_url} from "../../app/components/general/link";
 	<meta name="description" content='{_lang("meta.index.description")}'/>
 </svelte:head>
 
+<div class="container">
+	<AppIndex/>
+</div>
+
 <div class="container center-align">
 	<h1 class=""><Lang key="pages.index.heading"/></h1>
 	<p class="flow-text"><Lang key="pages.index.coming_soon"/></p>
 </div>
-{#if env.dev.app_preview}
-<div class="divider"></div>
-<div class="container center-align">
-	<h2>Try early alpha version</h2>
-	<p class="flow-text">
-		The development is currently on going, but your already have a chance to taste the concept and general ideas.
-	</p>
-	<a href="{lang_url('app')}" class="btn btn-large">Open Strangy</a>
-</div>
-{/if}

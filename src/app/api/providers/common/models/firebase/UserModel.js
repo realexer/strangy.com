@@ -59,7 +59,7 @@ class UserModel extends FirebaseModel
 
       hasAny: (list) =>
       {
-        let matchingTags = user.info.tags.all.filter((tag) => {
+        let matchingTags = user.tags.all.filter((tag) => {
           return list.includes(tag.tag);
         });
 

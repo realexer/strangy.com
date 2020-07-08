@@ -17,6 +17,9 @@ export default {
 		}
 	},
 	layout: {
+		main: {
+			disclaimer: "The development is currently on going, but you already have a chance to taste the concept and general ideas by breaking the stuff."
+		},
 		nav: {
 			links: {
 				home: {
@@ -38,6 +41,21 @@ export default {
 			}
 		},
 		footer: {
+			info: {
+				heading: 'Info',
+				links: {
+					about: 'About',
+					involve: 'Get involved',
+				}
+			},
+			social: {
+				heading: 'Social',
+				links: {
+					twitter: 'Twitter',
+					github: 'GitHub',
+					reddit: 'Reddit'
+				}
+			},
 			languages: {
 				heading: "Languages"
 			}
@@ -107,6 +125,17 @@ export default {
 		my: {
 			logout: {
 				heading: 'Good bye...'
+			}
+		},
+		tag: {
+			heading: {
+				kind: {
+					interest: "Chat with people who are interested in *_tag_*",
+					info: "Chat with people who identified themselves as *_tag_*",
+					location: "Chat with people from *_tag_*",
+					other: "Chat with people with tag *_tag_*",
+				},
+				currently_online: "Currently online: *_online_*"
 			}
 		}
 	}

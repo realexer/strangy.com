@@ -5,10 +5,6 @@
 </script>
 
 
-<div class="container">
-  {#if !$current_user.id}
-  <h1>Hello Stranger!</h1>
-  {/if}
-
+<div class="left-align">
   <UsersList/>
 </div>

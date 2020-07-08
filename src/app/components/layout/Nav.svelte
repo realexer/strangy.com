@@ -51,12 +51,12 @@ onMount(() =>
 				</a>
 			</li>
 			<li class:active="{$page.path == lang_url('about')}">
-				<a href="{lang_url('about')}" title="{_lang('layout.nav.links.about.title')}">
+				<a href="{lang_url('info/about')}" title="{_lang('layout.nav.links.about.title')}">
 					<Lang key="layout.nav.links.about.text"/>
 				</a>
 			</li>
 			<li class:active="{$page.path == lang_url('involve')}">
-				<a href="{lang_url('involve')}" title="{_lang('layout.nav.links.involve.title')}">
+				<a href="{lang_url('info/involve')}" title="{_lang('layout.nav.links.involve.title')}">
 					<Lang key="layout.nav.links.involve.text"/>
 				</a>
 			</li>

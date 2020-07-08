@@ -1,5 +1,5 @@
 <script>
-import IconPoint from '../../app/components/ui/IconPoint.svelte'
+import IconPoint from '../../../app/components/ui/IconPoint.svelte'
 import {_lang} from 'sickspack/multilang/lang'
 import Lang from 'sickspack/multilang/Lang.svelte'
 </script>
@@ -23,7 +23,8 @@ import Lang from 'sickspack/multilang/Lang.svelte'
 		<p><Lang key="pages.involve.methods.github"/></p>
 	</IconPoint>
 </div>
-<div class="divider"></div>
+
+
 <div class="container center-align">
-Icons by <a target="_blank" href="https://icons8.com">Icons8</a>
+<p>Icons by <a target="_blank" href="https://icons8.com">Icons8</a></p>
 </div>

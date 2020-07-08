@@ -1,5 +1,5 @@
 <script>
-import IconPoint from '../../app/components/ui/IconPoint.svelte'
+import IconPoint from '../../../app/components/ui/IconPoint.svelte'
 import {_lang} from 'sickspack/multilang/lang'
 import Lang from 'sickspack/multilang/Lang.svelte'
 

@@ -92,7 +92,7 @@ const removeUserTag = (tag) =>
 
 const saveUserTags = async () =>
 {
-	return await ApiClient.user.info.tags.save($userTags.map(t => t.toPlainObject()));
+	return await ApiClient.user.info.tags.save($userTags);
 };
 
 </script>

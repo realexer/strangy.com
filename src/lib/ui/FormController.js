@@ -54,7 +54,9 @@ class FormController {
 
 			const validationErrors = validate(this.getValues(), this.requirements);
 
-			console.log(validationErrors);
+			console.log({validationErrors});
+
+			const errorsList = [];
 
 			if (!validationErrors)
 			{
@@ -68,13 +70,14 @@ class FormController {
 					if (validationErrors[name] && validationErrors[name].length > 0) {
 						this.props[name].error = true;
 						this.props[name].message = validationErrors[name][0];
+						errorsList.push(...validationErrors[name]);
 					}
 				}
 			}
 
 			this.isBusy = false;
 
-			reject(validationErrors);
+			reject(errorsList.join('\n'));
 		});
 	};
 }

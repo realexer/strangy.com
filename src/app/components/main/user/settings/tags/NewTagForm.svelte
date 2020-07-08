@@ -4,8 +4,6 @@
   import Select from '../../../../../../lib/ui/components/forms/select.svelte'
   import FormButtons from '../../../../../../lib/ui/components/forms/buttons.svelte'
 
-  import { notificationMessage } from '../../../../../stores/notification_message.js'
-
   import { TagsAPI} from '../../../../../api/providers/app/TagsAPI'
   import { FormController } from '../../../../../../lib/ui/FormController'
 
@@ -13,6 +11,7 @@
   import ApiClient from "../../../../../api/client";
 	import {TagKind, TagKindLabels} from "../../../../../api/providers/common/tags";
 	import Multilang from "sickspack/multilang";
+	import UINotification from "../../../../ui/notification";
 
   const langsSelectorValues = Multilang.getSupportedLanguages();
 
@@ -43,14 +42,12 @@
 				formController.getProp('kind').value
   		);
 
-  		if(result.isSuccess()) {
-  			notificationMessage.set({ message: 'Tag added', type: 'green' });
-  		} else {
-  			notificationMessage.set({ message: result.getErrorMessage(), type: '' });
+  		if(result.isError()) {
+  			throw result.getErrorMessage();
   		}
 
   	} catch (e) {
-
+			UINotification.error(e.toString());
   	}
   }
 </script>

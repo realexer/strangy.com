@@ -1,7 +1,7 @@
 <script context="module">
 import env from '../env';
-import Notification from '../app/components/main/notification.svelte';
-import { notificationMessage } from '../app/stores/notification_message.js';
+import Notification from '../app/components/ui/notification/notification.svelte';
+import { notification_message } from '../app/stores/notification_message.js';
 import translations from '../_langs/translations/index';
 import Multilang from "sickspack/multilang";
 

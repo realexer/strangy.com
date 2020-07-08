@@ -12,15 +12,55 @@ export default {
 			description: "Why Strangy is the past of online chatting."
 		},
 		involve: {
-			title: "Become a contributor to the Future",
-			description: "Contribute to a new chatting platform that will change the way we communicate online."
+			title: "Become a contributor to the best online chat platform",
+			description: "Contribute to a new chatting platform that will change the way people communicate online."
 		}
 	},
-	components: {
+	layout: {
 		nav: {
 			links: {
-				about: "about",
-				involve: "involve"
+				home: {
+					text: "",
+					title: "Strangy"
+				},
+				about: {
+					text: "about",
+					title: "What's Strangy and why it's the past of online chatting.",
+				},
+				involve: {
+					text: "get involved",
+					title: "Become a contributor to the best online chat platform in a making."
+				},
+				login: {
+					text: "login",
+					title: "Create new or login into existing account"
+				}
+			}
+		},
+		footer: {
+			languages: {
+				heading: "Languages"
+			}
+		}
+	},
+	app: {
+		stranger: {
+			inviteForm: {
+				successMessage: 'Invitation sent'
+			}
+		},
+		chat: {
+			active: {
+				feedback: {
+					successMessage: 'Feedback submitted'
+				}
+			}
+		}
+	},
+	cmp: {
+		form: {
+			rules: {
+				min_length: 'must be at least _num_ characters'
 			}
 		}
 	},
@@ -53,6 +93,20 @@ export default {
 			methods: {
 				twitter: "You can become SMM and help us spread the idea of open and free online communication",
 				github: "You can help Strangy with technical input, programming or UI/UX ideas and solutions"
+			}
+		},
+		login: {
+			heading: "Log-in or Create new account",
+			form: {
+				email: "Email",
+				password: "Password",
+				submit: "Enter"
+			},
+			greeting: "Hello Strangy"
+		},
+		my: {
+			logout: {
+				heading: 'Good bye...'
 			}
 		}
 	}

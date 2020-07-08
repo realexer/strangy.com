@@ -1,51 +1,51 @@
 <script>
-  import { onDestroy } from 'svelte'
+import { onDestroy } from 'svelte'
 
-  import { notificationMessage } from '../../../../stores/notification_message.js'
+import TextInput from '../../../../../lib/ui/components/forms/text_input.svelte'
+import FormButtons from '../../../../../lib/ui/components/forms/buttons.svelte'
+import { FormController } from '../../../../../lib/ui/FormController'
+import { current_user } from '../../../../stores/current_user'
+import { selected_stranger } from '../../../../stores/selected_strager'
+import {lang_url} from "../../../general/link";
+import {formatDate} from "../../../../../lib/Date";
+import ApiClient from "../../../../api/client";
+import {ChatsListAPI} from "../../../../api/providers/app/chat/ChatsListAPI";
+import UINotification from "../../../ui/notification";
+import {_lang} from "sickspack/multilang/lang";
 
-  import TextInput from '../../../../../lib/ui/components/forms/text_input.svelte'
-  import FormButtons from '../../../../../lib/ui/components/forms/buttons.svelte'
-  import { FormController } from '../../../../../lib/ui/FormController'
-  import { current_user } from '../../../../stores/current_user'
-  import { selected_stranger } from '../../../../stores/selected_strager'
-  import {lang_url} from "../../../general/link";
-  import {formatDate} from "../../../../../lib/Date";
-  import ApiClient from "../../../../api/client";
-  import {ChatsListAPI} from "../../../../api/providers/app/chat/ChatsListAPI";
+let formController = new FormController({
+	subject: {
+		presence: true
+	}
+});
 
-  let formController = new FormController({
-    subject: {
-      presence: true
-    }
-  });
+formController.addProp("subject");
 
-  formController.addProp("subject");
+const invite = async () =>
+{
+	try
+	{
+		await formController.validate();
 
-  const invite = async () =>
-  {
-		try
-		{
-			await formController.validate();
+		const result = await ApiClient.stranger($selected_stranger.id).invite(
+			formController.props["subject"].value
+		);
 
-			const result = await ApiClient.stranger($selected_stranger.id).invite(
-				formController.props["subject"].value
-			);
-
-			if(result.isSuccess()) {
-				notificationMessage.set({ message: 'Invitation sent', type: 'success-toast' });
-			} else {
-				notificationMessage.set({ message: result.getErrorMessage(), type: 'danger-toast' });
-			}
+		if(result.isSuccess()) {
+			UINotification.success(_lang('app.stranger.inviteForm.successMessage'));
+		} else {
+			throw result.getErrorMessage();
 		}
-		catch (error)
-		{
-			notificationMessage.set({ message: error.message, type: 'danger-toast' });
-		}
-  };
+	}
+	catch (error)
+	{
+		UINotification.error(error.toString());
+	}
+};
 
-  onDestroy(() => {
+onDestroy(() => {
 
-  });
+});
 
 </script>
 

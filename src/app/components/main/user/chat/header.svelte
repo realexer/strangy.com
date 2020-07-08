@@ -6,7 +6,6 @@ import Textarea from '../../../../../lib/ui/components/forms/textarea.svelte'
 import FormButtons from '../../../../../lib/ui/components/forms/buttons.svelte'
 import { FormController } from '../../../../../lib/ui/FormController'
 
-import { notificationMessage } from '../../../../stores/notification_message.js'
 import { active_chat, active_chat_stranger } from '../../../../stores/user/active_chat'
 import { current_user } from '../../../../stores/current_user';
 
@@ -17,6 +16,8 @@ import * as ApiRequest from "../../../../api/ApiRequest";
 import ApiClient from "../../../../api/client";
 import {UserFeedbackAPI} from "../../../../api/providers/app/UserFeedback";
 import {UnsubscriberX} from "../../../../../lib/UnsubscriberX";
+import UINotification from "../../../ui/notification";
+import {_lang} from "sickspack/multilang/lang";
 
 
 const unsubscribe = new UnsubscriberX(onDestroy);
@@ -60,9 +61,9 @@ const submitFeedback = async () =>
 		$currentFeedback.message);
 
 	if(result.isSuccess()) {
-		notificationMessage.set({ message: 'Feedback submitted', type: 'success-toast' });
+		UINotification.success(_lang('app.chat.active.feedback.successMessage'));
 	} else {
-		notificationMessage.set({ message: result.getErrorMessage(), type: 'danger-toast' });
+		UINotification.error(result.getErrorMessage());
 	}
 };
 

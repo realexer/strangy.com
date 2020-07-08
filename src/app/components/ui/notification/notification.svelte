@@ -1,14 +1,14 @@
 <script>
   import { onDestroy } from 'svelte'
 
-  import { notificationMessage } from '../../stores/notification_message.js'
+  import { notification_message } from '../../../stores/notification_message.js'
 
   export let visible = false;
   export let notification = {};
   let unsubscribe = false;
 
   $: if (!unsubscribe) {
-    unsubscribe = notificationMessage.subscribe(currentNotification => {
+    unsubscribe = notification_message.subscribe(currentNotification => {
       if (currentNotification.message && currentNotification.message.length > 0) {
         notification = currentNotification;
         visible = true

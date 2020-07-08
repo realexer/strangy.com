@@ -7,6 +7,11 @@ class ChatMessagesApiClient
 		this.chatId = chatId;
 	}
 
+	/**
+	 *
+	 * @param message
+	 * @returns {Promise<ApiResult>}
+	 */
 	async send(message)
 	{
 		return await ApiRequest.post(`chat/${this.chatId}/messages/send`, {
@@ -14,6 +19,11 @@ class ChatMessagesApiClient
 		});
 	}
 
+	/**
+	 *
+	 * @param last_received_message_id
+	 * @returns {Promise<ApiResult>}
+	 */
 	async processNew(last_received_message_id)
 	{
 		return await ApiRequest.post(`chat/${this.chatId}/messages/processNewMessages`, {

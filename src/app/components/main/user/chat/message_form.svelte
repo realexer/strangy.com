@@ -4,12 +4,12 @@ import Textarea from '../../../../../lib/ui/components/forms/textarea.svelte'
 import FormButtons from '../../../../../lib/ui/components/forms/buttons.svelte'
 import { FormController } from '../../../../../lib/ui/FormController'
 
-import { notificationMessage } from '../../../../stores/notification_message.js'
 import { active_chat } from '../../../../stores/user/active_chat';
 import { current_user } from '../../../../stores/current_user';
 
 import {ChatMessagesAPI} from '../../../../api/providers/app/chat/ChatMessagesAPI';
 import ApiClient from "../../../../api/client";
+import UINotification from "../../../ui/notification";
 
 let formController = new FormController({
   message: {
@@ -30,14 +30,12 @@ const sendMessage = async () =>
 
 		const result = await ApiClient.chat($active_chat.id).messages.send(formController.props["message"].value);
 
-		if(result.isSuccess()) {
-			notificationMessage.set({ message: 'Message sent', type: 'success-toast' });
-		} else {
-			notificationMessage.set({ message: result.getErrorMessage(), type: 'danger-toast' });
+		if(result.isError()) {
+			throw result.getErrorMessage();
 		}
 
 	} catch (error) {
-	  notificationMessage.set({ message: error, type: 'danger-toast' });
+		UINotification.error(error.toString());
 	}
 };
 

@@ -8,8 +8,8 @@ export let image_alt = image;
 	<div class="col s3 white-text">
 		{#if icon}
 		<p class="">
-			<span class="hide-on-med-and-up"><i class="material-icons medium">{icon}</i></span>
-			<span class="hide-on-small-only"><i class="material-icons large">{icon}</i></span>
+			<span class="hide-on-med-and-up"><i class="material-icons medium" data-icon="{icon}"></i></span>
+			<span class="hide-on-small-only"><i class="material-icons large" data-icon="{icon}"></i></span>
 		</p>
 		{/if}
 		{#if image}

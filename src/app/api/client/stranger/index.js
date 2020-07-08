@@ -8,6 +8,11 @@ class StrangerApiClient
 		this.strangerId = strangerId;
 	}
 
+	/**
+	 *
+	 * @param subject
+	 * @returns {Promise<ApiResult>}
+	 */
 	async invite(subject)
 	{
 		return await ApiRequest.post(`stranger/${this.strangerId}/invite`, {

@@ -1,3 +1,3 @@
 import { writable } from 'svelte/store'
 
-export const notificationMessage = writable({})
+export const notification_message = writable({});

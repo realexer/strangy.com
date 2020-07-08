@@ -10,13 +10,11 @@
   import { FormController } from '../../../../../../lib/ui/FormController'
 
   import {current_user} from '../../../../../stores/current_user'
-  import langs from '../../../../../../_langs/index';
   import ApiClient from "../../../../../api/client";
 	import {TagKind, TagKindLabels} from "../../../../../api/providers/common/tags";
+	import Multilang from "sickspack/multilang";
 
-  const langsSelectorValues = Object.fromEntries(Object.keys(langs).map(key => [
-  	key, langs[key].lang
-  ]));
+  const langsSelectorValues = Multilang.getSupportedLanguages();
 
   let formController = new FormController({
     tag: {

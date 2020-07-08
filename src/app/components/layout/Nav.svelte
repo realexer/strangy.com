@@ -2,8 +2,7 @@
 	import {goto, stores} from "@sapper/app";
 	import {onMount} from 'svelte';
 	import env from '../../../env';
-	import langs from '../../../_langs';
-	import Lang from '../../lang.svelte'
+	import Lang from 'sickspack/multilang/Lang.svelte';
 
 	import {current_user} from '../../stores/current_user'
 	import {new_messages, new_invitations} from '../../stores/user/notifications'
@@ -87,12 +86,6 @@
 		</ul>
 	</div>
 </nav>
-
-<ul id="langs_selector" class="dropdown-content">
-	{#each Object.keys(langs) as lang}
-  <li><a href="/{lang}/" on:click|preventDefault="{() => {changeLang(lang);}}">{langs[lang].lang}</a></li>
-  {/each}
-</ul>
 
 <div class="sidenav" id="user-side-menu">
 	<UserPanel/>

@@ -1,6 +1,6 @@
-import {session_lang} from '../../lang';
+import Multilang from "sickspack/multilang";
 
 export const lang_url = (url) =>
 {
-	return `${session_lang}/${url}`;
+	return `${Multilang.getLang()}/${url}`;
 };

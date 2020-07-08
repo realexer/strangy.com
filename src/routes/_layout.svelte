@@ -1,16 +1,19 @@
 <script context="module">
-import {set_lang, build_lang} from '../app/lang';
-import langs from '../_langs';
 import env from '../env';
 import Notification from '../app/components/main/notification.svelte';
-import { notificationMessage } from '../app/stores/notification_message.js'
+import { notificationMessage } from '../app/stores/notification_message.js';
+import translations from '../_langs/translations/index';
+import Multilang from "sickspack/multilang";
+
+Multilang.setup(translations);
+const availableLangs = Multilang.getSupportedLanguages();
 
 export async function preload(page, session)
 {
 	const lang = page.path.split('/')[1];
 
 	try {
-		set_lang(lang);
+		Multilang.init(lang);
 	} catch(e) {
 		this.redirect(302, '/en/');
 	}
@@ -26,19 +29,16 @@ export async function preload(page, session)
 	import Nav from '../app/components/layout/Nav.svelte';
 	import Footer from '../app/components/layout/Footer.svelte';
 	import GoogleAnalytics from '../lib/GoogleAnalytics/GoogleAnalytics.svelte'
-	import LangBuilder from '../app/components/dev/LangBuilder.svelte';
 
 	export let page;
 	export let lang;
 
-	set_lang(lang);
-
-	console.log(page);
+	Multilang.init(lang);
 
 </script>
 
 <svelte:head>
-	{#each Object.keys(langs) as lang}
+	{#each Object.keys(availableLangs) as lang}
 	<link rel="alternate" hreflang="{lang}" href="{env.baseUrl}/{lang}/" />
 	{/each}
 	<link rel="alternate" hreflang="x-default" href="{env.baseUrl}/en/" />
@@ -66,7 +66,5 @@ export async function preload(page, session)
 	<slot></slot>
 	<div class="container">&nbsp;</div>
 </main>
-{#if env.dev.lang_builder}
-<LangBuilder/>
-{/if}
+
 <Footer lang="{lang}"/>

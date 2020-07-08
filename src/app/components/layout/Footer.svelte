@@ -1,8 +1,10 @@
 <script>
 
-import langs from '../../../_langs';
+import Multilang from "sickspack/multilang";
 
 export let lang;
+
+const availableLangs = Multilang.getSupportedLanguages();
 
 </script>
 
@@ -18,11 +20,9 @@ export let lang;
 			</div>
 
 			<div class="col m4">
-				<h5>Other languages</h5>
-				{#each Object.keys(langs) as l}
-					{#if l != lang}
-					<p><a href="/{lang}/">{langs[l].lang}</a></p>
-					{/if}
+				<h5>Languages</h5>
+				{#each Object.keys(availableLangs) as key}
+					<p><a href="/{key}/" rel="external">{availableLangs[key]}</a></p>
 				{/each}
 			</div>
 		</div>

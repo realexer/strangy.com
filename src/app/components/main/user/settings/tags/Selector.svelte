@@ -4,11 +4,12 @@ import {onMount} from 'svelte';
 import {writable} from 'svelte/store';
 import {current_user} from '../../../../../stores/current_user';
 import {TagsAPI} from '../../../../../api/providers/app/TagsAPI';
-import langs from '../../../../../../_langs/index';
 import Checkbox from '../../../../../../lib/ui/components/forms/check_box.svelte';
 import NewTagForm from './NewTagForm.svelte';
 import ApiClient from "../../../../../api/client";
+import Multilang from "sickspack/multilang";
 
+const availableLangs = Multilang.getSupportedLanguages();
 let unsubscribe = null;
 let userLangs = writable([]);
 let userTags = writable([]);
@@ -105,8 +106,8 @@ const saveUserTags = async () =>
 		<h2 class="flow-text">Your languages</h2>
 		<div class="">
 		<form>
-			{#each Object.keys(langs) as lang}
-				<Checkbox checked="{userHasLang(lang)}" onchange="{() => { toggleUserLang(lang); }}" id="user_lang_{lang}">{langs[lang].lang}</Checkbox>
+			{#each Object.keys(availableLangs) as lang}
+				<Checkbox checked="{userHasLang(lang)}" onchange="{() => { toggleUserLang(lang); }}" id="user_lang_{lang}">{availableLangs[lang]}</Checkbox>
 			{/each}
 		</form>
 		</div>

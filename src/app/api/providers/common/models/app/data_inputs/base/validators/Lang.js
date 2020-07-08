@@ -1,5 +1,5 @@
 import {DataValidator} from "../DataInput";
-import {isLangSupported} from "../../../../../../../../lang";
+import Multilang from "sickspack/multilang";
 
 export class SupportedLang extends DataValidator
 {
@@ -9,7 +9,7 @@ export class SupportedLang extends DataValidator
 
 	validate(value)
 	{
-		if(isLangSupported(value) === false) {
+		if(Multilang.isTranslationAvailable(value) === false) {
 			throw `Lang [${value}] is not supported.`;
 		}
 	}

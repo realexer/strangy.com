@@ -1,6 +1,8 @@
 import {SitemapPage, SitemapPageMetadata, SitemapPageAlternative, ChangeFreq, generateSitemap} from '../lib/sitemap_builder/index';
-import langs from '../_langs/index'
 import env from '../env';
+import Multilang from "sickspack/multilang";
+
+const availableLangs = Multilang.getSupportedLanguages();
 
 export function get(req, res)
 {
@@ -15,7 +17,7 @@ export function get(req, res)
 	urls.forEach((metaData) =>
 	{
 		const alternatives = [];
-		Object.keys(langs).forEach((lang) =>
+		Object.keys(availableLangs).forEach((lang) =>
 		{
 			alternatives.push(new SitemapPageAlternative(lang, metaData.localizeLocation(lang)))
 		});

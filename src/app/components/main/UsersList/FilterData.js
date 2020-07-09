@@ -1,14 +1,17 @@
-class FilterTagsList {
+class FilterTagsList
+{
 	constructor(tags = {}) {
 		this.tags = tags;
 	}
 
 	addTag(tag) {
 		if (this.tags[tag.tag] === undefined) {
-			this.tags[tag.tag] = 0;
+			this.tags[tag.tag] = Object.assign(tag, {
+				active_users_amount: 0
+			});
 		}
 
-		this.tags[tag.tag]++;
+		this.tags[tag.tag].active_users_amount++;
 	}
 
 	addMultiple(tags) {
@@ -18,13 +21,7 @@ class FilterTagsList {
 	}
 
 	get array() {
-		const tagsArray = [];
-
-		for (let tag in this.tags) {
-			tagsArray.push(new FilterTag(tag, this.tags[tag]))
-		}
-
-		return tagsArray;
+		return Object.values(this.tags);
 	}
 
 	clear() {
@@ -48,11 +45,10 @@ class FilterData
 		this.tags = new FilterTagsList();
 	}
 
-	putData(docs)
+	putData(users)
 	{
-		docs.forEach((doc) =>
+		users.forEach((user) =>
 		{
-			const user = doc.data();
 			this.tags.addMultiple(user.tags.all);
 			this.users.push(user);
 		});
@@ -72,7 +68,7 @@ class FilterData
 	}
 
 	getTagsArray() {
-		return this.tags.array.sort((a, b) => b.users_amount - a.users_amount);
+		return this.tags.array.sort((a, b) => b.active_users_amount - a.active_users_amount);
 	}
 
 	reset() {

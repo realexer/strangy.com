@@ -57,9 +57,15 @@ onDestroy(() => {
 	<h3><a href="{lang_url('user/' + $selected_stranger.id)}">{$selected_stranger.tags.primary.string}</a></h3>
 	<p class="flow-text">
 		{$selected_stranger.tags.secondary.string}
-		<br/>
-		karma: {$selected_stranger.karma}
 	</p>
+	<div class="">
+		{#if $selected_stranger.karma > 0}
+		<i class="material-icons" data-icon="favorite"></i>
+		<span>{$selected_stranger.karma}</span>
+		{:else}
+		<i class="material-icons" data-icon="favorite_border"></i>
+		{/if}
+	</div>
 	<form ref="form" on:submit|preventDefault={invite}>
 		<TextInput label="subject"
 							 bind:value={formController.props["subject"].value}

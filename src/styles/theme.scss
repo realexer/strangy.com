@@ -198,6 +198,11 @@ body {
       position: absolute;
       top: 0;
       right: 0;
+
+      .material-icons {
+        margin: 0;
+        margin-left: 0.5em;
+      }
     }
   }
 }

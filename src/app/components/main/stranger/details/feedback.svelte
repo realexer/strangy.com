@@ -39,7 +39,12 @@
 	{#each feedbackHistory as feedback}
 	<div class="">
 		<div class="card-panel">
-			<div class="flow-text">{feedback.message ? feedback.message : feedback.vote}</div>
+			<div class="flow-text">
+				{#if feedback.vote}
+				<i class="material-icons" data-icon="favorite"></i>
+				{/if}
+				{feedback.message}
+			</div>
 		</div>
 		<p>{formatDate(feedback.setAt)}</p>
 	</div>

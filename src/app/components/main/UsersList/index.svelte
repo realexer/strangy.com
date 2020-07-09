@@ -9,12 +9,15 @@ import {selected_stranger} from '../../../stores/selected_strager';
 import {lang_url} from "../../general/link";
 import { fade } from 'svelte/transition';
 
-const filterData = new FilterData();
+export let activeUsers;
 
-let totalUsersAmount = 0;
+const filterData = new FilterData();
+filterData.putData(activeUsers);
+
+let totalUsersAmount = filterData.getTotalUsersAmount();
+let usersFiltered = filterData.filterUsers([]);
+let tags = filterData.getTagsArray();
 let changedAmount = -1;
-let usersFiltered = [];
-let tags = [];
 let tagsToFilter = [];
 
 const filterUsers = () =>
@@ -42,14 +45,14 @@ const removeTagToFilter = (tag) =>
 
 onMount(() =>
 {
-  M.Collapsible.init(document.querySelector('.collapsible.expandable'), {
+	M.Collapsible.init(document.querySelector('.collapsible.expandable'), {
     accordion: false
   });
 
   UsersListAPI.activeUsers().subscribe(result =>
   {
   	filterData.reset();
-  	filterData.putData(result.docs);
+  	filterData.putData(result.docs.map(d => d.data()));
 
     tags = filterData.getTagsArray();
     totalUsersAmount = filterData.getTotalUsersAmount();
@@ -81,10 +84,12 @@ let users_list_filter_visible = false;
 		<div class="divider"></div>
 		{/if}
 		{#each tags as tag}
-		<div class="chip activator" on:click="{() => {addTagToFilter(tag)}}">
+		<a href="{lang_url(`tag/${tag.kind}/${tag.tag}`)}"
+				class="chip"
+				on:click|preventDefault="{() => {addTagToFilter(tag)}}">
 			{tag.tag}
 			<i class="">{tag.users_amount}</i>
-		</div>
+		</a>
 		{/each}
 
   </div>
@@ -105,7 +110,9 @@ let users_list_filter_visible = false;
     <ul class="collapsible expandable no-autoinit">
       {#if changedAmount > 0}
       <li class="center">
-        <i class="material-icons" on:click="{() => {filterUsers()}}">refresh</i>
+      	<div class="collapsible-header">
+        	<i class="material-icons" on:click="{() => {filterUsers()}}">refresh</i>
+				</div>
       </li>
       {/if}
       {#each usersFiltered as user}
@@ -114,7 +121,15 @@ let users_list_filter_visible = false;
 					<div class="_user_info">
 						<a href="{lang_url('user/'+user.id)}">{user.tags.primary.string}</a>
 						<p class="">{user.tags.secondary.string}</p>
-						<span class="_karma">{user.karma}</span>
+
+						<span class="_karma center-align">
+							{#if user.karma > 0}
+							<span>{user.karma}</span>
+							<i class="material-icons right" data-icon="favorite"></i>
+							{:else}
+							<i class="material-icons right" data-icon="favorite_border"></i>
+							{/if}
+						</span>
 					</div>
         </div>
 

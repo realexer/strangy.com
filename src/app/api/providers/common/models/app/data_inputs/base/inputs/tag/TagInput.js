@@ -16,7 +16,7 @@ export class TagInput extends DataInput
 
 		value = value.trim().toLowerCase();
 
-		value = value.replace(/[^\w0-9]+/g, '-').replace(/^-*|-*$/g, '');
+		value = value.replace(/[^\p{L}0-9]+/ug, '-').replace(/^-*|-*$/g, '');
 
 		return value;
 	}

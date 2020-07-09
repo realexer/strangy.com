@@ -22,7 +22,7 @@ const unsubscriber = new Unsubscriby(onDestroy);
 
 unsubscriber.add = page.subscribe(async (page) =>
 {
-	$selected_stranger = (await UsersListAPI.byId(page.params.uid).get()).data(0);
+	$selected_stranger = (await UsersListAPI.byId(page.params.user_id).get()).data();
 });
 
 

@@ -28,7 +28,6 @@ onMount(() =>
 
 			userLangs.subscribe(() =>
 			{
-				saveUserLangs();
 				filterTagsByLangs();
 			});
     }
@@ -50,6 +49,8 @@ const toggleUserLang = (lang) =>
 	} else {
 		$userLangs = [...$userLangs, lang];
 	}
+
+	saveUserLangs();
 };
 
 const userHasLang = (lang) =>
@@ -61,10 +62,7 @@ const loadTags = async (forLangs) =>
 {
 	const result = await TagsAPI.all(forLangs).get();
 
-	result.docs.forEach((doc) =>
-	{
-		allTags = [...allTags, doc.data()];
-	});
+	allTags = result.docs.map(d => d.data());
 
 	filterTagsByLangs();
 };

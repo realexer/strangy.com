@@ -1,9 +1,9 @@
 const TagKind = {
-	INFO: 'INFO',
-	INTEREST: 'INTEREST',
-	LOCATION: 'LOCATION',
+	info: 'info',
+	interest: 'interest',
+	location: 'location',
 	// AGE: 'AGE',
-	OTHER: 'OTHER'
+	other: 'other'
 };
 
 const isTagKindSupported = (kind) =>
@@ -13,10 +13,10 @@ const isTagKindSupported = (kind) =>
 
 const TagKindLabels =
 {
-	[TagKind.INFO]: 'Info',
-	[TagKind.INTEREST]: 'Interest',
-	[TagKind.LOCATION]: 'Location',
+	[TagKind.info]: 'Info',
+	[TagKind.interest]: 'Interest',
+	[TagKind.location]: 'Location',
 	// [TagKind.AGE]: 'Age',
-	[TagKind.OTHER]: 'Other',
+	[TagKind.other]: 'Other',
 };
 export {TagKindLabels, TagKind, isTagKindSupported};

@@ -11,34 +11,29 @@ export async function preload(page, session)
 
 <script>
 import {onMount, onDestroy} from 'svelte';
+import {writable} from 'svelte/store';
 import {ChatsListAPI} from '../../../../app/api/providers/app/chat/ChatsListAPI'
 import {ChatModel as ChatModel} from '../../../../app/api/providers/common/models/firebase/ChatModel'
 import Chat from '../../../../app/components/main/user/Chat.svelte'
-
 import { active_chat } from '../../../../app/stores/user/active_chat';
 import {Unsubscriby} from "sickspack/unsubscriby";
+import { stores } from '@sapper/app';
 
-export let chatId;
+const {page} = stores();
 
-let unsubscribe = new Unsubscriby();
+const unsubscriber = new Unsubscriby(onDestroy);
 
-let listenToChatChanges = (chatId) =>
+unsubscriber.add = page.subscribe(async (page) =>
 {
-	return ChatsListAPI.chat(chatId).listen((doc) =>
+	unsubscriber.stop('active_chat');
+	unsubscriber.addSingle(() =>
 	{
-		$active_chat = doc.data();
-	});
-};
-
-$: if(chatId) {
-	unsubscribe.finish();
-	unsubscribe.add = listenToChatChanges(chatId);
-}
-
-onDestroy(() =>
-{
-	unsubscribe.finish();
-})
+		return ChatsListAPI.chat(page.params.chat_id).listen((doc) =>
+		{
+			$active_chat = doc.data();
+		});
+	}, 'active_chat');
+});
 
 </script>
 

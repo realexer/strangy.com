@@ -8,9 +8,9 @@ class FormController {
 		this.isBusy = false;
 	}
 
-	addProp(name) {
+	addProp(name, value = null) {
 		this.props[name] = {
-			value: '',
+			value: value,
 			error: false,
 			message: '',
 		};

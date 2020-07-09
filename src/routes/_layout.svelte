@@ -36,12 +36,31 @@ import Nav from '../app/components/layout/Nav.svelte';
 import Footer from '../app/components/layout/Footer.svelte';
 import GoogleAnalytics from 'sickspack/GoogleAnalytics/GoogleAnalytics.svelte'
 import { stores } from '@sapper/app';
+import {auth_info, current_user} from "../app/stores/current_user";
+import {Unsubscriby} from "sickspack/unsubscriby";
+import {UsersListAPI} from "../app/api/providers/app/Users";
+
 const app_stores = stores();
 
 export let page;
 export let lang;
 
 Multilang.init(lang);
+
+const unsubscriber = new Unsubscriby();
+
+unsubscriber.add = auth_info.subscribe(() =>
+{
+	if($auth_info.id)
+	{
+		unsubscriber.addSingle(() =>
+		{
+			return UsersListAPI.byId($auth_info.id).subscribe((doc) => {
+				current_user.set(doc.data());
+			});
+		}, 'current_user');
+	}
+})
 
 </script>
 

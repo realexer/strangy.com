@@ -15,12 +15,12 @@ import {lang_url} from '../../../general/link';
 import * as ApiRequest from "../../../../api/ApiRequest";
 import ApiClient from "../../../../api/client";
 import {UserFeedbackAPI} from "../../../../api/providers/app/UserFeedback";
-import {UnsubscriberX} from "../../../../../lib/UnsubscriberX";
+import {Unsubscriby} from "sickspack/unsubscriby";
 import UINotification from "../../../ui/notification";
 import {_lang} from "sickspack/multilang/lang";
 
 
-const unsubscribe = new UnsubscriberX(onDestroy);
+const unsubscribe = new Unsubscriby(onDestroy);
 
 let optionsOpen = false;
 let feedbackOpen = false;

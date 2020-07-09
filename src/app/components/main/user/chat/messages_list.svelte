@@ -5,11 +5,11 @@ import {ChatMessagesAPI} from '../../../../api/providers/app/chat/ChatMessagesAP
 import {active_chat} from '../../../../stores/user/active_chat'
 import {current_user} from '../../../../stores/current_user'
 import {ChatModel as chat} from "../../../../api/providers/common/models/firebase/ChatModel";
-import {UnsubscriberX} from "../../../../../lib/UnsubscriberX";
+import {Unsubscriby} from "sickspack/unsubscriby";
 import ApiClient from "../../../../api/client";
 import ChatMessage from '../../chat/message.svelte'
 
-let unsubscribes = new UnsubscriberX(onDestroy);
+let unsubscribes = new Unsubscriby(onDestroy);
 
 let currentChatId = null;
 

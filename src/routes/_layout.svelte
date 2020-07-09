@@ -2,22 +2,18 @@
 import env from '../env';
 import Notification from '../app/components/ui/notification/notification.svelte';
 import { notification_message } from '../app/stores/notification_message.js';
-import translations from '../_langs/translations/index';
 import Multilang from "sickspack/multilang";
-import {addFormat} from 'sickspack/multilang/lang'
-import Lang from 'sickspack/multilang/Lang.svelte'
+import Lang from 'sickspack/multilang/Lang.svelte';
+import {init} from '../app/init';
+import {replaceUrlLang} from "../app/hreflang";
 
-Multilang.setup(translations);
-
-addFormat(/\*\*([^*]+)\*\*/gmi, `<strong class='__txt_highlight'>$1</strong>`);
-addFormat(/\*([^\*]+)\*/gmi, `<strong>$1</strong>`);
-addFormat(/\n/gmi, `<p>`);
+init();
 
 const availableLangs = Multilang.getSupportedLanguages();
 
 export async function preload(page, session)
 {
-	const langMatch = page.path.match(/\/(<?lang>[\w]+)\/?/);
+	const langMatch = page.path.match(/\/(?<lang>[\w]+)\/?/);
 	const lang = langMatch ? langMatch.groups.lang : 'en';
 
 	try {
@@ -34,10 +30,13 @@ export async function preload(page, session)
 </script>
 
 <script>
+
 import {onMount} from 'svelte';
 import Nav from '../app/components/layout/Nav.svelte';
 import Footer from '../app/components/layout/Footer.svelte';
-import GoogleAnalytics from '../lib/GoogleAnalytics/GoogleAnalytics.svelte'
+import GoogleAnalytics from 'sickspack/GoogleAnalytics/GoogleAnalytics.svelte'
+import { stores } from '@sapper/app';
+const app_stores = stores();
 
 export let page;
 export let lang;
@@ -47,10 +46,10 @@ Multilang.init(lang);
 </script>
 
 <svelte:head>
-	{#each Object.keys(availableLangs) as lang}
-	<link rel="alternate" hreflang="{lang}" href="{env.baseUrl}/{lang}/" />
+	{#each Object.keys(availableLangs) as hrefLang}
+	<link rel="alternate" hreflang="{hrefLang}" href="{env.baseUrl}{replaceUrlLang(page.path, lang, hrefLang)}" />
 	{/each}
-	<link rel="alternate" hreflang="x-default" href="{env.baseUrl}/en/" />
+	<link rel="alternate" hreflang="x-default" href="{env.baseUrl}{replaceUrlLang(page.path, lang, 'en')}" />
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-G8267CJ27D"></script>
   <script>
@@ -65,7 +64,7 @@ Multilang.init(lang);
 
 <Notification/>
 
-<GoogleAnalytics gtag_id="G-G8267CJ27D"/>
+<GoogleAnalytics gtag_id="G-G8267CJ27D" page="{app_stores.page}"/>
 
 <header class:_ui_log_disabled={!env.dev.ui_log}>
 	<Nav/>

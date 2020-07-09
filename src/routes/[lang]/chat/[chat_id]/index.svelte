@@ -16,11 +16,11 @@ import {ChatModel as ChatModel} from '../../../../app/api/providers/common/model
 import Chat from '../../../../app/components/main/user/Chat.svelte'
 
 import { active_chat } from '../../../../app/stores/user/active_chat';
-import {UnsubscriberX} from "../../../../lib/UnsubscriberX";
+import {Unsubscriby} from "sickspack/unsubscriby";
 
 export let chatId;
 
-let unsubscribe = new UnsubscriberX();
+let unsubscribe = new Unsubscriby();
 
 let listenToChatChanges = (chatId) =>
 {

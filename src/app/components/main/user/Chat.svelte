@@ -10,11 +10,11 @@ import {UserModel} from '../../../api/providers/common/models/firebase/UserModel
 import MessageForm from './chat/message_form.svelte'
 import MessagesList from './chat/messages_list.svelte'
 import Header from './chat/header.svelte';
-import {UnsubscriberX} from "../../../../lib/UnsubscriberX";
+import {Unsubscriby} from "sickspack/unsubscriby";
 
 export let chat = null;
 
-let unsubscribe = new UnsubscriberX(onDestroy);
+let unsubscribe = new Unsubscriby(onDestroy);
 let listenToStranger = null;
 
 $: if($active_chat.id && $current_user.id)

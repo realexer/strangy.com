@@ -4,12 +4,12 @@
   import {FeedbackModel} from '../../../../api/providers/common/models/firebase/FeedbackModel'
 
   import {selected_stranger} from '../../../../stores/selected_strager';
-  import {UnsubscriberX} from "../../../../../lib/UnsubscriberX";
+  import {Unsubscriby} from "sickspack/unsubscriby";
   import {formatDate} from "../../../../../lib/Date";
 
 
   let feedbackHistory = [];
-  let unsubscribe = new UnsubscriberX();
+  let unsubscribe = new Unsubscriby();
 
   onMount(() =>
   {

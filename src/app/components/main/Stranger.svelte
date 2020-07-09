@@ -1,24 +1,19 @@
 <script>
-  import {onMount} from 'svelte'
-  import {UserModel} from '../../api/providers/common/models/firebase/UserModel'
-  import {selected_stranger} from '../../stores/selected_strager'
+import {onMount} from 'svelte'
+import {UserModel} from '../../api/providers/common/models/firebase/UserModel'
+import {selected_stranger} from '../../stores/selected_strager'
 
-  import InviteForm from './stranger/details/invite_form.svelte'
-  import Chats from './stranger/details/chats.svelte'
-  import Feedback from './stranger/details/feedback.svelte'
+import InviteForm from './stranger/details/invite_form.svelte'
+import Chats from './stranger/details/chats.svelte'
+import Feedback from './stranger/details/feedback.svelte'
 
-	let tabs = null;
+let tabs = null;
 
-  onMount(() => {
-    tabs = M.Tabs.init(document.querySelector('.tabs'), {});
-  });
+onMount(() => {
+	tabs = M.Tabs.init(document.querySelector('.tabs'), {});
+});
 
-  let listenToUser = null;
-
-  let unsubscribe = selected_stranger.subscribe((selectedUser) =>
-  {
-
-  });
+let listenToUser = null;
 
 </script>
 

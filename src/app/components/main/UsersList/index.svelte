@@ -49,6 +49,8 @@ onMount(() =>
     accordion: false
   });
 
+	changedAmount = -1;
+
   UsersListAPI.activeUsers().subscribe(result =>
   {
   	filterData.reset();
@@ -57,11 +59,7 @@ onMount(() =>
     tags = filterData.getTagsArray();
     totalUsersAmount = filterData.getTotalUsersAmount();
 
-    if(changedAmount < 0) {
-    	filterUsers();
-    } else {
-    	changedAmount++;
-    }
+    changedAmount++;
   });
 });
 
@@ -74,31 +72,36 @@ let users_list_filter_visible = false;
 	<div class="col m8 s12">
 		<p class="flow-text">Select who you'd like to chat with</p>
 		{#if tagsToFilter.length > 0}
-    <div>
-		{#each tagsToFilter as tag}
-			<div class="chip activator green" on:click="{() => {removeTagToFilter(tag)}}">
+    <p class="">
+			{#each tagsToFilter as tag}
+			<div class="__tag chip activator green" on:click="{() => {removeTagToFilter(tag)}}">
 				{tag}
 			</div>
 			{/each}
-		</div>
-		<div class="divider"></div>
+		</p>
 		{/if}
-		{#each tags as tag}
-		<a href="{lang_url(`tag/${tag.kind}/${tag.tag}`)}"
-				class="chip"
-				on:click|preventDefault="{() => {addTagToFilter(tag)}}">
-			{tag.tag}
-			<i class="">{tag.users_amount}</i>
-		</a>
-		{/each}
+		<p class="">
+			{#each tags as tag}
+			<a href="{lang_url(`tag/${tag.kind}/${tag.tag}`)}"
+					class="__tag chip"
+					on:click|preventDefault="{() => {addTagToFilter(tag)}}">
+				{tag.tag}
+				<i class="">{tag.users_amount}</i>
+			</a>
+			{/each}
+		</p>
 
   </div>
   <div class="col m4 s12 __users_list">
   	<div class="">
   		<p class="flow-text">
-  			{totalUsersAmount} ready to chat
-  			<i class="material-icons right" on:click="{() => {users_list_filter_visible = !users_list_filter_visible;}}">more_vert</i>
+
+  			<button class="btn-flat right" on:click="{() => {users_list_filter_visible = !users_list_filter_visible;}}">
+  				<i class="material-icons right" data-icon="more_vert"></i>
+  			</button>
+  			<span class="">{usersFiltered.length} ready to chat</span>
   		</p>
+  		<div class="clearfix"></div>
   	</div>
   	{#if users_list_filter_visible}
   	<div class="_options_list" transition:fade>
@@ -107,14 +110,14 @@ let users_list_filter_visible = false;
 			<div class="_option"><input type="checkbox">option 2</div>
 		</div>
 		{/if}
+		{#if changedAmount > 0}
+		<div class="container center-align">
+			<button class="btn-flat" on:click="{() => {filterUsers()}}">
+				<i class="material-icons" data-icon="refresh"></i>
+			</button>
+		</div>
+		{/if}
     <ul class="collapsible expandable no-autoinit">
-      {#if changedAmount > 0}
-      <li class="center">
-      	<div class="collapsible-header">
-        	<i class="material-icons" on:click="{() => {filterUsers()}}">refresh</i>
-				</div>
-      </li>
-      {/if}
       {#each usersFiltered as user}
       <li class="">
         <div class="collapsible-header">
@@ -135,9 +138,11 @@ let users_list_filter_visible = false;
 
         <div class="collapsible-body">
         	<div class="row">
-        		<div class="">{user.about}</div>
+        		{#if user.about}
+        		<p class="flow-text">{user.about}</p>
+        		{/if}
 						<div class="">
-							<a class="btn"
+							<a class="btn btn-block"
 								 href="{lang_url('user/'+user.id)}"
 								 on:click="{ () => { $selected_stranger = user; } }">Chat</a>
 						</div>

@@ -1,25 +1,22 @@
 <script>
-  import {ChatsListAPI} from '../../../../api/providers/app/chat/ChatsListAPI'
-  import {ChatModel} from '../../../../api/providers/common/models/firebase/ChatModel'
+import {onDestroy} from 'svelte';
+import {ChatsListAPI} from '../../../../api/providers/app/chat/ChatsListAPI'
+import {selected_stranger} from '../../../../stores/selected_strager';
+import {formatDate} from "../../../../../lib/Date";
+import {Unsubscriby} from "sickspack/unsubscriby";
 
-  import {selected_stranger} from '../../../../stores/selected_strager';
-  import {formatDate} from "../../../../../lib/Date";
+const unsbuscribe = new Unsubscriby(onDestroy);
 
-	let chats = [];
+let chats = [];
 
-  const unsubscribe = selected_stranger.subscribe((user) =>
-  {
-    if($selected_stranger.id)
-    {
-      ChatsListAPI.userChats($selected_stranger.id).get().then((results) =>
-      {
-        results.forEach((doc) =>
-        {
-          chats = [...chats, doc.data()];
-        });
-      });
-    }
-  });
+unsbuscribe.add = selected_stranger.subscribe(async (user) =>
+{
+	if($selected_stranger.id)
+	{
+		const result = await ChatsListAPI.userChats($selected_stranger.id).get();
+		chats = result.docs.map(d => d.data());
+	}
+});
 
 </script>
 

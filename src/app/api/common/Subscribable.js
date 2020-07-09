@@ -15,6 +15,10 @@ class Subscribable
     this._onSubscribe = callable;
   }
 
+  /**
+   *
+   * @returns {Promise<*>}
+   */
   async get()
   {
     this.query = this._onGet(this.query, ...arguments);

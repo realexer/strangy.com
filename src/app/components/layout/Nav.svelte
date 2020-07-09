@@ -55,7 +55,7 @@ onMount(() =>
 					<Lang key="layout.nav.links.about.text"/>
 				</a>
 			</li>
-			<li class:active="{$page.path == lang_url('involve')}">
+			<li class:active="{$page.path == lang_url('involve')}" class="hide-on-small-and-down">
 				<a href="{lang_url('info/involve')}" title="{_lang('layout.nav.links.involve.title')}">
 					<Lang key="layout.nav.links.involve.text"/>
 				</a>
@@ -70,7 +70,7 @@ onMount(() =>
 				{#if $current_user.id}
 				<li class="show-on-large">
 					<a href="{lang_url('my/feedback')}" rel="nofollow" class="">
-						<i class="material-icons left" data-icon="favorite"></i>
+						<i class="material-icons right" data-icon="favorite"></i>
 						{$current_user.karma}
 					</a>
 				</li>

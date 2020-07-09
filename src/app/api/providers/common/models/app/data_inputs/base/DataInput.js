@@ -8,7 +8,7 @@ export class DataInput
 	constructor(value, ...validators)
 	{
 		this.value = this.filterValue(value);
-		this.validators = validators;
+		this.validators = validators.filter(item => item instanceof DataValidator);
 	}
 
 	filterValue(value) {

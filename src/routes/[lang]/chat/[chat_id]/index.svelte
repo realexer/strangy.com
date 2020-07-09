@@ -35,11 +35,6 @@ $: if(chatId) {
 	unsubscribe.add = listenToChatChanges(chatId);
 }
 
-onMount(() =>
-{
-
-});
-
 onDestroy(() =>
 {
 	unsubscribe.finish();

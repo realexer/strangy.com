@@ -61,6 +61,12 @@ export default {
 			}
 		}
 	},
+	info: {
+		general_description: {
+			heading: "The past of online chatting",
+			details: "Strangy is the state of the art project created and designed to represent everything that online chatting and internet communication should be. "
+		}
+	},
 	app: {
 		index: {
 			tags_list: {
@@ -151,10 +157,6 @@ export default {
 		}
 	},
 	pages: {
-		index: {
-			heading: "The past of online chatting.",
-			coming_soon: "coming soon..."
-		},
 		about: {
 			info: {
 				heading: "Resurrection of online chats",

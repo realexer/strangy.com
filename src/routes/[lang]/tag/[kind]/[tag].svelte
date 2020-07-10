@@ -20,6 +20,8 @@ export async function preload(page, session)
 
 <script>
 
+import GeneralDescription from '../../../../app/components/info/general_description.svelte';
+
 export let kind;
 export let tag;
 export let activeUsers;
@@ -28,9 +30,10 @@ export let activeUsers;
 </script>
 
 <div class="container center-align">
-	<h1 class="flow-text">
+	<h2 class="flow-text">
 		<Lang key="{`pages.tag.heading.kind.${kind}`}" data="{{tag: tag}}"/>
-	</h1>
+	</h2>
 	<p><Lang key="pages.tag.heading.currently_online" data="{{online: 1}}"/></p>
 	<AppIndex activeUsers="{activeUsers}"/>
+	<GeneralDescription/>
 </div>

@@ -17,6 +17,7 @@ import Lang from 'sickspack/multilang/Lang.svelte'
 import env from '../../env';
 import {lang_url} from "../../app/components/general/link";
 import AppIndex from './app/index.svelte'
+import GeneralDescription from '../../app/components/info/general_description.svelte';
 
 export let activeUsers = [];
 
@@ -32,6 +33,5 @@ export let activeUsers = [];
 </div>
 
 <div class="container center-align">
-	<h1 class=""><Lang key="pages.index.heading"/></h1>
-	<p class="flow-text"><Lang key="pages.index.coming_soon"/></p>
+	<GeneralDescription/>
 </div>

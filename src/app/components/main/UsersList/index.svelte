@@ -8,6 +8,8 @@ import {FilterData} from './FilterData';
 import {selected_stranger} from '../../../stores/selected_strager';
 import {lang_url} from "../../general/link";
 import { fade } from 'svelte/transition';
+import {_lang} from "sickspack/multilang/lang";
+import Lang from "sickspack/multilang/Lang.svelte";
 
 export let activeUsers;
 
@@ -70,7 +72,9 @@ let users_list_filter_visible = false;
 
 <div class="row">
 	<div class="col m8 s12">
-		<p class="flow-text">Select who you'd like to chat with</p>
+		<h2 class="flow-text">
+			<Lang key="app.index.tags_list.heading"/>
+		</h2>
 		{#if tagsToFilter.length > 0}
     <p class="">
 			{#each tagsToFilter as tag}
@@ -94,20 +98,25 @@ let users_list_filter_visible = false;
   </div>
   <div class="col m4 s12 __users_list">
   	<div class="">
-  		<p class="flow-text">
 
-  			<button class="btn-flat right" on:click="{() => {users_list_filter_visible = !users_list_filter_visible;}}">
-  				<i class="material-icons right" data-icon="more_vert"></i>
-  			</button>
-  			<span class="">{usersFiltered.length} ready to chat</span>
-  		</p>
+			<button class="btn-flat right" on:click="{() => {users_list_filter_visible = !users_list_filter_visible;}}">
+				<i class="material-icons right" data-icon="more_vert"></i>
+			</button>
+			<h2 class="flow-text"><Lang key="app.index.users_list.heading" data="{{amount: usersFiltered.length}}"/></h2>
+
   		<div class="clearfix"></div>
   	</div>
   	{#if users_list_filter_visible}
   	<div class="_options_list" transition:fade>
-			<div class="">some options will appear here</div>
-			<div class="_option"><input type="checkbox">option 1</div>
-			<div class="_option"><input type="checkbox">option 2</div>
+			<div class="_option">
+				<input type="checkbox">
+				<Lang key="app.index.users_list.options.first"/>
+			</div>
+			<div class="_option">
+				<input type="checkbox">
+				<Lang key="app.index.users_list.options.second"/>
+			</div>
+
 		</div>
 		{/if}
 		{#if changedAmount > 0}
@@ -144,7 +153,9 @@ let users_list_filter_visible = false;
 						<div class="">
 							<a class="btn btn-block"
 								 href="{lang_url('user/'+user.id)}"
-								 on:click="{ () => { $selected_stranger = user; } }">Chat</a>
+								 on:click="{ () => { $selected_stranger = user; } }">
+								 	<Lang key="app.index.users_list.user_item.chat"/>
+							</a>
 						</div>
 					</div>
         </div>

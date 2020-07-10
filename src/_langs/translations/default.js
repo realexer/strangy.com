@@ -62,15 +62,82 @@ export default {
 		}
 	},
 	app: {
+		index: {
+			tags_list: {
+				heading: "Select who would you like to chat with"
+			},
+			users_list: {
+				heading: "_amount_ ready to chat",
+				options: {
+					first: "option placeholder 1",
+					second: "option placeholder 1"
+				},
+				user_item: {
+					chat: "Chat"
+				}
+			}
+		},
+		user: {
+			was_online: "was online"
+		},
 		stranger: {
-			inviteForm: {
-				successMessage: 'Invitation sent'
+			invite_form: {
+				success_message: 'Invitation sent',
+				subject: "subject",
+				submit: "invite"
+			},
+			details: {
+				feedback: {
+					heading: "Feedback",
+					placeholder: "no feedback yet"
+				},
+				chats: {
+					heading: "Chats",
+					placeholder: "no chats yet",
+					item: {
+						msgs: "msg/s"
+					}
+				}
 			}
 		},
 		chat: {
+			status: {
+				ACTIVE: "active",
+				FINISHED: "finished",
+			},
+			state: {
+				INVITATION: 'invitation',
+				ACCEPTED: 'accepted',
+				DECLINED: 'declined',
+				CANCELED: 'canceled',
+			},
 			active: {
 				feedback: {
-					successMessage: 'Feedback submitted'
+					form: {
+						input: 'Share a few words about your strangy'
+					},
+					success_message: 'Feedback submitted'
+				},
+				actions: {
+					rename: "Rename",
+					finish: "Finish conversation"
+				},
+				status: {
+					received_invitation: {
+						accept: "Accept invitation",
+						reject: "reject"
+					},
+					sent_invitation: {
+						heading: "invitation is pending response",
+						cancel: "cancel invitation"
+					}
+				},
+				messaging: {
+					form: {
+						input: "Message",
+						send: "Send"
+					},
+					placeholder: "no messages yet"
 				}
 			}
 		}
@@ -78,7 +145,8 @@ export default {
 	cmp: {
 		form: {
 			rules: {
-				min_length: 'must be at least _num_ characters'
+				min_length: 'must be at least _num_ characters',
+				max_length: 'must be no more than _num_ characters',
 			}
 		}
 	},

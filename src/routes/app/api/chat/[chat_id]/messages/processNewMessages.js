@@ -6,10 +6,8 @@ export async function post(req, res)
 {
 	const result = await ApiResultWithAuth.fromRequest(req,async (user_id) =>
 	{
-		return ApiResult.fromMultiple(
-			await ChatOperationsAPI.instance(req.params.chat_id, user_id).setLastReadMessageAtByUser(req.body.last_received_message_id),
-			await ChatOperationsAPI.instance(req.params.chat_id, user_id).resetNewMessagesAmountForUser()
-		);
+		return await ChatOperationsAPI.instance(req.params.chat_id, user_id)
+									.setLastReadMessageByUser(req.body.last_received_message_id);
 	});
 
 	res.send(result);

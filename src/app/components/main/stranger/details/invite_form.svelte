@@ -12,6 +12,7 @@ import ApiClient from "../../../../api/client";
 import {ChatsListAPI} from "../../../../api/providers/app/chat/ChatsListAPI";
 import UINotification from "../../../ui/notification";
 import {_lang} from "sickspack/multilang/lang";
+import Lang from "sickspack/multilang/Lang.svelte";
 
 let formController = new FormController({
 	subject: {
@@ -32,7 +33,7 @@ const invite = async () =>
 		);
 
 		if(result.isSuccess()) {
-			UINotification.success(_lang('app.stranger.inviteForm.successMessage'));
+			UINotification.success(_lang('app.stranger.invite_form.success_message'));
 		} else {
 			throw result.getErrorMessage();
 		}
@@ -43,13 +44,9 @@ const invite = async () =>
 	}
 };
 
-onDestroy(() => {
-
-});
-
 </script>
 
-<p class="">was online {formatDate($selected_stranger.lastActiveAt)}</p>
+<p class=""><Lang key="app.user.was_online"/> {formatDate($selected_stranger.lastActiveAt)}</p>
 <div class="divider"></div>
 
 <div class="card-panel">
@@ -67,12 +64,15 @@ onDestroy(() => {
 		{/if}
 	</div>
 	<form ref="form" on:submit|preventDefault={invite}>
-		<TextInput label="subject"
+		<TextInput label="{_lang('app.stranger.invite_form.subject')}"
 							 bind:value={formController.props["subject"].value}
 							 error={formController.props["subject"].error} isFocused={true}
 							 errorMessage={formController.props["subject"].message} />
 
-		<FormButtons classes="btn-full" cancelButton={false} submitText="Invite" isLoading={formController.isBusy} />
+		<FormButtons classes="btn-block"
+									cancelButton={false}
+									submitText="{_lang('app.stranger.invite_form.submit')}"
+									isLoading={formController.isBusy} />
 	</form>
 	{/if}
 </div>

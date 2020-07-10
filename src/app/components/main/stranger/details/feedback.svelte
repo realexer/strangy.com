@@ -4,6 +4,8 @@ import {UserFeedbackAPI} from '../../../../api/providers/app/UserFeedback'
 import {selected_stranger} from '../../../../stores/selected_strager';
 import {Unsubscriby} from "sickspack/unsubscriby";
 import {formatDate} from "../../../../../lib/Date";
+import {_lang} from "sickspack/multilang/lang";
+import Lang from "sickspack/multilang/Lang.svelte";
 
 
 let feedbackHistory = [];
@@ -38,6 +40,8 @@ onMount(() =>
 		<p>{formatDate(feedback.setAt)}</p>
 	</div>
 	{:else}
-	<p class="flow-text center-align">No feedback yet</p>
+	<p class="flow-text center-align">
+		<Lang key="app.stranger.details.feedback.placeholder"/>
+	</p>
 	{/each}
 </div>

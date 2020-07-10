@@ -31,7 +31,7 @@ class TagsManager
 
 			const result = await dbAccessorAdmin.tags().add(new TagModel(tagData));
 
-			return (await TagsAPI.getTagById(result.id)).data().toPlainObject();
+			return (await TagsAPI.getTagById(result.id)).data().toCompleteObject();
 		});
 	};
 

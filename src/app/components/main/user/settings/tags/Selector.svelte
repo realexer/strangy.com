@@ -1,6 +1,6 @@
 <script>
 
-import {onMount} from 'svelte';
+import {onMount, onDestroy} from 'svelte';
 import {writable} from 'svelte/store';
 import {current_user} from '../../../../../stores/current_user';
 import {TagsAPI} from '../../../../../api/providers/app/TagsAPI';
@@ -8,9 +8,12 @@ import Checkbox from '../../../../../../lib/ui/components/forms/check_box.svelte
 import NewTagForm from './NewTagForm.svelte';
 import ApiClient from "../../../../../api/client";
 import Multilang from "sickspack/multilang";
+import {Unsubscriby} from "sickspack/unsubscriby";
+import {new_tag_store} from './new_tag_store';
 
 const availableLangs = Multilang.getSupportedLanguages();
-let unsubscribe = null;
+let unsubscribe = new Unsubscriby(onDestroy);
+
 let userLangs = writable([]);
 let userTags = writable([]);
 let allTags = [];
@@ -18,7 +21,7 @@ let tags = [];
 
 onMount(() =>
 {
-	unsubscribe = current_user.subscribe(async () =>
+	unsubscribe.add = current_user.subscribe(async () =>
   {
     if($current_user.id) {
       $userTags = $current_user.tags.all;
@@ -32,6 +35,14 @@ onMount(() =>
 			});
     }
   });
+
+	unsubscribe.add = new_tag_store.subscribe((tag) => {
+		if(tag && tag.id) {
+			addUserTag(tag);
+
+			$new_tag_store = null;
+		}
+	});
 });
 
 const saveUserLangs = async () =>
@@ -44,18 +55,13 @@ const saveUserLangs = async () =>
 
 const toggleUserLang = (lang) =>
 {
-	if(userHasLang(lang)) {
+	if($userLangs.includes(lang)) {
 		$userLangs = $userLangs.filter(userLang => userLang !== lang);
 	} else {
 		$userLangs = [...$userLangs, lang];
 	}
 
 	saveUserLangs();
-};
-
-const userHasLang = (lang) =>
-{
-	return $userLangs.indexOf(lang) !== -1;
 };
 
 const loadTags = async (forLangs) =>
@@ -69,7 +75,7 @@ const loadTags = async (forLangs) =>
 
 const filterTagsByLangs = () =>
 {
-	tags = allTags.filter((tag) => $userLangs.indexOf(tag.lang) !== -1);
+	tags = allTags.filter((tag) => $userLangs.indexOf(tag.lang) !== -1).map(t => t.toCompleteObject());
 };
 
 /**
@@ -79,7 +85,7 @@ const filterTagsByLangs = () =>
 */
 const addUserTag = (tag) =>
 {
-  $userTags = [...$userTags, tag.toCompleteObject()];
+  $userTags = [...$userTags, tag];
 
   return saveUserTags();
 };
@@ -110,7 +116,7 @@ const saveUserTags = async () =>
 		<div class="">
 		<form>
 			{#each Object.keys(availableLangs) as lang}
-				<Checkbox checked="{userHasLang(lang)}" onchange="{() => { toggleUserLang(lang); }}" id="user_lang_{lang}">{availableLangs[lang]}</Checkbox>
+				<Checkbox checked="{$userLangs.includes(lang)}" onchange="{() => { toggleUserLang(lang); }}" id="user_lang_{lang}">{availableLangs[lang]}</Checkbox>
 			{/each}
 		</form>
 		</div>

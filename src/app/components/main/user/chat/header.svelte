@@ -18,6 +18,7 @@ import {UserFeedbackAPI} from "../../../../api/providers/app/UserFeedback";
 import {Unsubscriby} from "sickspack/unsubscriby";
 import UINotification from "../../../ui/notification";
 import {_lang} from "sickspack/multilang/lang";
+import Lang from "sickspack/multilang/Lang.svelte";
 
 
 const unsubscribe = new Unsubscriby(onDestroy);
@@ -31,7 +32,7 @@ let formController = new FormController({
     presence: true,
     length: {
       maximum: 50,
-      message: 'must be no more than 50 characters'
+      message: _lang('cmp.form.rules.max_length', {num: 50})
     }
   }
 });
@@ -61,7 +62,7 @@ const submitFeedback = async () =>
 		$currentFeedback.message);
 
 	if(result.isSuccess()) {
-		UINotification.success(_lang('app.chat.active.feedback.successMessage'));
+		UINotification.success(_lang('app.chat.active.feedback.success_message'));
 	} else {
 		UINotification.error(result.getErrorMessage());
 	}
@@ -114,7 +115,7 @@ const showDetails = () =>
 			{#if ($current_user.id && $active_chat_stranger.id)}
 				<span class="">
 					<a class="muted" href="#!" on:click|preventDefault="{() => { optionsOpen = !optionsOpen; }}">
-						<i class="material-icons right">more_vert</i>
+						<i class="material-icons right" data-icon="more_vert"></i>
 					</a>
 				</span>
 			{/if}
@@ -125,13 +126,14 @@ const showDetails = () =>
   <div class="card">
 		<div class="card-action">
 			<a href="#!" on:click|preventDefault="{ChatOperations.renameChat}">
-				<i class="material-icons left">edit</i>Rename
+				<i class="material-icons left" data-icon="edit"></i>
+				<Lang key="app.chat.active.actions.rename"/>
 			</a>
 		</div>
     <div class="card-action">
     	<a href="#!" on:click|preventDefault="{ChatOperations.finishChat}">
-    		<i class="material-icons left">clear</i>
-    		finish conversation
+    		<i class="material-icons left" data-icon="clear"></i>
+    		<Lang key="app.chat.active.actions.finish"/>
 			</a>
     </div>
   </div>
@@ -165,6 +167,7 @@ const showDetails = () =>
 			<div class="row">
 				<div class="col s11 no-padding">
 					<Textarea bind:value={formController.props["message"].value}
+													placeholder="{_lang('app.chat.active.feedback.form.input')}"
 													error={formController.props["message"].error} isFocused={true}
 													errorMessage={formController.props["message"].message} />
 				</div>
@@ -182,10 +185,14 @@ const showDetails = () =>
   <div class="card horizontal">
     <div class="card-stacked center-align">
       <div class="card-content">
-        <button class="btn btn-large" on:click="{ChatOperations.acceptInvitation}">Accept invitation</button>
+        <button class="btn btn-large" on:click="{ChatOperations.acceptInvitation}">
+        	<Lang key="app.chat.active.status.received_invitation.accept"/>
+				</button>
       </div>
       <div class="card-action">
-        <a href="#!" on:click|preventDefault="{ChatOperations.declineInvitation}">reject</a>
+        <a href="#!" on:click|preventDefault="{ChatOperations.declineInvitation}">
+        	<Lang key="app.chat.active.status.received_invitation.reject"/>
+				</a>
       </div>
     </div>
   </div>
@@ -195,10 +202,12 @@ const showDetails = () =>
 <div class="card horizontal">
   <div class="card-stacked center-align">
     <div class="card-content">
-      <p class="flow-text">invitation is pending response</p>
+      <p class="flow-text"><Lang key="app.chat.active.status.sent_invitation.heading"/></p>
     </div>
     <div class="card-action">
-      <a href="#!" on:click|preventDefault="{ChatOperations.cancelInvitation}">Cancel invitation</a>
+      <a href="#!" on:click|preventDefault="{ChatOperations.cancelInvitation}">
+      	<Lang key="app.chat.active.status.sent_invitation.cancel"/>
+			</a>
     </div>
   </div>
 </div>

@@ -4,6 +4,9 @@ import {ChatsListAPI} from '../../../../api/providers/app/chat/ChatsListAPI'
 import {selected_stranger} from '../../../../stores/selected_strager';
 import {formatDate} from "../../../../../lib/Date";
 import {Unsubscriby} from "sickspack/unsubscriby";
+import {_lang} from "sickspack/multilang/lang";
+import Lang from "sickspack/multilang/Lang.svelte";
+
 
 const unsbuscribe = new Unsubscriby(onDestroy);
 
@@ -26,15 +29,20 @@ unsbuscribe.add = selected_stranger.subscribe(async (user) =>
 		<div class="row no-margin">
 			<div class="col s8">
 				<div class="flow-text">{chat.subject}</div>
-				<p>{chat.status.get()}, {chat.state.get()}</p>
+				<p>
+					<Lang key="app.chat.status.{chat.status.get()}"/>
+					<Lang key="app.chat.state.{chat.state.get()}"/>
+				</p>
 				<p>{formatDate(chat.date.startedAt)}</p>
 			</div>
 			<div class="col s4 right-align">
-				<div class="">{chat.messagesAmount} msg/s</div>
+				<div class="">{chat.messagesAmount} <Lang key="app.stranger.details.chats.item.msgs"/></div>
 			</div>
 		</div>
 	</div>
 	{:else}
-	<p class="flow-text center-align">No chats yet</p>
+	<p class="flow-text center-align">
+		<Lang key="app.stranger.details.chats.placeholder"/>
+	</p>
 	{/each}
 </div>

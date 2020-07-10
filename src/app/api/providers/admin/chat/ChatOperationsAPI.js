@@ -110,43 +110,17 @@ class ChatOperationsAPI
 					updatingData
 				});
 			});
-
-			// return ApiResult.fromMultiple(
-			// 	await ApiResult.fromPromise(async () => (await dbAccessorAdmin.chatMessages(this.chatId).add(new ChatMessageModel(messageData))).id),
-			// 	await ApiResult.fromPromise(async () => await this.updateLastMessageAt()),
-			// 	await ApiResult.fromPromise(async () => await this.increaseMessagesAmount()),
-			// 	await ApiResult.fromPromise(async () => await this.addNewMessagesAmountForUsers(strangerIds, 1))
-			// );
 		});
 	}
 
-	async updateLastMessageAt()
-	{
-		return await this.performOperations(async () =>
-		{
-			return await dbAccessorAdmin.chats().doc(this.chatId).update({
-				last_message_at: new Date()
-			});
-		});
-	};
-
-	async increaseMessagesAmount()
-	{
-		return await this.performOperations(async () =>
-		{
-			return await dbAccessorAdmin.chats().doc(this.chatId).update({
-				messages_amount: dbAccessorAdmin.getFirebase().firestore.FieldValue.increment(1)
-			});
-		});
-	};
-
-	async setLastReadMessageAtByUser(messageId)
+	async setLastReadMessageByUser(messageId)
 	{
 		return await this.performOperations(async () =>
 		{
 			return await dbAccessorAdmin.chats().doc(this.chatId).update({
 
-				[`last_read_message_at_by_user.${this.byUserId}`]: messageId
+				[`last_read_message_at_by_user.${this.byUserId}`]: messageId,
+				[`new_messages_amount_for_user.${this.byUserId}`]: 0
 			});
 		});
 	};
@@ -163,18 +137,6 @@ class ChatOperationsAPI
 
 			return await dbAccessorAdmin.chats().doc(this.chatId).update(updatingData);
 		});
-	};
-
-	async resetNewMessagesAmountForUser()
-	{
-		return await this.performOperations(async () =>
-		{
-			return await dbAccessorAdmin.chats().doc(this.chatId).update({
-
-				[`new_messages_amount_for_user.${this.byUserId}`]: 0
-			});
-		});
-
 	};
 
 	async setCustomName(name)

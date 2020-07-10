@@ -7,7 +7,9 @@ import {current_user} from '../../../../stores/current_user'
 import {ChatModel as chat} from "../../../../api/providers/common/models/firebase/ChatModel";
 import {Unsubscriby} from "sickspack/unsubscriby";
 import ApiClient from "../../../../api/client";
-import ChatMessage from '../../chat/message.svelte'
+import ChatMessage from '../../chat/message.svelte';
+import {_lang} from "sickspack/multilang/lang";
+import Lang from "sickspack/multilang/Lang.svelte";
 
 let unsubscribes = new Unsubscriby(onDestroy);
 
@@ -121,7 +123,9 @@ onMount(() =>
   {#each messages as msg}
   <ChatMessage viewerId="{$current_user.id}" msg="{msg}"/>
   {:else}
-  <p class="flow-text center-align">no messages yet</p>
+  <p class="flow-text center-align">
+  	<Lang key="app.chat.active.messaging.placeholder"/>
+	</p>
   {/each}
 
 {/if}

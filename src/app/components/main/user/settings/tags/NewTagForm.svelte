@@ -13,6 +13,8 @@ import ApiClient from "../../../../../api/client";
 import {TagKind, TagKindLabels} from "../../../../../api/providers/common/tags";
 import Multilang from "sickspack/multilang";
 import UINotification from "../../../../ui/notification";
+import {new_tag_store} from "./new_tag_store";
+
 
 let availableLangs = Multilang.getSupportedLanguages();
 let langsSelectorValues = writable(availableLangs);
@@ -43,6 +45,8 @@ const createTag = async () =>
 			formController.getProp('lang').value,
 			formController.getProp('kind').value
 		);
+
+		$new_tag_store = result.data;
 
 		if(result.isError()) {
 			throw result.getErrorMessage();

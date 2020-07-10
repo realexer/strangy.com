@@ -75,6 +75,10 @@ class UserModel extends FirebaseModel
   get lastActiveAt() {
     return this.data.last_active_at.toDate();
   }
+
+  get isActive() {
+    return this.data.is_active;
+  }
 }
 
 export {UserModel};

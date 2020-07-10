@@ -83,6 +83,10 @@ export default {
 				}
 			}
 		},
+		user_links: {
+			settings: "settings",
+			logout: "logout"
+		},
 		user: {
 			was_online: "was online"
 		},
@@ -146,7 +150,39 @@ export default {
 					placeholder: "no messages yet"
 				}
 			}
-		}
+		},
+		user_chats: {
+			invitations: {
+				heading: "_amount_ invitations",
+				item: {
+					from: "from"
+				}
+			},
+			active: {
+				heading: "_amount_ active chats",
+				placeholder: "no active chats",
+				item: {
+					not_accepted_yet: "not accepted yet",
+					with: "with",
+					new_messages: "_amount_ new messages"
+				}
+			}
+		},
+		user_my: {
+			tags: {},
+			profile: {
+				heading: "Profile",
+				placeholder: "profile settings will be here soon..."
+			},
+			account: {
+				heading: "Account",
+				placeholder: "account settings will be here soon..."
+			},
+			feedback: {
+				heading: "Feedback",
+				placeholder: "feedback history will be here soon..."
+			}
+		},
 	},
 	cmp: {
 		form: {
@@ -195,6 +231,19 @@ export default {
 		my: {
 			logout: {
 				heading: 'Good bye...'
+			},
+			settings: {
+				tabs: {
+					tags: {
+						title: "Tags"
+					},
+					profile: {
+						title: "Profile"
+					},
+					account: {
+						title: "Account"
+					}
+				}
 			}
 		},
 		tag: {

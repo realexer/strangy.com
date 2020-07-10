@@ -72,9 +72,14 @@ const filterTagsByLangs = () =>
 	tags = allTags.filter((tag) => $userLangs.indexOf(tag.lang) !== -1);
 };
 
+/**
+*
+* @param tag
+* @returns {Promise<*>}
+*/
 const addUserTag = (tag) =>
 {
-  $userTags = [...$userTags, tag];
+  $userTags = [...$userTags, tag.toCompleteObject()];
 
   return saveUserTags();
 };

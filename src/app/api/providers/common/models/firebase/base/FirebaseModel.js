@@ -26,7 +26,7 @@ class FirebaseModel
 		return this;
 	}
 
-	toPlainObject(instance)
+	toPlainObject(includeId = false)
 	{
 		let jsonObj = {};
 
@@ -43,6 +43,17 @@ class FirebaseModel
 
 		return jsonObj;
 	};
+
+	/**
+	 * Includes documentId
+	 * @returns {any}
+	 */
+	toCompleteObject()
+	{
+		return Object.assign(this.toPlainObject(), {
+			id: this._id
+		})
+	}
 
 	static getConverter()
 	{

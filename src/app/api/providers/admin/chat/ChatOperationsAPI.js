@@ -90,12 +90,33 @@ class ChatOperationsAPI
 		{
 			const strangerIds = chat.users.allStrangers(this.byUserId);
 
-			return ApiResult.fromMultiple(
-				await ApiResult.fromPromise(async () => (await dbAccessorAdmin.chatMessages(this.chatId).add(new ChatMessageModel(messageData))).id),
-				await ApiResult.fromPromise(async () => await this.updateLastMessageAt()),
-				await ApiResult.fromPromise(async () => await this.increaseMessagesAmount()),
-				await ApiResult.fromPromise(async () => await this.addNewMessagesAmountForUsers(strangerIds, 1))
-			);
+			return dbAccessorAdmin.getFirestore().runTransaction(async (transaction) =>
+			{
+				const chatRef = dbAccessorAdmin.chats().doc(this.chatId);
+				const messagesRef = dbAccessorAdmin.chatMessages(this.chatId).doc();
+
+				const updatingData = {
+					last_message_at: new Date(),
+					messages_amount: dbAccessorAdmin.getFirebase().firestore.FieldValue.increment(1)
+				};
+
+				strangerIds.forEach((userId) => {
+					updatingData[`new_messages_amount_for_user.${userId}`] = dbAccessorAdmin.getFirebase().firestore.FieldValue.increment(1);
+				});
+
+				transaction.set(messagesRef, new ChatMessageModel(messageData));
+
+				transaction.update(chatRef, {
+					updatingData
+				});
+			});
+
+			// return ApiResult.fromMultiple(
+			// 	await ApiResult.fromPromise(async () => (await dbAccessorAdmin.chatMessages(this.chatId).add(new ChatMessageModel(messageData))).id),
+			// 	await ApiResult.fromPromise(async () => await this.updateLastMessageAt()),
+			// 	await ApiResult.fromPromise(async () => await this.increaseMessagesAmount()),
+			// 	await ApiResult.fromPromise(async () => await this.addNewMessagesAmountForUsers(strangerIds, 1))
+			// );
 		});
 	}
 

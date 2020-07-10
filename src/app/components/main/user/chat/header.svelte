@@ -19,6 +19,7 @@ import {Unsubscriby} from "sickspack/unsubscriby";
 import UINotification from "../../../ui/notification";
 import {_lang} from "sickspack/multilang/lang";
 import Lang from "sickspack/multilang/Lang.svelte";
+import {formatDate} from "../../../../../lib/Date";
 
 
 const unsubscribe = new Unsubscriby(onDestroy);
@@ -146,6 +147,11 @@ const showDetails = () =>
 			<div class="left">
 				<span class="">
 					<a href="{lang_url('user/'+$active_chat_stranger.id)}">{$active_chat_stranger.tags.primary.string}</a>
+					{#if $active_chat_stranger.isActive}
+					<i class="tiny material-icons" data-icon="wb_sunny"></i>
+					{:else}
+					<Lang key="app.user.was_online"/>{formatDate($active_chat_stranger.lastActiveAt)}
+					{/if}
 					<!--span class="">{$active_chat_stranger.karma}</span-->
 				</span>
 			</div>
@@ -208,6 +214,15 @@ const showDetails = () =>
       <a href="#!" on:click|preventDefault="{ChatOperations.cancelInvitation}">
       	<Lang key="app.chat.active.status.sent_invitation.cancel"/>
 			</a>
+    </div>
+  </div>
+</div>
+{/if}
+{#if ($active_chat.status.isClosed) }
+<div class="card horizontal">
+  <div class="card-stacked center-align">
+    <div class="card-content">
+      <p class="flow-text"><Lang key="app.chat.active.status.finished.heading"/></p>
     </div>
   </div>
 </div>

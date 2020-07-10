@@ -140,6 +140,9 @@ export default {
 					sent_invitation: {
 						heading: "invitation is pending response",
 						cancel: "cancel invitation"
+					},
+					finished: {
+						heading: "Chat is finished"
 					}
 				},
 				messaging: {

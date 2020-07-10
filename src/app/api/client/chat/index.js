@@ -5,7 +5,7 @@ class ChatApiClient
 {
 	constructor(chatId)
 	{
-		this.chatid = chatId;
+		this.chatId = chatId;
 	}
 
 	/**
@@ -14,7 +14,7 @@ class ChatApiClient
 	 */
 	get operations()
 	{
-		return new ChatOperationsApiClient(this.chatid);
+		return new ChatOperationsApiClient(this.chatId);
 	}
 
 	/**
@@ -23,7 +23,7 @@ class ChatApiClient
 	 */
 	get messages()
 	{
-		return new ChatMessagesApiClient(this.chatid);
+		return new ChatMessagesApiClient(this.chatId);
 	}
 }
 

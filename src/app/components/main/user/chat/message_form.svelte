@@ -48,6 +48,7 @@ unsubscriber.add = active_chat_changed.subscribe((val) =>
 
 </script>
 
+{#if $active_chat.status.isActive}
 <form ref="form" on:submit|preventDefault={sendMessage}>
   <Textarea bind:value={formController.props["message"].value}
   					id="chat_message"
@@ -61,3 +62,4 @@ unsubscriber.add = active_chat_changed.subscribe((val) =>
 </form>
 
 <p class="_debug">Send message to: {$active_chat.id}</p>
+{/if}

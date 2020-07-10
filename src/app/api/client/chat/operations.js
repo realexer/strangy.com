@@ -13,7 +13,7 @@ class ChatOperationsApiClient
 	 */
 	async acceptInvitation()
 	{
-		return await ApiRequest.post(`chat/${this.chat_id}/invitation/accept`);
+		return await ApiRequest.post(`chat/${this.chatId}/invitation/accept`);
 	}
 
 	/**

@@ -1,5 +1,6 @@
 import UserTagsApiClient from "./tags";
 import UserLangsApiClient from "./langs";
+import ApiRequest from "../../../ApiRequest";
 
 class UserInfoApiClient
 {
@@ -19,6 +20,16 @@ class UserInfoApiClient
 	static get langs()
 	{
 		return UserLangsApiClient;
+	}
+
+	static async setOnline()
+	{
+		return await ApiRequest.post(`user/info/status/online`, {});
+	}
+
+	static async setOffline()
+	{
+		return await ApiRequest.post(`user/info/status/offline`, {});
 	}
 }
 

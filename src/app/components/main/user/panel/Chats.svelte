@@ -57,9 +57,6 @@ onMount(() =>
         return -1;
       });
 
-      allChats.forEach((chat) => {
-      	chatStrangers[chat.users.stranger($current_user.id)] = new UserModel();
-      });
 
       invitations = allChats.filter((chat) => {
         return chat.state.isWaitingResponse() && chat.state.isInvitation($current_user.id).received;
@@ -155,7 +152,7 @@ const resolveStranger = (chat) =>
     <li class="collection-item">
       <h5 class="">
         <a href="{lang_url('chat/'+chat.id)}">{chat.subject}</a>
-        {#if chatStrangers[chat.users.stranger($current_user.id)].isActive === true}
+        {#if chatStrangers[chat.users.stranger($current_user.id)] && chatStrangers[chat.users.stranger($current_user.id)].isActive === true}
         <span class="secondary-content">
           <i class="tiny material-icons" data-icon="wb_sunny"></i>
         </span>
@@ -170,7 +167,7 @@ const resolveStranger = (chat) =>
 				</b>
       {/if}
       <div class="_debug">Participants: {chat.users.all.join(', ')}</div>
-      {#if chatStrangers[chat.users.stranger($current_user.id)].id}
+      {#if chatStrangers[chat.users.stranger($current_user.id)]}
       <div class="">
       	<Lang key="app.user_chats.active.item.with"/>: {resolveStranger(chat).tags.primary.string}
 			</div>

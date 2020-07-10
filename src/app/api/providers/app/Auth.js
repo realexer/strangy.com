@@ -17,32 +17,30 @@ Auth.onAuthStateChanged(async () =>
 
 		auth_info.set(authInfo);
 
-		const initUser = (attemptsLeft) =>
+		const initUser = async (attemptsLeft) =>
 		{
 			if (attemptsLeft === 0)
 				return;
 
-			// first try to find user record with given auth.user id
-			UsersListAPI.byId(authInfo.id).get()
-				.then(async doc =>
-				{
-					if (doc.exists)
-					{
-						current_user.set(doc.data());
-					}
-					else
-					{
-						await ApiClient.user.create();
-						initUser(attemptsLeft);
-					}
-				}).catch((e) => {
-				initUser(--attemptsLeft);
-			}).finally(() => {
+			try {
+				const doc = await UsersListAPI.byId(authInfo.id).get();
 
-			});
+				if(doc.exists) {
+					current_user.set(doc.data());
+
+					await ApiClient.user.info.setOnline();
+				}
+				else
+				{
+					await ApiClient.user.create();
+					await initUser(attemptsLeft);
+				}
+			} catch(e) {
+				await initUser(--attemptsLeft);
+			}
 		};
 
-		initUser(3);
+		await initUser(3);
 
 	} else {
 		current_user.set(new UserModel());

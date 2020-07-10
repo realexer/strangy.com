@@ -1,14 +1,16 @@
 <script>
 import {onMount} from 'svelte'
 import { goto } from '@sapper/app';
-import { Auth } from '../../../app/firebase/app'
-import Lang from 'sickspack/multilang/Lang.svelte'
+import { Auth } from '../../../app/firebase/app';
+import Lang from 'sickspack/multilang/Lang.svelte';
+import ApiClient from "../../../app/api/client";
 
-onMount(() =>
+onMount(async () =>
 {
-	Auth.signOut().then(() => {
-		goto("/");
-	});
+	await ApiClient.user.info.setOffline();
+	await Auth.signOut();
+	goto("/");
+
 });
 </script>
 

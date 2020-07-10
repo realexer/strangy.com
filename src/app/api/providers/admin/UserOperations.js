@@ -71,8 +71,18 @@ class UserOperationsAPI
 			return await dbAccessorAdmin.users().doc(this.userId).update({
 				"info.tags": tags
 			});
-		})
+		});
 	};
+
+	async setActive(isActive = true)
+	{
+		return await ApiResult.fromPromise(async () =>
+		{
+			return await dbAccessorAdmin.users().doc(this.userId).update({
+				"is_active": isActive
+			});
+		})
+	}
 }
 
 export {UserOperationsAPI};

@@ -1,4 +1,5 @@
 <script>
+import {onDestroy} from 'svelte';
 import {writable} from 'svelte/store';
 import Project from '../../../../../../_config/project'
 import TextInput from '../../../../../../lib/ui/components/forms/text_input.svelte'
@@ -14,10 +15,15 @@ import {TagKind, TagKindLabels} from "../../../../../api/providers/common/tags";
 import Multilang from "sickspack/multilang";
 import UINotification from "../../../../ui/notification";
 import {new_tag_store} from "./new_tag_store";
+import {Unsubscriby} from "sickspack/unsubscriby";
+import {_lang} from "sickspack/multilang/lang";
+import Lang from "sickspack/multilang/Lang.svelte";
 
+const unsubscriber = new Unsubscriby(onDestroy);
 
 let availableLangs = Multilang.getSupportedLanguages();
 let langsSelectorValues = writable(availableLangs);
+let langsSelector = null;
 
 let formController = new FormController({
 	tag: {
@@ -57,7 +63,7 @@ const createTag = async () =>
 	}
 };
 
-current_user.subscribe(() =>
+unsubscriber.add = current_user.subscribe(() =>
 {
 	if($current_user.langs)
 	{
@@ -66,18 +72,21 @@ current_user.subscribe(() =>
 			langs[l] = availableLangs[l];
 			return langs;
 		}, {});
+
+		if(langsSelector) {
+			langsSelector.$set({value: Object.keys($langsSelectorValues).shift()});
+		}
 	}
 });
 </script>
 
-<h2 class="flow-text">Add new tag</h2>
+<h2 class="flow-text"><Lang key="app.user_settings.tags.new_tag_form.heading"/></h2>
 
 <form ref="form" on:submit|preventDefault={createTag}>
 	<div class="row">
 		<div class="col s12 m12">
 			<TextInput bind:value={formController.props['tag'].value}
-								 placeholder="new tag"
-								 label="New tag"
+								 label="{_lang('app.user_settings.tags.new_tag_form.controls.tag')}"
 								 error={formController.props['tag'].error}
 								 errorMessage="{formController.props['tag'].message}" />
 		</div>
@@ -85,16 +94,19 @@ current_user.subscribe(() =>
 	<div class="row">
 		<div class="col s12 m4">
 			<Select bind:value="{formController.props['kind'].value}"
-							options="{TagKindLabels}"
+							options="{_lang('app.tag.kinds')}"
+							label="{_lang('app.user_settings.tags.new_tag_form.controls.kind')}"
 							errorMessage="{formController.props['tag'].message}"/>
 		</div>
 		<div class="col s12 m4">
 			<Select bind:value="{formController.props['lang'].value}"
+							bind:this="{langsSelector}"
 							options="{$langsSelectorValues}"
+							label="{_lang('app.user_settings.tags.new_tag_form.controls.lang')}"
 							errorMessage="{formController.props['tag'].message}"/>
 		</div>
 		<div class="col s12 m4">
-			<FormButtons cancelButton={false} submitText="Create" isLoading="{formController.isBusy}" />
+			<FormButtons cancelButton={false} submitText="{_lang('app.user_settings.tags.new_tag_form.controls.submit')}" isLoading="{formController.isBusy}" />
 		</div>
 	</div>
 </form>

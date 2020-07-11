@@ -32,10 +32,14 @@ class FirebaseModel
 
 		Object.getOwnPropertyNames(this._data).forEach((prop) =>
 		{
-			const val = this._data[prop];
+			let val = this._data[prop];
 
 			if (typeof val === 'function') {
 				return;
+			}
+
+			if(val.toDate) {
+				val = val.toDate();
 			}
 
 			jsonObj[prop] = val;

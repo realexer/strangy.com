@@ -19,7 +19,7 @@ class TagsManager
 				lang: lang,
 				kind: kind,
 				creator_id: creatorId,
-				users_amount: 1,
+				users_amount: 0,
 				created_at: new Date()
 			}).validated();
 

@@ -51,8 +51,12 @@ class UserOperationsAPI
 		const tagsToIncrement = newTagsIds.filter(id => currentTagsIds.includes(id) === false);
 		const tagsToDecrement = currentTagsIds.filter(id => newTagsIds.includes(id) === false);
 
+		const tagsToAdd = newTagsIds.length > 0
+				? (await TagsAPI.tagsById(newTagsIds).get()).docs.map(d => d.data().toCompleteObject())
+				: [];
+
 		const results = [
-			await this.setTags(tags)
+			await this.setTags(tagsToAdd)
 		];
 		for(const id of tagsToIncrement) {
 			results.push(await TagsManager.incrementUsersAmount(id))

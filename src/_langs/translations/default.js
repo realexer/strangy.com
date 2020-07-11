@@ -105,6 +105,14 @@ export default {
 				}
 			}
 		},
+		tag: {
+			kinds: {
+				info: "Info",
+				interest: "Interest",
+				location: "Location",
+				other: "Other",
+			}
+		},
 		user_links: {
 			settings: "settings",
 			logout: "logout"
@@ -190,6 +198,26 @@ export default {
 					not_accepted_yet: "not accepted yet",
 					with: "with",
 					new_messages: "_amount_ new messages"
+				}
+			}
+		},
+		user_settings: {
+			langs: {
+				heading: "Your languages"
+			},
+			tags: {
+				selector: {
+					heading: "Describe yourself with tags",
+					description: "use tags below to describe yourself"
+				},
+				new_tag_form: {
+					heading: "Add new tag",
+					controls: {
+						tag: "New tag",
+						kind: "Type",
+						lang: "Language",
+						submit: "Create"
+					}
 				}
 			}
 		},

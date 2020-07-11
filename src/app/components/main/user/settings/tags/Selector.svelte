@@ -10,6 +10,8 @@ import ApiClient from "../../../../../api/client";
 import Multilang from "sickspack/multilang";
 import {Unsubscriby} from "sickspack/unsubscriby";
 import {new_tag_store} from './new_tag_store';
+import {_lang} from "sickspack/multilang/lang";
+import Lang from "sickspack/multilang/Lang.svelte";
 
 const availableLangs = Multilang.getSupportedLanguages();
 let unsubscribe = new Unsubscriby(onDestroy);
@@ -112,7 +114,7 @@ const saveUserTags = async () =>
 <div class="row">
 
 	<div class="col m4">
-		<h2 class="flow-text">Your languages</h2>
+		<h2 class="flow-text"><Lang key="app.user_settings.langs.heading"/></h2>
 		<div class="">
 		<form>
 			{#each Object.keys(availableLangs) as lang}
@@ -123,9 +125,11 @@ const saveUserTags = async () =>
 	</div>
 
 	<div class="col m8">
-		<h2 class="flow-text">Describe yourself with tags</h2>
+		<h2 class="flow-text"><Lang key="app.user_settings.tags.selector.heading"/></h2>
 		{#if $userTags.length == 0}
-			<p class="text-lighten-3">use tags below to describe yourself</p>
+			<p class="">
+				<Lang key="app.user_settings.tags.selector.description"/>
+			</p>
 		{:else}
 			{#each $userTags as tag}
 				<div class="chip activator green" on:click="{() => {removeUserTag(tag)}}">

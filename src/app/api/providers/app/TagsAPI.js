@@ -1,4 +1,5 @@
 import {dbAccessorApp} from "../../../firebase/app";
+import {Subscribable} from "../../common/Subscribable";
 
 class TagsAPI
 {
@@ -36,6 +37,13 @@ class TagsAPI
 	static async getTagById(id)
 	{
 		return await dbAccessorApp.tags().doc(id).get();
+	}
+
+	static tagsById(idsList = [])
+	{
+		let query = dbAccessorApp.tags().where(dbAccessorApp.getFirebase().firestore.FieldPath.documentId(), 'in', idsList);
+
+		return new Subscribable(query);
 	}
 }
 

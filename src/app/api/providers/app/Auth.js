@@ -37,6 +37,7 @@ Auth.onAuthStateChanged(async () =>
 				}
 			} catch(e) {
 				await initUser(--attemptsLeft);
+				console.log(e);
 			}
 		};
 
@@ -50,7 +51,7 @@ Auth.onAuthStateChanged(async () =>
 
 
 /**
- *
+ * Using promises here for a reason, can exactly remember why
  * @param email
  * @param password
  * @returns {Promise<ApiResult>}

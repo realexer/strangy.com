@@ -2,23 +2,35 @@ import {dbAccessorApp} from "../../../firebase/app";
 
 class TagsAPI
 {
-	static all(langs)
+	static all(langs, kind = null)
 	{
 		let query = dbAccessorApp.tags();
 
 		if (langs.length > 0) {
-			query.where('lang', 'in', langs);
+			query = query.where('lang', 'in', langs);
+		}
+
+		if(kind) {
+			query = query.where('kind', '==', kind);
 		}
 
 		return query.orderBy('users_amount', "desc");
 	};
 
-	static findTag(tag, lang, kind)
+	static findTag(tag, kind = null, lang = null)
 	{
-		return dbAccessorApp.tags()
-			.where('tag', '==', tag)
-			.where('lang', '==', lang)
-			.where('kind', '==', kind);
+		let query =  dbAccessorApp.tags()
+			.where('tag', '==', tag);
+
+		if(kind) {
+			query = query.where('kind', '==', kind);
+		}
+
+		if(lang) {
+			query = query.where('lang', '==', lang);
+		}
+
+		return query.orderBy('users_amount', "desc");
 	}
 
 	static async getTagById(id)

@@ -28,10 +28,10 @@ export let activeUsers = [];
 	<meta name="description" content='{_lang("meta.index.description")}'/>
 </svelte:head>
 
-<div class="container">
+<section class="container">
 	<AppIndex activeUsers="{activeUsers}"/>
-</div>
-
-<div class="container center-align">
+</section>
+<div class="divider"></div>
+<section class="container center-align">
 	<GeneralDescription/>
-</div>
+</section>

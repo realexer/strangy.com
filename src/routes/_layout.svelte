@@ -91,14 +91,14 @@ unsubscriber.add = auth_info.subscribe(() =>
 
 <main class:_ui_log_disabled={!env.dev.ui_log}>
 	<slot></slot>
-
-	<div class="warning">
-		<div class="container center-align">
-			<div class="">
-				<Lang key="layout.main.disclaimer"/>
-			</div>
-		</div>
-  </div>
 </main>
+
+<div class="warning">
+	<div class="container center-align">
+		<div class="">
+			<Lang key="layout.main.disclaimer"/>
+		</div>
+	</div>
+</div>
 
 <Footer/>

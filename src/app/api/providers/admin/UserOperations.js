@@ -38,7 +38,7 @@ class UserOperationsAPI
 		tags = new UserTagsListInput(tags).validated();
 
 		for(let tagData of tags) {
-			const existingTag = await TagsAPI.findTag(tagData.tag, tagData.lang, tagData.kind).get();
+			const existingTag = await TagsAPI.findTag(tagData.tag, tagData.kind, tagData.lang).get();
 
 			if(existingTag.docs.length === 0) {
 				throw `Tag [${tagData.tag}] is not found.`;

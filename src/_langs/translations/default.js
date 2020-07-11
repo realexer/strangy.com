@@ -65,6 +65,28 @@ export default {
 		general_description: {
 			heading: "The past of online chatting",
 			details: "Strangy is the state of the art project created and designed to represent everything that online chatting and internet communication should be. "
+		},
+		tag_page_description: {
+			info: {
+				heading: "Chat with anyone around the world according your preferences",
+				description: "Choose any strangy with tag *_tag_* and start chatting with them.",
+				other_popular_tags: "Other popular strangies:",
+			},
+			interest: {
+				heading: "Chat with anyone around the world matching your interests",
+				description: "Choose any strangy with tag *_tag_* and start chatting with them.",
+				other_popular_tags: "Other popular interests:",
+			},
+			location: {
+				heading: "Chat with anyone from the country or city you want",
+				description: "Choose any strangy with tag *_tag_* and start chatting with them.",
+				other_popular_tags: "Other popular locations:"
+			},
+			other: {
+				heading: "Chat with anyone from all over the world",
+				description: "Choose any strangy with tag *_tag_* and start chatting with them.",
+				other_popular_tags: "Other popular tags:",
+			}
 		}
 	},
 	app: {

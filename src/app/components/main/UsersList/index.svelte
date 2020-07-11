@@ -86,7 +86,7 @@ let users_list_filter_visible = false;
 		{/if}
 		<p class="">
 			{#each tags as tag}
-			<a href="{lang_url(`tag/${tag.kind}/${tag.tag}`)}"
+			<a href="{`/${tag.lang}/tag/${tag.kind}/${tag.tag}`}"
 					class="__tag chip"
 					on:click|preventDefault="{() => {addTagToFilter(tag)}}">
 				{tag.tag}

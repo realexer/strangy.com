@@ -2,25 +2,23 @@
 import IconPoint from '../../../app/components/ui/IconPoint.svelte'
 import {_lang} from 'sickspack/multilang/lang'
 import Lang from 'sickspack/multilang/Lang.svelte'
+import Metadata from "../../../app/components/general/Metadata.svelte";
 </script>
 
-<svelte:head>
-	<title>{_lang("meta.involve.title")}</title>
-	<meta name="description" content='{_lang("meta.involve.description")}'/>
-</svelte:head>
+<Metadata page="info.involve"/>
 
 <div class="container center-align">
-	<h1 class=""><Lang key="pages.involve.heading"/></h1>
+	<h1 class=""><Lang key="pages.info.involve.heading"/></h1>
 </div>
 <div class="divider"></div>
 <div class="container center-align">
 	<IconPoint icon="" image="/icons/icons8-twitter.svg">
 		<a href="https://twitter.com/strangycom" target="_blank">Official Twitter account</a>
-		<p><Lang key="pages.involve.methods.twitter"/></p>
+		<p><Lang key="pages.info.involve.methods.twitter"/></p>
 	</IconPoint>
 	<IconPoint icon="" image="/icons/icons8-github.svg">
 		<a href="https://github.com/realexer/strangy.com" target="_blank">GitHub Repository</a>
-		<p><Lang key="pages.involve.methods.github"/></p>
+		<p><Lang key="pages.info.involve.methods.github"/></p>
 	</IconPoint>
 </div>
 

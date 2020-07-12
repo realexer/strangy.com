@@ -6,6 +6,7 @@ import Profile from '../../../app/components/main/user/settings/profile.svelte';
 import Account from '../../../app/components/main/user/settings/account.svelte';
 import {_lang} from "sickspack/multilang/lang";
 import Lang from "sickspack/multilang/Lang.svelte";
+import Metadata from "../../../app/components/general/Metadata.svelte";
 
 let selectedSection = 'tags';
 
@@ -18,6 +19,8 @@ onMount(() => {
 });
 
 </script>
+
+<Metadata page="my.settings"/>
 
 <div>
 	<ul class="tabs tabs-fixed-width tab-demo z-depth-1 no-autoinit">

@@ -128,7 +128,7 @@ const resolveStranger = (chat) =>
   {#each invitations as chat}
   <li class="collection-item">
     <h5 class="">
-      <a href="{lang_url(`chat/${chat.id}`)}">{chat.subject}</a>
+      <a href="{lang_url(`chat/${chat.id}`)}" rel="nofollow">{chat.subject}</a>
     </h5>
 
     {#if chatStrangers[chat.users.stranger($current_user.id)]}
@@ -151,7 +151,7 @@ const resolveStranger = (chat) =>
     {#each activeChats as chat}
     <li class="collection-item">
       <h5 class="">
-        <a href="{lang_url('chat/'+chat.id)}">{chat.subject}</a>
+        <a href="{lang_url('chat/'+chat.id)}" rel="nofollow">{chat.subject}</a>
         {#if chatStrangers[chat.users.stranger($current_user.id)] && chatStrangers[chat.users.stranger($current_user.id)].isActive === true}
         <span class="secondary-content">
           <i class="tiny material-icons" data-icon="wb_sunny"></i>

@@ -146,7 +146,7 @@ const showDetails = () =>
 		<div class="row">
 			<div class="left">
 				<span class="">
-					<a href="{lang_url('user/'+$active_chat_stranger.id)}">{$active_chat_stranger.tags.primary.string}</a>
+					<a href="{lang_url('user/'+$active_chat_stranger.id)}" rel="nofollow">{$active_chat_stranger.tags.primary.string}</a>
 					{#if $active_chat_stranger.isActive}
 					<i class="tiny material-icons" data-icon="wb_sunny"></i>
 					{:else}

@@ -50,12 +50,12 @@ onMount(() =>
 					<span class="brand-logo" style="position: relative;">S<span class="hide">trangy</span></span>
 				</a>
 			</li>
-			<li class:active="{$page.path == lang_url('about')}">
+			<li class:active="{$page.path == lang_url('info/about')}">
 				<a href="{lang_url('info/about')}" title="{_lang('layout.nav.links.about.title')}">
 					<Lang key="layout.nav.links.about.text"/>
 				</a>
 			</li>
-			<li class:active="{$page.path == lang_url('involve')}" class="hide-on-small-and-down">
+			<li class:active="{$page.path == lang_url('info/involve')}" class="hide-on-small-and-down">
 				<a href="{lang_url('info/involve')}" title="{_lang('layout.nav.links.involve.title')}">
 					<Lang key="layout.nav.links.involve.text"/>
 				</a>

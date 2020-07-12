@@ -14,6 +14,7 @@ import { selected_stranger } from '../../../app/stores/selected_strager.js';
 import Stranger from '../../../app/components/main/Stranger.svelte';
 import { stores } from '@sapper/app';
 import {Unsubscriby} from "sickspack/unsubscriby";
+import Metadata from '../../../app/components/general/Metadata.svelte'
 
 const {page} = stores();
 
@@ -27,6 +28,8 @@ unsubscriber.add = page.subscribe(async (page) =>
 
 
 </script>
+
+<Metadata page="user"/>
 
 <div class="container">
 	<Stranger user="{$selected_stranger}"/>

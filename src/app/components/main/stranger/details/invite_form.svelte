@@ -51,7 +51,7 @@ const invite = async () =>
 
 <div class="card-panel">
 	{#if $selected_stranger.id}
-	<h3><a href="{lang_url('user/' + $selected_stranger.id)}">{$selected_stranger.tags.primary.string}</a></h3>
+	<h3><a href="{lang_url('user/' + $selected_stranger.id)}" rel="nofollow">{$selected_stranger.tags.primary.string}</a></h3>
 	<p class="flow-text">
 		{$selected_stranger.tags.secondary.string}
 	</p>

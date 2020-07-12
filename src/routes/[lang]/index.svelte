@@ -18,15 +18,13 @@ import env from '../../env';
 import {lang_url} from "../../app/components/general/link";
 import AppIndex from './app/index.svelte'
 import GeneralDescription from '../../app/components/info/general_description.svelte';
+import Metadata from '../../app/components/general/Metadata.svelte'
 
 export let activeUsers = [];
 
 </script>
 
-<svelte:head>
-	<title>{_lang("meta.index.title")}</title>
-	<meta name="description" content='{_lang("meta.index.description")}'/>
-</svelte:head>
+<Metadata page="index"/>
 
 <section class="container">
 	<AppIndex activeUsers="{activeUsers}"/>

@@ -131,7 +131,7 @@ let users_list_filter_visible = false;
       <li class="">
         <div class="collapsible-header">
 					<div class="_user_info">
-						<a href="{lang_url('user/'+user.id)}">{user.tags.primary.string}</a>
+						<a href="{lang_url('user/'+user.id)}" rel="nofollow">{user.tags.primary.string}</a>
 						<p class="">{user.tags.secondary.string}</p>
 
 						<span class="_karma center-align">
@@ -153,6 +153,7 @@ let users_list_filter_visible = false;
 						<div class="">
 							<a class="btn btn-block"
 								 href="{lang_url('user/'+user.id)}"
+								 rel="nofollow"
 								 on:click="{ () => { $selected_stranger = user; } }">
 								 	<Lang key="app.index.users_list.user_item.chat"/>
 							</a>

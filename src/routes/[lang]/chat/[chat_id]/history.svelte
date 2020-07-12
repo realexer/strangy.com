@@ -13,6 +13,7 @@ import {onMount} from 'svelte';
 import ChatHistory from '../../../../app/components/main/chat/history.svelte'
 import {selected_chat} from "../../../../app/stores/selected_chat";
 import {ChatsListAPI} from "../../../../app/api/providers/app/chat/ChatsListAPI";
+import Metadata from "../../../../app/components/general/Metadata.svelte";
 
 export let chatId;
 
@@ -28,6 +29,8 @@ onMount(() =>
 });
 
 </script>
+
+<Metadata page="chat.history"/>
 
 <div class="container">
 	<ChatHistory chat="{$selected_chat}"/>

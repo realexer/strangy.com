@@ -4,6 +4,7 @@ import Lang from 'sickspack/multilang/Lang.svelte';
 import AppIndex from '../../app/index.svelte';
 import {preloadActiveUsers} from "../../../../app/ssr/acitve_users";
 import {TagsAPI} from "../../../../app/api/providers/app/TagsAPI";
+import Metadata from "../../../../app/components/general/Metadata.svelte";
 
 export async function preload(page, session)
 {
@@ -45,6 +46,8 @@ export let popularTags;
 
 
 </script>
+
+<Metadata page="tag.{kind}.default" data="{{kind, tag}}"/>
 
 <section class="container center-align">
 	<h2 class="flow-text">

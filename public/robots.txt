@@ -1,4 +1,7 @@
 User-agent: *
-Disallow: /my
+Disallow: /*/my/
+Disallow: /*/user/
+Disallow: /*/chat/
+Disallow: /*/app/
 
 Sitemap: https://strangy.com/sitemap.xml

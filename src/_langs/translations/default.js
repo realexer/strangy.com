@@ -4,16 +4,80 @@ export default {
 	},
 	meta: {
 		index: {
-			title: "Strangy.com - chat with anyone from all over the globe",
+			title: "Strangy - Chat with anyone from all over the globe",
 			description: "The best application for casual online conversations in a making."
 		},
-		about: {
-			title: "What's so special about Strangy?",
-			description: "Why Strangy is the past of online chatting."
+		info: {
+			about: {
+				title: "About",
+				description: "What's so special about Strangy? Why Strangy is the past of online chatting."
+			},
+			involve: {
+				title: "Get involved",
+				description: "Become a contributor to the best online chat platform. Contribute to the idea that will change the way people communicate online."
+			},
+			disclaimer: {
+				title: "Disclaimer",
+				description: "Before you dive in and start using Strangy - learn what's Strangy is about and where it's heading."
+			}
 		},
-		involve: {
-			title: "Become a contributor to the best online chat platform",
-			description: "Contribute to a new chatting platform that will change the way people communicate online."
+		login: {
+			title: "Login",
+			description: "Create new Strangy account or log in into existing."
+		},
+		tag: {
+			info: {
+				default: {
+					title: "Chat with _tag_",
+					description: "Chat with any _tag_ from all over the world. Open communication created for humans."
+				},
+			},
+			interest: {
+				default: {
+					title: "Chat about _tag_",
+					description: "Chat about _tag_ with anyone from all over the world. Open communication created for humans."
+				},
+			},
+			location: {
+				default: {
+					title: "Chat with anyone from _tag_",
+					description: "Chat with people from _tag_ or any other location from all over the world. Open communication created for humans."
+				},
+			},
+			other: {
+				default: {
+					title: "_tag_ - free open chat",
+					description: "Chat with someone representing _tag_ or with anyone about _tag_. Open communication created for humans."
+				},
+			},
+		},
+		user: {
+			title: "Invite strangy to chat",
+			description: "Invite a mysterious person to chat and talk with them about anything that matters to you."
+		},
+		chat: {
+			active: {
+				title: "_subject_",
+				description: "",
+			},
+			history: {
+				title: "_subject_ - messages history",
+				description: "",
+			},
+		},
+		my: {
+			settings: {
+				title: "Settings",
+				description: ""
+			},
+			feedback: {
+				title: "Feedback",
+				description: ""
+			},
+			logout: {
+				title: "Good bye...",
+				description: ""
+			},
 		}
 	},
 	layout: {
@@ -46,6 +110,7 @@ export default {
 				links: {
 					about: 'About',
 					involve: 'Get involved',
+					disclaimer: 'Disclaimer',
 				}
 			},
 			social: {
@@ -225,15 +290,15 @@ export default {
 			tags: {},
 			profile: {
 				heading: "Profile",
-				placeholder: "profile settings will be here soon..."
+				placeholder: "under construction..."
 			},
 			account: {
 				heading: "Account",
-				placeholder: "account settings will be here soon..."
+				placeholder: "under construction..."
 			},
 			feedback: {
 				heading: "Feedback",
-				placeholder: "feedback history will be here soon..."
+				placeholder: "under construction..."
 			}
 		},
 	},
@@ -246,30 +311,36 @@ export default {
 		}
 	},
 	pages: {
-		about: {
-			info: {
-				heading: "Resurrection of online chats",
-				points: {
-					global: "Casual conversations with anyone from around the world.",
-					privacy: "No need to worry about privacy. Everything is open. Just talk about what matters to you. *We are all humans.*",
-					simplicity: "No visual distractions and features overdose. Focus on the person you chat with.",
-					quality: "Chat only with people you find interesting according your purpose."
+		info: {
+			about: {
+				info: {
+					heading: "Resurrection of online chats",
+					points: {
+						global: "Casual conversations with anyone from around the world.",
+						privacy: "No need to worry about privacy. Everything is open. Just talk about what matters to you. *We are all humans.*",
+						simplicity: "No visual distractions and features overdose. Focus on the person you chat with.",
+						quality: "Chat only with people you find interesting according your purpose."
+					}
+				},
+				meta: {
+					heading: "Simple yet modern",
+					points: {
+						open_source: "100% open source community driven project",
+						tech_stack: "Meaningful technological stack: Firebase, Svelte (Sapper), Flutter",
+						transparency: "No hidden agendas or misleading ideas"
+					}
 				}
 			},
-			meta: {
-				heading: "Simple yet modern",
-				points: {
-					open_source: "100% open source community driven project",
-					tech_stack: "Meaningful technological stack: Firebase, Svelte (Sapper), Flutter",
-					transparency: "No hidden agendas or misleading ideas"
+			involve: {
+				heading: "Become a part of the history",
+				methods: {
+					twitter: "You can become SMM and help us spread the idea of open and free online communication",
+					github: "You can help Strangy with technical input, programming or UI/UX ideas and solutions"
 				}
-			}
-		},
-		involve: {
-			heading: "Become a part of the history",
-			methods: {
-				twitter: "You can become SMM and help us spread the idea of open and free online communication",
-				github: "You can help Strangy with technical input, programming or UI/UX ideas and solutions"
+			},
+			disclaimer: {
+				heading: "Before you dive in",
+				description: "Privacy, Safety, State, Future"
 			}
 		},
 		login: {

@@ -4,6 +4,7 @@ import { goto } from '@sapper/app';
 import { Auth } from '../../../app/firebase/app';
 import Lang from 'sickspack/multilang/Lang.svelte';
 import ApiClient from "../../../app/api/client";
+import Metadata from "../../../app/components/general/Metadata.svelte";
 
 onMount(async () =>
 {
@@ -13,6 +14,8 @@ onMount(async () =>
 
 });
 </script>
+
+<Metadata page="my.logout"/>
 
 <div class="container center-align">
 	<h1 class="flow-text">

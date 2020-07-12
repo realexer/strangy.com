@@ -18,6 +18,7 @@ import Chat from '../../../../app/components/main/user/Chat.svelte'
 import { active_chat, active_chat_changed } from '../../../../app/stores/user/active_chat';
 import {Unsubscriby} from "sickspack/unsubscriby";
 import { stores } from '@sapper/app';
+import Metadata from "../../../../app/components/general/Metadata.svelte";
 
 const {page} = stores();
 
@@ -39,6 +40,8 @@ unsubscriber.add = page.subscribe(async (page) =>
 });
 
 </script>
+
+<Metadata page="chat.active"/>
 
 <div class="container">
 	<Chat chat="{$active_chat}"/>

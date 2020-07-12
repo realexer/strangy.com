@@ -11,6 +11,7 @@ import AuthAPI from "../../app/api/providers/app/Auth";
 import Lang from 'sickspack/multilang/Lang.svelte'
 import {_lang} from 'sickspack/multilang/lang'
 import UINotification from "../../app/components/ui/notification";
+import Metadata from "../../app/components/general/Metadata.svelte";
 
 let formController = new FormController({
 	email: {
@@ -48,6 +49,8 @@ const authorize = async (e) =>
 };
 
 </script>
+
+<Metadata page="login"/>
 
 <div class="container center-align">
 	<h1 class="flow-text">

@@ -17,13 +17,13 @@ import Lang from "sickspack/multilang/Lang.svelte";
     <div class="collapsible-body">
       <ul class="collection">
         <li>
-        	<a href="{lang_url('my/settings')}">
+        	<a href="{lang_url('my/settings')}" rel="nofollow">
         		<i class="material-icons" data-icon="settings"></i>
         		<Lang key="app.user_links.settings"/>
 					</a>
 				</li>
         <li>
-        	<a href="{lang_url('my/logout')}">
+        	<a href="{lang_url('my/logout')}" rel="nofollow">
         		<i class="material-icons" data-icon="logout"></i>
         		<Lang key="app.user_links.logout"/>
 					</a>

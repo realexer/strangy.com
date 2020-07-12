@@ -251,7 +251,7 @@ export default {
 				heading: "Resurrection of online chats",
 				points: {
 					global: "Casual conversations with anyone from around the world.",
-					privacy: "No need to worry about privacy. Everything is open. Just talk about what matters to you. We are all humans.",
+					privacy: "No need to worry about privacy. Everything is open. Just talk about what matters to you. *We are all humans.*",
 					simplicity: "No visual distractions and features overdose. Focus on the person you chat with.",
 					quality: "Chat only with people you find interesting according your purpose."
 				}

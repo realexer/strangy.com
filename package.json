@@ -38,6 +38,7 @@
     "@rollup/plugin-commonjs": "^12.0.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
     "@rollup/plugin-replace": "^2.2.0",
+    "cssnano": "^4.1.10",
     "esm": "^3.2.25",
     "google-gax": "^2.6.1",
     "javascript-stringify": "^2.0.1",
@@ -50,6 +51,7 @@
     "rollup-plugin-svelte": "^5.0.1",
     "rollup-plugin-terser": "^5.3.0",
     "sapper": "^0.27.0",
+    "sugarss": "^2.0.0",
     "svelte": "^3.0.0",
     "svelte-preprocess": "^3.7.4"
   }

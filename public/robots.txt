@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /my
+
+Sitemap: https://strangy.com/sitemap.xml

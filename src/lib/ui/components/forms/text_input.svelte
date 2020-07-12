@@ -16,7 +16,7 @@
 
 <div class="input-field">
   {#if icon}
-    <i class="material-icons prefix">{icon}</i>
+    <i class="material-icons prefix" data-icon="{icon}"></i>
   {/if}
   <input
     bind:value="{value}"

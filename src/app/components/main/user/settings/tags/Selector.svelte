@@ -5,6 +5,7 @@ import {writable} from 'svelte/store';
 import {current_user} from '../../../../../stores/current_user';
 import {TagsAPI} from '../../../../../api/providers/app/TagsAPI';
 import Checkbox from '../../../../../../lib/ui/components/forms/check_box.svelte';
+import TextInput from '../../../../../../lib/ui/components/forms/text_input.svelte';
 import NewTagForm from './NewTagForm.svelte';
 import ApiClient from "../../../../../api/client";
 import Multilang from "sickspack/multilang";
@@ -13,6 +14,7 @@ import {new_tag_store} from './new_tag_store';
 import {_lang} from "sickspack/multilang/lang";
 import Lang from "sickspack/multilang/Lang.svelte";
 
+
 const availableLangs = Multilang.getSupportedLanguages();
 let unsubscribe = new Unsubscriby(onDestroy);
 
@@ -20,6 +22,10 @@ let userLangs = writable([]);
 let userTags = writable([]);
 let allTags = [];
 let tags = [];
+
+let tagSearch;
+
+$: filterTagsByLangs(tagSearch);
 
 onMount(() =>
 {
@@ -75,9 +81,19 @@ const loadTags = async (forLangs) =>
 	filterTagsByLangs();
 };
 
-const filterTagsByLangs = () =>
+const filterTagsByLangs = (search) =>
 {
-	tags = allTags.filter((tag) => $userLangs.indexOf(tag.lang) !== -1).map(t => t.toCompleteObject());
+	tags = allTags
+			.filter((tag) =>
+			{
+				let result = true;
+				if(search) {
+					result = tag.tag.match(search);
+				}
+
+				return result && $userLangs.indexOf(tag.lang) !== -1;
+			})
+			.map(t => t.toCompleteObject());
 };
 
 /**
@@ -139,6 +155,7 @@ const saveUserTags = async () =>
 			<p></p>
 			{/if}
 			<div class="">
+				<TextInput bind:value="{tagSearch}" icon="search"/>
 				{#each tags as tag}
 				<div class="chip" on:click="{() => {addUserTag(tag)}}">
 					{tag.tag} <span class="_debug">[{tag.lang}]</span>

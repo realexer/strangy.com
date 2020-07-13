@@ -13,7 +13,7 @@ class UsersListAPI
 	static activeUsers()
 	{
 		let query = dbAccessorApp.users().where('is_active', '==', true);
-		query.orderBy('last_active_at', 'desc');
+		query = query.orderBy('last_active_at', 'desc');
 
 		return new Subscribable(query);
 	};

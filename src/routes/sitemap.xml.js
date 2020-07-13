@@ -2,17 +2,20 @@ import {SitemapPage, SitemapPageMetadata, SitemapPageAlternative, ChangeFreq, ge
 import env from '../env';
 import Multilang from "sickspack/multilang";
 import {init} from '../app/init'
+import {TagsAPI} from "../app/api/providers/app/TagsAPI";
 
 init();
 
 const availableLangs = Multilang.getSupportedLanguages();
 
-export function get(req, res)
+export async function get(req, res)
 {
 	const urls = [
 		new SitemapPageMetadata(env.baseUrl,`/_lang_/`, 1.0, ChangeFreq.always),
-		new SitemapPageMetadata(env.baseUrl,`/_lang_/info/about`, 0.9, ChangeFreq.always),
-		new SitemapPageMetadata(env.baseUrl, `/_lang_/info/involve`, 0.9, ChangeFreq.always),
+		new SitemapPageMetadata(env.baseUrl,`/_lang_/info/about`, 0.6, ChangeFreq.weekly),
+		new SitemapPageMetadata(env.baseUrl, `/_lang_/info/involve`, 0.6, ChangeFreq.weekly),
+		new SitemapPageMetadata(env.baseUrl, `/_lang_/info/disclaimer`, 0.6, ChangeFreq.weekly),
+		new SitemapPageMetadata(env.baseUrl, `/_lang_/info/contact`, 0.6, ChangeFreq.weekly),
 	];
 
 	const pages = [];
@@ -29,7 +32,15 @@ export function get(req, res)
 		pages.push(new SitemapPage(metaData, alternatives));
 	});
 
-	res.setHeader("Content-Type", "application/rss+xml");
+	const tagsList = (await TagsAPI.all([], null, 1).get()).docs.map(d => d.data());
+
+	for(let tag of tagsList) {
+		const meta = new SitemapPageMetadata(env.baseUrl,`/${tag.lang}/tag/${tag.kind}/${tag.tag}`, 0.9, ChangeFreq.weekly);
+
+		pages.push(new SitemapPage(meta))
+	}
+
+	res.setHeader("Content-Type", "application/xml");
 
 	res.end(generateSitemap(pages));
 }

@@ -8,7 +8,7 @@ class ChatsListAPI
 	{
 		let query = dbAccessorApp.chats().where('participants', 'array-contains', userId);
 
-		query.orderBy('last_message_at', "desc");
+		query = query.orderBy('last_message_at', "desc");
 
 		return new Subscribable(query);
 	};

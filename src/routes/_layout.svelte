@@ -5,7 +5,7 @@ import { notification_message } from '../app/stores/notification_message.js';
 import Multilang from "sickspack/multilang";
 import Lang from 'sickspack/multilang/Lang.svelte';
 import {init} from '../app/init';
-import {replaceUrlLang} from "../app/hreflang";
+import {replaceUrlLang, checkAlternatives} from "../app/hreflang";
 
 init();
 
@@ -65,10 +65,12 @@ unsubscriber.add = auth_info.subscribe(() =>
 </script>
 
 <svelte:head>
-	{#each Object.keys(availableLangs) as hrefLang}
-	<link rel="alternate" hreflang="{hrefLang}" href="{env.baseUrl}{replaceUrlLang(page.path, lang, hrefLang)}" />
-	{/each}
-	<link rel="alternate" hreflang="x-default" href="{env.baseUrl}{replaceUrlLang(page.path, lang, 'en')}" />
+	{#if checkAlternatives(page.path)}
+		{#each Object.keys(availableLangs) as hrefLang}
+		<link rel="alternate" hreflang="{hrefLang}" href="{env.baseUrl}{replaceUrlLang(page.path, lang, hrefLang)}" />
+		{/each}
+		<link rel="alternate" hreflang="x-default" href="{env.baseUrl}{replaceUrlLang(page.path, lang, 'en')}" />
+	{/if}
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-G8267CJ27D"></script>
   <script>

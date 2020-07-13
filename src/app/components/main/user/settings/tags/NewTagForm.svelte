@@ -52,9 +52,10 @@ const createTag = async () =>
 			formController.getProp('kind').value
 		);
 
-		$new_tag_store = result.data;
-
-		if(result.isError()) {
+		if(result.isSuccess()) {
+			$new_tag_store = result.data;
+			formController.props['tag'].value = '';
+		} else {
 			throw result.getErrorMessage();
 		}
 

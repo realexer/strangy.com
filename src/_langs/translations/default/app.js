@@ -123,7 +123,7 @@ export default {
 				new_tag_form: {
 					heading: "Add new tag",
 					controls: {
-						tag: "New tag",
+						tag: "Enter new tag",
 						kind: "Type",
 						lang: "Language",
 						submit: "Create"

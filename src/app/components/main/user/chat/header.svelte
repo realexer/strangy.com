@@ -147,7 +147,7 @@ const showDetails = () =>
 			<div class="left">
 				<span class="">
 					<a href="{lang_url('user/'+$active_chat_stranger.id)}" rel="nofollow">{$active_chat_stranger.tags.primary.string}</a>
-					{#if $active_chat_stranger.isActive}
+					{#if $active_chat_stranger.isActive === true}
 					<i class="tiny material-icons" data-icon="wb_sunny"></i>
 					{:else}
 					<Lang key="app.user.was_online"/>{formatDate($active_chat_stranger.lastActiveAt)}

@@ -58,11 +58,11 @@ export default {
 		},
 		chat: {
 			active: {
-				title: "_subject_",
+				title: "_subj_",
 				description: "",
 			},
 			history: {
-				title: "_subject_ - messages history",
+				title: "_subj_ - messages history",
 				description: "",
 			},
 		},

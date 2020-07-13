@@ -54,7 +54,7 @@ unsubscriber.add = page.subscribe(async (page) =>
 
 </script>
 
-<Metadata page="chat.active" data="{{ subject: $active_chat.subject || '...' }}"/>
+<Metadata page="chat.active" data="{{ subj: $active_chat.subject || '...' }}"/>
 
 <div class="container">
 	<Chat chat="{$active_chat}"/>

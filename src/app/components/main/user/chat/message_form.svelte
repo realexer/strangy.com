@@ -30,7 +30,9 @@ const sendMessage = async () =>
 
 		const result = await ApiClient.chat($active_chat.id).messages.send(formController.props["message"].value);
 
-		if(result.isError()) {
+		if(result.isSuccess()) {
+			formController.props["message"].value = '';
+		} else {
 			throw result.getErrorMessage();
 		}
 

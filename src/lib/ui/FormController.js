@@ -33,6 +33,8 @@ class FormController {
 		}
 
 		this.isBusy = false;
+
+		return this;
 	}
 
 	getValues() {

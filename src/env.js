@@ -1,14 +1,15 @@
+import local from './_config/local/env';
+
 const env =
 {
 	baseUrl: 'https://strangy.com',
 	api_url: '/app/api',
 	dev: {
-		enabled: true,
-		use_emulators: true,
+		enabled: false,
+		use_emulators: false,
 		ui_log: false,
-		app_preview: true,
 		lang_builder: false
 	},
 };
 
-export default env;
+export default Object.assign({}, env, local);

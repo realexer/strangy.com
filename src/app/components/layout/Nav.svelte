@@ -62,35 +62,32 @@ onMount(() =>
 			</li>
 		</ul>
 		<ul class="right show-on-large">
-
-			{#if env.dev.app_preview}
-				<li class="sidenav-close hide-on-med-and-down" on:click="{ () => {sidenav.close()}}">
-					<i class="material-icons" data-icon="close"></i>
-				</li>
-				{#if $current_user.id}
-				<li class="show-on-large">
-					<a href="{lang_url('my/feedback')}" rel="nofollow" class="">
-						<i class="material-icons right" data-icon="favorite"></i>
-						{$current_user.karma}
-					</a>
-				</li>
-				<li data-target="user-side-menu" class="sidenav-trigger show-on-large">
-					<a href="#!" rel="nofollow">
-						{#if (($new_messages.amount + $new_invitations.amount) > 0) }
-							<button class="btn green">{$new_messages.amount + $new_invitations.amount}</button>
-						{:else}
-							<i class="material-icons">menu</i>
-						{/if}
-					</a>
-				</li>
-				{:else}
-				<li>
-					<a href="{lang_url('login')}" class="" title="{_lang('layout.nav.links.login.title')}">
-						<i class="material-icons left" data-icon="person_add"></i>
-						<Lang key="layout.nav.links.login.text"/>
-					</a>
-				</li>
-				{/if}
+			<li class="sidenav-close hide-on-med-and-down" on:click="{ () => {sidenav.close()}}">
+				<i class="material-icons" data-icon="close"></i>
+			</li>
+			{#if $current_user.id}
+			<li class="show-on-large">
+				<a href="{lang_url('my/feedback')}" rel="nofollow" class="">
+					<i class="material-icons right" data-icon="favorite"></i>
+					{$current_user.karma}
+				</a>
+			</li>
+			<li data-target="user-side-menu" class="sidenav-trigger show-on-large">
+				<a href="#!" rel="nofollow">
+					{#if (($new_messages.amount + $new_invitations.amount) > 0) }
+						<button class="btn green">{$new_messages.amount + $new_invitations.amount}</button>
+					{:else}
+						<i class="material-icons">menu</i>
+					{/if}
+				</a>
+			</li>
+			{:else}
+			<li>
+				<a href="{lang_url('login')}" class="" title="{_lang('layout.nav.links.login.title')}">
+					<i class="material-icons left" data-icon="person_add"></i>
+					<Lang key="layout.nav.links.login.text"/>
+				</a>
+			</li>
 			{/if}
 		</ul>
 	</div>

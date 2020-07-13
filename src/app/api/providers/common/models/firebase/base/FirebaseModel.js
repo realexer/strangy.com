@@ -38,7 +38,7 @@ class FirebaseModel
 				return;
 			}
 
-			if(val.toDate) {
+			if(val && val.toDate) {
 				val = val.toDate();
 			}
 

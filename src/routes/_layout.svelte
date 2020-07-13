@@ -99,7 +99,7 @@ unsubscriber.add = auth_info.subscribe(() =>
 <div class="warning">
 	<div class="container center-align">
 		<div class="">
-			<Lang key="info.disclaimer"/>
+			<Lang key="info.status"/>
 		</div>
 	</div>
 </div>

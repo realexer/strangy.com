@@ -23,28 +23,31 @@ export default {
 			involve: {
 				heading: "Become a part of the history",
 				methods: {
-					twitter: "You can become SMM and help us spread the idea of open and free online communication",
-					github: "You can help Strangy with technical input, programming or UI/UX ideas and solutions"
+					twitter: {
+						heading: "Official Twitter account",
+						description: "You can become SMM and help us spread the idea of open and free online communication"
+					},
+					github: {
+						heading: "GitHub Repository",
+						description: "You can help Strangy with technical input, programming or UI/UX ideas and solutions"
+					}
 				}
 			},
-			disclaimer: {
+			status: {
 				heading: "Before you dive in",
 				sections: {
 					privacy: {
-						heading: "Privacy",
-						details: "Strangy urges you *NOT TO SHARE ANY PERSONAL INFORMATION*, such as name, age, precise location, photos, contact details etc. " +
-											"Strangy is designed to talk about abstract ideas or discuss things that matters and not exchange details that can be used against you or to profit from you."
-					},
-					safety: {
-						heading: "Safety",
-						details: "Strangy is an open-source experimental state of the art project that is still under development and may contain bugs, unexpected behavior and unreliable availability. "
+						heading: "Privacy and Safety",
+						details: "Strangy urges you *NOT TO PUBLISH ANY PERSONAL INFORMATION*, such as name, age, precise location, photos, contact details etc. " +
+											"Strangy is designed to talk about abstract ideas or discuss things that matters and not exchange details that can be used against you or to profit from you. \n" +
+											"Strangy is an open-source experimental state of the art project that is still under development and may contain bugs, unexpected behavior and unreliable availability."
 					},
 					state: {
-						heading: "State",
+						heading: "Project state",
 						details: "Currently Strangy is in very early *alpha version* and provides minimalistic features set that allows create accounts, find users by tags and chat with them and leave feedback. "
 					},
 					future: {
-						heading: "Future",
+						heading: "Future of the project",
 						details: "Development of Strangy doesn't have a clear and defined path. New features may be added and removed at any time, but the concept will always be stay the same. \n" +
 											"Current backlog with no particular order is: \n " +
 											"<ul>" +

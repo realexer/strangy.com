@@ -15,11 +15,11 @@ const main = {
 					title: "Strangy"
 				},
 				about: {
-					text: "about",
+					text: "about project",
 					title: "What's Strangy and why it's the past of online chatting.",
 				},
 				involve: {
-					text: "get involved",
+					text: "join team",
 					title: "Become a contributor to the best online chat platform in a making."
 				},
 				login: {
@@ -32,16 +32,16 @@ const main = {
 			info: {
 				heading: 'Info',
 				links: {
-					about: 'About',
-					involve: 'Get involved',
-					disclaimer: 'Disclaimer',
+					about: 'About project',
+					involve: 'Join team',
+					status: 'Project status',
 					contact: 'Contacts',
 				}
 			},
 			social: {
 				heading: 'Social',
 				links: {
-					twitter: 'Twitter',
+					twitter: 'Official Twitter',
 					github: 'GitHub',
 					reddit: 'Reddit'
 				}

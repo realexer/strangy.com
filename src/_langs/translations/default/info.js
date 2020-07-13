@@ -1,7 +1,7 @@
 export default {
 	info: {
 		general_description: {
-			heading: "The past of online chatting",
+			heading: "The past of online chats",
 			details: "Strangy is the state of the art project created and designed to represent everything that online chatting and internet communication should be. \n " +
 								"Main concept revolves around the idea of open communication *between two persons about things that matter to them* and not just brain-washing each other " +
 								"with the pointless useless information. \n" +
@@ -32,6 +32,6 @@ export default {
 				other_popular_tags: "Other popular tags:",
 			}
 		},
-		disclaimer: "The development is currently on going, but you already have a chance to taste the concept and general ideas by breaking the stuff."
+		status: "The development is currently on going, but you already have a chance to taste the concept and general ideas by breaking the stuff."
 	},
 };

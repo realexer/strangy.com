@@ -52,12 +52,14 @@ onMount(() =>
 			</li>
 			<li class:active="{$page.path == lang_url('info/about')}">
 				<a href="{lang_url('info/about')}" title="{_lang('layout.nav.links.about.title')}">
-					<Lang key="layout.nav.links.about.text"/>
+					<span class="hide-on-small-and-down"><Lang key="layout.nav.links.about.text"/></span>
+					<i class="material-icons hide-on-med-and-up" data-icon="info_outline"></i>
 				</a>
 			</li>
 			<li class:active="{$page.path == lang_url('info/involve')}" class="hide-on-small-and-down">
 				<a href="{lang_url('info/involve')}" title="{_lang('layout.nav.links.involve.title')}">
-					<Lang key="layout.nav.links.involve.text"/>
+					<span class=""><Lang key="layout.nav.links.involve.text"/></span>
+					<i class="material-icons hide-on-med-and-up" data-icon="touch_app"></i>
 				</a>
 			</li>
 		</ul>
@@ -85,7 +87,7 @@ onMount(() =>
 			<li>
 				<a href="{lang_url('login')}" class="" title="{_lang('layout.nav.links.login.title')}">
 					<i class="material-icons left" data-icon="person_add"></i>
-					<Lang key="layout.nav.links.login.text"/>
+					<span class="hide-on-small-and-down"><Lang key="layout.nav.links.login.text"/></span>
 				</a>
 			</li>
 			{/if}

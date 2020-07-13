@@ -14,7 +14,7 @@ export async function get(req, res)
 		new SitemapPageMetadata(env.baseUrl,`/_lang_/`, 1.0, ChangeFreq.always),
 		new SitemapPageMetadata(env.baseUrl,`/_lang_/info/about`, 0.6, ChangeFreq.weekly),
 		new SitemapPageMetadata(env.baseUrl, `/_lang_/info/involve`, 0.6, ChangeFreq.weekly),
-		new SitemapPageMetadata(env.baseUrl, `/_lang_/info/disclaimer`, 0.6, ChangeFreq.weekly),
+		new SitemapPageMetadata(env.baseUrl, `/_lang_/info/status`, 0.6, ChangeFreq.weekly),
 		new SitemapPageMetadata(env.baseUrl, `/_lang_/info/contact`, 0.6, ChangeFreq.weekly),
 	];
 

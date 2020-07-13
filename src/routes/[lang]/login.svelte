@@ -72,5 +72,5 @@ const authorize = async (e) =>
 								submitText="{_lang('pages.login.form.submit')}"
 								isLoading={formController.isBusy} />
 	</form>
-	<p class="flow-text"><a href="{lang_url('info/disclaimer')}"><Lang key="pages.login.warning"/></a></p>
+	<p class="flow-text"><a href="{lang_url('info/status')}"><Lang key="pages.login.warning"/></a></p>
 </div>

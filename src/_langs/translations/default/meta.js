@@ -6,15 +6,15 @@ export default {
 		},
 		info: {
 			about: {
-				title: "About",
+				title: "About project",
 				description: "What's so special about Strangy? Why Strangy is the past of online chatting."
 			},
 			involve: {
-				title: "Get involved",
+				title: "Join team",
 				description: "Become a contributor to the best online chat platform. Contribute to the idea that will change the way people communicate online."
 			},
-			disclaimer: {
-				title: "Disclaimer",
+			status: {
+				title: "Project status",
 				description: "Before you dive in and start using Strangy - learn what's Strangy is about and where it's heading."
 			},
 			contact: {

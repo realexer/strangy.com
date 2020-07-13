@@ -38,11 +38,11 @@ export default {
 			},
 			details: {
 				feedback: {
-					heading: "Feedback",
+					heading: "Hearts and reviews",
 					placeholder: "no feedback yet"
 				},
 				chats: {
-					heading: "Chats",
+					heading: "Conversations",
 					placeholder: "no chats yet",
 					item: {
 						msgs: "msg/s"
@@ -142,7 +142,7 @@ export default {
 				placeholder: "under construction..."
 			},
 			feedback: {
-				heading: "Feedback",
+				heading: "Hearts and reviews",
 				placeholder: "under construction..."
 			}
 		},

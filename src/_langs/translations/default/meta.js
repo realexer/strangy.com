@@ -4,6 +4,12 @@ export default {
 			title: "Strangy - Chat with anyone from all over the globe",
 			description: "The best application for casual online conversations in a making."
 		},
+		app: {
+			intro: {
+				title: "Becoming strangy",
+				description: ""
+			}
+		},
 		info: {
 			about: {
 				title: "About project",

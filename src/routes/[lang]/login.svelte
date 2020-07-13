@@ -53,24 +53,28 @@ const authorize = async (e) =>
 
 <Metadata page="login"/>
 
-<div class="container center-align">
+<div class="center-align">
 	<h1 class="flow-text">
 		<Lang key="pages.login.heading"/>
 	</h1>
-	<form ref="form" on:submit|preventDefault={authorize}>
-		<EmailInput bind:value={formController.props["email"].value}
-								label="{_lang('pages.login.form.email')}"
-								error={formController.props["email"].error}
-								isFocused={true}
-								errorMessage={formController.props["email"].message} />
-		<PasswordInput bind:value={formController.props["password"].value}
-								label="{_lang('pages.login.form.password')}"
-								error={formController.props["password"].error}
-								errorMessage={formController.props["password"].message} />
-		<FormButtons id="login-button"
-								cancelButton={false}
-								submitText="{_lang('pages.login.form.submit')}"
-								isLoading={formController.isBusy} />
-	</form>
+	<div class="row">
+		<div class="col m6 offset-m3 s12">
+			<form ref="form" on:submit|preventDefault={authorize}>
+				<EmailInput bind:value={formController.props["email"].value}
+										label="{_lang('pages.login.form.email')}"
+										error={formController.props["email"].error}
+										isFocused={true}
+										errorMessage={formController.props["email"].message} />
+				<PasswordInput bind:value={formController.props["password"].value}
+										label="{_lang('pages.login.form.password')}"
+										error={formController.props["password"].error}
+										errorMessage={formController.props["password"].message} />
+				<FormButtons id="login-button"
+										cancelButton={false}
+										submitText="{_lang('pages.login.form.submit')}"
+										isLoading={formController.isBusy} />
+			</form>
+		</div>
+	</div>
 	<p class="flow-text"><a href="{lang_url('info/status')}"><Lang key="pages.login.warning"/></a></p>
 </div>

@@ -107,6 +107,12 @@ export default {
 				},
 				currently_online: "*_online_* online"
 			}
+		},
+		app: {
+			intro: {
+				heading: "Become strangy",
+				home_button: "Start browsing"
+			}
 		}
 	}
 };

@@ -1,12 +1,18 @@
+import { goto } from '@sapper/app';
 import {ApiResult} from "../../common/ApiResult";
 import {Auth} from "../../../firebase/app";
 import {UsersListAPI} from "./Users";
 import {UserModel} from "../common/models/firebase/UserModel";
 import {current_user, auth_info} from "../../../stores/current_user";
 import ApiClient from "../../client";
+import {lang_url} from "../../../components/general/link";
+
+let _newUser = false;
 
 Auth.onAuthStateChanged(async () =>
 {
+	_newUser = false;
+
 	if (Auth.currentUser)
 	{
 		const authInfo = {
@@ -29,9 +35,15 @@ Auth.onAuthStateChanged(async () =>
 					current_user.set(doc.data());
 
 					await ApiClient.user.info.setOnline();
+
+					if(_newUser) {
+						goto(lang_url('app/intro'));
+					}
 				}
 				else
 				{
+					_newUser = true;
+
 					await ApiClient.user.create();
 					await initUser(attemptsLeft);
 				}

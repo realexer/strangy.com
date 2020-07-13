@@ -12,6 +12,7 @@ import Lang from 'sickspack/multilang/Lang.svelte'
 import {_lang} from 'sickspack/multilang/lang'
 import UINotification from "../../app/components/ui/notification";
 import Metadata from "../../app/components/general/Metadata.svelte";
+import {lang_url} from "../../app/components/general/link";
 
 let formController = new FormController({
 	email: {
@@ -71,4 +72,5 @@ const authorize = async (e) =>
 								submitText="{_lang('pages.login.form.submit')}"
 								isLoading={formController.isBusy} />
 	</form>
+	<p class="flow-text"><a href="{lang_url('info/disclaimer')}"><Lang key="pages.login.warning"/></a></p>
 </div>

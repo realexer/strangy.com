@@ -2,6 +2,8 @@
 import {_lang} from 'sickspack/multilang/lang'
 import Lang from 'sickspack/multilang/Lang.svelte'
 import Metadata from "../../../app/components/general/Metadata.svelte";
+import {lang_url} from "../../../app/components/general/link";
+
 </script>
 
 <Metadata page="info.disclaimer"/>
@@ -10,6 +12,14 @@ import Metadata from "../../../app/components/general/Metadata.svelte";
 	<h1 class=""><Lang key="pages.info.disclaimer.heading"/></h1>
 </div>
 <div class="divider"></div>
-<div class="container">
-<p class="flow-text"><Lang key="pages.info.disclaimer.description"/></p>
+
+{#each Object.keys(_lang('pages.info.disclaimer.sections')) as section}
+<section class="container">
+	<h2><Lang key="pages.info.disclaimer.sections.{section}.heading"/></h2>
+	<p class="flow-text"><Lang key="pages.info.disclaimer.sections.{section}.details"/></p>
+</section>
+{/each}
+
+<div class="container center-align">
+<p><a class="btn btn-large" href="{lang_url('login')}"><Lang key="pages.info.disclaimer.login"/></a></p>
 </div>

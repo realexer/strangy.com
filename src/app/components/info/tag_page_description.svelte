@@ -14,7 +14,7 @@ export let popularTags = [];
 	<p class="flow-text"><Lang key="info.tag_page_description.{kind}.other_popular_tags"/></p>
 	<p class="">
 		{#each popularTags as _tag}
-			<a class="chip __tag" href="`/${_tag.lang}/tag/${_tag.kind}/${_tag.tag}`)}">
+			<a class="chip __tag" href="{`/${_tag.lang}/tag/${_tag.kind}/${_tag.tag}`}">
 				{_tag.tag}
 			</a>
 		{/each}

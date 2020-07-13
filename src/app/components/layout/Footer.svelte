@@ -16,6 +16,7 @@ const availableLangs = Multilang.getSupportedLanguages();
 				<p><a href="{lang_url('info/about')}"><Lang key="layout.footer.info.links.about"/></a></p>
 				<p><a href="{lang_url('info/involve')}"><Lang key="layout.footer.info.links.involve"/></a></p>
 				<p><a href="{lang_url('info/disclaimer')}"><Lang key="layout.footer.info.links.disclaimer"/></a></p>
+				<p><a href="{lang_url('info/contact')}"><Lang key="layout.footer.info.links.contact"/></a></p>
 			</div>
 
 			<div class="col m4 s6">

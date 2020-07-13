@@ -9,8 +9,10 @@ import Metadata from "../../../app/components/general/Metadata.svelte";
 <Metadata page="info.about"/>
 
 <div class="container center-align">
-	<h2><Lang key="pages.info.about.info.heading"/></h2>
-
+	<h1><Lang key="pages.info.about.info.heading"/></h1>
+</div>
+<div class="divider"></div>
+<div class="container center-align">
 	<IconPoint icon="language">
 		<Lang key="pages.info.about.info.points.global"/>
 	</IconPoint>

@@ -4,6 +4,7 @@ import {dbAccessorAdmin} from "../../../../firebase/admin";
 import {ChatModel} from "../../common/models/firebase/ChatModel";
 import {UsersListAPI} from "../../app/Users";
 import {ChatSubjectInput} from "../../common/models/app/data_inputs/base/inputs/chat/ChatSubjectInput";
+import {ChatOperationsAPI} from "./ChatOperationsAPI";
 
 class ChatsManager
 {
@@ -45,7 +46,13 @@ class ChatsManager
 
 		return await ApiResult.fromPromise(async () =>
 		{
-			const chatResult = await dbAccessorAdmin.chats().add(new ChatModel(chatData));
+			const chat = new ChatModel(chatData);
+			const chatResult = await dbAccessorAdmin.chats().add(chat);
+
+			if(chatResult.id) {
+				await ChatOperationsAPI.instance(chatResult.id, fromUserId).sendMessage(chat.subject);
+			}
+
 			return {chat_id: chatResult.id};
 		});
 	};

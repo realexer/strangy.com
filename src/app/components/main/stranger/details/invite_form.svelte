@@ -1,4 +1,5 @@
 <script>
+import {goto} from "@sapper/app";
 import { onDestroy } from 'svelte'
 
 import TextInput from '../../../../../lib/ui/components/forms/text_input.svelte'
@@ -33,6 +34,7 @@ const invite = async () =>
 		);
 
 		if(result.isSuccess()) {
+			goto(lang_url(`chat/${result.data.chat_id}`));
 			UINotification.success(_lang('app.stranger.invite_form.success_message'));
 		} else {
 			throw result.getErrorMessage();

@@ -19,7 +19,7 @@ export async function preload(page, session)
 	try {
 		Multilang.init(lang);
 	} catch(e) {
-		this.redirect(301, '/');
+		this.redirect(302, '/not_found');
 	}
 
 	return {
@@ -39,6 +39,7 @@ import { stores } from '@sapper/app';
 import {auth_info, current_user} from "../app/stores/current_user";
 import {Unsubscriby} from "sickspack/unsubscriby";
 import {UsersListAPI} from "../app/api/providers/app/Users";
+import {UserModel} from "../app/api/providers/common/models/firebase/UserModel";
 
 const app_stores = stores();
 
@@ -56,7 +57,7 @@ unsubscriber.add = auth_info.subscribe(() =>
 		unsubscriber.addSingle(() =>
 		{
 			return UsersListAPI.byId($auth_info.id).subscribe((doc) => {
-				current_user.set(doc.data());
+				current_user.set(doc.data() || new UserModel());
 			});
 		}, 'current_user');
 	}

@@ -1,9 +1,19 @@
 <script context="module">
+import {ChatsListAPI} from '../../../../app/api/providers/app/chat/ChatsListAPI'
 
 export async function preload(page, session)
 {
+	const chatId = page.params.chat_id;
+
+	const chat = (await ChatsListAPI.chat(chatId).get()).data();
+
+	if(!chat) {
+		this.redirect(301, '/not_found');
+	}
+
 	return {
-		chatId: page.params.chat_id
+		chatId: page.params.chat_id,
+		activeChat: chat
 	};
 }
 
@@ -12,13 +22,16 @@ export async function preload(page, session)
 <script>
 import {onMount, onDestroy} from 'svelte';
 import {writable} from 'svelte/store';
-import {ChatsListAPI} from '../../../../app/api/providers/app/chat/ChatsListAPI'
 import {ChatModel as ChatModel} from '../../../../app/api/providers/common/models/firebase/ChatModel'
 import Chat from '../../../../app/components/main/user/Chat.svelte'
 import { active_chat, active_chat_changed } from '../../../../app/stores/user/active_chat';
 import {Unsubscriby} from "sickspack/unsubscriby";
 import { stores } from '@sapper/app';
 import Metadata from "../../../../app/components/general/Metadata.svelte";
+
+export let activeChat;
+
+active_chat.set(activeChat);
 
 const {page} = stores();
 
@@ -41,7 +54,7 @@ unsubscriber.add = page.subscribe(async (page) =>
 
 </script>
 
-<Metadata page="chat.active"/>
+<Metadata page="chat.active" data="{{ subject: $active_chat.subject || '...' }}"/>
 
 <div class="container">
 	<Chat chat="{$active_chat}"/>

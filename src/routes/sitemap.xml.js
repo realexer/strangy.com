@@ -28,7 +28,7 @@ export async function get(req, res)
 			alternatives.push(new SitemapPageAlternative(env.baseUrl, metaData.localizeLocation(lang), lang))
 		});
 
-		metaData.location = metaData.localizeLocation('en');
+		metaData.location = metaData.localizeLocation(env.default_lang);
 		pages.push(new SitemapPage(metaData, alternatives));
 	});
 

@@ -3,7 +3,6 @@ import compression from 'compression';
 import * as sapper from '@sapper/server';
 import bodyParser from 'body-parser';
 import {redirector} from "./redirects";
-import {init} from './app/init'
 
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';

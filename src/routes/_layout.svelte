@@ -14,7 +14,11 @@ const availableLangs = Multilang.getSupportedLanguages();
 export async function preload(page, session)
 {
 	const langMatch = page.path.match(/\/(?<lang>[\w]+)\/?/);
-	const lang = langMatch ? langMatch.groups.lang : 'en';
+	const lang = langMatch ? langMatch.groups.lang : env.default_lang;
+
+	if(page.path === '/') {
+		page.path = `/${env.default_lang}/`;
+	}
 
 	try {
 		Multilang.init(lang);
@@ -70,7 +74,7 @@ unsubscriber.add = auth_info.subscribe(() =>
 		{#each Object.keys(availableLangs) as hrefLang}
 		<link rel="alternate" hreflang="{hrefLang}" href="{env.baseUrl}{replaceUrlLang(page.path, lang, hrefLang)}" />
 		{/each}
-		<link rel="alternate" hreflang="x-default" href="{env.baseUrl}{replaceUrlLang(page.path, lang, 'en')}" />
+		<link rel="alternate" hreflang="x-default" href="{env.baseUrl}{replaceUrlLang(page.path, lang, env.default_lang)}" />
 	{/if}
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-G8267CJ27D"></script>

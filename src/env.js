@@ -4,6 +4,7 @@ const env =
 {
 	baseUrl: 'https://strangy.com',
 	api_url: '/app/api',
+	default_lang: 'en',
 	dev: {
 		enabled: false,
 		use_emulators: false,

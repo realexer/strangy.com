@@ -32,6 +32,9 @@ export default {
 				other_popular_tags: "Other popular tags:",
 			}
 		},
-		status: "The development is currently on going, but you already have a chance to taste the concept and general ideas by breaking the stuff."
+		status: {
+			message: "The development is currently on going, but you already have a chance to taste the concept and general ideas.",
+			read_more: "Read more"
+		}
 	},
 };

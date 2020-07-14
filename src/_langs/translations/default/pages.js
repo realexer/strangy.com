@@ -44,7 +44,8 @@ export default {
 					},
 					state: {
 						heading: "Project state",
-						details: "Currently Strangy is in very early *alpha version* and provides minimalistic features set that allows create accounts, find users by tags and chat with them and leave feedback. "
+						details: "Currently Strangy is in very early *alpha version* and provides minimalistic features set that allows create accounts, find users by tags and chat with them and leave feedback. \n" +
+											"The original language of content is English. All other available translations were automatically generated using 'Google Translate' and may contain incorrect wording. "
 					},
 					future: {
 						heading: "Future of the project",
@@ -57,6 +58,7 @@ export default {
 												"<li>publicly available chat history</li>" +
 												"<li>mobile application</li>" +
 												"<li>fix critical bugs</li>" +
+												"<li>quality translations</li>" +
 											"</ul>"
 					}
 				},

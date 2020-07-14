@@ -44,6 +44,7 @@ import {auth_info, current_user} from "../app/stores/current_user";
 import {Unsubscriby} from "sickspack/unsubscriby";
 import {UsersListAPI} from "../app/api/providers/app/Users";
 import {UserModel} from "../app/api/providers/common/models/firebase/UserModel";
+import {lang_url} from "../app/components/general/link";
 
 const app_stores = stores();
 
@@ -103,7 +104,10 @@ unsubscriber.add = auth_info.subscribe(() =>
 <div class="warning">
 	<div class="container center-align">
 		<div class="">
-			<Lang key="info.status"/>
+			<Lang key="info.status.message"/>
+			<p>
+				<a href="{lang_url('info/status')}" class="btn"><Lang key="info.status.read_more"/></a>
+			</p>
 		</div>
 	</div>
 </div>

@@ -16,7 +16,7 @@ class TagsAPI
 		}
 
 		if(min_users_amount > 0) {
-			query = query.where('users_amount', '>', min_users_amount);
+			query = query.where('users_amount', '>=', min_users_amount);
 		}
 
 		return query.orderBy('users_amount', "desc");

@@ -24,12 +24,16 @@ export default {
 				heading: "Become a part of the history",
 				methods: {
 					twitter: {
-						heading: "Official Twitter account",
+						heading: "Official Twitter",
 						description: "You can become SMM and help us spread the idea of open and free online communication"
 					},
 					github: {
 						heading: "GitHub Repository",
 						description: "You can help Strangy with technical input, programming or UI/UX ideas and solutions"
+					},
+					patreon: {
+						heading: "Patreon funding",
+						description: "If you are not ready to participate in the development process you can still help Strangy financially by becoming a patron."
 					}
 				}
 			},
@@ -102,12 +106,12 @@ export default {
 		tag: {
 			heading: {
 				kind: {
-					interest: "Chat with people who are interested in *_tag_*",
-					info: "Chat with people who identified themselves as *_tag_*",
-					location: "Chat with people from *_tag_*",
-					other: "Chat with people with tag *_tag_*",
+					interest: "Chat with people who are interested in *_XTAG_*",
+					info: "Chat with people who identified themselves as *_XTAG_*",
+					location: "Chat with people from *_XTAG_*",
+					other: "Chat with people with tag *_XTAG_*",
 				},
-				currently_online: "*_online_* online"
+				currently_online: "*_XONLINE_* online"
 			}
 		},
 		app: {

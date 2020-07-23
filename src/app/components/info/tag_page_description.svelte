@@ -7,10 +7,14 @@ export let kind;
 export let tag;
 export let popularTags = [];
 
+const xdata = {
+	xtag: tag,
+}
+
 </script>
 <div>
-	<h1 class=""><Lang key="info.tag_page_description.{kind}.heading" data="{{tag: tag}}"/></h1>
-	<p class="flow-text"><Lang key="info.tag_page_description.{kind}.description" data="{{tag: tag}}"/></p>
+	<h1 class=""><Lang key="info.tag_page_description.{kind}.heading" data="{xdata}"/></h1>
+	<p class="flow-text"><Lang key="info.tag_page_description.{kind}.description" data="{xdata}"/></p>
 	<p class="flow-text"><Lang key="info.tag_page_description.{kind}.other_popular_tags"/></p>
 	<p class="">
 		{#each popularTags as _tag}

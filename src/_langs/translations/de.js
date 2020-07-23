@@ -1,1 +1,434 @@
-export default {"general":{"name":"ersticken"},"layout":{"nav":{"links":{"home":{"text":"","title":"ersticken"},"about":{"text":"An dem Projekt","title":"Was ist Strang und warum ist es Vergangenheit, im Internet zu chatten?"},"involve":{"text":"Tritt dem Team bei","title":"Werden Sie Mitglied der besten Online-Chat-Plattform."},"login":{"text":"Eintrag","title":"Erstellen Sie ein neues Konto oder melden Sie sich bei einem vorhandenen Konto an"}}},"footer":{"info":{"heading":"Information","links":{"about":"An dem Projekt","involve":"Tritt dem Team bei","status":"Status des Projekts","contact":"Kontakte"}},"social":{"heading":"Sozial","links":{"twitter":"Offizielles Twitter","github":"GitHub","reddit":"Reddit"}},"languages":{"heading":"Sprachen"}}},"cmp":{"form":{"rules":{"min_length":"muss mindestens _num_ Zeichen enthalten","max_length":"darf nicht mehr als _num_ Zeichen enthalten"}}},"app":{"index":{"tags_list":{"heading":"Wählen Sie aus, mit wem Sie chatten möchten"},"users_list":{"heading":"_amount_ bereit zum chatten","options":{"first":"Platzhalteroption 1","second":"Platzhalteroption 1"},"user_item":{"chat":"Plaudern"}}},"tag":{"kinds":{"info":"Information","interest":"Interesse","location":"Position","other":"andere"}},"user_links":{"settings":"die Einstellungen","logout":"Ausloggen"},"user":{"was_online":"es war online"},"stranger":{"invite_form":{"success_message":"Einladung versendet","subject":"Ding","submit":"einladen"},"details":{"feedback":{"heading":"Herzen und Bewertungen","placeholder":"Noch keine Bewertungen"},"chats":{"heading":"Gespräche","placeholder":"immer noch kein Chat","item":{"msgs":"msg / s"}}}},"chat":{"status":{"ACTIVE":"aktiv","FINISHED":"fertig"},"state":{"INVITATION":"Einladung","ACCEPTED":"empfangen","DECLINED":"verweigert","CANCELED":"abgesagt"},"active":{"feedback":{"form":{"input":"Teilen Sie ein paar Worte über Ihre stickigen"},"success_message":"Bewertungen gesendet"},"actions":{"rename":"umbenennen","finish":"beendet das Gespräch"},"status":{"received_invitation":{"accept":"Nimmt die Einladung an","reject":"ablehnen"},"sent_invitation":{"heading":"Einladung ausstehende Antwort","cancel":"storniere die Einladung"},"finished":{"heading":"Der Chat ist vorbei"}},"messaging":{"form":{"input":"Botschaft","send":"einreichen"},"placeholder":"Noch keine Beiträge"}}},"user_chats":{"invitations":{"heading":"kleine Einladung","item":{"from":"von"}},"active":{"heading":"Chat _active_active","placeholder":"Kein aktiver Chat","item":{"not_accepted_yet":"noch nicht akzeptiert","with":"von","new_messages":"_Wert_ neuer Nachrichten"}}},"user_settings":{"langs":{"heading":"Ihre Sprache"},"tags":{"selector":{"heading":"Tagged","description":"Verwenden Sie die folgenden Tags, um sich selbst zu beschreiben"},"new_tag_form":{"heading":"Neues Tag hinzufügen","controls":{"tag":"Geben Sie ein neues Tag ein","kind":"Ein Mann","lang":"Zunge","submit":"erstellen"}}}},"user_my":{"tags":{},"profile":{"heading":"Profil","placeholder":"in Entwicklung ..."},"account":{"heading":"Punkt","placeholder":"in Entwicklung ..."},"feedback":{"heading":"Herzen und Bewertungen","placeholder":"in Entwicklung ..."}}},"meta":{"index":{"title":"Seltsam - chatte mit jemandem aus der ganzen Welt","description":"Die beste App für gelegentliche Online-Gespräche beim Erstellen."},"app":{"intro":{"title":"geschlossen werden","description":""}},"info":{"about":{"title":"An dem Projekt","description":"Was ist das Besondere an Strangy? Weil Strangy die Vergangenheit von Online-Chats ist."},"involve":{"title":"Tritt dem Team bei","description":"Werden Sie Mitglied der besten Online-Chat-Plattform. Bewerben Sie eine Idee, die die Art und Weise verändert, wie Menschen online kommunizieren."},"status":{"title":"Status des Projekts","description":"Bevor Sie tauchen und Strangy verwenden, sollten Sie herausfinden, um welche Art von Strangy es sich handelt und wohin es führt."},"contact":{"title":"Kontakte","description":"Senden Sie uns eine E-Mail oder kontaktieren Sie uns über Twitter oder Github."}},"login":{"title":"Eintrag","description":"Erstellen Sie ein neues Strangy-Konto oder melden Sie sich bei einem vorhandenen an."},"tag":{"info":{"default":{"title":"Chatten Sie mit _tag_","description":"Chatten Sie mit jedem Tag aus der ganzen Welt. Offene Kommunikation für Menschen."}},"interest":{"default":{"title":"Chatten Sie auf _tag_","description":"Sprechen Sie mit jemandem aus der ganzen Welt über Tag. Offene Kommunikation für Menschen."}},"location":{"default":{"title":"Chatten Sie mit jemandem von _tag_","description":"Chatten Sie mit Leuten von _tag_ oder irgendwo anders auf der Welt. Offene Kommunikation für Menschen."}},"other":{"default":{"title":"_tag_ - kostenloser offener Chat","description":"Chatten Sie mit jemandem, der _tag_ vertritt, oder mit jemandem auf _tag_. Offene Kommunikation für Menschen."}}},"user":{"title":"Laden Sie zum erwürgten Chat ein","description":"Bitten Sie die mysteriöse Person, sich zu unterhalten und mit ihnen über alles zu sprechen, was Ihnen wichtig ist."},"chat":{"active":{"title":"_subj_","description":""},"history":{"title":"_subj_ - Nachrichtenverlauf","description":""}},"my":{"settings":{"title":"Anpassung","description":""},"feedback":{"title":"Bewertungen","description":""},"logout":{"title":"Auf Wiedersehen ...","description":""}}},"pages":{"info":{"about":{"info":{"heading":"Die Wiedergeburt des Online-Chats","points":{"global":"Tägliche Gespräche mit jemandem aus aller Welt.","privacy":"Sie müssen sich keine Sorgen um die Privatsphäre machen. Alles ist offen. Sprechen Sie einfach darüber, was Ihnen wichtig ist. * Wir sind alle Menschen. * *","simplicity":"Keine visuelle Ablenkung und Überdosierung. Konzentrieren Sie sich auf die Person, mit der Sie sprechen.","quality":"Warten Sie nur mit den Menschen, die Ihnen wichtig sind, entsprechend Ihrem Ziel."}},"meta":{"heading":"Einfach aber modern","points":{"open_source":"100% Open Source Community-gesteuertes Projekt","tech_stack":"Content-Technologie-Stacks: Firebase, Svelte (Sapper), Flutter","transparency":"Keine versteckten Programme oder trügerischen Ideen."}}},"involve":{"heading":"Werden Sie Teil der Geschichte","methods":{"twitter":{"heading":"Offizieller Twitter Account","description":"Sie können SMM werden und uns helfen, die Idee einer offenen und kostenlosen Online-Kommunikation zu verbreiten."},"github":{"heading":"Repository Github","description":"Sie können Strangy bei der technischen Einführung, Programmierung oder bei UI / UX-Ideen und -Lösungen helfen."}}},"status":{"heading":"Bevor du tauchst","sections":{"privacy":{"heading":"Privatsphäre und Sicherheit","details":"Strangy empfiehlt Ihnen, * KEINE persönlichen Informationen * wie Name, Alter, genauen Standort, Fotos, Kontaktdaten und dergleichen zu veröffentlichen. oder von dir zu profitieren.\nStrangy ist ein experimentelles, modernes und Open-Source-Projekt, das sich noch in der Entwicklung befindet und Fehler, unerwartetes Verhalten und unzuverlässige Verfügbarkeit enthalten kann."},"state":{"heading":"Status des Projekts","details":"Derzeit befindet sich Strangy in einer allerersten * Alpha-Version * und bietet eine minimalistische Reihe von Funktionen, mit denen Sie Konten erstellen, Benutzer anhand von Tags finden, mit ihnen kommunizieren und Feedback hinterlassen können.\nDie Originalsprache des Inhalts ist Englisch. Alle anderen sind verfügbare Übersetzungen, die automatisch mit \"Google Translate\" erstellt wurden und möglicherweise falsch geschriebene Wörter enthalten."},"future":{"heading":"Zukunft des Projekts","details":"Strangys Entwicklung hat keinen klaren und definierten Weg. Neue Funktionen können jederzeit hinzugefügt und entfernt werden, das Konzept bleibt jedoch immer gleich. Aktueller Rückstand ohne bestimmte Reihenfolge: <ul><li> Setzen Sie das Passwort zurück </li><li> Konto- und Profileinstellungen </li><li> Schnittstelle und UX verbessern </li><li> öffentlicher Chat-Verlauf </li><li> App </li><li> kritische Fehler korrigieren </li><li> Qualitätsübersetzungen </li></ul>"}},"login":"Ein Konto erstellen"},"contact":{"heading":"Kontakt","details":"Wenn Sie Fragen haben oder uns über Strangy kontaktieren möchten, senden Sie uns eine E-Mail an <a href='mailto:strangy.com@gmail.com'>strangy.com@gmail.com</a> oder kontaktieren Sie <a href='https://twitter.com/strangycom' target='_blank'>Twitter</a> oder <a href='https://github.com/realexer/strangy.com' target='_blank'>GitHub</a>"}},"login":{"heading":"Melden Sie sich an oder erstellen Sie ein neues Konto","form":{"email":"Email","password":"Passwort","submit":"Einloggen in"},"warning":"Nicht sicher, ob das Wetter vorbei ist oder nicht?","greeting":"Hallo Strang"},"my":{"logout":{"heading":"Auf Wiedersehen ..."},"settings":{"tabs":{"tags":{"title":"Etikett"},"profile":{"title":"Profil"},"account":{"title":"Punkt"}}}},"tag":{"heading":{"kind":{"interest":"Chatten Sie mit Interessenten an * _tag_ *","info":"Chatten Sie mit Leuten, die sich gegenseitig angerufen haben * _tag_ *","location":"Chatten Sie mit Leuten von * _tag_ *","other":"Chatten Sie mit Personen, die mit * _tag_ * markiert sind"},"currently_online":"* _Online_ * online"}},"app":{"intro":{"heading":"Werde eine Seele","home_button":"Fangen Sie an zu schauen"}}},"info":{"general_description":{"heading":"Chats wurden im Internet weitergegeben","details":"Strangy ist ein modernes Projekt, das so erstellt und entwickelt wurde, dass es alles repräsentiert, was im Chat und in der Kommunikation im Internet vorhanden sein sollte.\n Das Grundkonzept basiert auf der Idee einer offenen Kommunikation * zwischen zwei Personen über Dinge, die für sie wichtig sind *, anstatt sich gegenseitig mit unbedeutenden und unnötigen Informationen einer Gehirnwäsche zu unterziehen.\nStrangy ist keine Firma. Dies ist kein Produkt. Dies ist kein weiteres Social-Media-Tool, mit dem Sie Ihren Geist manipulieren können.\nStrangy ist eine Plattform, die entwickelt wurde, um sicherzustellen, dass der Minimalist in Ihrem Leben folgt. Sie bietet Ihnen lediglich die Möglichkeit, jederzeit oder zu jedem Zeitpunkt in Ihrem Leben mit einer zufälligen Person zu chatten, wenn Sie dies benötigen. Das ist. Keine lächerliche und geniale Ablenkung, die Sie auf der Website gehalten hat. Kommen und gehen Sie einfach kostenlos."},"tag_page_description":{"info":{"heading":"Wählen Sie mit dem Tag * _tag_ * eine beliebige Option aus und beginnen Sie mit ihnen zu chatten","description":"Mit Strangy können Sie mit jedem * _tag_ * des gesamten Universums oder jeder anderen Person kommunizieren, die Ihren Interessen und Bedürfnissen entspricht.","other_popular_tags":"Ein weiteres gruseliges beliebtes:"},"interest":{"heading":"Wählen Sie mit dem Tag * _tag_ * eine beliebige Option aus und beginnen Sie mit ihnen zu chatten","description":"Mit Strangy können Sie mit jedem im gesamten Universum über * _tag_ * oder ein anderes Objekt chatten, das Sie mögen.","other_popular_tags":"Andere populäre Interessen:"},"location":{"heading":"Wählen Sie mit dem Tag * _tag_ * eine beliebige Option aus und beginnen Sie mit ihnen zu chatten","description":"Mit Strangy können Sie mit jeder Person mit * _tag_ * oder mit jeder anderen Person im gesamten Universum chatten.","other_popular_tags":"Andere berühmte Orte:"},"other":{"heading":"Wählen Sie mit dem Tag * _tag_ * eine beliebige Option aus und beginnen Sie mit ihnen zu chatten","description":"Mit Strangy können Sie mit jeder Person aus der ganzen Welt kommunizieren, die mit dem Tag * _tag_ * oder anderen Personen verbunden ist","other_popular_tags":"Andere beliebte Tags:"}},"status":{"message":"Die Entwicklung ist im Gange, aber Sie haben bereits die Möglichkeit, das allgemeine Konzept und die Ideen auszuprobieren.","read_more":"Mehr Details"}}}
+export default {
+	"general": {
+		"name": "Strangy"
+	},
+	"layout": {
+		"nav": {
+			"links": {
+				"home": {
+					"text": "",
+					"title": "Strangy"
+				},
+				"about": {
+					"text": "über das Projekt",
+					"title": "Was ist Strangy und warum ist es die Vergangenheit von Online-Chat."
+				},
+				"involve": {
+					"text": "einem Team beitreten",
+					"title": "Werden Sie ein Beitrag zu der besten Online-Chat-Plattform in einem machen."
+				},
+				"login": {
+					"text": "Anmeldung",
+					"title": "Erstellen Sie neue oder Login in bestehenden Konto"
+				}
+			}
+		},
+		"footer": {
+			"info": {
+				"heading": "Die Info",
+				"links": {
+					"about": "Über das Projekt",
+					"involve": "Einem Team beitreten",
+					"status": "Projekt-Status",
+					"contact": "Impressum"
+				}
+			},
+			"social": {
+				"heading": "Sozial",
+				"links": {
+					"twitter": "zwitschern",
+					"github": "GitHub",
+					"reddit": "reddit",
+					"medium": "Blog",
+					"patreon": "Patreon"
+				}
+			},
+			"languages": {
+				"heading": "Sprachen"
+			}
+		}
+	},
+	"cmp": {
+		"form": {
+			"rules": {
+				"min_length": "muss mindestens _XNUM_ Zeichen lang sein",
+				"max_length": "nicht mehr sein muss als _XNUM_ Zeichen"
+			}
+		}
+	},
+	"app": {
+		"index": {
+			"tags_list": {
+				"heading": "Wählen Sie die würden Sie chatten möchten"
+			},
+			"users_list": {
+				"heading": "_amount_ bereit zu chatten",
+				"options": {
+					"first": "Option Platzhalter 1",
+					"second": "Option Platzhalter 1"
+				},
+				"user_item": {
+					"chat": "Plaudern"
+				}
+			}
+		},
+		"tag": {
+			"kinds": {
+				"info": "Die Info",
+				"interest": "Interesse",
+				"location": "Ort",
+				"other": "Andere"
+			}
+		},
+		"user_links": {
+			"settings": "die Einstellungen",
+			"logout": "Ausloggen"
+		},
+		"user": {
+			"was_online": "war online"
+		},
+		"stranger": {
+			"invite_form": {
+				"success_message": "Einladung versendet",
+				"subject": "Gegenstand",
+				"submit": "einladen"
+			},
+			"details": {
+				"feedback": {
+					"heading": "Herzen und Bewertungen",
+					"placeholder": "noch keine Rückmeldung"
+				},
+				"chats": {
+					"heading": "Gespräche",
+					"placeholder": "keine Chats noch",
+					"item": {
+						"msgs": "Mitteilungen"
+					}
+				}
+			}
+		},
+		"chat": {
+			"status": {
+				"ACTIVE": "aktiv",
+				"FINISHED": "fertig"
+			},
+			"state": {
+				"INVITATION": "Einladung",
+				"ACCEPTED": "akzeptiert",
+				"DECLINED": "abgelehnt",
+				"CANCELED": "abgesagt"
+			},
+			"active": {
+				"feedback": {
+					"form": {
+						"input": "Teilen Sie ein paar Worte über Ihre strangy"
+					},
+					"success_message": "Feedback eingereicht"
+				},
+				"actions": {
+					"rename": "Umbenennen",
+					"finish": "Fertig Gespräch"
+				},
+				"status": {
+					"received_invitation": {
+						"accept": "Die Einladung annehmen",
+						"reject": "ablehnen"
+					},
+					"sent_invitation": {
+						"heading": "Einladung aussteht Antwort",
+						"cancel": "abbrechen Einladung"
+					},
+					"finished": {
+						"heading": "Chat ist fertig"
+					}
+				},
+				"messaging": {
+					"form": {
+						"input": "Botschaft",
+						"send": "Senden"
+					},
+					"placeholder": "keine Nachrichten noch"
+				}
+			}
+		},
+		"user_chats": {
+			"invitations": {
+				"heading": "_XAMOUNT_ Einladungen",
+				"item": {
+					"from": "von"
+				}
+			},
+			"active": {
+				"heading": "_XAMOUNT_ aktiven Chats",
+				"placeholder": "keine aktiven Chats",
+				"item": {
+					"not_accepted_yet": "noch nicht akzeptiert",
+					"with": "mit",
+					"new_messages": "_XAMOUNT_ neue Nachrichten"
+				}
+			}
+		},
+		"user_settings": {
+			"langs": {
+				"heading": "Ihre Sprachen"
+			},
+			"tags": {
+				"selector": {
+					"heading": "Beschreiben Sie sich mit Tags",
+					"description": "Verwenden Sie Tags unten zu beschreiben selbst"
+				},
+				"new_tag_form": {
+					"heading": "Hinzufügen neuer Tag",
+					"controls": {
+						"tag": "Geben Sie den neuen Tag",
+						"kind": "Art",
+						"lang": "Sprache",
+						"submit": "Erstellen"
+					}
+				}
+			}
+		},
+		"user_my": {
+			"tags": {},
+			"profile": {
+				"heading": "Profil",
+				"placeholder": "im Bau..."
+			},
+			"account": {
+				"heading": "Konto",
+				"placeholder": "im Bau..."
+			},
+			"feedback": {
+				"heading": "Herzen und Bewertungen",
+				"placeholder": "im Bau..."
+			}
+		}
+	},
+	"meta": {
+		"index": {
+			"title": "Strangy - Chat mit jemandem aus der ganzen Welt",
+			"description": "Die beste Anwendung für Casual Online-Gespräche in einer Herstellung."
+		},
+		"app": {
+			"intro": {
+				"title": "werden strangy",
+				"description": ""
+			}
+		},
+		"info": {
+			"about": {
+				"title": "Über das Projekt",
+				"description": "Was ist das Besondere an Strangy? Warum Strangy ist die Vergangenheit von Online-Chat."
+			},
+			"involve": {
+				"title": "Einem Team beitreten",
+				"description": "Werden Sie ein Beitrag zu der besten Online-Chat-Plattform. Mitwirken an der Idee, dass die Art und Weise Menschen online kommunizieren wird sich ändern."
+			},
+			"status": {
+				"title": "Projekt-Status",
+				"description": "Bevor Sie tauchen und beginnen Strangy mit - lernen, was Strangy ist, ist über und wo es die Überschrift."
+			},
+			"contact": {
+				"title": "Impressum",
+				"description": "Senden Sie uns eine E-Mail oder kontaktieren Sie uns über Twitter oder Github."
+			}
+		},
+		"login": {
+			"title": "Anmeldung",
+			"description": "Erstellen Sie neue Strangy Konto oder melden Sie sich in bestehende."
+		},
+		"tag": {
+			"info": {
+				"default": {
+					"title": "Diskutieren Sie mit _XTAG_",
+					"description": "Diskutieren Sie mit jedem _XTAG_ aus der ganzen Welt. Offene Kommunikation für die Menschen geschaffen."
+				}
+			},
+			"interest": {
+				"default": {
+					"title": "Chat über _XTAG_",
+					"description": "Chat über _XTAG_ mit jemand aus der ganzen Welt. Offene Kommunikation für die Menschen geschaffen."
+				}
+			},
+			"location": {
+				"default": {
+					"title": "Diskutieren Sie mit jemandem aus _XTAG_",
+					"description": "Diskutieren Sie mit Menschen aus _XTAG_ oder anderen Orten aus der ganzen Welt. Offene Kommunikation für die Menschen geschaffen."
+				}
+			},
+			"other": {
+				"default": {
+					"title": "_XTAG_ - kostenloser Open-Chat",
+					"description": "Chat mit jemandem vertreten _XTAG_ oder mit jemandem über _XTAG_. Offene Kommunikation für die Menschen geschaffen."
+				}
+			}
+		},
+		"user": {
+			"title": "Einladen strangy zu chatten",
+			"description": "Laden Sie eine mysteriöse Person zu chatten und sprechen mit ihnen über alles, was Ihnen wichtig ist."
+		},
+		"chat": {
+			"active": {
+				"title": "_XSUBJECT_",
+				"description": ""
+			},
+			"history": {
+				"title": "_XSUBJECT_ - Nachrichten Geschichte",
+				"description": ""
+			}
+		},
+		"my": {
+			"settings": {
+				"title": "die Einstellungen",
+				"description": ""
+			},
+			"feedback": {
+				"title": "Feedback",
+				"description": ""
+			},
+			"logout": {
+				"title": "Auf Wiedersehen...",
+				"description": ""
+			}
+		}
+	},
+	"pages": {
+		"info": {
+			"about": {
+				"info": {
+					"heading": "Auferstehung von Online-Chats",
+					"points": {
+						"global": "Casual Gespräche mit jemandem aus dem ganzen Welt.",
+						"privacy": "Kein Grund zur Sorge über die Privatsphäre. Alles ist offen. Sprechen Sie über das, was wichtig ist für Sie. * Wir sind alle Menschen. *",
+						"simplicity": "Keine visuellen Ablenkungen und verfügt über Überdosierung. Konzentrieren Sie sich auf die Person, mit Ihnen chatten.",
+						"quality": "Chat nur mit Menschen, die Sie interessant nach Ihrem Zweck finden."
+					}
+				},
+				"meta": {
+					"heading": "Einfach und doch modern",
+					"points": {
+						"open_source": "100% Open Source Community getrieben Projekt",
+						"tech_stack": "Bedeutungsvolle technologische Stapel: Firebase, Svelte (Sapper), Flutter",
+						"transparency": "Keine Agenden versteckt oder irreführende Ideen"
+					}
+				}
+			},
+			"involve": {
+				"heading": "Werden Sie ein Teil der Geschichte",
+				"methods": {
+					"twitter": {
+						"heading": "Offizieller Twitter",
+						"description": "Sie können SMM werden und uns helfen, die Idee der offenen und kostenlosen Online-Kommunikation zu verbreiten"
+					},
+					"github": {
+						"heading": "GitHub-Repository",
+						"description": "Sie können Strangy mit technischen Input, Programmierung oder UI / UX Ideen und Lösungen helfen"
+					},
+					"patreon": {
+						"heading": "Patreon Finanzierung",
+						"description": "Wenn Sie nicht bereit sind, in dem Entwicklungsprozess teilnehmen können Sie immer noch Strangy helfen finanziell durch einen Mäzen zu werden."
+					}
+				}
+			},
+			"status": {
+				"heading": "Bevor Sie tauchen in",
+				"sections": {
+					"privacy": {
+						"heading": "Datenschutz und Sicherheit",
+						"details": "Strangy Trieben Sie * NICHT ZUR VERÖFFENTLICHUNG ANY persönlichen Informationen ein *, wie Name, Alter, genaue Ort, Fotos, Kontaktdaten usw. Strangy zu reden über abstrakte Ideen entwickelt oder diskutieren Dinge, die Dinge und nicht Austausch Details, die gegen Sie verwendet werden können oder von Ihnen zu profitieren.\nStrangy ist ein Open-Source-experimenteller Stand der Technik Projektes, das noch in der Entwicklung und kann Fehler, unerwartetes Verhalten und unzuverlässig Verfügbarkeit enthalten."
+					},
+					"state": {
+						"heading": "Projektstand",
+						"details": "Derzeit ist Strangy sehr früh * Alpha-Version * und bietet minimalistische Merkmale festgelegt, dass erlaubt Konten erstellen, finden Nutzer von Tags und mit ihnen chatten und verlassen Feedback.\nDie Originalsprache Inhalt ist Englisch. Alle weiteren verfügbaren Übersetzungen wurden mit ‚Google Translate‘ automatisch generiert und eine falsche Formulierung enthalten."
+					},
+					"future": {
+						"heading": "Zukunft des Projekts",
+						"details": "Entwicklung von Strangy keinen klar definierten Weg. Neue Funktionen und jederzeit wieder entfernt werden können, aber das Konzept wird immer gleich bleiben werden. Aktuelle Rückstand mit keiner bestimmten Reihenfolge ist: <ul><li> wiederherstellen Passwort </li><li> Einstellungen Konto und Profil </li><li> Verbesserung der Benutzeroberfläche und UX </li><li> öffentlich zugänglicher Chat-Verlauf </li><li> mobile Applikation </li><li> beheben kritische Fehler </li><li> Qualität Übersetzungen </li></ul>"
+					}
+				},
+				"login": "Konto erstellen"
+			},
+			"contact": {
+				"heading": "Kontaktiere uns",
+				"details": "Wenn Sie Fragen haben oder mit uns in Kontakt treten möchte in Bezug auf die Strangy senden Sie uns eine E - Mail an <a href='mailto:strangy.com@gmail.com'>strangy.com@gmail.com</a> oder Kontakt auf <a href='https://twitter.com/strangycom' target='_blank'>Twitter</a> oder <a href='https://github.com/realexer/strangy.com' target='_blank'>GitHub</a>"
+			}
+		},
+		"login": {
+			"heading": "Einloggen oder Neues Konto erstellen",
+			"form": {
+				"email": "Email",
+				"password": "Passwort",
+				"submit": "Eingeben"
+			},
+			"warning": "Nicht sicher, Wetter sign-up oder nicht?",
+			"greeting": "Hallo Strangy"
+		},
+		"my": {
+			"logout": {
+				"heading": "Auf Wiedersehen..."
+			},
+			"settings": {
+				"tabs": {
+					"tags": {
+						"title": "Stichworte"
+					},
+					"profile": {
+						"title": "Profil"
+					},
+					"account": {
+						"title": "Konto"
+					}
+				}
+			}
+		},
+		"tag": {
+			"heading": {
+				"kind": {
+					"interest": "Diskutieren Sie mit Menschen, die interessiert sind in * _XTAG_ *",
+					"info": "Diskutieren Sie mit Menschen, die identifiziert sich als * _XTAG_ *",
+					"location": "Diskutieren Sie mit Menschen aus * _XTAG_ *",
+					"other": "Diskutieren Sie mit Menschen mit dem Tag * _XTAG_ *"
+				},
+				"currently_online": "* * _XONLINE_ Online"
+			}
+		},
+		"app": {
+			"intro": {
+				"heading": "werden strangy",
+				"home_button": "Start-Browsing"
+			}
+		}
+	},
+	"info": {
+		"general_description": {
+			"heading": "Die Vergangenheit von Online-Chats",
+			"details": "Strangy ist der Stand der Technik Projekt erstellt und entworfen, um alles darzustellen, dass Online-Chat und Internet-Kommunikation sein sollte.\n Haupt Konzept dreht sich um die Idee der offenen Kommunikation * zwischen zwei Personen über Dinge, die Angelegenheit zu ihnen * und nicht nur Gehirnwäsche sich mit den sinnlosen nutzlosen Informationen.\nStrangy ist nicht eine Gemeinschaft. Es ist kein Produkt. Es ist nicht ein anderes Social-Media-Tool entwickelt, um Ihr Bewusstsein zu manipulieren.\nStrangy ist die Plattform, die minimalistischsten Fußabdruck auf Ihrem Leben hat entworfen bieten Ihnen nichts anderes als die Fähigkeit, nur jederzeit mit einer zufälligen Person zu chatten oder jeden Moment Ihres Lebens, wenn Sie sie brauchen. Das ist es. Keine sinnlosen glänzend Ablenkungen halten Sie auf der Website angebracht. kommen und gehen einfach ohne jede Belastung."
+		},
+		"tag_page_description": {
+			"info": {
+				"heading": "Wählen Sie eine beliebige strangy mit dem Tag * _XTAG_ * und beginnen mit ihnen chatten",
+				"description": "Strangy ermöglicht es Ihnen, mit jedem Chat * _XTAG_ * vom gesamten Universum oder einer anderen Person, die Ihre Interessen und Bedürfnisse entsprechen.",
+				"other_popular_tags": "Andere beliebte strangies:"
+			},
+			"interest": {
+				"heading": "Wählen Sie eine beliebige strangy mit dem Tag * _XTAG_ * und beginnen mit ihnen chatten",
+				"description": "Strangy ermöglicht es Ihnen, aus ganzen Universum mit einer Person chatten über * _XTAG_ * oder über jedes andere Thema, das Sie mögen.",
+				"other_popular_tags": "Andere beliebte Interesse:"
+			},
+			"location": {
+				"heading": "Wählen Sie eine beliebige strangy mit dem Tag * _XTAG_ * und beginnen mit ihnen chatten",
+				"description": "Strangy ermöglicht es Ihnen, mit einer Person chatten aus * _XTAG_ * oder sonst jemandem aus einem anderen Ort im gesamten Universum.",
+				"other_popular_tags": "Weitere beliebte Orte:"
+			},
+			"other": {
+				"heading": "Wählen Sie eine beliebige strangy mit dem Tag * _XTAG_ * und beginnen mit ihnen chatten",
+				"description": "Strangy ermöglicht es Ihnen, aus der ganzen Welt mit einer Person chatten, die themself mit dem Tag assoziiert * _XTAG_ * oder andere strangy",
+				"other_popular_tags": "Andere beliebte tags:"
+			}
+		},
+		"status": {
+			"message": "Die Entwicklung ist aktuell zu gehen, aber Sie haben bereits eine Chance, das Konzept und die allgemeinen Ideen zu probieren.",
+			"read_more": "Weiterlesen"
+		}
+	}
+}

@@ -11,24 +11,24 @@ export default {
 		},
 		tag_page_description: {
 			info: {
-				heading: "Choose any strangy with tag *_tag_* and start chatting with them",
-				description: "Strangy allows you chat with any *_tag_* from entire universe or any other person matching your interests and needs.",
+				heading: "Choose any strangy with tag *_XTAG_* and start chatting with them",
+				description: "Strangy allows you chat with any *_XTAG_* from entire universe or any other person matching your interests and needs.",
 				other_popular_tags: "Other popular strangies:",
 			},
 			interest: {
-				heading: "Choose any strangy with tag *_tag_* and start chatting with them",
-				description: "Strangy allows you chat with any person from entire universe about *_tag_* or about any other subject you like.",
+				heading: "Choose any strangy with tag *_XTAG_* and start chatting with them",
+				description: "Strangy allows you chat with any person from entire universe about *_XTAG_* or about any other subject you like.",
 				other_popular_tags: "Other popular interests:",
 			},
 			location: {
-				heading: "Choose any strangy with tag *_tag_* and start chatting with them",
-				description: "Strangy allows you chat with any person from *_tag_* or anyone else from any other location in the entire universe.",
+				heading: "Choose any strangy with tag *_XTAG_* and start chatting with them",
+				description: "Strangy allows you chat with any person from *_XTAG_* or anyone else from any other location in the entire universe.",
 				other_popular_tags: "Other popular locations:"
 			},
 			other: {
-				heading: "Choose any strangy with tag *_tag_* and start chatting with them",
+				heading: "Choose any strangy with tag *_XTAG_* and start chatting with them",
 				description: "Strangy allows you chat with any person from all over the world " +
-											"who associated themself with tag *_tag_* or any other strangy",
+											"who associated themself with tag *_XTAG_* or any other strangy",
 				other_popular_tags: "Other popular tags:",
 			}
 		},

@@ -45,7 +45,7 @@ export default {
 					heading: "Conversations",
 					placeholder: "no chats yet",
 					item: {
-						msgs: "msg/s"
+						msgs: "messages"
 					}
 				}
 			}
@@ -96,18 +96,18 @@ export default {
 		},
 		user_chats: {
 			invitations: {
-				heading: "_amount_ invitations",
+				heading: "_XAMOUNT_ invitations",
 				item: {
 					from: "from"
 				}
 			},
 			active: {
-				heading: "_amount_ active chats",
+				heading: "_XAMOUNT_ active chats",
 				placeholder: "no active chats",
 				item: {
 					not_accepted_yet: "not accepted yet",
 					with: "with",
-					new_messages: "_amount_ new messages"
+					new_messages: "_XAMOUNT_ new messages"
 				}
 			}
 		},

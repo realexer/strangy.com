@@ -22,9 +22,11 @@ const availableLangs = Multilang.getSupportedLanguages();
 
 			<div class="col m4 s6">
 				<h5><Lang key="layout.footer.social.heading"/></h5>
-				<p><a href="https://twitter.com/StrangyCom" target="_blank" rel="external"><Lang key="layout.footer.social.links.twitter"/></a></p>
+				<p><a href="https://twitter.com/StrangyCom" target="_blank" rel="external">Twitter</a></p>
 				<p><a href="https://github.com/realexer/strangy.com" target="_blank" rel="external"><Lang key="layout.footer.social.links.github"/></a></p>
 				<p><a href="https://reddit.com/r/strangy" target="_blank" rel="external"><Lang key="layout.footer.social.links.reddit"/></a></p>
+				<p><a href="https://medium.com/@realexer" target="_blank" rel="external"><Lang key="layout.footer.social.links.medium"/></a></p>
+				<p><a href="https://www.patreon.com/strangy" target="_blank" rel="external"><Lang key="layout.footer.social.links.patreon"/></a></p>
 			</div>
 
 			<div class="col m4 s12">

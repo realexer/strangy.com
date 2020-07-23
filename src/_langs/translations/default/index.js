@@ -41,9 +41,11 @@ const main = {
 			social: {
 				heading: 'Social',
 				links: {
-					twitter: 'Official Twitter',
+					twitter: 'Twitter',
 					github: 'GitHub',
-					reddit: 'Reddit'
+					reddit: 'Reddit',
+					medium: "Blog",
+					patreon: "Patreon"
 				}
 			},
 			languages: {
@@ -54,8 +56,8 @@ const main = {
 	cmp: {
 		form: {
 			rules: {
-				min_length: 'must be at least _num_ characters',
-				max_length: 'must be no more than _num_ characters',
+				min_length: 'must be at least _XNUM_ characters',
+				max_length: 'must be no more than _XNUM_ characters',
 			}
 		}
 	},

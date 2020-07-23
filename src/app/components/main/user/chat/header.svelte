@@ -33,7 +33,7 @@ let formController = new FormController({
     presence: true,
     length: {
       maximum: 50,
-      message: _lang('cmp.form.rules.max_length', {num: 50})
+      message: _lang('cmp.form.rules.max_length', {xnum: 50})
     }
   }
 });

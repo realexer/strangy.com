@@ -23,7 +23,7 @@ let formController = new FormController({
 		presence: true,
 		length: {
 			minimum: 6,
-			message: _lang('cmp.form.rules.min_length', {num: 6})
+			message: _lang('cmp.form.rules.min_length', {xnum: 6})
 		}
 	}
 });

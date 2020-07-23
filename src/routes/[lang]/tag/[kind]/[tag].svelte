@@ -44,16 +44,21 @@ export let tag;
 export let activeUsers;
 export let popularTags;
 
+const xdata = {
+	xtag: tag,
+	xkind: kind,
+	xonline: activeUsers.length,
+}
 
 </script>
 
-<Metadata page="tag.{kind}.default" data="{{kind, tag}}"/>
+<Metadata page="tag.{kind}.default" data="{xdata}"/>
 
 <section class="container center-align">
 	<h2 class="flow-text">
-		<Lang key="{`pages.tag.heading.kind.${kind}`}" data="{{tag: tag}}"/>
+		<Lang key="{`pages.tag.heading.kind.${kind}`}" data="{xdata}"/>
 	</h2>
-	<p><Lang key="pages.tag.heading.currently_online" data="{{online: activeUsers.length}}"/></p>
+	<p><Lang key="pages.tag.heading.currently_online" data="{xdata}"/></p>
 	<AppIndex activeUsers="{activeUsers}"/>
 </section>
 <div class="divider"></div>

@@ -35,26 +35,26 @@ export default {
 		tag: {
 			info: {
 				default: {
-					title: "Chat with _tag_",
-					description: "Chat with any _tag_ from all over the world. Open communication created for humans."
+					title: "Chat with _XTAG_",
+					description: "Chat with any _XTAG_ from all over the world. Open communication created for humans."
 				},
 			},
 			interest: {
 				default: {
-					title: "Chat about _tag_",
-					description: "Chat about _tag_ with anyone from all over the world. Open communication created for humans."
+					title: "Chat about _XTAG_",
+					description: "Chat about _XTAG_ with anyone from all over the world. Open communication created for humans."
 				},
 			},
 			location: {
 				default: {
-					title: "Chat with anyone from _tag_",
-					description: "Chat with people from _tag_ or any other location from all over the world. Open communication created for humans."
+					title: "Chat with anyone from _XTAG_",
+					description: "Chat with people from _XTAG_ or any other location from all over the world. Open communication created for humans."
 				},
 			},
 			other: {
 				default: {
-					title: "_tag_ - free open chat",
-					description: "Chat with someone representing _tag_ or with anyone about _tag_. Open communication created for humans."
+					title: "_XTAG_ - free open chat",
+					description: "Chat with someone representing _XTAG_ or with anyone about _XTAG_. Open communication created for humans."
 				},
 			},
 		},
@@ -64,11 +64,11 @@ export default {
 		},
 		chat: {
 			active: {
-				title: "_subj_",
+				title: "_XSUBJECT_",
 				description: "",
 			},
 			history: {
-				title: "_subj_ - messages history",
+				title: "_XSUBJECT_ - messages history",
 				description: "",
 			},
 		},

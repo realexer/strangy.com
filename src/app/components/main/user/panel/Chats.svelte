@@ -122,7 +122,7 @@ const resolveStranger = (chat) =>
 <ul class="collection with-header">
   <li class="collection-header">
   	<h4 class="flow-text">
-  		<Lang key="app.user_chats.invitations.heading" data="{{ amount: invitations.length }}"/>
+  		<Lang key="app.user_chats.invitations.heading" data="{{ xamount: invitations.length }}"/>
 		</h4>
 	</li>
   {#each invitations as chat}
@@ -145,7 +145,7 @@ const resolveStranger = (chat) =>
 <ul class="collection with-header">
     <li class="collection-header">
     	<h4 class="flow-text">
-    		<Lang key="app.user_chats.active.heading" data="{{ amount: activeChats.length }}"/>
+    		<Lang key="app.user_chats.active.heading" data="{{ xamount: activeChats.length }}"/>
 			</h4>
 		</li>
     {#each activeChats as chat}
@@ -163,7 +163,7 @@ const resolveStranger = (chat) =>
       {/if}
       {#if (chat.getNewMessagesAmountForUser($current_user.id) > 0)}
       	<b>
-      		<Lang key="app.user_chats.active.item.new_messages" data="{{ amount: chat.getNewMessagesAmountForUser($current_user.id)}}"/>
+      		<Lang key="app.user_chats.active.item.new_messages" data="{{ xamount: chat.getNewMessagesAmountForUser($current_user.id)}}"/>
 				</b>
       {/if}
       <div class="_debug">Participants: {chat.users.all.join(', ')}</div>

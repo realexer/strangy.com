@@ -1,1 +1,434 @@
-export default {"general":{"name":"אגוז מלך"},"layout":{"nav":{"links":{"home":{"text":"","title":"אגוז מלך"},"about":{"text":"חפץ","title":"מה זה חוף ים? למה לשוחח בצ'אט באינטרנט?"},"involve":{"text":"הצטרף לקבוצה","title":"להיות חבר בפלטפורמת הצ'אט המקוונת הטובה ביותר."},"login":{"text":"כְּנִיסָה","title":"צור חשבון חדש או התחבר לחשבון קיים"}}},"footer":{"info":{"heading":"מֵידָע","links":{"about":"חפץ","involve":"הצטרף לקבוצה","status":"מצב הפרויקט","contact":"מערכת יחסים"}},"social":{"heading":"חֶברָתִי","links":{"twitter":"טוויטר רשמי","github":"GitHub","reddit":"Reddit"}},"languages":{"heading":"שפה"}}},"cmp":{"form":{"rules":{"min_length":"חייב להכיל לפחות _num_ תווים","max_length":"יכול להכיל עד _num_ תווים"}}},"app":{"index":{"tags_list":{"heading":"בחר עם מי אתה רוצה לשוחח"},"users_list":{"heading":"_ מוכן לשוחח","options":{"first":"אפשרות מיקום 1","second":"אפשרות מיקום 1"},"user_item":{"chat":"חדר צ'אט"}}},"tag":{"kinds":{"info":"מֵידָע","interest":"ריבית","location":"עמדה","other":"אַחֵר"}},"user_links":{"settings":"להכין","logout":"לבדוק"},"user":{"was_online":"הוא מחובר"},"stranger":{"invite_form":{"success_message":"הזמנה נשלחה","subject":"דָבָר","submit":"להזמין"},"details":{"feedback":{"heading":"לב והערכה","placeholder":"כרגע אין ביקורות"},"chats":{"heading":"דו שיח","placeholder":"עדיין אין חתול","item":{"msgs":"MSG / sec"}}}},"chat":{"status":{"ACTIVE":"פעילות","FINISHED":"סוֹף"},"state":{"INVITATION":"הזמנה","ACCEPTED":"לְהַשִׂיג","DECLINED":"זבל","CANCELED":"לְבַטֵל"},"active":{"feedback":{"form":{"input":"שתפו כמה מילים על גועל"},"success_message":"שלח הודעה"},"actions":{"rename":"שנה שם","finish":"סיים את השיחה"},"status":{"received_invitation":{"accept":"קבל הזמנה","reject":"זבל"},"sent_invitation":{"heading":"תגובה להזמנה","cancel":"בטל את ההזמנה"},"finished":{"heading":"השיחה הסתיימה"}},"messaging":{"form":{"input":"שגרירות","send":"הודעה"},"placeholder":"כרגע אין תגובות"}}},"user_chats":{"invitations":{"heading":"הזמנה קטנה","item":{"from":"שֶׁל"}},"active":{"heading":"החתול הוא פעיל","placeholder":"אין חתול פעיל","item":{"not_accepted_yet":"לא עבר","with":"שֶׁל","new_messages":"_ הערך של הערך החדש"}}},"user_settings":{"langs":{"heading":"לשונם"},"tags":{"selector":{"heading":"סימן","description":"השתמש בתגים הבאים כדי לתאר את עצמך"},"new_tag_form":{"heading":"הוסף יום חדש","controls":{"tag":"הכנס יום חדש","kind":"אדם","lang":"שפה","submit":"לִיצוֹר"}}}},"user_my":{"tags":{},"profile":{"heading":"מידע אישי","placeholder":"בתהליך בנייה ..."},"account":{"heading":"נְקוּדָה","placeholder":"בתהליך בנייה ..."},"feedback":{"heading":"לב והערכה","placeholder":"בתהליך בנייה ..."}}},"meta":{"index":{"title":"לפטפט מוזר עם אנשים מכל העולם","description":"היישום הטוב ביותר לצ'אט מקוון בעת יצירתו."},"app":{"intro":{"title":"סגור כ","description":""}},"info":{"about":{"title":"חפץ","description":"מה מיוחד בסטראנגי? מכיוון ש- Strangy הוא חלק מהצ'אט המקוון."},"involve":{"title":"הצטרף לקבוצה","description":"להיות חבר בפלטפורמת הצ'אט המקוונת הטובה ביותר. הרעיון לשנות את הדרך בה אנשים מתקשרים ברשת."},"status":{"title":"מצב הפרויקט","description":"לפני שאתה צולל למספרים אי-זוגיים ומשתמש בהם, אתה צריך לדעת אילו מספרים אי-זוגיים זה ולאן הוא הולך."},"contact":{"title":"מערכת יחסים","description":"שלחו לנו אימייל או צרו קשר בטוויטר או בגיתוב."}},"login":{"title":"כְּנִיסָה","description":"צור חשבון Strangy חדש או התחבר לחשבון קיים."},"tag":{"info":{"default":{"title":"צ'אט עם _tag_","description":"צ'אט בכל העולם בכל יום. תקשורת פתוחה עם אנשים."}},"interest":{"default":{"title":"צ'ט ב- _tag_","description":"דבר עם אנשים בכל העולם כל היום. תקשורת פתוחה עם אנשים."}},"location":{"default":{"title":"צ'אט עם _tag_","description":"צ'אט עם _tag_ או עם שאר העולם. תקשורת פתוחה עם אנשים."}},"other":{"default":{"title":"_tag_-צ'אט פתוח בחינם","description":"צ'אט עם אנשים _tag_ או _tag_. תקשורת פתוחה עם אנשים."}}},"user":{"title":"הזמן אותי לחתול מת","description":"תן לאדם המסתורי לדבר ולספר לו את כל מה שחשוב לך."},"chat":{"active":{"title":"_subj_","description":""},"history":{"title":"_subj_-היסטוריית ההודעות","description":""}},"my":{"settings":{"title":"כתובת רחוב","description":""},"feedback":{"title":"דעה","description":""},"logout":{"title":"הֱיה שלום ...","description":""}}},"pages":{"info":{"about":{"info":{"heading":"תחיית הצ'אט המקוון","points":{"global":"ניהלו שיחות יומיות עם אנשים מכל העולם.","privacy":"אינך צריך לדאוג לפרטיות. הכל פתוח. פשוט דברו על הדברים החשובים לכם. *כולנו בני אדם. * *","simplicity":"אין אזהרות ומינון יתר. עקוב אחרי אנשים שמדברים איתך.","quality":"אתה יכול לחכות עם אנשים החשובים לך בהתאם למטרות שלך."}},"meta":{"heading":"פשוט אבל מודרני","points":{"open_source":"100% קוד פתוח, פרוייקט המוביל בקהילה","tech_stack":"ערימת טכנולוגיית תוכן: Firebase, Svelte (Sapper), Flutter","transparency":"אין נהלים נסתרים או רעיונות מטעים."}}},"involve":{"heading":"היה חלק מהסיפור","methods":{"twitter":{"heading":"חשבון טוויטר רשמי","description":"אתה יכול לפעול כ- SMM ולעזור לנו להפיץ רעיונות תקשורת מקוונים פתוחים וחינמיים."},"github":{"heading":"אחסון Github","description":"אתה יכול לעזור לסטרנגי לספק יישום טכני, תכנות או רעיונות ופתרונות UI / UX."}}},"status":{"heading":"לפני הצלילה","sections":{"privacy":{"heading":"פרטיות ואבטחה","details":"סטראנגי ממליץ לך * לא לפרסם מידע אישי *, כגון שם, גיל, מיקום מדויק, תמונה, פרטי קשר וכו '. או ליהנות מכך.\nStrangy הוא פרויקט קוד פתוח ניסיוני, מודרני שעדיין נמצא בפיתוח ועשוי להכיל באגים, התנהגות בלתי צפויה ושימושיות לא אמינה."},"state":{"heading":"מצב הפרויקט","details":"סטראנגי היא כרגע הגרסה הראשונה * של אלפא *, והיא כוללת תכונות מינימליסטיות המאפשרות ליצור חשבונות, לחפש משתמשים לפי תגיות, לתקשר איתם ולשלוח תגובות.\nשפת המקור של התוכן היא אנגלית. כל שאר התרגומים הזמינים נוצרים אוטומטית באמצעות Google Translate ועשויים להכיל מילה שגויה."},"future":{"heading":"עתיד הפרויקט","details":"לפיתוח של סטראנגי אין דרך מכרעת ברורה. אתה יכול להוסיף ולמחוק תכונות חדשות בכל עת, אך הרעיון הוא תמיד זהה. הקיזוז הנוכחי אינו בסדר שצוין: <ul style=\";text-align:right;direction:rtl\"><li style=\";text-align:right;direction:rtl\"> לאפס את הסיסמה </li><li style=\";text-align:right;direction:rtl\"> הגדרות חשבון ופרופיל </li><li style=\";text-align:right;direction:rtl\"> ממשק ו- UX זקוקים לשיפור </li><li style=\";text-align:right;direction:rtl\"> היסטוריית צ&#39;אט ציבורית </li><li style=\";text-align:right;direction:rtl\"> יישום </li><li style=\";text-align:right;direction:rtl\"> תקן שגיאות חמורות </li><li style=\";text-align:right;direction:rtl\"> תרגום איכותי </li></ul>"}},"login":"צור חשבון"},"contact":{"heading":"איש קשר","details":"אם יש לך שאלות או שאתה מעוניין ליצור איתנו קשר באמצעות Strangy, צור איתנו קשר בכתובת <a href='mailto:strangy.com@gmail.com'>strangy.com@gmail.com,</a> או צור קשר עם <a href='mailto:strangy.com@gmail.com'>קרוב</a> <a href='https://github.com/realexer/strangy.com' target='_blank'>משפחתך</a> <a href='https://twitter.com/strangycom' target='_blank'>בטוויטר</a> או <a href='https://github.com/realexer/strangy.com' target='_blank'>GitHub-</a> <a href='mailto:strangy.com@gmail.com'>Lal</a>"}},"login":{"heading":"התחבר או צור חשבון חדש","form":{"email":"אימייל","password":"סיסמה","submit":"מזהה זה"},"warning":"אתה לא יודע אם הזמן נגמר?","greeting":"שלום פתיל"},"my":{"logout":{"heading":"הֱיה שלום ..."},"settings":{"tabs":{"tags":{"title":"תווית"},"profile":{"title":"מידע אישי"},"account":{"title":"נְקוּדָה"}}}},"tag":{"heading":{"kind":{"interest":"צ'ט עם שחקנים פוטנציאליים ב- * _tag_ *","info":"צ'אט עם * _tag_ *","location":"צ'אט עם אנשים * _tag_ *","other":"שוחח בצ'אט עם אנשים שאתה מתייג * _tag_ *"},"currently_online":"* _ Online_ * מקוון"}},"app":{"intro":{"heading":"היה נשמה","home_button":"התחל במחקר"}}},"info":{"general_description":{"heading":"החתול שותף ברשת","details":"Strangy הוא פרויקט מודרני שעיצובו ופיתוחו יכולים לייצג את כל מה שצריך להיות בצ'אט ותקשורת מקוונים.\n הרעיון הבסיסי מבוסס על תקשורת גלויה בין שני אנשים על הדברים החשובים שלהם *, במקום לשטוף אותם במידע טריוויאלי וחסר תועלת.\nזר אינו עניין. זה לא מוצר. זה לא עוד כלי מדיה חברתית שיכול לתפעל את דעתך.\nסטראנגי הוא פלטפורמה המיועדת למינימליסטים, שנועדה לחקות את חייו. זה פשוט נותן לך את האפשרות לדבר עם אנשים אקראיים בכל עת בחייך או בכל עת. זֶה. זו לא התערבות מגוחכת ומפוארת שמחזיקה אותך באתר. בוא חופשי."},"tag_page_description":{"info":{"heading":"השתמש בתגים * _tag_ * כדי לבחור אפשרויות ולהתחיל לשוחח איתם בצ'אט","description":"עם Strangy, אתה יכול לתקשר עם כל אחד ביקום כולו, וגם עם כל מי שעונה על האינטרסים והצרכים שלך.","other_popular_tags":"עוד פופ נוראי:"},"interest":{"heading":"השתמש בתגים * _tag_ * כדי לבחור אפשרויות ולהתחיל לשוחח איתם בצ'אט","description":"עם Strangy, אתה יכול להשתמש ב- * _tag_ * או בכל חפץ אחר שתבחר לצ'אט עם כל אחד ביקום כולו.","other_popular_tags":"תחומי עניין פופולריים אחרים:"},"location":{"heading":"השתמש בתגים * _tag_ * כדי לבחור אפשרויות ולהתחיל לשוחח איתם בצ'אט","description":"עם Strangy, אתה יכול לשוחח עם כל אחד עם * _tag_ * או עם כל אחד ביקום כולו.","other_popular_tags":"אטרקציות מפורסמות אחרות:"},"other":{"heading":"השתמש בתגים * _tag_ * כדי לבחור אפשרויות ולהתחיל לשוחח איתם בצ'אט","description":"Strangy מאפשר לך לתקשר עם כל אחד בעולם הקשור לתג * _tag_ * או עם אחרים","other_popular_tags":"תגיות פופולריות אחרות:"}},"status":{"message":"פיתוח נמצא בעיצומו, אך יש לכם כבר את ההזדמנות לנסות מושגים ורעיונות כלליים.","read_more":"פרטים נוספים"}}}
+export default {
+	"general": {
+		"name": "Strangy"
+	},
+	"layout": {
+		"nav": {
+			"links": {
+				"home": {
+					"text": "",
+					"title": "Strangy"
+				},
+				"about": {
+					"text": "הפרויקט על",
+					"title": "מה Strangy ולמה זה בעבר של מקוון שוחח."
+				},
+				"involve": {
+					"text": "להצטרף לצוות",
+					"title": "הפוך לתורם לפלטפורמת הצ'אט המקוון הטוב ביותר בתוך בהתהוות."
+				},
+				"login": {
+					"text": "התחברות",
+					"title": "צור חדש או כניסה לחשבון קיים"
+				}
+			}
+		},
+		"footer": {
+			"info": {
+				"heading": "מידע",
+				"links": {
+					"about": "אודות הפרויקט",
+					"involve": "הצטרף לצוות",
+					"status": "מצב הפרויקט",
+					"contact": "אנשי קשר"
+				}
+			},
+			"social": {
+				"heading": "חֶברָתִי",
+				"links": {
+					"twitter": "טוויטר",
+					"github": "GitHub",
+					"reddit": "reddit",
+					"medium": "בלוג",
+					"patreon": "Patreon"
+				}
+			},
+			"languages": {
+				"heading": "שפות"
+			}
+		}
+	},
+	"cmp": {
+		"form": {
+			"rules": {
+				"min_length": "חייב להיות לפחות תווי _XNUM_",
+				"max_length": "חייב להיות לכל היותר תווי _XNUM_"
+			}
+		}
+	},
+	"app": {
+		"index": {
+			"tags_list": {
+				"heading": "בחר את מי היית רוצה לשוחח עם"
+			},
+			"users_list": {
+				"heading": "_amount_ מוכן לשוחח",
+				"options": {
+					"first": "אפשרות מציין מיקום 1",
+					"second": "אפשרות מציין מיקום 1"
+				},
+				"user_item": {
+					"chat": "לְשׂוֹחֵחַ"
+				}
+			}
+		},
+		"tag": {
+			"kinds": {
+				"info": "מידע",
+				"interest": "ריבית",
+				"location": "מקום",
+				"other": "אַחֵר"
+			}
+		},
+		"user_links": {
+			"settings": "הגדרות",
+			"logout": "להתנתק"
+		},
+		"user": {
+			"was_online": "היה באתר"
+		},
+		"stranger": {
+			"invite_form": {
+				"success_message": "הזמנה נשלחה",
+				"subject": "נושא",
+				"submit": "להזמין"
+			},
+			"details": {
+				"feedback": {
+					"heading": "לבבות ביקורות",
+					"placeholder": "אין משוב עדיין"
+				},
+				"chats": {
+					"heading": "שיחות",
+					"placeholder": "אין צ'אטים עדיין",
+					"item": {
+						"msgs": "הודעות"
+					}
+				}
+			}
+		},
+		"chat": {
+			"status": {
+				"ACTIVE": "פָּעִיל",
+				"FINISHED": "גָמוּר"
+			},
+			"state": {
+				"INVITATION": "הַזמָנָה",
+				"ACCEPTED": "מְקוּבָּל",
+				"DECLINED": "ירד",
+				"CANCELED": "מבוטל"
+			},
+			"active": {
+				"feedback": {
+					"form": {
+						"input": "שתף כמה מילים על strangy שלך"
+					},
+					"success_message": "המשוב נשלח"
+				},
+				"actions": {
+					"rename": "שינוי שם",
+					"finish": "שיחה על סיום"
+				},
+				"status": {
+					"received_invitation": {
+						"accept": "קבל הזמנה",
+						"reject": "לִדחוֹת"
+					},
+					"sent_invitation": {
+						"heading": "הזמנה תלויה ועומדת התגובה",
+						"cancel": "לבטל הזמנה"
+					},
+					"finished": {
+						"heading": "צ'אט הוא סיים"
+					}
+				},
+				"messaging": {
+					"form": {
+						"input": "הוֹדָעָה",
+						"send": "לִשְׁלוֹחַ"
+					},
+					"placeholder": "אין עדיין הודעות"
+				}
+			}
+		},
+		"user_chats": {
+			"invitations": {
+				"heading": "הזמנות _XAMOUNT_",
+				"item": {
+					"from": "מ"
+				}
+			},
+			"active": {
+				"heading": "_XAMOUNT_ צ'אטים פעילים",
+				"placeholder": "אין צ'אטים פעילים",
+				"item": {
+					"not_accepted_yet": "לא קיבל עדיין",
+					"with": "עם",
+					"new_messages": "_XAMOUNT_ הודעות חדשות"
+				}
+			}
+		},
+		"user_settings": {
+			"langs": {
+				"heading": "בשפות שלך"
+			},
+			"tags": {
+				"selector": {
+					"heading": "תאר לעצמך עם תגים",
+					"description": "להשתמש בתגים מתחת לתאר לעצמך"
+				},
+				"new_tag_form": {
+					"heading": "הוסף תג חדש",
+					"controls": {
+						"tag": "הכנס תג חדש",
+						"kind": "סוּג",
+						"lang": "שפה",
+						"submit": "לִיצוֹר"
+					}
+				}
+			}
+		},
+		"user_my": {
+			"tags": {},
+			"profile": {
+				"heading": "פּרוֹפִיל",
+				"placeholder": "בתהליך בנייה..."
+			},
+			"account": {
+				"heading": "חֶשְׁבּוֹן",
+				"placeholder": "בתהליך בנייה..."
+			},
+			"feedback": {
+				"heading": "לבבות ביקורות",
+				"placeholder": "בתהליך בנייה..."
+			}
+		}
+	},
+	"meta": {
+		"index": {
+			"title": "Strangy - צ'אט עם מישהו מכל רחבי הגלובוס",
+			"description": "היישום הטוב ביותר עבור שיחות באינטרנט מזדמנות בהתהוות."
+		},
+		"app": {
+			"intro": {
+				"title": "Becoming strangy",
+				"description": ""
+			}
+		},
+		"info": {
+			"about": {
+				"title": "אודות הפרויקט",
+				"description": "מה כל כך מיוחד על Strangy? למה Strangy הוא העבר של מקוון שוחח."
+			},
+			"involve": {
+				"title": "הצטרף לצוות",
+				"description": "הפוך לתורם לפלטפורמת הצ'אט המקוון הטוב ביותר. לתרום את הרעיון שישנה את הדרך שבה אנשים מתקשרים באופן מקוון."
+			},
+			"status": {
+				"title": "מצב הפרויקט",
+				"description": "לפני שאתם צוללים פנימה ולהתחיל להשתמש Strangy - ללמוד מה Strangy עומד ואיפה של העומדים בראשה."
+			},
+			"contact": {
+				"title": "אנשי קשר",
+				"description": "שלח לנו דוא\"ל או ליצור איתנו קשר על פני טוויטר או GitHub."
+			}
+		},
+		"login": {
+			"title": "התחברות",
+			"description": "צור חשבון חדש Strangy או להתחבר לתוך קיים."
+		},
+		"tag": {
+			"info": {
+				"default": {
+					"title": "שיחות עם _XTAG_",
+					"description": "צ'אט עם כל _XTAG_ מכל רחבי העולם. תקשורת פתוחה נוצר עבור בני האדם."
+				}
+			},
+			"interest": {
+				"default": {
+					"title": "צ'אט בנושא _XTAG_",
+					"description": "צ'אט בנושא _XTAG_ עם מישהו מכל רחבי העולם. תקשורת פתוחה נוצר עבור בני האדם."
+				}
+			},
+			"location": {
+				"default": {
+					"title": "צ'אט עם כל מי מן _XTAG_",
+					"description": "שיחות עם אנשים מכל _XTAG_ או בכל מקום אחר מכל רחבי העולם. תקשורת פתוחה נוצר עבור בני האדם."
+				}
+			},
+			"other": {
+				"default": {
+					"title": "_XTAG_ - צ'אט פתוח בחינם",
+					"description": "שיחות עם מישהו שמייצג _XTAG_ או עם אף אחד על _XTAG_. תקשורת פתוחה נוצר עבור בני האדם."
+				}
+			}
+		},
+		"user": {
+			"title": "זמן strangy לשוחח",
+			"description": "זמן אדם מסתורי לשוחח ולדבר איתם על משהו שמטריד אותך."
+		},
+		"chat": {
+			"active": {
+				"title": "_XSUBJECT_",
+				"description": ""
+			},
+			"history": {
+				"title": "ההיסטוריה מסרים - _XSUBJECT_",
+				"description": ""
+			}
+		},
+		"my": {
+			"settings": {
+				"title": "הגדרות",
+				"description": ""
+			},
+			"feedback": {
+				"title": "מָשׁוֹב",
+				"description": ""
+			},
+			"logout": {
+				"title": "הֱיה שלום...",
+				"description": ""
+			}
+		}
+	},
+	"pages": {
+		"info": {
+			"about": {
+				"info": {
+					"heading": "תחיית המתים של צ'טים באינטרנט",
+					"points": {
+						"global": "בשיחות חולין עם מישהו מכל רחבי העולם.",
+						"privacy": "אין צורך לדאוג פרטיות. הכל פתוח. רק לדבר על מה שחשוב לך. *כולנו בני אדם.*",
+						"simplicity": "אין סח דעת חזותיות ותכונות ממנת יתר. להתמקד באדם לך לשוחח עם.",
+						"quality": "צ'אט רק עם אנשים שאתה מוצא פי מעניין המטרה שלך."
+					}
+				},
+				"meta": {
+					"heading": "פשוט אך מודרני",
+					"points": {
+						"open_source": "100% קוד פתוח מונע בקהילת פרויקט",
+						"tech_stack": "ערימה טכנולוגית משמעותית: Firebase, תמיר (חבלן), רפרוף",
+						"transparency": "אין מוסתרים אג'נדות או רעיונות מטעה"
+					}
+				}
+			},
+			"involve": {
+				"heading": "הפוך חלק מההיסטוריה",
+				"methods": {
+					"twitter": {
+						"heading": "טוויטר הרשמי",
+						"description": "אתה יכול להיות SMM ולעזור לנו להפיץ את הרעיון של תקשורת מקוונת פתוח וחופשי"
+					},
+					"github": {
+						"heading": "מאגר GitHub",
+						"description": "אתה יכול לעזור Strangy עם קלט טכני, תכנות או UI / UX רעיונות ופתרונות"
+					},
+					"patreon": {
+						"heading": "מימון Patreon",
+						"description": "אם אתה לא מוכן להשתתף בתהליך הפיתוח אתה עדיין יכול לעזור Strangy כלכלית על ידי הפיכתו פטרון."
+					}
+				}
+			},
+			"status": {
+				"heading": "לפני שאתם צוללים פנימה",
+				"sections": {
+					"privacy": {
+						"heading": "פרטיות ובטיחות",
+						"details": "דחפים Strangy אתה * לא לפרסם פרטים אישיים *, כגון שם, גיל, מיקום מדויק, תמונות, פרטי התקשרות וכו 'Strangy נועד לדבר על רעיונות מופשטים או לדון בדברים עניינים ולא להחליף פרטים שיכולים לשמש נגדך או לרווח ממך.\nStrangy היא מדינת ניסיוני קוד פתוח של פרויקט האמנות כי הוא עדיין תחת פיתוח עשוי להכיל באגים, התנהגות לא צפוי וזמין אמינים."
+					},
+					"state": {
+						"heading": "מצב הפרויקט",
+						"details": "נכון לעכשיו Strangy נמצאת בשלב מוקדם מאוד * גרסת אלפא * ומספקת תכונות מינימליסטי להגדיר המאפשרת ליצור חשבונות, למצוא משתמשים לפי תגיות ולשוחח איתם ומשוב חופשה.\nהשפה המקורית של תוכן היא אנגלית. כל התרגומים הזמינים האחרים נוצרו באופן אוטומטי באמצעות \"Google Translate\" והם עשויים להכיל ניסוח שגוי."
+					},
+					"future": {
+						"heading": "העתיד של הפרויקט",
+						"details": "פיתוח Strangy אין דרך ברורה ומוגדרת. תכונות חדשות ניתן להוסיף ולהסיר בכל עת, אך המושג תמיד יהיה להישאר אותו הדבר. צבר הזמנות נוכחיות ללא סדר מסוים הן: <ul style=\";text-align:right;direction:rtl\"><li style=\";text-align:right;direction:rtl\"> לשחזר את הסיסמה </li><li style=\";text-align:right;direction:rtl\"> הגדרות חשבון ופרופיל </li><li style=\";text-align:right;direction:rtl\"> לשפר UI ו- UX </li><li style=\";text-align:right;direction:rtl\"> היסטוריית צ&#39;אט זמינה לציבור </li><li style=\";text-align:right;direction:rtl\"> יישומים ניידים </li><li style=\";text-align:right;direction:rtl\"> לתקן באגים קריטיים </li><li style=\";text-align:right;direction:rtl\"> תרגומים איכותיים </li></ul>"
+					}
+				},
+				"login": "צור חשבון"
+			},
+			"contact": {
+				"heading": "צור קשר",
+				"details": "אם יש לך שאלות או רוצה ליצור קשר איתנו לגבי Strangy לשלוח לנו דוא&quot;ל על <a href='mailto:strangy.com@gmail.com'>strangy.com@gmail.com</a> או מגע על <a href='https://twitter.com/strangycom' target='_blank'>טוויטר</a> או <a href='https://github.com/realexer/strangy.com' target='_blank'>GitHub</a>"
+			}
+		},
+		"login": {
+			"heading": "להתחבר או צור חשבון חדש",
+			"form": {
+				"email": "אימייל",
+				"password": "סיסמה",
+				"submit": "להיכנס"
+			},
+			"warning": "לא הרשמת מזג אוויר בטוחה או לא?",
+			"greeting": "שלום Strangy"
+		},
+		"my": {
+			"logout": {
+				"heading": "הֱיה שלום..."
+			},
+			"settings": {
+				"tabs": {
+					"tags": {
+						"title": "תגיות"
+					},
+					"profile": {
+						"title": "פּרוֹפִיל"
+					},
+					"account": {
+						"title": "חֶשְׁבּוֹן"
+					}
+				}
+			}
+		},
+		"tag": {
+			"heading": {
+				"kind": {
+					"interest": "שיחות עם אנשים המעוניינים * _XTAG_ *",
+					"info": "שיחות עם אנשים שהזדהו * _XTAG_ *",
+					"location": "שיחות עם אנשים מ- * _XTAG_ *",
+					"other": "שיחות עם אנשים עם תג * _XTAG_ *"
+				},
+				"currently_online": "* * _XONLINE_ באינטרנט"
+			}
+		},
+		"app": {
+			"intro": {
+				"heading": "הפוך strangy",
+				"home_button": "גלישה התחל"
+			}
+		}
+	},
+	"info": {
+		"general_description": {
+			"heading": "העבר של צ'טים באינטרנט",
+			"details": "Strangy היא מדינתו של פרויקט האמנות נוצר ועוצב לייצג את כל מה מקוון שוחח ותקשורת באינטרנט צריכים להיות.\n הקונספט ראשי סובבת סביב הרעיון של * תקשורת פתוחה בין שני אנשים שעוסקים בנושאים החשובים להם * ולא רק שטיפת מוח אחד את השני עם מידע חסר תועלת חסר טעם.\nStrangy אינה קהילה. זה לא מוצר. זה לא עוד כלי מדיה חברתית שנועדה לתמרן התודעה שלך.\nStrangy היא הפלטפורמה מיועדים להשיג את טביעת הרגל מינימליסטי ביותר על החיים שלך לספק לך כלום אבל היכולת פשוט לשוחח עם כמה אדם אקראי בכל עת או בכל רגע של החיים שלך, בכל פעם שאתה צריך את זה. זהו זה. אין הסחות דעת מבריק משמעות כדי להשאיר אותך מחובר לאתר. רק לבוא וללכת בלי שום עול."
+		},
+		"tag_page_description": {
+			"info": {
+				"heading": "בחר כל strangy עם תג * _XTAG_ * והתחילו לשוחח איתם",
+				"description": "Strangy מאפשר לך לשוחח עם כל * _XTAG_ * מן היקום כולו או כל אדם אחר התאמת האינטרסים והצרכים שלכם.",
+				"other_popular_tags": "strangies פופולארי אחר:"
+			},
+			"interest": {
+				"heading": "בחר כל strangy עם תג * _XTAG_ * והתחילו לשוחח איתם",
+				"description": "Strangy מאפשר לך לשוחח עם כל אדם מן היקום כולו על * _XTAG_ * או על כל נושא אחר שתרצה.",
+				"other_popular_tags": "האינטרסים פופולריים אחרים:"
+			},
+			"location": {
+				"heading": "בחר כל strangy עם תג * _XTAG_ * והתחילו לשוחח איתם",
+				"description": "Strangy מאפשר לך לשוחח עם כל אדם מן * _XTAG_ * או כל אחד אחר מכל מקום אחר ביקום כולו.",
+				"other_popular_tags": "אתרים פופולריים אחרים:"
+			},
+			"other": {
+				"heading": "בחר כל strangy עם תג * _XTAG_ * והתחילו לשוחח איתם",
+				"description": "Strangy מאפשר לך לשוחח עם כל אדם מכל רחבי העולם אשר מזוהה עם עצמם עם תג * _XTAG_ * או כל strangy אחר",
+				"other_popular_tags": "תגיות פופולריות אחרות:"
+			}
+		},
+		"status": {
+			"message": "הפיתוח נמצא כעת על הולך, אבל כבר יש לך הזדמנות לטעום את המושג ורעיונות כלליים.",
+			"read_more": "קרא עוד"
+		}
+	}
+}

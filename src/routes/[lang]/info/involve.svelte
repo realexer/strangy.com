@@ -13,12 +13,22 @@ import Metadata from "../../../app/components/general/Metadata.svelte";
 <div class="divider"></div>
 <div class="container center-align">
 	<IconPoint icon="" image="/icons/icons8-twitter.svg">
-		<a href="https://twitter.com/strangycom" target="_blank"><Lang key="pages.info.involve.methods.twitter.heading"/></a>
+		<a href="https://twitter.com/strangycom" target="_blank">
+			<Lang key="pages.info.involve.methods.twitter.heading"/>
+		</a>
 		<p><Lang key="pages.info.involve.methods.twitter.description"/></p>
 	</IconPoint>
 	<IconPoint icon="" image="/icons/icons8-github.svg">
-		<a href="https://github.com/realexer/strangy.com" target="_blank"><Lang key="pages.info.involve.methods.github.heading"/></a>
+		<a href="https://github.com/realexer/strangy.com" target="_blank">
+			<Lang key="pages.info.involve.methods.github.heading"/>
+		</a>
 		<p><Lang key="pages.info.involve.methods.github.description"/></p>
+	</IconPoint>
+	<IconPoint icon="" image="/icons/icons8-patreon.svg">
+		<a href="https://www.patreon.com/strangy" target="_blank">
+			<Lang key="pages.info.involve.methods.patreon.heading"/>
+		</a>
+		<p><Lang key="pages.info.involve.methods.patreon.description"/></p>
 	</IconPoint>
 </div>
 

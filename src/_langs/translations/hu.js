@@ -1,1 +1,434 @@
-export default {"general":{"name":"megfullad"},"layout":{"nav":{"links":{"home":{"text":"","title":"megfullad"},"about":{"text":"A projekten","title":"Mi az a strand, és miért múlt már az interneten beszélgetni?"},"involve":{"text":"Csatlakozzon a csapathoz","title":"Legyen tagja a legjobb online csevegőplatformnak."},"login":{"text":"belépés","title":"Hozzon létre új fiókot, vagy jelentkezzen be egy meglévő fiókba"}}},"footer":{"info":{"heading":"Információ","links":{"about":"A projekten","involve":"Csatlakozzon a csapathoz","status":"A projekt státusza","contact":"kapcsolatok"}},"social":{"heading":"Szociális","links":{"twitter":"Hivatalos Twitter","github":"GitHub","reddit":"Reddit"}},"languages":{"heading":"nyelvek"}}},"cmp":{"form":{"rules":{"min_length":"tartalmaznia kell legalább _num_ karaktert","max_length":"legfeljebb _num_ karakterből állhat"}}},"app":{"index":{"tags_list":{"heading":"Válassza ki, kivel szeretne beszélgetni"},"users_list":{"heading":"_összeg készen áll a csevegésre","options":{"first":"Helyőrző opció 1","second":"Helyőrző opció 1"},"user_item":{"chat":"Csevegés"}}},"tag":{"kinds":{"info":"Információ","interest":"Érdeklődés","location":"Pozíció","other":"Egyéb"}},"user_links":{"settings":"a beállításokat","logout":"Kijelentkezés"},"user":{"was_online":"online volt"},"stranger":{"invite_form":{"success_message":"Meghívó elküldve","subject":"Dolog","submit":"meghív"},"details":{"feedback":{"heading":"Szívek és értékelések","placeholder":"Még nincs értékelés"},"chats":{"heading":"beszélgetések","placeholder":"még mindig nincs csevegés","item":{"msgs":"msg / s"}}}},"chat":{"status":{"ACTIVE":"aktív","FINISHED":"befejezett"},"state":{"INVITATION":"meghívás","ACCEPTED":"kap","DECLINED":"visszautasította","CANCELED":"lefújták"},"active":{"feedback":{"form":{"input":"Ossza meg néhány szót az undorítóról"},"success_message":"Vélemények elküldve"},"actions":{"rename":"átnevezés","finish":"befejezi a beszélgetést"},"status":{"received_invitation":{"accept":"Fogadja el a meghívót","reject":"elutasít"},"sent_invitation":{"heading":"Függő válasz meghívás","cancel":"visszavonja a meghívót"},"finished":{"heading":"A beszélgetés véget ért"}},"messaging":{"form":{"input":"Nagykövetség","send":"Beküldés"},"placeholder":"Még nincs hozzászólás"}}},"user_chats":{"invitations":{"heading":"kis meghívó","item":{"from":"tól től"}},"active":{"heading":"Csevegés _aktív_aktív","placeholder":"Nincs aktív csevegés","item":{"not_accepted_yet":"még nem fogadták el","with":"tól től","new_messages":"Új értékek _értéke"}}},"user_settings":{"langs":{"heading":"A nyelvük"},"tags":{"selector":{"heading":"Megjelölt","description":"Használja a következő címkéket saját maga leírására"},"new_tag_form":{"heading":"Új nap hozzáadása","controls":{"tag":"Adjon meg egy új napot","kind":"Egy férfi","lang":"nyelv","submit":"teremt"}}}},"user_my":{"tags":{},"profile":{"heading":"Profil","placeholder":"fejlesztés alatt ..."},"account":{"heading":"Pont","placeholder":"fejlesztés alatt ..."},"feedback":{"heading":"Szívek és értékelések","placeholder":"fejlesztés alatt ..."}}},"meta":{"index":{"title":"Furcsa - csevegj valakivel a világ minden tájáról","description":"A legjobb alkalmazás alkalmi online beszélgetésekhez létrehozás közben."},"app":{"intro":{"title":"becsukódni","description":""}},"info":{"about":{"title":"A projekten","description":"Mi a különös a Strangy-ban? Mert a Strangy az online csevegés múltja."},"involve":{"title":"Csatlakozzon a csapathoz","description":"Legyen tagja a legjobb online csevegőplatformnak. Jelentkezzen egy olyan ötletre, amely megváltoztatja az emberek online kommunikációs módját."},"status":{"title":"A projekt státusza","description":"A búvárkodás és a furcsaság használata előtt meg kell tudni, hogy milyen típusú furcsa ez és hová vezet."},"contact":{"title":"kapcsolatok","description":"Küldjön egy e-mailt, vagy vegye fel velünk a kapcsolatot a Twitteren vagy a Githubon."}},"login":{"title":"belépés","description":"Hozzon létre új Strangy fiókot, vagy jelentkezzen be egy meglévőhöz."},"tag":{"info":{"default":{"title":"Chat with _tag_","description":"Csevegjen minden nap a világ minden tájáról. Nyílt kommunikáció az emberek számára."}},"interest":{"default":{"title":"Csevegés a _tag_ oldalon","description":"Beszéljen valakivel a világ minden tájáról a nap folyamán. Nyílt kommunikáció az emberek számára."}},"location":{"default":{"title":"Csevegjen valakivel _tag_-től","description":"Csevegjen _tag_ vagy másutt a világon. Nyílt kommunikáció az emberek számára."}},"other":{"default":{"title":"_tag_ - ingyenes nyílt csevegés","description":"Csevegjen valakivel, aki _tag_-et képvisel, vagy valakivel, aki _tag_-en található. Nyílt kommunikáció az emberek számára."}}},"user":{"title":"Hívj meg egy megfojtott csevegésre","description":"Kérdezze meg a titokzatos embert, hogy beszéljen, és beszéljen velük mindazról, ami fontos az Ön számára."},"chat":{"active":{"title":"_subj_","description":""},"history":{"title":"_subj_ - Üzenet előzmények","description":""}},"my":{"settings":{"title":"alkalmazkodás","description":""},"feedback":{"title":"vélemények","description":""},"logout":{"title":"Viszontlátásra ...","description":""}}},"pages":{"info":{"about":{"info":{"heading":"Az online csevegés újjászületése","points":{"global":"Napi beszélgetések valakivel a világ minden tájáról.","privacy":"Nem kell aggódnia a magánélet miatt. Minden nyitva van. Csak beszéljen arról, ami fontos neked. * Mindannyian emberek vagyunk. * *","simplicity":"Nincs figyelmeztetés és túlzott adagolás. Koncentrálj arra a személyre, akivel beszél.","quality":"Várjon csak a számodra fontos emberekkel, a célja szerint."}},"meta":{"heading":"Egyszerű, de modern","points":{"open_source":"100% -ban nyílt forráskódú, közösségvezérelt projekt","tech_stack":"Tartalom-Technológia-halmok: Firebase, Svelte (Sapper), Flutter","transparency":"Nincsenek rejtett programok vagy megtévesztő ötletek."}}},"involve":{"heading":"Legyen része a történetnek","methods":{"twitter":{"heading":"Hivatalos Twitter-fiók","description":"Lehetsz SMM-ként és segíthetsz nekünk a nyílt és ingyenes online kommunikáció ötletének terjesztésében."},"github":{"heading":"Github tároló","description":"Segíthet a Strangy számára műszaki bevezetésben, programozásban, vagy UI / UX ötletekben és megoldásokban."}}},"status":{"heading":"Mielőtt merülne","sections":{"privacy":{"heading":"Adatvédelem és biztonság","details":"Strangy azt ajánlja, hogy * NE tegyen közzé személyes adatokat *, például név, életkor, pontos hely, fotók, elérhetőségek és hasonlók. vagy hogy profitálhasson tőled.\nA Strangy egy kísérleti, modern és nyílt forráskódú projekt, amely még fejlesztés alatt áll, hibákat, váratlan viselkedést és megbízhatatlan rendelkezésre állást tartalmazhat."},"state":{"heading":"A projekt státusza","details":"A Strangy jelenleg az első * alfa-verzió *, és minimalista funkciókkal rendelkezik, amelyek lehetővé teszik számlák létrehozását, a felhasználók címkék szerinti megkeresését, a velük való kommunikációt és a visszajelzés küldését.\nA tartalom eredeti nyelve angol. Minden más elérhető fordítás elérhető, amelyet automatikusan a Google Fordító segítségével készítettek, és hibás szavakat tartalmazhatnak."},"future":{"heading":"A projekt jövője","details":"A Strangy fejlődésének nincs egyértelmű és meghatározott útja. Új funkciókat bármikor hozzáadhat és eltávolíthat, de a koncepció mindig ugyanaz. Jelenlegi lemaradás nincs meghatározott sorrendben: <ul><li> Állítsa vissza a jelszót </li><li> Fiók- és profilbeállítások </li><li> Javítani kell az interfészt és az UX-t </li><li> nyilvános csevegési előzmények </li><li> App </li><li> korrigálja a kritikus hibákat </li><li> Minőségi fordítások </li></ul>"}},"login":"Hozzon létre egy fiókot"},"contact":{"heading":"Kapcsolatba lépni","details":"Ha bármilyen kérdése van, vagy szeretne kapcsolatba lépni velünk a Strangy-on keresztül, írjon nekünk a <a href='mailto:strangy.com@gmail.com'>strangy.com@gmail.com címre,</a> vagy vegye fel a kapcsolatot a <a href='https://twitter.com/strangycom' target='_blank'>Twitter-</a> <a href='mailto:strangy.com@gmail.com'>rel</a> vagy a <a href='https://github.com/realexer/strangy.com' target='_blank'>GitHub-</a> <a href='mailto:strangy.com@gmail.com'>lal</a>"}},"login":{"heading":"Jelentkezzen be, vagy hozzon létre új fiókot","form":{"email":"Email","password":"Jelszó","submit":"bejelentkezés"},"warning":"Nem biztos benne, hogy vége van-e az időjárásnak, vagy sem?","greeting":"Helló szál"},"my":{"logout":{"heading":"Viszontlátásra ..."},"settings":{"tabs":{"tags":{"title":"címke"},"profile":{"title":"Profil"},"account":{"title":"Pont"}}}},"tag":{"heading":{"kind":{"interest":"Csevegjen a potenciális szereplőkkel a * _tag_ * helyen","info":"Csevegjen olyan emberekkel, akik * _tag_ *","location":"Csevegjen a * _tag_ * emberektől","other":"Csevegjen azokkal az emberekkel, akiket * _tag_ * jelöl"},"currently_online":"* _Online_ * online"}},"app":{"intro":{"heading":"Légy lélek","home_button":"Kezdj keresni"}}},"info":{"general_description":{"heading":"A csevegéseket megosztották az interneten","details":"A Strangy egy modern projekt, amelyet úgy alakítottak ki és fejlesztettek, hogy mindent ábrázoljon, aminek elérhetőnek kell lennie a csevegésben és az online kommunikációban.\n Az alapkoncepció a két ember közötti, a számukra fontos dolgokról folytatott nyílt kommunikáció gondolatán alapul *, ahelyett, hogy az agyat jelentéktelen és felesleges információkkal mossák egymással.\nA Strangy nem társaság. Ez nem egy termék. Ez nem egy másik közösségi média eszköz, amelyet manipulálhat az elméddel.\nA Strangy egy olyan platform, amelynek célja annak biztosítása, hogy a minimalista kövesse az életét. Ez csak lehetőséget ad arra, hogy egy véletlenszerű személlyel bármikor vagy bármikor az életében beszélgethessen, ha erre szüksége van. Ez. Nem nevetséges és ragyogó figyelemelterelés, amely tartotta Önt a weboldalon. Csak gyere és menj ingyen."},"tag_page_description":{"info":{"heading":"A * _tag_ * címkével válasszon ki bármelyik lehetőséget, és kezdje el velük beszélgetni","description":"A Strangy segítségével bármilyen * _tag_ * -al kommunikálhat az egész univerzumban, vagy bárkivel, aki megfelel az Ön érdekeinek és igényeinek.","other_popular_tags":"Egy másik hátborzongató népszerű:"},"interest":{"heading":"A * _tag_ * címkével válasszon ki bármelyik lehetőséget, és kezdje el velük beszélgetni","description":"A Strangy segítségével bárkivel az egész világegyetemben cseveghet a * _tag_ * vagy bármilyen más, bármilyen tetszés alatt álló tárgy segítségével.","other_popular_tags":"Egyéb népszerű érdeklődési körök:"},"location":{"heading":"A * _tag_ * címkével válasszon ki bármelyik lehetőséget, és kezdje el velük beszélgetni","description":"A Strangy segítségével cseveghet bárkivel, aki a * _tag_ * -rel, vagy bárki mással az egész univerzumban.","other_popular_tags":"Egyéb híres helyek:"},"other":{"heading":"A * _tag_ * címkével válasszon ki bármelyik lehetőséget, és kezdje el velük beszélgetni","description":"A Strangy segítségével bárkivel kommunikálhat a világ minden tájáról, aki társítva van a * _tag_ * címkével, vagy más emberekkel","other_popular_tags":"Más népszerű címkék:"}},"status":{"message":"A fejlesztés folyamatban van, de már lehetősége van kipróbálni az általános koncepciót és ötleteket.","read_more":"További részletek"}}}
+export default {
+	"general": {
+		"name": "Strangy"
+	},
+	"layout": {
+		"nav": {
+			"links": {
+				"home": {
+					"text": "",
+					"title": "Strangy"
+				},
+				"about": {
+					"text": "körülbelül projekt",
+					"title": "Mi Strangy és miért a múlt online csevegés."
+				},
+				"involve": {
+					"text": "csatlakozni a csapathoz",
+					"title": "Légy hozzájárul a legjobb online chat platform egy döntéshozatalban."
+				},
+				"login": {
+					"text": "Belépés",
+					"title": "Új vagy bejelentkezés meglévő fiók"
+				}
+			}
+		},
+		"footer": {
+			"info": {
+				"heading": "Info",
+				"links": {
+					"about": "A projektről",
+					"involve": "Csatlakozni a csapathoz",
+					"status": "Projekt állapota",
+					"contact": "Kapcsolatok"
+				}
+			},
+			"social": {
+				"heading": "Szociális",
+				"links": {
+					"twitter": "Twitter",
+					"github": "GitHub",
+					"reddit": "Reddit",
+					"medium": "blog",
+					"patreon": "Patreon"
+				}
+			},
+			"languages": {
+				"heading": "Nyelvek"
+			}
+		}
+	},
+	"cmp": {
+		"form": {
+			"rules": {
+				"min_length": "legalább _XNUM_ karakter",
+				"max_length": "nem lehet több, mint _XNUM_ karakter"
+			}
+		}
+	},
+	"app": {
+		"index": {
+			"tags_list": {
+				"heading": "Válassza ki szeretne beszélgetni"
+			},
+			"users_list": {
+				"heading": "_amount_ kész chat",
+				"options": {
+					"first": "opció helykitöltő 1",
+					"second": "opció helykitöltő 1"
+				},
+				"user_item": {
+					"chat": "Csevegés"
+				}
+			}
+		},
+		"tag": {
+			"kinds": {
+				"info": "Info",
+				"interest": "Érdeklődés",
+				"location": "Elhelyezkedés",
+				"other": "Egyéb"
+			}
+		},
+		"user_links": {
+			"settings": "beállítások",
+			"logout": "Kijelentkezés"
+		},
+		"user": {
+			"was_online": "online"
+		},
+		"stranger": {
+			"invite_form": {
+				"success_message": "Meghívó elküldve",
+				"subject": "tantárgy",
+				"submit": "meghív"
+			},
+			"details": {
+				"feedback": {
+					"heading": "Szívek és vélemények",
+					"placeholder": "még nincs visszajelzés"
+				},
+				"chats": {
+					"heading": "beszélgetések",
+					"placeholder": "nincs beszélgetések még",
+					"item": {
+						"msgs": "üzenetek"
+					}
+				}
+			}
+		},
+		"chat": {
+			"status": {
+				"ACTIVE": "aktív",
+				"FINISHED": "befejezett"
+			},
+			"state": {
+				"INVITATION": "meghívás",
+				"ACCEPTED": "elfogadott",
+				"DECLINED": "elutasította",
+				"CANCELED": "törölve"
+			},
+			"active": {
+				"feedback": {
+					"form": {
+						"input": "Ossz meg néhány szót a strangy"
+					},
+					"success_message": "Visszajelzés benyújtott"
+				},
+				"actions": {
+					"rename": "átnevezés",
+					"finish": "Befejezés beszélgetés"
+				},
+				"status": {
+					"received_invitation": {
+						"accept": "Elfogadom a meghívót",
+						"reject": "elutasít"
+					},
+					"sent_invitation": {
+						"heading": "meghívás vár választ",
+						"cancel": "vissza a meghívás"
+					},
+					"finished": {
+						"heading": "Chat kész"
+					}
+				},
+				"messaging": {
+					"form": {
+						"input": "Üzenet",
+						"send": "Küld"
+					},
+					"placeholder": "nincs üzenet még"
+				}
+			}
+		},
+		"user_chats": {
+			"invitations": {
+				"heading": "_XAMOUNT_ meghívók",
+				"item": {
+					"from": "tól től"
+				}
+			},
+			"active": {
+				"heading": "_XAMOUNT_ aktív csevegés",
+				"placeholder": "nincs aktív csevegés",
+				"item": {
+					"not_accepted_yet": "nem fogadta még",
+					"with": "val vel",
+					"new_messages": "_XAMOUNT_ új üzenet"
+				}
+			}
+		},
+		"user_settings": {
+			"langs": {
+				"heading": "A nyelvek"
+			},
+			"tags": {
+				"selector": {
+					"heading": "Írja le magát címkék",
+					"description": "A címkék lenti le magad"
+				},
+				"new_tag_form": {
+					"heading": "Új tag",
+					"controls": {
+						"tag": "Írja be az új címke",
+						"kind": "típus",
+						"lang": "Nyelv",
+						"submit": "Teremt"
+					}
+				}
+			}
+		},
+		"user_my": {
+			"tags": {},
+			"profile": {
+				"heading": "Profil",
+				"placeholder": "építés alatt..."
+			},
+			"account": {
+				"heading": "számla",
+				"placeholder": "építés alatt..."
+			},
+			"feedback": {
+				"heading": "Szívek és vélemények",
+				"placeholder": "építés alatt..."
+			}
+		}
+	},
+	"meta": {
+		"index": {
+			"title": "Strangy - Csevegés bárki a világ minden tájáról",
+			"description": "A legjobb alkalmazás alkalmi online beszélgetéseket a döntéshozatalban."
+		},
+		"app": {
+			"intro": {
+				"title": "egyre strangy",
+				"description": ""
+			}
+		},
+		"info": {
+			"about": {
+				"title": "A projektről",
+				"description": "Mi olyan különleges Strangy? Miért Strangy az elmúlt online csevegés."
+			},
+			"involve": {
+				"title": "Csatlakozni a csapathoz",
+				"description": "Légy hozzájárul a legjobb online chat platform. Hozzájárulás a gondolat, hogy meg fog változni az emberek kommunikálnak az interneten."
+			},
+			"status": {
+				"title": "Projekt állapota",
+				"description": "Mielőtt beleásod segítségével Strangy - megtudni, milyen Strangy szól, és ahol a fejléc."
+			},
+			"contact": {
+				"title": "Kapcsolatok",
+				"description": "Küldjön nekünk e-mailt, vagy lépjen kapcsolatba velünk felett twitter vagy GitHub."
+			}
+		},
+		"login": {
+			"title": "Belépés",
+			"description": "Új Strangy vagy lépj be a meglévő."
+		},
+		"tag": {
+			"info": {
+				"default": {
+					"title": "Beszélgetés a _XTAG_",
+					"description": "Chat bármilyen _XTAG_ szerte a világon. Nyílt kommunikáció létre az emberre."
+				}
+			},
+			"interest": {
+				"default": {
+					"title": "Beszélhetik _XTAG_",
+					"description": "Beszélhetik _XTAG_ senkivel az egész világon. Nyílt kommunikáció létre az emberre."
+				}
+			},
+			"location": {
+				"default": {
+					"title": "Csevegj bárki _XTAG_",
+					"description": "Beszélgetni az emberekkel származó _XTAG_ vagy bármely más hely az egész világon. Nyílt kommunikáció létre az emberre."
+				}
+			},
+			"other": {
+				"default": {
+					"title": "_XTAG_ - ingyenes, nyílt beszélgetés",
+					"description": "Chat valaki képviselő _XTAG_ vagy senkinek _XTAG_. Nyílt kommunikáció létre az emberre."
+				}
+			}
+		},
+		"user": {
+			"title": "Hívja strangy csevegésre",
+			"description": "Hívja egy titokzatos személy, beszélgetni és beszélgetni velük bármiről, ami számít az Ön számára."
+		},
+		"chat": {
+			"active": {
+				"title": "_XSUBJECT_",
+				"description": ""
+			},
+			"history": {
+				"title": "_XSUBJECT_ - üzenetek története",
+				"description": ""
+			}
+		},
+		"my": {
+			"settings": {
+				"title": "Beállítások",
+				"description": ""
+			},
+			"feedback": {
+				"title": "Visszacsatolás",
+				"description": ""
+			},
+			"logout": {
+				"title": "Viszontlátásra...",
+				"description": ""
+			}
+		}
+	},
+	"pages": {
+		"info": {
+			"about": {
+				"info": {
+					"heading": "Feltámadása az online chat",
+					"points": {
+						"global": "Alkalmi beszélgetés bárki a világ minden tájáról.",
+						"privacy": "Nem kell aggódni a magánélet. Minden nyitva van. Csak beszélni, ami Önnek fontos. * Mi minden ember. *",
+						"simplicity": "Nem vizuális zavaró és funkciók túladagolás. Fókuszban a személy beszélgetni.",
+						"quality": "Chat csak az emberek érdekesnek talál célnak megfelelően."
+					}
+				},
+				"meta": {
+					"heading": "Egyszerű, mégis modern",
+					"points": {
+						"open_source": "100% -ban nyílt forráskódú közösség által a projekt",
+						"tech_stack": "Értelmes technológiai stack: Firebase, karcsú (utász), remegés",
+						"transparency": "Nem rejtett szándékok, vagy félrevezető gondolatok"
+					}
+				}
+			},
+			"involve": {
+				"heading": "Légy része a történelem",
+				"methods": {
+					"twitter": {
+						"heading": "Twitter",
+						"description": "Akkor vált SMM és segít terjeszteni az ötletet, nyílt és ingyenes online kommunikáció"
+					},
+					"github": {
+						"heading": "GitHub repository",
+						"description": "Te is segíthetsz Strangy technikai bemenet, programozás vagy UI / UX ötletek és megoldások"
+					},
+					"patreon": {
+						"heading": "Patreon finanszírozás",
+						"description": "Ha nem kész arra, hogy részt vegyenek a fejlesztési folyamat akkor is segít Strangy anyagilag egyre védőszentje."
+					}
+				}
+			},
+			"status": {
+				"heading": "Mielőtt merülés",
+				"sections": {
+					"privacy": {
+						"heading": "Adatvédelmi és biztonsági",
+						"details": "Strangy késztetések akkor * nem teszi közzé BÁRMILYEN SZEMÉLYES ADATOK *, mint a név, életkor, a pontos helyet, fotók, elérhetőségeit stb Strangy célja, hogy beszélni elvont gondolatok és megvitassák a dolgokat, hogy a kérdéseket, és nem csere részleteket, hogy lehet használni ellened vagy hogy hasznot Önnek.\nStrangy egy nyílt forráskódú kísérleti korszerű projekt még fejlesztés alatt áll, és tartalmazhat hibákat, nem várt viselkedést és megbízhatatlan elérhetőségét."
+					},
+					"state": {
+						"heading": "Projekt állapot",
+						"details": "Jelenleg Strangy van nagyon korai * alpha verzió * biztosít minimalista elemekkel rendelkezik, amely lehetővé teszi fiókok létrehozása, egyes felhasználók által címkék és beszélgetni velük, és hagyjuk visszajelzés.\nAz eredeti nyelvű tartalom az angol. Minden egyéb rendelkezésre álló fordítások automatikusan generált „Google Translate” és tartalmazhatnak hibás megfogalmazás."
+					},
+					"future": {
+						"heading": "Jövőben a projekt",
+						"details": "Fejlesztése Strangy nincs egyértelmű és meghatározott útvonalat. Új funkciók adhatunk, és távolítani bármikor, de a koncepció mindig ugyanaz marad. Jelenlegi elmaradás nincs különösebb sorrend a következő: <ul><li> visszaállítani a jelszót </li><li> fiók és a profil beállításait </li><li> javítása UI és UX </li><li> nyilvánosan elérhető csevegési előzmények </li><li> mobilos alkalmazás </li><li> fix kritikus hibák </li><li> minőségű fordítások </li></ul>"
+					}
+				},
+				"login": "Fiók létrehozása"
+			},
+			"contact": {
+				"heading": "Lépjen kapcsolatba velünk",
+				"details": "Ha bármilyen kérdése van, vagy szeretné felvenni a kapcsolatot velünk a kapcsolatot a Strangy küldjön e-mailt a <a href='mailto:strangy.com@gmail.com'>strangy.com@gmail.com</a> vagy kapcsolat <a href='https://twitter.com/strangycom' target='_blank'>Twitter</a> vagy <a href='https://github.com/realexer/strangy.com' target='_blank'>GitHub</a>"
+			}
+		},
+		"login": {
+			"heading": "Bejelentkezés vagy Új fiók létrehozása",
+			"form": {
+				"email": "Email",
+				"password": "Jelszó",
+				"submit": "Belép"
+			},
+			"warning": "Nem biztos, hogy az időjárás regisztrációs, vagy nem?",
+			"greeting": "Szia Strangy"
+		},
+		"my": {
+			"logout": {
+				"heading": "Viszontlátásra..."
+			},
+			"settings": {
+				"tabs": {
+					"tags": {
+						"title": "Címkék"
+					},
+					"profile": {
+						"title": "Profil"
+					},
+					"account": {
+						"title": "számla"
+					}
+				}
+			}
+		},
+		"tag": {
+			"heading": {
+				"kind": {
+					"interest": "Beszélgetni az emberekkel, akiket érdekel * * _XTAG_",
+					"info": "Beszélgetni az emberekkel, akik azonosították magukat * * _XTAG_",
+					"location": "Beszélgetni az emberekkel meg a * * _XTAG_",
+					"other": "Beszélgetni az emberekkel címkével * * _XTAG_"
+				},
+				"currently_online": "* * _XONLINE_ Online"
+			}
+		},
+		"app": {
+			"intro": {
+				"heading": "Legyen strangy",
+				"home_button": "böngészés megkezdése"
+			}
+		}
+	},
+	"info": {
+		"general_description": {
+			"heading": "A múlt az online chat",
+			"details": "Strangy a korszerű projekt létre, és célja, hogy képviselje mindazt, amit az online csevegés és internetes kommunikáció legyen.\n Fő fogalma körül forog az elképzelést, nyílt kommunikáció * két személy között a dolgokat, hogy számít nekik, * és nem csak az agymosás egymásnak az értelmetlen haszontalan információ.\nStrangy nem egy közösség. Ez nem egy termék. Ez nem egy másik közösségi média eszköz, amelynek célja, hogy manipulálják a tudat.\nStrangy a platform célja, hogy a legtöbb minimalista lábnyom életed nyújt mást, csak képes csak beszélgetni néhány véletlenszerű személy bármikor, vagy bármelyik pillanatban az életed, ha szükség van rá. Ez az. Nem értelmetlen fényes zavaró, hogy mindig csatlakozik a honlapon. Csak jön és megy, anélkül, hogy bármilyen terhet."
+		},
+		"tag_page_description": {
+			"info": {
+				"heading": "Válassza ki strangy címkével * * _XTAG_ és elkezd beszélgetni velük",
+				"description": "Strangy segítségével cseveghet bármelyik * * from _XTAG_ egész univerzumot, vagy más személy az Ön érdekeit és szükségleteit.",
+				"other_popular_tags": "Egyéb népszerű strangies:"
+			},
+			"interest": {
+				"heading": "Válassza ki strangy címkével * * _XTAG_ és elkezd beszélgetni velük",
+				"description": "Strangy segítségével cseveghet, hogy valaki egész univerzum körülbelül * * _XTAG_ vagy bármely más témában szeretne.",
+				"other_popular_tags": "Egyéb népszerű érdekeit:"
+			},
+			"location": {
+				"heading": "Válassza ki strangy címkével * * _XTAG_ és elkezd beszélgetni velük",
+				"description": "Strangy segítségével cseveghet bármelyik személy * * _XTAG_ vagy bárki más bármely más helyen, az egész univerzumot.",
+				"other_popular_tags": "Egyéb népszerű helyeken:"
+			},
+			"other": {
+				"heading": "Válassza ki strangy címkével * * _XTAG_ és elkezd beszélgetni velük",
+				"description": "Strangy segítségével cseveghet, hogy valaki a világ minden tájáról, akik kapcsolódó önállóan oldják címkével * * _XTAG_ vagy bármely más strangy",
+				"other_popular_tags": "Egyéb népszerű címkék:"
+			}
+		},
+		"status": {
+			"message": "A fejlesztés jelenleg folyamatban, de már van egy esélyt, hogy megkóstolja a koncepció és az általános ötleteket.",
+			"read_more": "Olvass tovább"
+		}
+	}
+}

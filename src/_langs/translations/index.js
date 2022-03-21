@@ -8,6 +8,7 @@ import hu from './hu';
 import zh from './zh';
 import de from './de';
 import he from './he';
+import ar from './ar';
 
 import overrides_all from './overrides/all';
 import {mergeDeep} from "sickspack/deep-merge";
@@ -28,4 +29,5 @@ export default {
 	zh: applyOverrides(zh),
 	de: applyOverrides(de),
 	he: applyOverrides(he),
+	ar: applyOverrides(ar),
 }

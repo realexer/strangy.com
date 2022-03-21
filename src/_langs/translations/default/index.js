@@ -36,6 +36,7 @@ const main = {
 					involve: 'Join team',
 					status: 'Project status',
 					contact: 'Contacts',
+					powered_by: "Built using"
 				}
 			},
 			social: {
@@ -50,7 +51,7 @@ const main = {
 			},
 			languages: {
 				heading: "Languages"
-			}
+			},
 		}
 	},
 	cmp: {

@@ -18,6 +18,11 @@ const availableLangs = Multilang.getSupportedLanguages();
 				<p><a href="{lang_url('info/status')}"><Lang key="layout.footer.info.links.status"/></a></p>
 				<p><a href="{lang_url('info/contact')}"><Lang key="layout.footer.info.links.contact"/></a></p>
 				<p>&copy; strangy.com</p>
+				<p>&nbsp;</p>
+				<p>
+					<Lang key="layout.footer.info.links.powered_by"/>
+					<a href="https://sveltebase.com" target="_blank">SvelteBase</a>
+				</p>
 			</div>
 
 			<div class="col m4 s6">

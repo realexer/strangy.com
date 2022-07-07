@@ -23,7 +23,7 @@
     "firebase": "^7.0.0",
     "firebase-admin": "^8.13.0",
     "materialize-css": "^1.0.0-rc.2",
-    "moment": "^2.26.0",
+    "moment": "^2.29.4",
     "request": "^2.88.2",
     "validate.js": "^0.13.0",
     "sickspack": "file:../../../_packages/sickspack"
